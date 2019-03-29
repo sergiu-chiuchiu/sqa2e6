@@ -1,5 +1,7 @@
 package com.sqa.onlinepizzastore.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,11 @@ public class AppRoleServiceImpl implements AppRoleService {
 	@Autowired
 	AppRoleRepository appRoleRepository;
 
+	@Override
+	public List<AppRole> getAppRoleByAppUserEmail(String email) {
+		return appRoleRepository.getAppRoleByAppUserEmail(email);
+	}
+	
 	@Override
 	public AppRole getAppRoleByRoleName(String roleName) {
 		return appRoleRepository.getAppRoleByRoleName(roleName);

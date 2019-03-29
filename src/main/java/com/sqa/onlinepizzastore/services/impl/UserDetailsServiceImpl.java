@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.sqa.onlinepizzastore.entitites.AppRole;
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.repositories.AppRoleRepository;
 import com.sqa.onlinepizzastore.repositories.AppUserRepository;
@@ -33,7 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		AppUser appUser = this.appUserRepository.getAppUserByUserName(email);
+		AppUser appUser = this.appUserRepository.getAppUserByEmail(email);
 		
 		if(appUser == null) {
 			System.out.println("User not found! " + email);
@@ -41,13 +42,22 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 		
 		System.out.println("Found user: " + appUser);
-		// [ROLE_USER, ROLE_ADMIN,..]
-		List<String> roleNames = this.appUserRepository.getUser_RoleByEmail(email);
+		// [ROLE_USER, ROLE_OPERATOR, ROLE_ADMIN,..]
+		List<AppRole> roleEntitities = this.appRoleRepository.getAppRoleByAppUserEmail(email);
+		System.out.println("Role Names: " + roleEntitities);
+		
+		List <String> roleNames = new ArrayList<String>();
+		for (AppRole appRole : roleEntitities) {
+			System.out.println("app Role: " + appRole.getRoleName());
+			roleNames.add(appRole.getRoleName());
+		}
 		
 		List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
+		
+		
 		if(roleNames != null) {
 			for(String role : roleNames) {
-				// ROLE_USER, ROLE_ADMIN,..
+				// ROLE_USER, ROLE_OPERATOR, ROLE_ADMIN,...
 				GrantedAuthority authority = new SimpleGrantedAuthority(role);
 				grantList.add(authority);
 			}

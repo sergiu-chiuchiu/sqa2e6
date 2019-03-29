@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.core.Authentication;
 
 import com.sqa.onlinepizzastore.dto.AppUserDto;
+import com.sqa.onlinepizzastore.entitites.AppRole;
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.services.AppRoleService;
 import com.sqa.onlinepizzastore.services.AppUserService;
@@ -45,27 +46,31 @@ public class UserAuthenticationController {
 		Date defaultBirthDate = new SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01");  
 		appUserDto.setBirthDate(defaultBirthDate);
 		model.addAttribute("AppUser", appUserDto);
-		System.out.println("Signup entered");
 		return "SignUp";
 	}
 	
-	// verifica parola
+	// validari parola
 	@PostMapping(value = "/signup")
 	public String saveNewuser(@ModelAttribute(value="AppUser") AppUserDto appUserDto) {
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
-			System.out.println("pass: " + appUserDto.getPassword() + " repeatpass " + appUserDto.getPasswordRepeat());
-			System.out.println("Passwords does not match!");
 			return "SignUp";
 		}
-		System.out.println("passwords match");
 		appUserService.saveAppUserAsUser(modelMapper.map(appUserDto, AppUser.class));
 		return "Menu";
 	}
 
 	@GetMapping(value = "/login")
 	public String getLoginPage(Model model) {
-		return "Menu";
+		return "LogIn";
 	}
+	
+	
+	////////////////////////////////////
+//	@GetMapping(value = "/privacy")
+//	public String getPrivacy(Model model) {
+//		return "Privacy";
+//	}
+	
 	
 	@GetMapping(value = "/logout")
 	public String getLogout(Model model) {
@@ -75,14 +80,10 @@ public class UserAuthenticationController {
 	
 	@GetMapping(value = "/403")
     public String accessDenied(Model model, Principal principal) {
- 
         if (principal != null) {
             User loginedUser = (User) ((Authentication) principal).getPrincipal();
- 
             String userInfo = WebUtils.toString(loginedUser);
- 
             model.addAttribute("userInfo", userInfo);
- 
             String message = "Hi " + principal.getName() //
                     + "<br> You do not have permission to access this page!";
             model.addAttribute("message", message);
