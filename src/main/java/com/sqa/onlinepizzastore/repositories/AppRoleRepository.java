@@ -10,4 +10,6 @@ import com.sqa.onlinepizzastore.entitites.AppRole;
 @Repository
 public interface AppRoleRepository extends JpaRepository<AppRole, Long>{
 	
+	AppRole getAppRoleByRoleName(String roleName);
+	
 }

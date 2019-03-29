@@ -25,8 +25,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class AppRole {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "role_id", unique = true, nullable = false)
-	private Integer roleId;
+	@Column(name = "role_id", unique = true)
+	private Long roleId;
 	
 	@NotBlank
 	@Column(name = "role_name", unique = true, nullable = false, length = 100)
@@ -37,12 +37,22 @@ public class AppRole {
 	private Set<AppUser> users;
 	
 	
-	public Integer getRoleId() {
+
+
+	public Long getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(Integer roleId) {
+	public void setRoleId(Long roleId) {
 		this.roleId = roleId;
+	}
+
+	public Set<AppUser> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<AppUser> users) {
+		this.users = users;
 	}
 
 	public String getRoleName() {
@@ -53,6 +63,11 @@ public class AppRole {
 		this.roleName = roleName;
 	}
 
+	public void addUser(AppUser appUser) {
+		this.users.add(appUser);
+	}
+	
+	
 	public AppRole() {
 		super();
 	}

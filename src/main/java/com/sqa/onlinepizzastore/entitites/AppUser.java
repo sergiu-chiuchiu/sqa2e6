@@ -1,5 +1,7 @@
 package com.sqa.onlinepizzastore.entitites;
 
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,10 +14,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -25,7 +31,7 @@ public class AppUser {
 	
 	@Id
 	@Email
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(unique = true, nullable = false)
 	private String email;
 	@NotBlank
 	private String password;
@@ -36,6 +42,11 @@ public class AppUser {
 	@Max(value = 2000)
 	private Integer points = 0;
 	
+	@Temporal(TemporalType.DATE)
+	private Date birthDate;
+	
+	private String gender;
+	
 	@ManyToMany(cascade = {
 			CascadeType.MERGE,
 			CascadeType.PERSIST
@@ -44,8 +55,7 @@ public class AppUser {
 	, joinColumns = {@JoinColumn(referencedColumnName = "email")}
 	, inverseJoinColumns = {@JoinColumn(referencedColumnName="role_id")})
     @JsonManagedReference
-	private Set<AppRole> appRoles;
-	
+	private Set<AppRole> appRoles = new HashSet<AppRole>();
 	
 	
 	public String getEmail() {
@@ -78,6 +88,22 @@ public class AppUser {
 	}
 	public void setAppRoles(Set<AppRole> appRoles) {
 		this.appRoles = appRoles;
+	}
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+	public void addAppRole(AppRole appRole) {
+		this.appRoles.add(appRole);
 	}
 	
 	public AppUser() {

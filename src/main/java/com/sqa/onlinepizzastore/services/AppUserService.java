@@ -6,4 +6,6 @@ public interface AppUserService {
 
 	AppUser getUserByUserName(String userName);
 
+	AppUser saveAppUserAsUser(AppUser appUserToSave);
+
 }
