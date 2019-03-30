@@ -73,6 +73,9 @@
                            <p class="text-center">Don't have account? <a href="SignUp.html" id="signup" th:href=@{/signup}>Sign up here</a></p>
                         </div>
                      </form>  
+                     <div>
+                     	 <a th:if="${#request.userPrincipal != null}" th:href="@{/auth/logout}">Logout</a>
+                     </div>
                   </div>
                </div>
                <div id="second">

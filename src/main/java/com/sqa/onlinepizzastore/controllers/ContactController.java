@@ -22,10 +22,10 @@ public class ContactController {
 		String email = contactForm.getEmail();
 		String city = contactForm.getCity();
 		String state = contactForm.getState();
-		return println("Thank you that you share your opinion with us");
+		if(firstName != null & lastName != null & email != null & city != null & state != null ) {
+		return "Thank you that you share your opinion with us";
 	}
-	private String println(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return "You don't complete all fields!";
 	}
+
 }

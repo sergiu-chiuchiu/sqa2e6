@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		
 		 // The pages that does not require login:
-		http.authorizeRequests().antMatchers("/", "/auth", "/user/logout").permitAll();
+		http.authorizeRequests().antMatchers("/").permitAll();
 		
 		// /userInfo page requires login as ROLE_USER, ROLE_OPERATOR or ROLE_ADMIN.
         // If no login, it will redirect to /login page.
@@ -61,20 +61,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// When the user has logged in as XX.
         // But access a page that requires role YY,
         // AccessDeniedException will be thrown.
-		http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/user/403");
+		http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/auth/403");
 		
 		// Config for Login Form
 		http.authorizeRequests().and().formLogin()
 			.loginProcessingUrl("/j_spring_security_check")
 
 			.loginPage("/auth/login")
-			.defaultSuccessUrl("/auth/signup")
+			.defaultSuccessUrl("/user")
 			.failureUrl("/auth/login?error=true")
 
 			.usernameParameter("email")
 			.passwordParameter("password")
 			 // Config for Logout Page
-            .and().logout().logoutUrl("/user/logout").logoutSuccessUrl("/logoutSuccessful");
+            .and().logout().logoutUrl("/auth/logout").logoutSuccessUrl("/auth/logoutSuccessful");
 		
 		// Config Remember Me.
 		http.authorizeRequests().and()

@@ -36,7 +36,7 @@ public class AppUser {
 	@NotBlank
 	private String password;
 	@NotBlank
-	@Column(name = "user_name")
+	@Column(name = "user_name", unique = true, nullable = false)
 	private String userName;
 	@Min(value = 0)
 	@Max(value = 2000)
