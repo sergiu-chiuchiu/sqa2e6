@@ -29,13 +29,13 @@
 					 </div>
 			</div>
 	<!-- Form -->
-	<form th:action="@{/help}" th:object="${/helpForm}" method="post">
+	<form th:action="@{/help}" method="post">
 		<fieldset class = "form-group">
 			<legend> Help form </legend>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" name'"email" placeholder="Email" autofocus="autofocus">
+					<input type="email" class="form-control" id="email" name="email" placeholder="Email" autofocus="autofocus">
 				</div>
 				<p id = "message"></p>
 				<div class="form-group col-md-6">

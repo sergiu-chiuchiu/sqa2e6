@@ -80,25 +80,25 @@ public class NavigationControllers {
 		return "Promotions";
 	}
 	
-	@GetMapping(value = "/help")
-	public String getHelpPage(Model model) {
-		return "Help";
-	}
+//	@GetMapping(value = "/help")
+//	public String getHelpPage(Model model) {
+//		return "Help";
+//	}
 	
-	@GetMapping(value = "/contact")
-	public String getContactPage(Model model) {
-		return "Contact";
-	}
+//	@GetMapping(value = "/contact")
+//	public String getContactPage(Model model) {
+//		return "Contact";
+//	}
 	
 	@GetMapping(value = "/shoppingcart")
 	public String getShoppingCartPage(Model model) {
 		return "shopping-cart";
 	}
 	
-	@GetMapping(value = "/login")
-	public String getLogInPage(Model model) {
-		return "LogIn";
-	}
+//	@GetMapping(value = "/login")
+//	public String getLogInPage(Model model) {
+//		return "LogIn";
+//	}
 	
 	@GetMapping(value = "/terms")
 	public String getTermsPage(Model model) {
@@ -115,10 +115,10 @@ public class NavigationControllers {
 		return "CustomizePizza";
 	}
 	
-	@GetMapping(value = "/signup")
-	public String getSignupPage(Model model) {
-		return "SignUp";
-	}
+//	@GetMapping(value = "/signup")
+//	public String getSignupPage(Model model) {
+//		return "SignUp";
+//	}
 	
 	@GetMapping(value = "/faq")
 	public String getFAQPage(Model model) {

@@ -50,7 +50,7 @@ public class UserAuthenticationController {
 		return "SignUp";
 	}
 	
-	// validari parola
+	// + validari parola
 	@PostMapping(value = "/signup")
 	public String saveNewuser(@ModelAttribute(value="AppUser") AppUserDto appUserDto) {
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
@@ -65,26 +65,6 @@ public class UserAuthenticationController {
 	public String getLoginPage(Model model) {
 
 		return "LogIn";
-	}
-	
-	
-	//////////////////////////////////
-	@GetMapping(value = "/privacy")
-	public String getPrivacy(Model model) {
-		return "Privacy";
-	}
-
-	
-	//////////////////////////////////
-	@GetMapping(value = "/aboutus")
-	public String getAboutUs(Model model) {
-		return "About us";
-	}
-	
-	//////////////////////////////////
-	@GetMapping(value = "/help")
-	public String getHelp(Model model) {
-		return "Help";
 	}
 	
 	@GetMapping(value = "/logoutSuccessful")
