@@ -26,6 +26,16 @@ public class AppUserServiceImpl implements AppUserService {
 	}
 	
 	@Override
+	public AppUser getAppUserByUserName(String userName) {
+		return appUserRepository.getAppUserByUserName(userName);
+	}
+	
+	@Override
+	public AppUser updateAppUser(AppUser appUser) {
+		return appUserRepository.save(appUser);
+	}
+	
+	@Override
 	public AppUser saveAppUserAsUser(AppUser appUserToSave) {
 		String encryptedPass = EncryptedPasswordUtils.encryptPassword(appUserToSave.getPassword());
 		appUserToSave.setPassword(encryptedPass);
@@ -36,7 +46,6 @@ public class AppUserServiceImpl implements AppUserService {
 			appRole.setRoleName("ROLE_USER");
 			appRoleService.saveAppRole(appRole);
 		}
-
 		appUserToSave.addAppRole(appRole);		
 		return appUserRepository.save(appUserToSave);
 	}

@@ -1,0 +1,61 @@
+<div th:fragment="footer">
+    <footer id="page-footer">
+      <!-- Footer Elements -->
+      <div class="wrapper container">
+        <div class="row justify-content-center">
+          <div>
+            <h5>Quick links</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="PopularChoices.html" th:href="@{/popularchoices}"><i class="fa fa-angle-double-right"></i>PopularChoices</a></li>
+              <li><a href="Promotions.html" th:href="@{/promotions}"><i class="fa fa-angle-double-right"></i>Promotions</a></li>
+              <li><a href="Help.html" th:href="@{/help}"><i class="fa fa-angle-double-right"></i>Help</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>My account</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="#"><i class="fa fa-angle-double-right"></i>My profile</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Contact</h5>
+            <ul class="list-unstyled contact-infos">
+              <li><a><i class="fa fa-home mr-3"></i>Bulevardul Carol I, nr. 22, Iasi, RO</a></li>
+              <li><a href="#"><i class="fa fa-envelope mr-3"></i> pizzamia@yahoo.com</a></li>
+              <li><a><i class="fa fa-phone mr-3"></i> + 07 40 30 34 56</a></li>
+            </ul>
+          </div>
+        </div>
+        <h5>You can visit us on:</h5>
+        <div id="map" width="100%">
+          <iframe width="100%" height="300" id="map-iframe"
+            src="https://maps.google.com/maps?width=100%&amp;height=350&amp;hl=en&amp;coord=47.1739612, 27.572106299999973&amp;q=Universitatea%20Alexandru%20Ioan%20Cuza%20din%20Ia%C8%99i%2C%20Bulevardul%20Carol%20I%2C%20Ia%C8%99i%2C%20Rom%C3%A2nia+(EvaluareaRiscurilor.ro)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed"
+            frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+            <a href="https://www.maps.ie/create-google-map/">Google Maps iframe generator</a>
+          </iframe>
+        </div>
+        <h5 id="id">Contact us on:</h5>
+        <div class="btn-group">
+          <a href="PageNotFound.html" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-youtube"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-skype"></a>
+        </div>
+        <!-- Footer Elements -->
+        <hr class="footer-divider">
+        <div id="inner-remaining">
+          <!-- Copyright -->
+          <ul class="list-unstyled text">
+            <li><a href="#">Back to top</a></li>
+            <div class="row" id="copyright">
+              <li>
+                <p>&copy; 2019 Pizza Mia &middot; </p>
+              </li>
+              <li><a href="Terms.html" th:href="@{/terms}">Terms &middot;</a></li>
+              <li><a href="Privacy.html" th:href="@{/privacy}">Privacy &middot;</a></li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </footer>
+</div>
