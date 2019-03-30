@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.core.Authentication;
 
 import com.sqa.onlinepizzastore.dto.AppUserDto;
+
 import com.sqa.onlinepizzastore.entitites.AppRole;
+
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.services.AppRoleService;
 import com.sqa.onlinepizzastore.services.AppUserService;
@@ -44,6 +46,7 @@ public class UserAuthenticationController {
 		Date defaultBirthDate = new SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01");  
 		appUserDto.setBirthDate(defaultBirthDate);
 		model.addAttribute("AppUser", appUserDto);
+
 		return "SignUp";
 	}
 	
@@ -53,12 +56,14 @@ public class UserAuthenticationController {
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
 			return "SignUp";
 		}
+
 		appUserService.saveAppUserAsUser(modelMapper.map(appUserDto, AppUser.class));
 		return "Menu";
 	}
 
 	@GetMapping(value = "/login")
 	public String getLoginPage(Model model) {
+
 		return "LogIn";
 	}
 	
@@ -90,11 +95,13 @@ public class UserAuthenticationController {
 	
 	@GetMapping(value = "/403")
     public String accessDenied(Model model, Principal principal) {
+
         if (principal != null) {
             User loginedUser = (User) ((Authentication) principal).getPrincipal();
 //            System.out.println("username: " + appUserService.getAppUserByUserName(loginedUser.getUsername()).getEmail());
             String userInfo = WebUtils.toString(loginedUser);
             model.addAttribute("userInfo", userInfo);
+
             String message = "Hi " + principal.getName() //
                     + "<br /> You do not have permission to access this page!";
             model.addAttribute("message", message);

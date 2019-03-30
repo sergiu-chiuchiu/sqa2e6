@@ -12,7 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+
 import com.sqa.onlinepizzastore.entitites.AppRole;
+
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.repositories.AppRoleRepository;
 import com.sqa.onlinepizzastore.repositories.AppUserRepository;
@@ -34,6 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
 		AppUser appUser = this.appUserRepository.getAppUserByEmail(email);
 		
 		if(appUser == null) {
@@ -42,6 +45,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 		
 		System.out.println("Found user: " + appUser);
+
 		// [ROLE_USER, ROLE_OPERATOR, ROLE_ADMIN,..]
 		List<AppRole> roleEntitities = this.appRoleRepository.getAppRoleByAppUserEmail(email);
 		System.out.println("Role Names: " + roleEntitities);

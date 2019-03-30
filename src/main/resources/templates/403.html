@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 	<html xmlns:th="http://www.thymeleaf.org">
 	  <head>
 		<meta charset = "utf-8">
@@ -21,8 +22,10 @@
 						<h1>403</h1>
 					</div>
 					<h2>No permission to access</h2>
+
 					<h3 th:if="${message != null}" th:utext="${message}" style="color: red;"></h3>
 			    	<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+
 				</div>
 			</div>
 		
