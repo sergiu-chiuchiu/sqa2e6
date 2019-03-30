@@ -1,73 +1,21 @@
 <!DOCTYPE html>
-	<html>
+	<html xmlns:th="http://www.thymeleaf.org">
 	  <head>
 		<meta charset = "utf-8">
 		<meta name = "viewport" content = "width = device-width, initial scale = 1.0">
 		<meta name = "description" content = "Pizza Mia WebSite">
 		<meta name = "author" content = "Frontend team">
 		<title>Privacy Policy</title>
-		<link rel="icon" href="IMAGES/logo.jpg" type="image/x-icon">
+		<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel = "stylesheet" href = "css/style.css">
-		<link rel = "stylesheet" href = "CSS/text.css">
+		<link rel = "stylesheet" href = "/stylesheets/style.css">
+		<link rel = "stylesheet" href = "/stylesheets/text.css">
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	  </head>
-	  <body>
-			<body background = "IMAGES/background-4.jpg"></body>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<a class="navbar-brand" href="index.html">
-					<img id = "logo" src = "IMAGES/logo.jpg"/>
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="About us.html">About us</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="Menu.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li ><a class="dropdown-item" href="Pizza.html">Pizza</a></li>
-								<li><a class="dropdown-item" href="Dips.html">Dips</a></li>
-								<li class="dropdown-submenu">
-									<a class="dropdown-item dropdown-toggle" href="#">Drinks</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="Soda.html">Sodas</a></li>
-										<li><a class="dropdown-item" href="Cocktail.html">Cocktails</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="PopularChoices.html">Popular choices</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Promotions.html">Promotions</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Help.html">Help</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="Contact.html">Contact</a>
-						</li>
-					</ul>
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="shopping-cart.html">
-								<img id = "shopcart" src = "IMAGES/shopcart.png"/>
-							</a>
-						</li>
-					</ul>
-					<a class="btn btn-lg btn-primary mybtn" href = "LogIn.html">Log in</a>
-				</div>
-			</nav>
+			<body background = "/images/background-4.jpg"></body>
+    <div th:replace = "fragments/navbar :: navbar"></div>
 	  	<div id="content-page" class="span12 content group">
 	  		<div id="post-privacy" class="group post-privacy page type-page status-publish hentry">
 					<div id="post-terms1" class="group post-terms page type-page status-publish hentry">
@@ -90,7 +38,7 @@
 						<p>By using this Site, you represent, warrant and covenant that: (a) you are 18 years of age or older; (b) your use of this Site does not violate any applicable law, rule or regulation and you shall comply with all of the terms and conditions set forth herein; and (c) all information, including, without limitation, payment information (e.g., credit card, debit card information, etc.), you submit is truthful and accurate and you shall maintain and promptly update the accuracy of such information, as applicable. If you provide information that is untrue, inaccurate, not current or incomplete, or Panago Pizza suspects that such information is untrue, inaccurate, not current or incomplete, Pizza Mia has the right to suspend or terminate your registration (in whole or in part) and/or refuse any and all current or future use of this Site (or any portion thereof) by you, in its sole discretion, with or without notice to you, and without liability or obligation to you or any third party.</p>
 					</br>
 						<h3>Customer Satisfaction</h3>
-						<p>We always strive for 100% customer satisfaction which means we want our customers to be completely satisfied with their order experience. Should a customer be unsatisfied with an order quality or experience please <a href = "Contact.html">contact</a> our customer service team, so we can address your concern.</p>
+						<p>We always strive for 100% customer satisfaction which means we want our customers to be completely satisfied with their order experience. Should a customer be unsatisfied with an order quality or experience please <a href = "Contact.html" th:href=@{/contact}>contact</a> our customer service team, so we can address your concern.</p>
 					</div>
 					<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
 						<h3>Privacy policy</h3>
@@ -119,68 +67,10 @@ If you have any questions or concerns about our Privacy Policy or if you wish to
 						</br>
     		</div>
 <!-- Footer -->
-	<footer id="page-footer" >
-<!-- Footer Elements -->
-    <div class="wrapper container">
-			<div class="row justify-content-center">
-				<div>
-					<h5>Quick links</h5>
-					<ul class="list-unstyled quick-links">
-						<li><a href="PopularChoices.html"><i class="fa fa-angle-double-right"></i>PopularChoices</a></li>
-						<li><a href="Promotions.html"><i class="fa fa-angle-double-right"></i>Promotions</a></li>
-						<li><a href="Help.html"><i class="fa fa-angle-double-right"></i>Help</a></li>
-					</ul>
-					</div>
-					<div>
-						<h5>My account</h5>
-						<ul class="list-unstyled quick-links">
-							<li><a href="#"><i class="fa fa-angle-double-right"></i>My profile</a></li>
-							<li><a href="#"><i class="fa fa-angle-double-right"></i>My purchase list</a></li>
-						</ul>
-					</div>
-					<div>
-						<h5>Contact</h5>
-          	<ul class="list-unstyled contact-infos">
-								<li><a><i class="fa fa-home mr-3"></i>Bulevardul Carol I, nr. 22, Iasi, RO</a></li>
-								<li><a href="#"><i class="fa fa-envelope mr-3"></i> pizzamia@yahoo.com</a></li>
-								<li><a><i class="fa fa-phone mr-3"></i> + 07 40 30 34 56</a></li>
-          	</ul>
-		  		</div>
- 				</div>
-				<h5>You can visit us on:</h5>
-				<div id="map" width="100%">
-					<iframe width="100%" height="300" id="map-iframe"
-	src="https://maps.google.com/maps?width=100%&amp;height=350&amp;hl=en&amp;coord=47.1739612, 27.572106299999973&amp;q=Universitatea%20Alexandru%20Ioan%20Cuza%20din%20Ia%C8%99i%2C%20Bulevardul%20Carol%20I%2C%20Ia%C8%99i%2C%20Rom%C3%A2nia+(EvaluareaRiscurilor.ro)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-						<a href="https://www.maps.ie/create-google-map/">Google Maps iframe generator</a>
-					</iframe>
-					</div>
-	<h5 id="id" >Contact us on:</h5>
-	<div class="btn-group">
-		<a href="#" class="fa fa-facebook"></a>
-		<a href="#" class="fa fa-youtube"></a>
-		<a href="#" class="fa fa-instagram"></a>
-		<a href="#" class="fa fa-skype"></a>
-  </div>
-<!-- Footer Elements -->
-	<hr class= "footer-divider">
-		<div id="inner-remaining">
-<!-- Copyright -->
-			<ul class="list-unstyled text">
-    	 	<li><a href="#">Back to top</a></li>
-	 			<div class= "row" id="copyright">
-     			<li><p>&copy; 2019 Pizza Mia &middot; </p></li>
-	 				<li><a href="Terms.html">Terms &middot;</a></li>
-	 				<li><a href="Privacy.html">Privacy  &middot;</a></li>
-	 			</div>
-	 		</ul>
-	 </div>
-	</div>
-</footer>
+<div th:replace="fragments/footer :: footer"></div>
 <!-- Footer -->
-</footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src = "js/bootstrap.js"></script>
-<script src = "js/index.js"></script>
+<script src = "/jscripts/index.js"></script>
 <script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
 	</body>
