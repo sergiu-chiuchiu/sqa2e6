@@ -6,75 +6,23 @@
 		<meta name = "description" content = "Pizza Mia WebSite">
 		<meta name = "author" content = "Frontend team">
 		<title>Pizza</title>
-		<link rel="icon" href="IMAGES/logo.jpg" type="image/x-icon">
+		<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel = "stylesheet" href = "css/style.css">
-        <link rel = "stylesheet" href = "CSS/pizza.css">
+        <link rel = "stylesheet" href = "/stylesheets/style.css">
+        <link rel = "stylesheet" href = "/stylesheets/pizza.css">
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	  </head>
-      <body>
-        <body background ="IMAGES/backgrounddd.jpg"></body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">
-                <img id = "logo" src = "IMAGES/logo.jpg"/>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="About us.html">About us</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="Menu.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li ><a class="dropdown-item" href="Pizza.html">Pizza</a></li>
-                    <li><a class="dropdown-item" href="Dips.html">Dips</a></li>
-                    <li class="dropdown-submenu">
-                      <a class="dropdown-item dropdown-toggle" href="#">Drinks</a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="Soda.html">Sodas</a></li>
-                        <li><a class="dropdown-item" href="Cocktail.html">Cocktails</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="PopularChoices.html">Popular choices</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="Promotions.html">Promotions</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="Help.html">Help</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="Contact.html">Contact</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="shopping-cart.html">
-                        <img id = "shopcart" src = "IMAGES/shopcart.png"/>
-                    </a>
-                </li>
-            </ul>
-            <a class="btn btn-lg btn-primary mybtn" href = "LogIn.html">Log in</a>
-        </div>
-    </nav>
+        <body background ="/images/backgrounddd.jpg"></body>
+      <div th:replace = "fragments/navbar :: navbar"></div>
 <!-- Inceput Main -->
     <div class="container" id="principal">
 <!--Start Carusel-->
 <div id="content-page" class="span12 content group">
         <div id="post-terms2" class="group post-terms page type-page status-publish hentry">
           <div class="row justify-content-center">
-            <img id = "pizza-banner" src = "IMAGES/img_menu.jpg"/>
+            <img id = "pizza-banner" src = "/images/img_menu.jpg"/>
           </div>
         </div>
     </div>
@@ -88,7 +36,7 @@
             <div class="card-header">
               <h4 class="my-0 font-weight-normal">Cappricio Pizza</h4>
             </div>
-        <img id = "pizza" src = "IMAGES/pizza_cappricio.jpg">
+        <img id = "pizza" src = "/images/pizza_cappricio.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 20 LEI <small class="text-muted">/ pizza</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
@@ -106,7 +54,7 @@
             <div class="card-header">
               <h4 class="my-0 font-weight-normal">Quatro Stagione Pizza</h4>
             </div>
-            <img id = "pizza" src = "IMAGES/pizza_quatro_stagione.jpg">
+            <img id = "pizza" src = "/images/pizza_quatro_stagione.jpg">
             <div class="card-body">
               <h1 class="card-title pricing-card-title"> 23 LEI <small class="text-muted">/ pizza</small></h1>
               <ul class="list-unstyled mt-3 mb-4">
@@ -124,7 +72,7 @@
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">Hawai Pizza</h4>
         </div>
-        <img id = "pizza" src = "IMAGES/pizza_hawai.jpg">
+        <img id = "pizza" src = "/images/pizza_hawai.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 28 LEI <small class="text-muted">/ pizza</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
@@ -147,7 +95,7 @@
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">Vegeratian Pizza</h4>
             </div>
-        <img id = "pizza" src = "IMAGES/pizza_vegetariana.jpg">
+        <img id = "pizza" src = "/images/pizza_vegetariana.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 17 LEI <small class="text-muted">/ pizza</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
@@ -166,7 +114,7 @@
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">Diavolo Pizza</h4>
         </div>
-        <img id = "pizza" src = "IMAGES/pizza_diavolo.jpg">
+        <img id = "pizza" src = "/images/pizza_diavolo.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 21 LEI <small class="text-muted">/ pizza</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
@@ -185,7 +133,7 @@
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">Napoli Pizza</h4>
         </div>
-        <img id = "pizza" src = "IMAGES/pizza_napoli.jpg">
+        <img id = "pizza" src = "/images/pizza_napoli.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 25 LEI <small class="text-muted">/ pizza</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
@@ -208,7 +156,7 @@
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">Pizza Roma</h4>
             </div>
-    <img id = "pizza" src = "IMAGES/pizza_roma.jpg">
+    <img id = "pizza" src = "/images/pizza_roma.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 22 LEI <small class="text-muted">/ pizza</small></h1>
                 <ul class="list-unstyled mt-3 mb-4">
@@ -227,7 +175,7 @@
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">Pizza Picanty</h4>
         </div>
-        <img id = "pizza" src = "IMAGES/pizza_picanty.jpg">
+        <img id = "pizza" src = "/images/pizza_picanty.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 26 LEI <small class="text-muted">/ pizza</small></h1>
                 <ul class="list-unstyled mt-3 mb-4">
@@ -246,7 +194,7 @@
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">Pizza Salami</h4>
         </div>
-        <img id = "pizza" src = "IMAGES/pizza_salami.jpg">
+        <img id = "pizza" src = "/images/pizza_salami.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 24 LEI <small class="text-muted">/ pizza</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
@@ -269,7 +217,7 @@
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">Margherita Pizza</h4>
             </div>
-            <img id = "pizza" src = "IMAGES/pizza_margherita.jpg">
+            <img id = "pizza" src = "/images/pizza_margherita.jpg">
             <div class="card-body">
             <h1 class="card-title pricing-card-title"> 14 LEI <small class="text-muted">/ pizza</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
@@ -287,7 +235,7 @@
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">Tonno Pizza</h4>
         </div>
-        <img id = "pizza" src = "IMAGES/pizza_tonno.jpg">
+        <img id = "pizza" src = "/images/pizza_tonno.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 26 LEI <small class="text-muted">/ pizza</small></h1>
                 <ul class="list-unstyled mt-3 mb-4">
@@ -305,7 +253,7 @@
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">Salmone Pizza</h4>
         </div>
-        <img id = "pizza" src = "IMAGES/pizza_salmone.jpg">
+        <img id = "pizza" src = "/images/pizza_salmone.jpg">
         <div class="card-body">
             <h1 class="card-title pricing-card-title"> 31 LEI <small class="text-muted">/ pizza</small></h1>
                 <ul class="list-unstyled mt-3 mb-4">
@@ -327,7 +275,7 @@
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">Quatro Formaggi Pizza</h4>
             </div>
-            <img id = "pizza" src = "IMAGES/pizza_quatro_formaggi.jpg">
+            <img id = "pizza" src = "/images/pizza_quatro_formaggi.jpg">
             <div class="card-body">
                 <h1 class="card-title pricing-card-title"> 27 LEI <small class="text-muted">/ pizza</small></h1>
                     <ul class="list-unstyled mt-3 mb-4">
@@ -344,7 +292,7 @@
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">Customize your pizza</h4>
             </div>
-            <img id = "pizza" src = "IMAGES/contact_background.jpg">
+            <img id = "pizza" src = "/images/contact_background.jpg">
             <div class="card-body">
                 <h1 class="card-title pricing-card-title"> up to 10 LEI <small class="text-muted">/ pizza</small></h1>
                     <ul class="list-unstyled mt-3 mb-4">
@@ -354,75 +302,18 @@
                         </br>
                         </br>
                         </ul>
-                        <a class="btn btn-lg btn-block btn-primary" href="CustomizePizza.html">Choose the rest of the ingredients</a>
+                        <a class="btn btn-lg btn-block btn-primary" href="CustomizePizza.html" th:href=@{/menu/pizza/customizepizza}>Choose the rest of the ingredients</a>
             </div>
         </div>
     </div>
     </div>
 <!-- Footer -->
-<footer id="page-footer" >
-<!-- Footer Elements -->
-<div class="wrapper container">
-    <div class="row justify-content-center">
-        <div>
-            <h5>Quick links</h5>
-	        <ul class="list-unstyled quick-links">
-	            <li><a href="PopularChoices.html"><i class="fa fa-angle-double-right"></i>PopularChoices</a></li>
-	            <li><a href="Promotions.html"><i class="fa fa-angle-double-right"></i>Promotions</a></li>
-	            <li><a href="Help.html"><i class="fa fa-angle-double-right"></i>Help</a></li>
-		    </ul>
-	    </div>
-	    <div>
-	        <h5>My account</h5>
-		    <ul class="list-unstyled quick-links">
-	            <li><a href="#"><i class="fa fa-angle-double-right"></i>My profile</a></li>
-	            <li><a href="#"><i class="fa fa-angle-double-right"></i>My purchase list</a></li>
-		    </ul>
-	    </div>
-	    <div>
-	        <h5>Contact</h5>
-            <ul class="list-unstyled contact-infos">
-                <li><a><i class="fa fa-home mr-3"></i>Bulevardul Carol I, nr. 22, Iasi, RO</a></li>
-				<li><a href="#"><i class="fa fa-envelope mr-3"></i> pizzamia@yahoo.com</a></li>
-                <li><a><i class="fa fa-phone mr-3"></i> + 07 40 30 34 56</a></li>
-          </ul>
-		</div>
- 	</div>
-	<h5>You can visit us on:</h5>
-	<div id="map" width="100%">
-	    <iframe width="100%" height="300" id="map-iframe"
-	src="https://maps.google.com/maps?width=100%&amp;height=350&amp;hl=en&amp;coord=47.1739612, 27.572106299999973&amp;q=Universitatea%20Alexandru%20Ioan%20Cuza%20din%20Ia%C8%99i%2C%20Bulevardul%20Carol%20I%2C%20Ia%C8%99i%2C%20Rom%C3%A2nia+(EvaluareaRiscurilor.ro)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-	        <a href="https://www.maps.ie/create-google-map/">Google Maps iframe generator</a>
-	    </iframe>
-	</div>
-	<h5 id="id" >Contact us on:</h5>
-	<div class="btn-group">
-	    <a href="#" class="fa fa-facebook"></a>
-	    <a href="#" class="fa fa-youtube"></a>
-	    <a href="#" class="fa fa-instagram"></a>
-	    <a href="#" class="fa fa-skype"></a>
-    </div>
-    <!-- Footer Elements -->
-	<hr class= "footer-divider">
-	    <div id="inner-remaining">
-	<!-- Copyright -->
-	        <ul class="list-unstyled text">
-                <li><a href="#">Back to top</a></li>
-	            <div class= "row" id="copyright">
-                    <li><p>&copy; 2019 Pizza Mia &middot; </p></li>
-	                <li><a href="Terms.html">Terms &middot;</a></li>
-	                <li><a href="Privacy.html">Privacy  &middot;</a></li>
-	            </div>
-	        </ul>
-	    </div>
-	</div>
-</footer>
+<div th:replace="fragments/footer :: footer"></div>
 <!-- Footer -->
-</footer>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src = "js/bootstrap.js"></script>
-<script src = "js/form.js"></script>
-<script scr = "js/index.js"></script>
+<script src = "/jscripts/form.js"></script>
+<script scr = "/jscripts/index.js"></script>
 <script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
 	</body>
