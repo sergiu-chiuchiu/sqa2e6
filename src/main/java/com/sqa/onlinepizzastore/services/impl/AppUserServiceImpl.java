@@ -18,12 +18,11 @@ public class AppUserServiceImpl implements AppUserService {
 	@Autowired
 	AppRoleService appRoleService;
 	
-	
+
 	@Override
-	public AppUser getUserByUserName(String userName) {
-		AppUser appUser = appUserRepository.getAppUserByUserName(userName); 
-		
-		return appUser;
+	public AppUser getAppUserByEmail(String email) {
+		return appUserRepository.getAppUserByEmail(email);
+
 	}
 	
 	@Override
