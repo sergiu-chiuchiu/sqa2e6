@@ -13,6 +13,7 @@ import com.sqa.onlinepizzastore.entitites.AppUser;
 
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser, Long>{
-	AppUser getAppUserByUserName(String userName);
-	List<String> getUser_RoleByEmail(String email);
+
+	AppUser getAppUserByEmail(String email);
+
 }

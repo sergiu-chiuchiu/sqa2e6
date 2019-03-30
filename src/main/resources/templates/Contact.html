@@ -27,44 +27,44 @@
         		<p>If you want to share your opinion about us complete the form below. By complete this form you help us to improve our services and products.</p>
 					</div>
 	<!-- Form -->
-	<form>
+	<form th:action="@{/contact}" th:object="${/contactForm}" method="post">
 		<fieldset>
 			<legend> Contact form </legend>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="inputFirstName">First name</label>
-					<input type="firstName" class="form-control" id="inputFirstName" placeholder="First Name" required autofocus>
+					<label for="firstName">First name</label>
+					<input type="firstName" class="form-control" id="firstName" placeholder="First Name" autofocus="autofocus">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="inputLastName">Last name</label>
-					<input type="lastName" class="form-control" id="inputLastName" placeholder="Last Name" required autofocus>
+					<label for="lasttName">Last name</label>
+					<input type="lastName" class="form-control" id="lastName" placeholder="Last Name" autofocus="autofocus">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="inputEmail4">Email</label>
-					<input type="email" class="form-control" id="inputEmail4" placeholder="Email" required autofocus>
+					<label for="email">Email</label>
+					<input type="email" class="form-control" id="email" placeholder="Email" autofocus="autofocus">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="col-md-6 mb-3">
-					<label for="validationCustom03">City</label>
-					<input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+					<label for="city">City</label>
+					<input type="text" class="form-control" id="city" placeholder="City" required>
 						<div class="invalid-feedback">
 							Please provide a valid city.
 						</div>
 				</div>
 				<div class="col-md-3 mb-3">
-					<label for="validationCustom04">State</label>
-					<input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+					<label for="state">State</label>
+					<input type="text" class="form-control" id="state" placeholder="State" required>
 						<div class="invalid-feedback">
 						Please provide a valid state.
 						</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Write here</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				<label for="textarea">Write here</label>
+				<textarea class="form-control" id="textarea" rows="3"></textarea>
 			</div>
 			<button type="submit" class="btn btn-primary"> Sent </button>
 		</fieldset>
