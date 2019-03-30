@@ -125,5 +125,9 @@ public class NavigationControllers {
 		return "FAQ";
 	}
 	
+	@GetMapping(value = "/resetpassword")
+	public String getResetPasswordPage(Model model) {
+		return "ResetPassword";
+	}
 
 }
