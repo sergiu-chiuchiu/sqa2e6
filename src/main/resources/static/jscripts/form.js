@@ -106,3 +106,34 @@ document.getElementById("message").innerHTML="Password accepted!";
 document.getElementById("message").style.color="Green";
 return("Your message was sent!")
 }
+
+
+checkpassword = function (validate) {
+	var str = document.getElementById('newPassword').value;
+	if(str.length < 8)
+	{
+	document.getElementById ("message-password").innerHTML = "Password length must be at least 8 characters!";
+	document.getElementById ("message-password").style.color="Red";
+	return ("Too_short");
+	}
+	else if (str.search(/[0-9]/) == -1) {
+	document.getElementById ("message-password").innerHTML = "Password must contain at least one numeric character!";
+	document.getElementById ("message-password").style.color="Red";
+	return ("No_numeric_character");
+	} else if (str.search(/[a-z]/) == -1) {
+	document.getElementById ("message-password").innerHTML = "Password must contain at least one small letter!";
+	document.getElementById ("message-password").style.color="Red";
+	return ("No_small_letter");
+	} else if (str.search(/[A-Z]/) == -1) {
+	document.getElementById ("message-password").innerHTML = "Password must contain at least one upper letter!";
+	document.getElementById ("message-password").style.color="Red";
+	return ("No_upper_letter");
+	} else if (str.search(/[!\@\#\$\%\^\&\*\(\)\+\:\;\.\,]/) == -1) {
+	document.getElementById ("message-password").innerHTML = "Password must contain at least one special character!";
+	document.getElementById ("message-password").style.color="Red";
+	return ("No_special_character");
+	}
+	document.getElementById("message-password").innerHTML="Password accepted!";
+	document.getElementById("message-password").style.color="Green";
+	return("Your password was reset!")
+	}

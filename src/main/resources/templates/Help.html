@@ -52,7 +52,7 @@
 					class="form-control" id="email" name="email" placeholder="Email"
 					autofocus="autofocus">
 			</div>
-			<p id="message"></p>
+			<p th:id="message"></p>
 			<div class="form-group col-md-6">
 				<label for="password">Password</label> <input type="password"
 					class="form-control" id="password" placeholder="Password">
@@ -69,6 +69,7 @@
 				<label for="exampleFormControlTextarea1">Describe your problem</label>
 				<textarea class="form-control" id="exampleFormControlTextarea1"
 					rows="3"></textarea>
+			</div>
 			</div>
 			<button type="submit" class="btn btn-primary" th:onclick="checkpass()" value="validate">Sent</button>
 	</fieldset>

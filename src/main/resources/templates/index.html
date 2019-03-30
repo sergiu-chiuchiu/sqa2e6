@@ -14,13 +14,15 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="/jscripts/index.js"></script>
 </head>
 
 <body>
 
   <body background="/images/backgrounddd.jpg"></body>
   <!-- Navbar -->
-  <div th:replace="fragments/navbar :: navbar"></div>
+  <div th:replace="fragments/navbar :: navbar">
+   <script src="/jscripts/index.js"></script></div>
   <!-- Carousel -->
   <main role="main">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
