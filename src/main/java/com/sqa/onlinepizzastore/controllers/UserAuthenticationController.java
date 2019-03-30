@@ -28,15 +28,13 @@ import com.sqa.onlinepizzastore.util.WebUtils;
 public class UserAuthenticationController {
 	
 	private final AppUserService appUserService;
-	private final AppRoleService appRoleService;
 	private final ModelMapper modelMapper;
 	
 	@Autowired
-	public UserAuthenticationController(AppUserService appUserService, AppRoleService appRoleService, ModelMapper modelMapper) {
+	public UserAuthenticationController(AppUserService appUserService, ModelMapper modelMapper) {
 		super();
 		this.modelMapper = modelMapper;
 		this.appUserService = appUserService;
-		this.appRoleService = appRoleService;
 	}
 	 
 	
@@ -65,27 +63,40 @@ public class UserAuthenticationController {
 	}
 	
 	
-	////////////////////////////////////
-//	@GetMapping(value = "/privacy")
-//	public String getPrivacy(Model model) {
-//		return "Privacy";
-//	}
+	//////////////////////////////////
+	@GetMapping(value = "/privacy")
+	public String getPrivacy(Model model) {
+		return "Privacy";
+	}
+
 	
+	//////////////////////////////////
+	@GetMapping(value = "/aboutus")
+	public String getAboutUs(Model model) {
+		return "About us";
+	}
 	
-	@GetMapping(value = "/logout")
+	//////////////////////////////////
+	@GetMapping(value = "/help")
+	public String getHelp(Model model) {
+		return "Help";
+	}
+	
+	@GetMapping(value = "/logoutSuccessful")
 	public String getLogout(Model model) {
 		model.addAttribute("Title", "Logout");
-		return "LogIn";
+		return "LoggedOut";
 	}
 	
 	@GetMapping(value = "/403")
     public String accessDenied(Model model, Principal principal) {
         if (principal != null) {
             User loginedUser = (User) ((Authentication) principal).getPrincipal();
+//            System.out.println("username: " + appUserService.getAppUserByUserName(loginedUser.getUsername()).getEmail());
             String userInfo = WebUtils.toString(loginedUser);
             model.addAttribute("userInfo", userInfo);
             String message = "Hi " + principal.getName() //
-                    + "<br> You do not have permission to access this page!";
+                    + "<br /> You do not have permission to access this page!";
             model.addAttribute("message", message);
         }
         return "403";
