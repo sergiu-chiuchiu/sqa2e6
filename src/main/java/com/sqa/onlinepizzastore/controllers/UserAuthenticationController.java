@@ -63,7 +63,6 @@ public class UserAuthenticationController {
 
 	@GetMapping(value = "/login")
 	public String getLoginPage(Model model) {
-
 		return "LogIn";
 	}
 	
