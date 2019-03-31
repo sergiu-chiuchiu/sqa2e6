@@ -36,9 +36,6 @@ public class AppRole {
     @JsonBackReference
 	private Set<AppUser> users;
 	
-	
-
-
 	public Long getRoleId() {
 		return roleId;
 	}
@@ -67,11 +64,8 @@ public class AppRole {
 		this.users.add(appUser);
 	}
 	
-	
 	public AppRole() {
 		super();
 	}
-	
-	
 	
 }
