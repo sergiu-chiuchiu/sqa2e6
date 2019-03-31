@@ -1,33 +1,31 @@
 <!DOCTYPE html>
+
 	<html xmlns:th="http://www.thymeleaf.org">
 	  <head>
 		<meta charset = "utf-8">
 		<meta name = "viewport" content = "width = device-width, initial scale = 1.0">
 		<meta name = "description" content = "Pizza Mia WebSite">
 		<meta name = "author" content = "Frontend team">
-		<title>Page not found</title>
+		<title>403</title>
 		<link rel="icon" href="IMAGES/logo.jpg" type="image/x-icon">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel = "stylesheet" href = "css/pageNotFound.css">
+		<link rel = "stylesheet" href = "css/403.css">
 		<link href = "https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 		<link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	  </head>
 	  <body background="IMAGES/imageForBackgroung.jpg">
-			<div id="notfound">
-				<div class="notfound-bg"></div>
-				<div class="notfound">
-					<div class="notfound-404">
-						<h1>404</h1>
+			<div id="noaccess">
+				<div class="noaccess-bg"></div>
+				<div class="noaccess">
+					<div class="noaccess-403">
+						<h1>403</h1>
 					</div>
-					<h2>Oops! Page Not Found</h2>
-					<div class="notfound-social">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-youtube"></i></a>
-						<a href="#"><i class="fa fa-instagram"></i></a>
-						<a href="#"><i class="fa fa-skype"></i></a>
-					</div>
-					<a href="index.html">Back To Homepage</a> 
+					<h2>No permission to access</h2>
+
+					<h3 th:if="${message != null}" th:utext="${message}" style="color: red;"></h3>
+			    	<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+
 				</div>
 			</div>
 		

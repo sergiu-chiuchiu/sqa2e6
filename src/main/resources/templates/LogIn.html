@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset = "utf-8">
     <meta name = "viewport" content = "width = device-width, initial scale = 1.0">
@@ -79,21 +79,33 @@
                      <div class="col-md-12 text-center">
                         <h1>Login</h1>
                      </div>
+                     <!-- /login?error=true -->
+				     <div th:if="${#request.getParameter('error') == 'true'}"
+				            style="color:red;margin:10px 0px;">
+				         Login Failed!<br />
+				         Reason : <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+				            th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+				                Static summary
+				         </span>
+				     </div>
                   </div>
-                  <form action="" method="post" name="login">
+                  <form th:action="@{/j_spring_security_check}" method="POST" name="login">
                      <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" name="email" value='' class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                      </div>
                      <div class="form-group">
                         <label for="exampleInputEmail1">Password</label>
                         <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
                      </div>
                      <div class="form-group">
+                        <label for="remember">Remember Me: </label><input class="ml-2" type="checkbox" id="remember" name="remember-me" />
+                     </div>
+                     <div class="form-group">
                         <p class="text-center">By signing up you accept our <a href="Terms.html">Terms Of Use</a></p>
                      </div>
                      <div class="col-md-12 text-center ">
-                        <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                        <button name="submit" type="submit" value="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
                      </div>
                      <div class="col-md-12 ">
                         <div class="login-or">
