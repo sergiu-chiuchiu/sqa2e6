@@ -12,7 +12,7 @@ import com.sqa.onlinepizzastore.entitites.AppSubscribe;
 import com.sqa.onlinepizzastore.entitites.SubscribeForm;
 import com.sqa.onlinepizzastore.services.AppSubscribeService;
 
-
+@Controller
 public class SubscribeController {
 
 	private final AppSubscribeService appSubscribeService;
@@ -26,16 +26,18 @@ public class SubscribeController {
 	}
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public String getIndexForm() {
+	public String getIndexForm(Model model) {
+		AppSubscribe appSubscribe = new AppSubscribe();
+		model.addAttribute("AppSubscribe", appSubscribe);
 		return "index";
 	}
 	@RequestMapping(value="/index", method=RequestMethod.POST)
 	public String subscribe(@ModelAttribute(name="indexForm") SubscribeForm subscribeForm, Model model) {
 		
 		String email = subscribeForm.getEmail();
-		AppSubscribe appSubscribe = new AppSubscribe();
-		appSubscribe.setEmail(email);
-		appSubscribeService.saveAppSubscribe(modelMapper.map(email, AppSubscribe.class));
+//		AppSubscribe appSubscribe = new AppSubscribe();
+//		appSubscribe.setEmail(email);
+//		appSubscribeService.saveAppSubscribe(modelMapper.map(email, AppSubscribe.class));
 		if(email != null) {
 		return "index";
 	}
