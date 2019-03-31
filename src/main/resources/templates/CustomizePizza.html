@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset = "utf-8">
     <meta name = "viewport" content = "width = device-width, initial scale = 1.0">
@@ -69,18 +69,59 @@
       </div>
     </nav>
 <!-- Form -->
-  <form>
-    <fieldset class = "form-group">
-      <legend> Customize your pizza </legend>
+  <form th:action="@{/CustomizePizza}" th:object="${Customized}" method="POST">  
+      		Id:
+         <input type="text" th:field="*{customized_id}" />     
+         <br/>   
+      	 Name:
+         <input type="text" th:field="*{customized_name}" />    
+         <br/>
+         Date:
+         <input type="text" th:field="*{customized_date}" />     
+         <br/>   
+         Energy:
+         <input type="text" th:field="*{customized_energy}" />     
+         <br/>
+         Countertop:
+         <input type="text" th:field="*{countertops}" />     
+         <br/>  
+         Ing:
+         <input type="text" th:field="*{ingredients}" />     
+         <br/>
+          <ul>
+    	  <li th:each="Ingredient : ${ingredientList}">
+	      	<label th:for="${ingredient.ing_name}">Ingredient name</label>
+          	<input type="checkbox" th:id="${ingredient.ing_name}"/>
+          </li>
+		  </ul>             
         <p class = "form-pizza-text">Standard pizza</p>
-        <div class="form-check">
+          <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-          <label class="form-check-label" for="defaultCheck2">Mozzarella</label>
+          <label class="form-check-label" for="defaultCheck1">Mozarela</label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-          <label class="form-check-label" for="defaultCheck2">Tomatoes souce</label>
-        </div>
+          <label class="form-check-label" for="defaultCheck1">Tomatoes souce</label>
+        </div> 
+              
+        <div class="custom-control custom-radio">
+  			<input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
+  			<label class="custom-control-label" for="defaultGroupExample1">Option 1</label>
+		</div> 
+
+		<!-- Group of default radios - option 2 -->
+		<div class="custom-control custom-radio">
+  			<input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
+  			<label class="custom-control-label" for="defaultGroupExample2">Option 2</label>
+		</div>
+
+			<!-- Group of default radios - option 3 -->
+		<div class="custom-control custom-radio">
+  			<input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+  			<label class="custom-control-label" for="defaultGroupExample3">Option 3</label>
+		</div> 
+		
+		 
         </br>
         <p class = "form-pizza-text"> Select the type of meat you want. Please choose maxim 2 ingredients.</p>
         <div class="form-check">
