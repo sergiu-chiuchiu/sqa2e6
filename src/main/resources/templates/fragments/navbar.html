@@ -1,61 +1,68 @@
 <div th:fragment="navbar">
- <script src="/jscripts/index.js"></script>
+	<script src="/jscripts/index.js"></script>
 </div>
 <div th:fragment="navbar">
-</script>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="index.html" th:href="@{/index}">
-		<img id="logo" src="/images/logo.jpg" />
-	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="index.html" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="About us.html" th:href="@{/aboutus}">About us</a>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="Menu.html" th:href="@{/menu}" id="navbarDropdownMenuLink" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">Menu</a>
-				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<li><a class="dropdown-item" href="Pizza.html" th:href="@{/menu/pizza}">Pizza</a></li>
-					<li><a class="dropdown-item" href="Dips.html" th:href="@{/menu/dips}">Dips</a></li>
-					<li class="dropdown-submenu">
-						<a class="dropdown-item dropdown-toggle" href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="Soda.html" th:href="@{/menu/drinks/soda}">Sodas</a></li>
-							<li><a class="dropdown-item" href="Cocktail.html" th:href="@{/menu/drinks/cocktail}">Cocktails</a></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="PopularChoices.html" th:href="@{/popularchoices}">Popular choices</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="Promotions.html" th:href="@{/promotions}">Promotions</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="Help.html" th:href="@{/help}">Help</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="Contact.html" th:href="@{/contact}">Contact</a>
-			</li>
-		</ul>
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="shopping-cart.html" th:href="@{/shoppingcart}">
-					<img id="shopcart" src="/images/shopcart.png" />
-				</a>
-			</li>
-		</ul>
-		<a class="btn btn-lg btn-primary mybtn" href="LogIn.html" th:href="@{/login}">Log in</a>
-	</div>
-</nav>
+	</script>
+	<link itemprop="url" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="index.html" th:href="@{/index}">
+			<img id="logo" src="/images/logo.jpg" />
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="index.html" th:href="@{/index}">Home <span
+							class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="About us.html" th:href="@{/aboutus}">About us</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="Menu.html" th:href="@{/menu}" id="navbarDropdownMenuLink"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" href="Pizza.html" th:href="@{/menu/pizza}">Pizza</a></li>
+						<li><a class="dropdown-item" href="Dips.html" th:href="@{/menu/dips}">Dips</a></li>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="Drinks.html"
+								th:href="@{/menu/drinks}">Drinks</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="Soda.html" th:href="@{/menu/drinks/soda}">Sodas</a>
+								</li>
+								<li><a class="dropdown-item" href="Cocktail.html"
+										th:href="@{/menu/drinks/cocktail}">Cocktails</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="PopularChoices.html" th:href="@{/popularchoices}">Popular choices</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Promotions.html" th:href="@{/promotions}">Promotions</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Help.html" th:href="@{/help}">Help</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Contact.html" th:href="@{/contact}">Contact</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="shopping-cart.html" th:href="@{/shoppingcart}">
+						<img id="shopcart" src="/images/shopcart.png" />
+					</a>
+				</li>
+			</ul>
+			<a th:if="${#request.userPrincipal != null}" th:href="@{/user}"><i class="fas fa-user fa-3x mx-3"></i></a>
+			<a th:if="${#request.userPrincipal == null}" class="btn btn-lg btn-primary mybtn" href="LogIn.html" th:href="@{/auth/login}">Log in</a>
+			<a class="mx-3" th:if="${#request.userPrincipal != null}" th:href="@{/auth/logout}">Logout</a>
+		</div>
+	</nav>
 </div>
-

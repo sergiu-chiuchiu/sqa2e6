@@ -19,7 +19,7 @@ import org.springframework.security.core.Authentication;
 import com.sqa.onlinepizzastore.dto.AppUserDto;
 
 import com.sqa.onlinepizzastore.entitites.AppRole;
-
+import com.sqa.onlinepizzastore.entitites.AppSubscribe;
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.services.AppRoleService;
 import com.sqa.onlinepizzastore.services.AppUserService;
@@ -70,8 +70,9 @@ public class UserAuthenticationController {
 	
 	@GetMapping(value = "/logoutSuccessful")
 	public String getLogout(Model model) {
-		model.addAttribute("Title", "Logout");
-		return "LoggedOut";
+		AppSubscribe appSubscribe = new AppSubscribe();
+		model.addAttribute("AppSubscribe", appSubscribe);
+		return "index";
 	}
 	
 	@GetMapping(value = "/403")

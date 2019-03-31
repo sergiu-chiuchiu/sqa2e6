@@ -18,7 +18,7 @@ public class AppSubscribe {
 	private Long subscribeId;
 	
 	@Email
-	@Column(name = "email", unique = true)
+	@Column(name = "email")
 	private String email;
 	
 	public Long getSubscribeId() {
