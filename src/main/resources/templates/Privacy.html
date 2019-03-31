@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-	<html xmlns:th="http://www.thymeleaf.org">
-	  <head>
-		<meta charset = "utf-8">
-		<meta name = "viewport" content = "width = device-width, initial scale = 1.0">
-		<meta name = "description" content = "Pizza Mia WebSite">
-		<meta name = "author" content = "Frontend team">
+<div th:replace="fragments/head :: head"></div>
 		<title>Privacy Policy</title>
 		<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,7 +16,7 @@
 						
 					</br>
 					<h3>User Registration</h3>
-						<p>In order to access and use certain content, features, or functionality of this Site, you may register for this Site and have a unique username and password and provide certain additional information, which may include, without limitation, your address and email (collectively, a ‚ÄúUser Account‚Äù). If you elect to become a registered User of this Site, you are responsible for maintaining the strict confidentiality of your User Credentials, and you shall be responsible and liable for any access to or use of this Site by you or any person or entity using your User Credentials, whether or not such access or use has been authorized by you or on your behalf. You agree to (a) immediately notify Pizza Mia of any unauthorized use of your User Information or User Account, or any other breach of security, and (b) ensure that you log off from this Site at the end of each session. It is your sole responsibility to (i) control the dissemination and use of your User Information and User Account, (ii) update, maintain and control access to your User Information and User Account, and (iii) cancel your User Account on this Site. Pizza Mia reserves the right to deny access, use and registration privileges to any User of this Site if we believe there is a question about the identity of the person trying to access any account or element of this Site. Pizza Mia shall not be responsible or liable for any loss that you incur as a result of someone else using your User Account and/or password</p>
+						<p>In order to access and use certain content, features, or functionality of this Site, you may register for this Site and have a unique username and password and provide certain additional information, which may include, without limitation, your address and email (collectively, a ìUser Accountî). If you elect to become a registered User of this Site, you are responsible for maintaining the strict confidentiality of your User Credentials, and you shall be responsible and liable for any access to or use of this Site by you or any person or entity using your User Credentials, whether or not such access or use has been authorized by you or on your behalf. You agree to (a) immediately notify Pizza Mia of any unauthorized use of your User Information or User Account, or any other breach of security, and (b) ensure that you log off from this Site at the end of each session. It is your sole responsibility to (i) control the dissemination and use of your User Information and User Account, (ii) update, maintain and control access to your User Information and User Account, and (iii) cancel your User Account on this Site. Pizza Mia reserves the right to deny access, use and registration privileges to any User of this Site if we believe there is a question about the identity of the person trying to access any account or element of this Site. Pizza Mia shall not be responsible or liable for any loss that you incur as a result of someone else using your User Account and/or password</p>
 					</div>
 					<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
 						<h3>Pricing and Payment</h3>
@@ -69,9 +63,8 @@ If you have any questions or concerns about our Privacy Policy or if you wish to
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
 <!-- Footer -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<div th:replace="fragments/script :: script"></div>
 <script src = "/jscripts/index.js"></script>
-<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
 	</body>
 </html>

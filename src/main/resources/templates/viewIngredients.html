@@ -1,6 +1,4 @@
- <!DOCTYPE html>
-<html>
-<head>
+<div th:replace="fragments/head :: head"></div>
 <title>Page Title</title>
 
 <script type="text/javascript">
@@ -56,6 +54,6 @@ window.location = "/delete/"+th:text;
     </tr>       
    </tbody>
 </table>
-
+<div th:replace="fragments/script :: script"></div>
 </body>
 </html> 

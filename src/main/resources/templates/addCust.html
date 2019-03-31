@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
+<div th:replace="fragments/head :: head"></div>
 <title>Example pizza!</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -41,5 +39,7 @@
 				<button type="submit">Create pizza</button>
 			</div>
 	</form>
+	
+<div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>
