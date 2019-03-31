@@ -57,7 +57,6 @@ public class AppUser {
     @JsonManagedReference
 	private Set<AppRole> appRoles = new HashSet<AppRole>();
 	
-	
 	public String getEmail() {
 		return email;
 	}

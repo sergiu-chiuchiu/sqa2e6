@@ -69,7 +69,7 @@ public class UserAuthenticationController {
 	@GetMapping(value = "/logoutSuccessful")
 	public String getLogout(Model model) {
 		model.addAttribute("Title", "Logout");
-		return "LoggedOut";
+		return "index";
 	}
 	
 	@GetMapping(value = "/403")
