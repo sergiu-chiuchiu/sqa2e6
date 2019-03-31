@@ -95,13 +95,6 @@ public class NavigationControllers {
 		return "shopping-cart";
 	}
 	
-
-	@GetMapping(value = "/auth/login")
-	public String getLogInPage(Model model) {
-		return "LogIn";
-	}
-
-	
 	@GetMapping(value = "/terms")
 	public String getTermsPage(Model model) {
 		return "Terms";
@@ -116,12 +109,6 @@ public class NavigationControllers {
 	public String getCustomizePizzaPage(Model model) {
 		return "CustomizePizza";
 	}
-	
-
-	@GetMapping(value = "/auth/signup")
-	public String getSignupPage(Model model) {
-		return "SignUp";
-	}
 
 	
 	@GetMapping(value = "/faq")
@@ -133,5 +120,6 @@ public class NavigationControllers {
 	public String getResetPasswordPage(Model model) {
 		return "ResetPassword";
 	}
+	
 
 }

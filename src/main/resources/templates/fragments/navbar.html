@@ -1,8 +1,4 @@
 <div th:fragment="navbar">
- <script src="/jscripts/index.js"></script>
-</div>
-<div th:fragment="navbar">
-</script>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="index.html" th:href="@{/index}">
 		<img id="logo" src="/images/logo.jpg" />
@@ -54,8 +50,7 @@
 				</a>
 			</li>
 		</ul>
-		<a class="btn btn-lg btn-primary mybtn" href="LogIn.html" th:href="@{/login}">Log in</a>
+		<a class="btn btn-lg btn-primary mybtn" href="LogIn.html" th:href="@{/auth/login}">Log in</a>
 	</div>
 </nav>
 </div>
-
