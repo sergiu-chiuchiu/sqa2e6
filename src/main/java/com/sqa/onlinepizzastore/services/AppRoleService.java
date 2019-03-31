@@ -8,8 +8,6 @@ import com.sqa.onlinepizzastore.entitites.AppRole;
 
 public interface AppRoleService {
 
-
-
 	AppRole saveAppRole(AppRole appRole);
 
 
