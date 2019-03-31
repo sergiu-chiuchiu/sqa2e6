@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-@Table(name = "cust_ing", uniqueConstraints = {
+@Table(name = "ingredient", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "ing_id")
 })
 public class Ingredient {

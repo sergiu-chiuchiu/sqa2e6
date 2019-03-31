@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
-@Table(name = "cust_ing")
+@Table(name = "customized")
 public class Customized {
 
 	@Id
@@ -37,7 +37,7 @@ public class Customized {
 	@NotBlank(message="Select one countertop!")
 	private String countertops;
 	
-	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 	@JoinTable(name = "cust_ing"
 	, joinColumns = {@JoinColumn(referencedColumnName = "customized_id")}
 	, inverseJoinColumns = {@JoinColumn(referencedColumnName="ing_id")})
@@ -89,17 +89,9 @@ public class Customized {
 		this.countertops = countertops;
 	}
 
-
-
-
-
-
-
 	public Set<Ingredient> getIngredients() {
 		return ingredients;
 	}
-
-
 
 	public void setIngredients(Set<Ingredient> ingredients) {
 		this.ingredients = ingredients;
