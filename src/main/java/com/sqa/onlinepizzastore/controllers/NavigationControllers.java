@@ -130,4 +130,14 @@ public class NavigationControllers {
 	public String getViewUsersPage(Model model) {
 		return "ViewUsers";
 	}
+	
+	@GetMapping(value = "/auth/adduser")
+	public String getAddUserPage(Model model) {
+		return "addUser";
+	}
+		
+	@GetMapping(value = "/404")
+	public String get404Page(Model model) {
+		return "PageNotFound";
+	}
 }
