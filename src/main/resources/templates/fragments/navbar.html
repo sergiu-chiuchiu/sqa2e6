@@ -2,8 +2,6 @@
 </div>
 <div th:fragment="navbar">
 	</script>
-	<link itemprop="url" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.html" th:href="@{/index}">
 			<img id="logo" src="/images/logo.jpg" />
@@ -50,6 +48,12 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="Contact.html" th:href="@{/contact}">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:if="${currentUserRole == 'ROLE_OPERATOR'}" th:href="@{/operator}">Operator</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:if="${currentUserRole == 'ROLE_ADMIN'}" th:href="@{/admin}">Admin</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
