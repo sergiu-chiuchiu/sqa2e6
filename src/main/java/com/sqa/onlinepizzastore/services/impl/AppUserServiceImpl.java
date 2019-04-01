@@ -1,6 +1,10 @@
 package com.sqa.onlinepizzastore.services.impl;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import com.sqa.onlinepizzastore.entitites.AppRole;
@@ -32,6 +36,10 @@ public class AppUserServiceImpl implements AppUserService {
 	
 	@Override
 	public AppUser updateAppUser(AppUser appUser) {
+		String pass = appUser.getPassword();
+		if (pass != null) {
+			appUser.setPassword(EncryptedPasswordUtils.encryptPassword(pass));
+		}
 		return appUserRepository.save(appUser);
 	}
 	
@@ -48,6 +56,18 @@ public class AppUserServiceImpl implements AppUserService {
 		}
 		appUserToSave.addAppRole(appRole);		
 		return appUserRepository.save(appUserToSave);
+	}
+	
+	@Override
+	public AppUser getLoggedInAppUserByPrincipal(Principal principal) {
+		User loginedUser = (User) ((Authentication) principal).getPrincipal();
+		String userName = loginedUser.getUsername();
+		return this.getAppUserByUserName(userName);
+	}
+	
+	@Override
+	public void deleteAppUser(AppUser appUserToDelete) {
+		appUserRepository.delete(appUserToDelete);
 	}
 	
 }

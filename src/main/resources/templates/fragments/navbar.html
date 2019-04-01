@@ -32,18 +32,29 @@
 								<li><a class="dropdown-item" href="Soda.html"
 									th:href="@{/menu/drinks/soda}">Sodas</a></li>
 								<li><a class="dropdown-item" href="Cocktail.html"
-									th:href="@{/menu/drinks/cocktail}">Cocktails</a></li>
-							</ul></li>
-					</ul></li>
-				<li class="nav-item"><a class="nav-link"
-					href="PopularChoices.html" th:href="@{/popularchoices}">Popular
-						choices</a></li>
-				<li class="nav-item"><a class="nav-link" href="Promotions.html"
-					th:href="@{/promotions}">Promotions</a></li>
-				<li class="nav-item"><a class="nav-link" href="Help.html"
-					th:href="@{/help}">Help</a></li>
-				<li class="nav-item"><a class="nav-link" href="Contact.html"
-					th:href="@{/contact}">Contact</a></li>
+										th:href="@{/menu/drinks/cocktail}">Cocktails</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="PopularChoices.html" th:href="@{/popularchoices}">Popular choices</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Promotions.html" th:href="@{/promotions}">Promotions</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Help.html" th:href="@{/help}">Help</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Contact.html" th:href="@{/contact}">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:if="${currentUserRole == 'ROLE_OPERATOR'}" th:href="@{/operator}">Operator</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:if="${currentUserRole == 'ROLE_ADMIN'}" th:href="@{/admin}">Admin</a>
+				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link"
@@ -51,14 +62,13 @@
 						id="shopcart" src="/images/shopcart.png" />
 				</a></li>
 			</ul>
-			<a th:if="${#request.userPrincipal != null}" th:href="@{/user}"><i
-				class="far fa-user fa-3x mx-3"></i></a> <a
-				th:if="${#request.userPrincipal == null}"
-				class="btn btn-lg btn-primary mybtn" href="LogIn.html"
-				th:href="@{/auth/login}">Log in</a> <a class="mx-3"
-				th:if="${#request.userPrincipal != null}" th:href="@{/auth/logout}">Logout</a>
+			<a th:if="${#request.userPrincipal != null}" th:href="@{/user}"><i class="far fa-user fa-3x mx-3"></i></a>
+			<a th:if="${#request.userPrincipal == null}" class="btn btn-lg btn-primary mybtn" href="LogIn.html" th:href="@{/auth/login}">Log in</a>
+			<a th:if="${#request.userPrincipal == null}" class="btn btn-lg btn-primary mybtn mx-2" href="LogIn.html" th:href="@{/auth/signup}">Sign up</a>
+			<a class="mx-3" th:if="${#request.userPrincipal != null}" th:href="@{/auth/logout}">Logout</a>
 		</div>
 	</nav>
 </div>
+
 
 

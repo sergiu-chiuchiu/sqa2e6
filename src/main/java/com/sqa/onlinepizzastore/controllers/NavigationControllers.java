@@ -95,11 +95,6 @@ public class NavigationControllers {
 		return "shopping-cart";
 	}
 	
-//	@GetMapping(value = "/login")
-//	public String getLogInPage(Model model) {
-//		return "LogIn";
-//	}
-	
 	@GetMapping(value = "/terms")
 	public String getTermsPage(Model model) {
 		return "Terms";
@@ -114,11 +109,7 @@ public class NavigationControllers {
 	public String getCustomizePizzaPage(Model model) {
 		return "CustomizePizza";
 	}
-	
-//	@GetMapping(value = "/signup")
-//	public String getSignupPage(Model model) {
-//		return "SignUp";
-//	}
+
 	
 	@GetMapping(value = "/faq")
 	public String getFAQPage(Model model) {
@@ -129,5 +120,24 @@ public class NavigationControllers {
 	public String getResetPasswordPage(Model model) {
 		return "ResetPassword";
 	}
-
+	
+	@GetMapping(value = "/reports")
+	public String getReportsPage(Model model) {
+		return "reports";
+	}
+	
+	@GetMapping(value = "/viewusers")
+	public String getViewUsersPage(Model model) {
+		return "ViewUsers";
+	}
+	
+	@GetMapping(value = "/auth/adduser")
+	public String getAddUserPage(Model model) {
+		return "addUser";
+	}
+		
+	@GetMapping(value = "/404")
+	public String get404Page(Model model) {
+		return "PageNotFound";
+	}
 }

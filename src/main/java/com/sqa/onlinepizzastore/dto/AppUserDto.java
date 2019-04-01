@@ -8,8 +8,11 @@ public class AppUserDto {
 	
 	private String email;
 	
+	private String oldPassword;
 	private String password;
 	private String passwordRepeat;
+	
+	private String message;
 	
 	private String userName;
 	
@@ -28,6 +31,14 @@ public class AppUserDto {
 		this.email = email;
 	}
 
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -42,6 +53,14 @@ public class AppUserDto {
 
 	public void setPasswordRepeat(String passwordRepeat) {
 		this.passwordRepeat = passwordRepeat;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public String getUserName() {

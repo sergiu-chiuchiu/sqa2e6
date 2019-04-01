@@ -1,7 +1,6 @@
 body {
   height: 100%;
   width: 100%;
-  min-height: 100%;
 }
 
 .first-slide {
@@ -97,14 +96,10 @@ margin: 0 auto;
   color: white;
   margin: 0 auto;
 }
-/*Day's promotion banner*/
-.daysPromotions {
 
-}
-
-
-/*Tombola form*/
+/*Events form*/
 body {
+  text-align:center;
   padding-top: 0px;
   padding-bottom: 0px;
   }
@@ -114,21 +109,23 @@ body {
    h1,h2,h3 {
    font-family: 'Kaushan Script', cursive;
    }
-    .myform {
-position: relative;
-display: -ms-flexbox;
-display: flex;
-padding: 1rem;
--ms-flex-direction: column;
-flex-direction: column;
-width: 100%;
-pointer-events: auto;
-background-color: #fff;
-background-clip: padding-box;
-border: 1px solid rgba(0,0,0,.2);
-border-radius: 1.1rem;
-outline: 0;
-max-width: 500px;
+   
+.myform {
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 1rem;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 1.1rem;
+	outline: 0;
+	max-width: 500px;
+	align-content:center;
 }
 
 #wrap {

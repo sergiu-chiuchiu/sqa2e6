@@ -39,7 +39,7 @@ public class UserAuthenticationController {
 		this.appUserService = appUserService;
 	}
 	 
-	
+	// could work if we auto logout user on username check
 	@GetMapping(value = "/signup")
 	public String getSignUp(Model model) throws ParseException {
 		AppUserDto appUserDto = new AppUserDto();
@@ -64,15 +64,12 @@ public class UserAuthenticationController {
 
 	@GetMapping(value = "/login")
 	public String getLoginPage(Model model) {
-
 		return "LogIn";
 	}
 	
 	@GetMapping(value = "/logoutSuccessful")
-	public String getLogout(Model model) {
-		AppSubscribe appSubscribe = new AppSubscribe();
-		model.addAttribute("AppSubscribe", appSubscribe);
-		return "index";
+	public String getLogout() {
+		return "redirect:/index";
 	}
 	
 	@GetMapping(value = "/403")
@@ -90,5 +87,4 @@ public class UserAuthenticationController {
         }
         return "403";
     }
-
 }

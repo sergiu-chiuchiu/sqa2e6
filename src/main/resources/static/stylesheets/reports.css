@@ -1,0 +1,17 @@
+h2 {
+	text-align: center;
+}
+
+#totalcosts {
+	width: 60%;
+}
+
+#toppizzas{
+	width: 30%;
+	align: center;
+}
+
+#ingredientsquantity{
+	width: 40%;
+	align: center;
+}

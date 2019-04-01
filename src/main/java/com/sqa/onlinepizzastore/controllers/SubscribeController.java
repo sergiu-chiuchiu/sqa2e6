@@ -45,7 +45,8 @@ public class SubscribeController {
 		appSubscribe.setEmail(appSubScribe1.getEmail());
 		appSubscribeService.saveAppSubscribe(modelMapper.map(appSubScribe1, AppSubscribe.class));
 		Mail mail = new Mail();
-		mail.Send("sergiu.chiuchiu@gmail.com", "sggd", "dgfgfd");
+		mail.Send(appSubScribe1.getEmail(), "Pizza Mia", "Thank you for subscribing at Pizza Mia!!!");
+
 		
 		return "index";
 	}

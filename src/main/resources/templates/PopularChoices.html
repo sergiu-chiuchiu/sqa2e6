@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -27,6 +28,15 @@
 </head>
 <body background="/images/backgrounddd.jpg"></body>
 <div th:replace="fragments/navbar :: navbar"></div>
+=======
+<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
+		<title>Popular choices</title>
+		<link rel = "stylesheet" href = "/stylesheets/style.css">
+		<link rel = "stylesheet" href = "/stylesheets/popular_choices.css">
+	<body background = "/images/backgrounddd.jpg"></body>
+    <div th:replace = "fragments/navbar :: navbar"></div>
+>>>>>>> 0964f822786f612fde56d75a06d2c9d3d726b148
 <!-- Content -->
 <div class="container">
 	<div class="card-deck mb-3 text-center">
@@ -125,6 +135,7 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 		</br>
 		<div class="container">
 			<div class="card-deck mb-3 text-center">
@@ -264,4 +275,18 @@
 				<script src="/jscripts/index.js"></script>
 				<script src="/ascripts/popular_choices.js"></script>
 				</body>
+=======
+            </div>
+        </div>
+    </div>
+    </div>
+<!-- End content -->
+    <div th:replace="fragments/footer :: footer"></div>
+    
+<div th:replace="fragments/script :: script"></div>
+<!--<script src = "/jscripts/index.js"></script>-->
+<script src = "/jscripts/popular_choices.js"></script>
+
+	</body>
+>>>>>>> 0964f822786f612fde56d75a06d2c9d3d726b148
 </html>
