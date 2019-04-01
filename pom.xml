@@ -76,8 +76,13 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
 		<dependency>
+<<<<<<< HEAD
 		    <groupId>com.sun.mail</groupId>
 		    <artifactId>smtp</artifactId>
+=======
+		    <groupId>javax.mail</groupId>
+		    <artifactId>javax.mail-api</artifactId>
+>>>>>>> refs/heads/branchciprian
 		    <version>1.6.2</version>
 		</dependency>
         

@@ -65,7 +65,7 @@ public class AppCart {
 	public char getActive() {
 		return active;
 	}
-
+	
 	public void setActive(char active) {
 		this.active = active;
 	}
