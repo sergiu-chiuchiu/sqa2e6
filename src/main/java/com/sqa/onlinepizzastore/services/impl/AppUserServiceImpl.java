@@ -1,6 +1,11 @@
 package com.sqa.onlinepizzastore.services.impl;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -69,5 +74,56 @@ public class AppUserServiceImpl implements AppUserService {
 	public void deleteAppUser(AppUser appUserToDelete) {
 		appUserRepository.delete(appUserToDelete);
 	}
+
+	@Override
+	public void createDefaultAdmin() throws ParseException {
+		
+		if (this.getAppUserByEmail("admin@gmail.com") == null) {
+			// Creating Admin role
+			AppRole appRole = new AppRole();
+			appRole.setRoleName("ROLE_ADMIN");
+			// Creating Admin 
+			AppUser appUser = new AppUser();
+			appUser.addAppRole(appRole);
+			appUser.setEmail("admin@gmail.com");
+			appUser.setPassword(EncryptedPasswordUtils.encryptPassword("admin"));
+			appUser.setGender("M");
+			appUser.setUserName("admin");
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			Date d = sdf.parse("04/12/2003");
+			appUser.setBirthDate(d);
+			
+			appUserRepository.save(appUser);
+			System.out.println("Creating admin... ");
+		} else {
+			System.out.println("Admin already exist");
+		}
+	}
 	
+	@Override
+	public void createDefaultOperator() throws ParseException {
+		
+		if (this.getAppUserByEmail("operator@gmail.com") == null) {
+			// Creating Oper role
+			AppRole appRole = new AppRole();
+			appRole.setRoleName("ROLE_OPERATOR");
+			// Creating Oper
+			AppUser appUser = new AppUser();
+			appUser.addAppRole(appRole);
+			appUser.setEmail("operator@gmail.com");
+			appUser.setPassword(EncryptedPasswordUtils.encryptPassword("admin"));
+			appUser.setGender("M");
+			appUser.setUserName("operator");
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			Date d = sdf.parse("22/06/1994");
+			appUser.setBirthDate(d);
+			
+			appUserRepository.save(appUser);
+			System.out.println("Creating operator... ");
+		} else {
+			System.out.println("Operator already exist");
+		}
+	}
 }

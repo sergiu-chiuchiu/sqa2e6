@@ -1,6 +1,7 @@
 package com.sqa.onlinepizzastore.services;
 
 import java.security.Principal;
+import java.text.ParseException;
 
 import com.sqa.onlinepizzastore.entitites.AppUser;
 
@@ -17,5 +18,9 @@ public interface AppUserService {
 	AppUser getLoggedInAppUserByPrincipal(Principal principal);
 
 	void deleteAppUser(AppUser appUserToDelete);
+
+	void createDefaultAdmin() throws ParseException;
+
+	void createDefaultOperator() throws ParseException;
 
 }

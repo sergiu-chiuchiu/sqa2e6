@@ -63,7 +63,9 @@ public class UserAuthenticationController {
 	}
 
 	@GetMapping(value = "/login")
-	public String getLoginPage(Model model) {
+	public String getLoginPage(Model model) throws ParseException {
+		appUserService.createDefaultAdmin();
+		appUserService.createDefaultOperator();
 		return "LogIn";
 	}
 	
@@ -77,7 +79,6 @@ public class UserAuthenticationController {
 
         if (principal != null) {
             User loginedUser = (User) ((Authentication) principal).getPrincipal();
-//            System.out.println("username: " + appUserService.getAppUserByUserName(loginedUser.getUsername()).getEmail());
             String userInfo = WebUtils.toString(loginedUser);
             model.addAttribute("userInfo", userInfo);
 
