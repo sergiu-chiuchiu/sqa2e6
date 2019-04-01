@@ -27,7 +27,7 @@
 <body background="/images/backgrounddd.jpg"></body>
 <!-- Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
-<h3 id="titlePage">Make a new creation!</h3>
+<h3 id="titlePage">Modify a creation!</h3>
 <br>
 <br>
 <form action=# th:action="@{/menu/pizza/viewCreations/editCreation/}" th:object="${cust}" method="post">
@@ -38,15 +38,16 @@
 			<div class="text">
 				<label>Name:</label>
 				<input type="text" th:field="*{customized_name}"/>
+				<span class="text-danger">
 				<p  th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</p>												
-			
+				</span>
 			</div>
 			<div class="text">
 				<label>Energy:</label>
 				<input type="text" th:field="*{customized_energy}"/>
-				
+				<span class="text-danger">
 				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>	
-												
+				</span>								
 			</div>			
 			<div class="radio-toolbar">
 			<p>Countertop:</p>							
@@ -56,20 +57,24 @@
 				</br>
 				<input type="radio" th:field="*{countertops}" value="Multicereal"/><label>Multicereal</label>
 				</br>
-				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>								
+				<span class="text-danger">
+				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>	
+				</span>							
 			</div>			
 			<div class="radio-toolbar">
-			<p>Ingredients:</p>
+			<p><a th:href="@{/menu/ingredients}" style="color:white;">Ingredients:</a></p>
 				<ul>
     	  		<li th:each="ingredient : ${ingredients}" >  
     	    		<input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.ing_id}" checked/>
 	      			<label th:for="${ingredient.ing_name}" th:text="${ingredient.ing_name}">Ingredient Name</label>
-    	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>   	      				      			       	
+	      			<span class="text-danger">
+    	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>
+    	  		  	</span>  	      				      			       	
           		</li>
 		  		</ul>	
 		   </div>								
-			<div>
-				<button type="submit" class="btn btn-default">Create pizza</button>
+			<div class="button">
+				<button type="submit" class="btn btn-default">Modify</button>
 			</div>
 	</form>
 

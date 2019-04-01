@@ -26,7 +26,6 @@
 <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Delete</th>
       <th scope="col">Update</th>
       <th scope="col">Id</th>
       <th scope="col">Name</th>
@@ -42,13 +41,12 @@
       <th scope="col">Proteine(g)</th>
       <th scope="col">Salt(g)</th>
       <th></th>
-      <th><a th:href="@{/menu/ingredients/addIngredient}">Create a new ingredient</a></th>
+      <th><button class="btn btn-default"><a class="buttonLink" th:href="@{/menu/ingredients/addIngredient}" >Create a new</a></button></th>
     </tr>
   </thead>
   <tbody>
   <tr th:each="ingredient : ${ingredients}">
   		<td scope="row"></th>  		
-  		<td><a th:href="@{|/deleteIngredient/${ingredient.ing_id}|}">Delete</a></td>
   		<td><a th:href="@{|/menu/ingredients/editIngredient/${ingredient.ing_id}|}">Update</a></td>
   		<td th:text="${ingredient.ing_id}"></th>
         <td th:text="${ingredient.ing_name}">Title ...</td>

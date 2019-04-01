@@ -33,81 +33,95 @@
 <form action="#" th:action="@{/menu/ingredients/editIngredient}"
 	th:object="${ingredient}" method="post">
 	<div>
-		<input type="hidden" th:field="*{ing_id}" />
+		<input type="hidden" th:field="*{ing_id}"/>
 	</div>
 	<div class = "block">
 		<label>Name: </label>
 		 <input type="text" th:field="*{ing_name}" />
 		 <span class="text-danger">
-		 <td th:bgcolor="white" th:if="${#fields.hasErrors('ing_name')}" th:errors="*{ing_name}">.....</td>
+		 <td th:if="${#fields.hasErrors('ing_name')}" th:errors="*{ing_name}">.....</td>
+		 </span>
 	</div>
 	<div class = "block">
 		<label>Type:</label> 
 		<input type="text" th:field="*{ing_type}" />
 		<span class="text-danger">
-		<td class="text-danger" th:if="${#fields.hasErrors('ing_type')}" th:errors="*{ing_type}">.....</td>
-		</span>	
+		<td th:if="${#fields.hasErrors('ing_type')}" th:errors="*{ing_type}">.....</td>
+		</span>
 	</div>
 	<div class = "block">
 		<label>Allergen:</label>
 		 <input type="text" th:field="*{ing_allergen}" />
-		<td th:if="${#fields.hasErrors('ing_allergen')}"
-			th:errors="*{ing_allergen}">.....</td>
+		 <span class="text-danger">
+		<td th:if="${#fields.hasErrors('ing_allergen')}" th:errors="*{ing_allergen}">.....</td>
+		</span>
 	</div>
 	<div class = "block">
 		<label>Quantity:</label> 
 		<input type="text" th:field="*{ing_quantity}" />
-		<td th:if="${#fields.hasErrors('ing_quantity')}"
-			th:errors="*{ing_quantity}">.....</td>
+		<span class="text-danger">
+		<td th:if="${#fields.hasErrors('ing_quantity')}" th:errors="*{ing_quantity}">.....</td>
+		</span>
 	</div>
 	<div class = "block">
 		<label>Price:</label>
 		 <input type="text" th:field="*{ing_price}" />
+		 <span class="text-danger">
 		<td th:if="${#fields.hasErrors('ing_price')}" th:errors="*{ing_price}">.....</td>
+		</span>
 	</div>
 	<div class = "block">
 		<label>Weight:</label> 
 		<input type="text" th:field="*{ing_weight}" />
-		<td th:if="${#fields.hasErrors('ing_weight')}"
-			th:errors="*{ing_weight}">.....</td>
+		<span class="text-danger">
+		<td th:if="${#fields.hasErrors('ing_weight')}" th:errors="*{ing_weight}">.....</td>
+		</span>
 	</div>
 	<div class ="block">
 		<label>Energy:</label>
 		 <input type="text" th:field="*{energy}" />
+		 <span class="text-danger">
 		<td th:if="${#fields.hasErrors('energy')}" th:errors="*{energy}">.....</td>
+		</span>
 	</div>
 	<div class = "block">
 		<label>Fat:</label> 
 		<input type="text" th:field="*{fat}" />
+		<span class="text-danger">
 		<td th:if="${#fields.hasErrors('fat')}" th:errors="*{fat}">.....</td>
+		</span>
 	</div>
 	<div class = "block">
 		<label>Carbohydrate:</label> 
-		<input type="text"
-			th:field="*{carbohydrate}" />
-		<td th:if="${#fields.hasErrors('carbohydrate')}"
-			th:errors="*{carbohydrate}">.....</td>
+		<input type="text" th:field="*{carbohydrate}" />
+		<span class="text-danger">
+		<td th:if="${#fields.hasErrors('carbohydrate')}" th:errors="*{carbohydrate}">.....</td>
+		</span>
 	</div>
 	<div class ="block">
 		<label>Fibres:</label>
 		 <input type="text" th:field="*{fibres}" />
+		 <span class="text-danger">
 		<td th:if="${#fields.hasErrors('fibres')}" th:errors="*{fibres}">.....</td>
-
+		</span>
 	</div>
 	<div class = "block">
 		<label>Proteine:</label> 
 		<input type="text" th:field="*{proteine}" />
+		<span class="text-danger">
 		<td th:if="${#fields.hasErrors('proteine')}" th:errors="*{proteine}">.....</td>
-
+		</span>
 	</div>
 	<div class = "block">
 		<label>Salt:</label> 
 		<input type="text" th:field="*{salt}" />
+		<span class="text-danger">
 		<td th:if="${#fields.hasErrors('salt')}" th:errors="*{salt}">.....</td>
-
+		</span>
 	</div>
-	<div>
-		<button type="submit">Save ingredient</button>
+	<div class="button">
+		<button class="btn btn-default" type="submit">Save ingredient</button>
+		<button class="btn btn-default"><a th:href="@{/menu/ingredients}" style="color:black;">View ingredients</a></button>
 	</div>
 </form>
 

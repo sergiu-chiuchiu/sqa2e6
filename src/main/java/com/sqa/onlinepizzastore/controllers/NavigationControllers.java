@@ -40,10 +40,10 @@ public class NavigationControllers {
 		return "Menu";
 	}
 	
-	@GetMapping(value = "/menu/pizza")
-	public String getPizzaPage(Model model) {
-		return "Pizza";
-	}
+//	@GetMapping(value = "/menu/pizza")
+//	public String getPizzaPage(Model model) {
+//		return "Pizza";
+//	}
 	
 //	@GetMapping(value = "/menu/ingredients")
 //	public String getIngredientsPage(Model model) {

@@ -85,10 +85,10 @@ public class IngredientController {
 	
 	@RequestMapping(value="/menu/ingredients/addIngredient", method=RequestMethod.POST)
 	public String addNewIngredient(@Valid @ModelAttribute("i") Ingredient i, BindingResult bindingResult, Model model) {		
-//		if (bindingResult.hasErrors()) {
-//			System.out.println("BINDING RESULT ERROR");
-//			return "addIngredient";
-//		}
+		if (bindingResult.hasErrors()) {
+			System.out.println("BINDING RESULT ERROR");
+			return "addIngredient";
+		}
 		model.addAttribute("Ing_id", i.getIng_id());
 		model.addAttribute("Ing_name", i.getIng_name());
 		model.addAttribute("Ing_type", i.getIng_type());

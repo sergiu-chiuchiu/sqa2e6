@@ -61,7 +61,7 @@
 				</span>								
 			</div>			
 			<div class="radio-toolbar">
-			<p>Ingredients:</p>
+			<p><a th:href="@{/menu/ingredients}" style="color:white;">Ingredients:</a></p>
 				<ul>
     	  		<li th:each="ingredient : ${ingredients}" >  
     	    		<input type="checkbox" name="ingredients" th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}"/>
@@ -74,9 +74,9 @@
 		   </div>								
 			<div class="button">
 				<button type="submit" class="btn btn-default">Create pizza</button>
+				<button class="btn btn-default"><a th:href="@{/menu/pizza/viewCreations}" style="color:black;">View Creations</a></button>
 			</div>
 	</form>
-
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
 <!-- Footer -->
