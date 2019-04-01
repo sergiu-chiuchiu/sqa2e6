@@ -62,6 +62,7 @@
 			</ul>
 			<a th:if="${#request.userPrincipal != null}" th:href="@{/user}"><i class="far fa-user fa-3x mx-3"></i></a>
 			<a th:if="${#request.userPrincipal == null}" class="btn btn-lg btn-primary mybtn" href="LogIn.html" th:href="@{/auth/login}">Log in</a>
+			<a th:if="${#request.userPrincipal == null}" class="btn btn-lg btn-primary mybtn mx-2" href="LogIn.html" th:href="@{/auth/signup}">Sign up</a>
 			<a class="mx-3" th:if="${#request.userPrincipal != null}" th:href="@{/auth/logout}">Logout</a>
 		</div>
 	</nav>
