@@ -15,14 +15,16 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="/stylesheets/help.css">
-<link rel="stylesheet" href="/stylesheets/text.css">
+<link itemprop="url" rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display"
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
+<link rel="stylesheet" href="/stylesheets/help.css">
+<link rel="stylesheet" href="/stylesheets/text.css">
 <body background="/images/background-4.jpg"></body>
 <div th:replace="fragments/navbar :: navbar"></div>
 <div id="content-page" class="span12 content group">
@@ -56,8 +58,8 @@
 				<label for="password">Password</label> <input type="password"
 					class="form-control" id="password" placeholder="Password">
 			</div>
-			<label class="my-1 mr-2" for="inlineFormCustomSelectPref"> Problems </label> 
-				<select class="custom-select my-1 mr-sm-2"
+			<label class="my-1 mr-2" for="inlineFormCustomSelectPref">
+				Problems </label> <select class="custom-select my-1 mr-sm-2"
 				id="inlineFormCustomSelectPref">
 				<option selected>Choose...</option>
 				<option value="1">Delivery</option>
@@ -65,12 +67,14 @@
 				<option value="3">Promotions</option>
 			</select>
 			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Describe your problem</label>
+				<label for="exampleFormControlTextarea1">Describe your
+					problem</label>
 				<textarea class="form-control" id="exampleFormControlTextarea1"
 					rows="3"></textarea>
 			</div>
-			</div>
-			<button type="submit" class="btn btn-primary" th:onclick="checkpass()" value="validate">Sent</button>
+		</div>
+		<button type="submit" class="btn btn-primary" th:onclick="checkpass()"
+			value="validate">Sent</button>
 	</fieldset>
 </form>
 <!-- Footer -->
@@ -78,11 +82,16 @@
 <!-- Footer -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
-<script src="/jscripts/index.js"></script>
-<script src="jscripts/form.js"></script>
-<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
+	<script src="/jscripts/index.js"></script>
 </body>
 </html>

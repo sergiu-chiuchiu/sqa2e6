@@ -1,320 +1,393 @@
 <!DOCTYPE html>
-	<html xmlns:th="http://www.thymeleaf.org">
-	  <head>
-		<meta charset = "utf-8">
-		<meta name = "viewport" content = "width = device-width, initial scale = 1.0">
-		<meta name = "description" content = "Pizza Mia WebSite">
-		<meta name = "author" content = "Frontend team">
-		<title>Pizza</title>
-		<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel = "stylesheet" href = "/stylesheets/style.css">
-        <link rel = "stylesheet" href = "/stylesheets/pizza.css">
-		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	  </head>
-        <body background ="/images/backgrounddd.jpg"></body>
-      <div th:replace = "fragments/navbar :: navbar"></div>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width = device-width, initial scale = 1.0">
+<meta name="description" content="Pizza Mia WebSite">
+<meta name="author" content="Frontend team">
+<title>Pizza</title>
+<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link itemprop="url" rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/pizza.css">
+</head>
+<body background="/images/backgrounddd.jpg"></body>
+<div th:replace="fragments/navbar :: navbar"></div>
 <!-- Inceput Main -->
-    <div class="container" id="principal">
-<!--Start Carusel-->
-<div id="content-page" class="span12 content group">
-        <div id="post-terms2" class="group post-terms page type-page status-publish hentry">
-          <div class="row justify-content-center">
-            <img id = "pizza-banner" src = "/images/img_menu.jpg"/>
-          </div>
-        </div>
-    </div>
-<!--Sfarsit carusel-->
-    <br/>
+<div class="container" id="principal">
+	<!--Start Carusel-->
+	<div id="content-page" class="span12 content group">
+		<div id="post-terms2"
+			class="group post-terms page type-page status-publish hentry">
+			<div class="row justify-content-center">
+				<img id="pizza-banner" src="/images/img_menu.jpg" />
+			</div>
+		</div>
+	</div>
+	<!--Sfarsit carusel-->
+	<br />
 </div>
 <!-- Tipuri pizza -->
 <div class="container">
-    <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Cappricio Pizza</h4>
-            </div>
-        <img id = "pizza" src = "/images/pizza_cappricio.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 20 LEI <small class="text-muted">/ pizza</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>tomato sauce</li>
-                <li>mozzarella</li>
-                <li>ham Prague</li>
-                <li>bell peper</li>
-                <li>corn</li>
-                <li>mushrooms</li>
-            </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
-        </div>
-    </div>
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Quatro Stagione Pizza</h4>
-            </div>
-            <img id = "pizza" src = "/images/pizza_quatro_stagione.jpg">
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 23 LEI <small class="text-muted">/ pizza</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>tomato sauce</li>
-                <li>mozzarella</li>
-                <li>ham Prague</li>
-                <li>artichokes</li>
-                 <li>salami</li>
-                <li>mushrooms</li>
-              </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Hawai Pizza</h4>
-        </div>
-        <img id = "pizza" src = "/images/pizza_hawai.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 28 LEI <small class="text-muted">/ pizza</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>tomato sauce</li>
-                <li>mozzarella</li>
-                <li>ham Prague</li>
-                <li>pineapple</li>
-            </br>
-            </br>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-    </div>
+	<div class="card-deck mb-3 text-center">
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Cappricio Pizza</h4>
+			</div>
+			<img id="pizza" src="/images/pizza_cappricio.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					20 LEI <small class="text-muted">/ pizza</small>
+				</h1>
+				<ul class="list-unstyled mt-3 mb-4">
+					<li>tomato sauce</li>
+					<li>mozzarella</li>
+					<li>ham Prague</li>
+					<li>bell peper</li>
+					<li>corn</li>
+					<li>mushrooms</li>
+				</ul>
+				<button type="button"
+					class="btn btn-lg btn-block btn-outline-primary">Add to
+					cart</button>
+			</div>
+		</div>
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Quatro Stagione Pizza</h4>
+			</div>
+			<img id="pizza" src="/images/pizza_quatro_stagione.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					23 LEI <small class="text-muted">/ pizza</small>
+				</h1>
+				<ul class="list-unstyled mt-3 mb-4">
+					<li>tomato sauce</li>
+					<li>mozzarella</li>
+					<li>ham Prague</li>
+					<li>artichokes</li>
+					<li>salami</li>
+					<li>mushrooms</li>
+				</ul>
+				<button type="button" class="btn btn-lg btn-block btn-primary">Add
+					to cart</button>
+			</div>
+		</div>
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Hawai Pizza</h4>
+			</div>
+			<img id="pizza" src="/images/pizza_hawai.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					28 LEI <small class="text-muted">/ pizza</small>
+				</h1>
+				<ul class="list-unstyled mt-3 mb-4">
+					<li>tomato sauce</li>
+					<li>mozzarella</li>
+					<li>ham Prague</li>
+					<li>pineapple</li>
+					</br>
+					</br>
+				</ul>
+				<button type="button" class="btn btn-lg btn-block btn-primary">Add
+					to cart</button>
+			</div>
+		</div>
+	</div>
 </div>
 </br>
 <div class="container">
-    <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Vegeratian Pizza</h4>
-            </div>
-        <img id = "pizza" src = "/images/pizza_vegetariana.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 17 LEI <small class="text-muted">/ pizza</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>tomato sauce</li>
-                <li>mozzarella or starch cheese</li>
-                <li>olives</li>
-                <li>sweet pepers</li>
-                <li>corn</li>
-                <li>mushrooms</li>
-                <li>tomatoes</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Diavolo Pizza</h4>
-        </div>
-        <img id = "pizza" src = "/images/pizza_diavolo.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 21 LEI <small class="text-muted">/ pizza</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>tomato sauce</li>
-                <li>mozzarella</li>
-                <li>country ham</li>
-                <li>cilli</li>
-                <li>tomatoes</li>
-                <li>olive</li>
-                </br>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Napoli Pizza</h4>
-        </div>
-        <img id = "pizza" src = "/images/pizza_napoli.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 25 LEI <small class="text-muted">/ pizza</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>tomato sauce</li>
-                <li>mozzarella</li>
-                <li>dried salami Napoli</li>
-                <li>green peper</li>
-                <li>mushrooms</li>
-                <li>parmesan</li>
-                </br>
-            </ul>
-         <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-</div>
-</br>
-<div class="container">
-    <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Pizza Roma</h4>
-            </div>
-    <img id = "pizza" src = "/images/pizza_roma.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 22 LEI <small class="text-muted">/ pizza</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>cherry tomatoes</li>
-                    <li>mozzarella</li>
-                    <li>mini mozzarella</li>
-                    <li>green basil</li>
-                    <li>tomato <source></li>
-                    </br>
-                    </br>
-                </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Pizza Picanty</h4>
-        </div>
-        <img id = "pizza" src = "/images/pizza_picanty.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 26 LEI <small class="text-muted">/ pizza</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>tomato sauce</li>
-                    <li>mozzarella</li>
-                    <li>dry spicy salami</li>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
-                </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Pizza Salami</h4>
-        </div>
-        <img id = "pizza" src = "/images/pizza_salami.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 24 LEI <small class="text-muted">/ pizza</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>tomato sauce</li>
-                <li>mozzarella</li>
-                <li>salami Napoli with green peper</li>
-                <li>pepperoni</li>
-                <li>mushrooms</li>
-                <li>tomatoes</li>
-                <li>rucola</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-</div>
-</br>
-<div class="container">
-    <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Margherita Pizza</h4>
-            </div>
-            <img id = "pizza" src = "/images/pizza_margherita.jpg">
-            <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 14 LEI <small class="text-muted">/ pizza</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>tomato souce</li>
-                <li>mozzarella</li>
-                </br>
-                </br>
-                </br>
-                </br>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Tonno Pizza</h4>
-        </div>
-        <img id = "pizza" src = "/images/pizza_tonno.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 26 LEI <small class="text-muted">/ pizza</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>tomato sauce</li>
-                    <li>mozzarella</li>
-                    <li>tuna</li>
-                    <li>tomatoes</li>
-                    <li>onion</li>
-                    </br>
-                </ul>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Salmone Pizza</h4>
-        </div>
-        <img id = "pizza" src = "/images/pizza_salmone.jpg">
-        <div class="card-body">
-            <h1 class="card-title pricing-card-title"> 31 LEI <small class="text-muted">/ pizza</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>tomatoes</li>
-                    <li>mozzarella</li>
-                    <li>smoked salmon</li>
-                    <li>onion</li>
-                    <li>parsley</li>
-                    <li>oregano</li>
-                </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-    </div>
-</div>
-</br>
-<div class="container">
-    <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Quatro Formaggi Pizza</h4>
-            </div>
-            <img id = "pizza" src = "/images/pizza_quatro_formaggi.jpg">
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title"> 27 LEI <small class="text-muted">/ pizza</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>tomato souce</li>
-                        <li>mozzarella</li>
-                        <li>gorgonzola</li>
-                        <li>parmesan</li>
-                        <li>cheese <source></li>
-                    </ul>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-            </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Customize your pizza</h4>
-            </div>
-            <img id = "pizza" src = "/images/contact_background.jpg">
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title"> up to 10 LEI <small class="text-muted">/ pizza</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li> tomato souce</li>
-                        <li>mozzarella</li>
-                        </br>
-                        </br>
-                        </br>
-                        </ul>
-                        <a class="btn btn-lg btn-block btn-primary" href="CustomizePizza.html" th:href=@{/menu/pizza/customizepizza}>Choose the rest of the ingredients</a>
-            </div>
-        </div>
-    </div>
-    </div>
-<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src = "/jscripts/form.js"></script>
-<script scr = "/jscripts/index.js"></script>
-<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
-	</body>
+	<div class="card-deck mb-3 text-center">
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Vegeratian Pizza</h4>
+			</div>
+			<img id="pizza" src="/images/pizza_vegetariana.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					17 LEI <small class="text-muted">/ pizza</small>
+				</h1>
+				<ul class="list-unstyled mt-3 mb-4">
+					<li>tomato sauce</li>
+					<li>mozzarella or starch cheese</li>
+					<li>olives</li>
+					<li>sweet pepers</li>
+					<li>corn</li>
+					<li>mushrooms</li>
+					<li>tomatoes</li>
+				</ul>
+				<button type="button" class="btn btn-lg btn-block btn-primary">Add
+					to cart</button>
+			</div>
+		</div>
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Diavolo Pizza</h4>
+			</div>
+			<img id="pizza" src="/images/pizza_diavolo.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					21 LEI <small class="text-muted">/ pizza</small>
+				</h1>
+				<ul class="list-unstyled mt-3 mb-4">
+					<li>tomato sauce</li>
+					<li>mozzarella</li>
+					<li>country ham</li>
+					<li>cilli</li>
+					<li>tomatoes</li>
+					<li>olive</li>
+					</br>
+				</ul>
+				<button type="button" class="btn btn-lg btn-block btn-primary">Add
+					to cart</button>
+			</div>
+		</div>
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Napoli Pizza</h4>
+			</div>
+			<img id="pizza" src="/images/pizza_napoli.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					25 LEI <small class="text-muted">/ pizza</small>
+				</h1>
+				<ul class="list-unstyled mt-3 mb-4">
+					<li>tomato sauce</li>
+					<li>mozzarella</li>
+					<li>dried salami Napoli</li>
+					<li>green peper</li>
+					<li>mushrooms</li>
+					<li>parmesan</li>
+					</br>
+				</ul>
+				<button type="button" class="btn btn-lg btn-block btn-primary">Add
+					to cart</button>
+			</div>
+		</div>
+	</div>
+	</br>
+	<div class="container">
+		<div class="card-deck mb-3 text-center">
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Pizza Roma</h4>
+				</div>
+				<img id="pizza" src="/images/pizza_roma.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						22 LEI <small class="text-muted">/ pizza</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>cherry tomatoes</li>
+						<li>mozzarella</li>
+						<li>mini mozzarella</li>
+						<li>green basil</li>
+						<li>tomato
+							<source>
+						</li>
+						</br>
+						</br>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Pizza Picanty</h4>
+				</div>
+				<img id="pizza" src="/images/pizza_picanty.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						26 LEI <small class="text-muted">/ pizza</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>tomato sauce</li>
+						<li>mozzarella</li>
+						<li>dry spicy salami</li>
+						</br>
+						</br>
+						</br>
+						</br>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Pizza Salami</h4>
+				</div>
+				<img id="pizza" src="/images/pizza_salami.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						24 LEI <small class="text-muted">/ pizza</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>tomato sauce</li>
+						<li>mozzarella</li>
+						<li>salami Napoli with green peper</li>
+						<li>pepperoni</li>
+						<li>mushrooms</li>
+						<li>tomatoes</li>
+						<li>rucola</li>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+		</div>
+		</br>
+		<div class="container">
+			<div class="card-deck mb-3 text-center">
+				<div class="card mb-4 box-shadow">
+					<div class="card-header">
+						<h4 class="my-0 font-weight-normal">Margherita Pizza</h4>
+					</div>
+					<img id="pizza" src="/images/pizza_margherita.jpg">
+					<div class="card-body">
+						<h1 class="card-title pricing-card-title">
+							14 LEI <small class="text-muted">/ pizza</small>
+						</h1>
+						<ul class="list-unstyled mt-3 mb-4">
+							<li>tomato souce</li>
+							<li>mozzarella</li>
+							</br>
+							</br>
+							</br>
+							</br>
+						</ul>
+						<button type="button" class="btn btn-lg btn-block btn-primary">Add
+							to cart</button>
+					</div>
+				</div>
+				<div class="card mb-4 box-shadow">
+					<div class="card-header">
+						<h4 class="my-0 font-weight-normal">Tonno Pizza</h4>
+					</div>
+					<img id="pizza" src="/images/pizza_tonno.jpg">
+					<div class="card-body">
+						<h1 class="card-title pricing-card-title">
+							26 LEI <small class="text-muted">/ pizza</small>
+						</h1>
+						<ul class="list-unstyled mt-3 mb-4">
+							<li>tomato sauce</li>
+							<li>mozzarella</li>
+							<li>tuna</li>
+							<li>tomatoes</li>
+							<li>onion</li>
+							</br>
+						</ul>
+						<button type="button" class="btn btn-lg btn-block btn-primary">Add
+							to cart</button>
+					</div>
+				</div>
+				<div class="card mb-4 box-shadow">
+					<div class="card-header">
+						<h4 class="my-0 font-weight-normal">Salmone Pizza</h4>
+					</div>
+					<img id="pizza" src="/images/pizza_salmone.jpg">
+					<div class="card-body">
+						<h1 class="card-title pricing-card-title">
+							31 LEI <small class="text-muted">/ pizza</small>
+						</h1>
+						<ul class="list-unstyled mt-3 mb-4">
+							<li>tomatoes</li>
+							<li>mozzarella</li>
+							<li>smoked salmon</li>
+							<li>onion</li>
+							<li>parsley</li>
+							<li>oregano</li>
+						</ul>
+						<button type="button" class="btn btn-lg btn-block btn-primary">Add
+							to cart</button>
+					</div>
+				</div>
+			</div>
+			</br>
+			<div class="container">
+				<div class="card-deck mb-3 text-center">
+					<div class="card mb-4 box-shadow">
+						<div class="card-header">
+							<h4 class="my-0 font-weight-normal">Quatro Formaggi Pizza</h4>
+						</div>
+						<img id="pizza" src="/images/pizza_quatro_formaggi.jpg">
+						<div class="card-body">
+							<h1 class="card-title pricing-card-title">
+								27 LEI <small class="text-muted">/ pizza</small>
+							</h1>
+							<ul class="list-unstyled mt-3 mb-4">
+								<li>tomato souce</li>
+								<li>mozzarella</li>
+								<li>gorgonzola</li>
+								<li>parmesan</li>
+								<li>cheese
+									<source>
+								</li>
+							</ul>
+							<button type="button" class="btn btn-lg btn-block btn-primary">Add
+								to cart</button>
+						</div>
+					</div>
+					<div class="card mb-4 box-shadow">
+						<div class="card-header">
+							<h4 class="my-0 font-weight-normal">Customize your pizza</h4>
+						</div>
+						<img id="pizza" src="/images/contact_background.jpg">
+						<div class="card-body">
+							<h1 class="card-title pricing-card-title">
+								up to 10 LEI <small class="text-muted">/ pizza</small>
+							</h1>
+							<ul class="list-unstyled mt-3 mb-4">
+								<li>tomato souce</li>
+								<li>mozzarella</li>
+								</br>
+								</br>
+								</br>
+							</ul>
+							<a class="btn btn-lg btn-block btn-primary"
+								href="CustomizePizza.html" th:href=@{/menu/pizza/customizepizza}>Choose
+								the rest of the ingredients</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer -->
+			<div th:replace="fragments/footer :: footer"></div>
+			<!-- Footer -->
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+				integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+				crossorigin="anonymous"></script>
+			<script
+				src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
+			<script
+				src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
+			<script
+				src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+				integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+				crossorigin="anonymous"></script>
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+				integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+				crossorigin="anonymous"></script>
+			<script src="/jscripts/form.js"></script>
+			<script scr="/jscripts/index.js"></script>
+			</body>
 </html>
