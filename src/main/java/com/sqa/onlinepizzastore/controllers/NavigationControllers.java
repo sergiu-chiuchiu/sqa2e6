@@ -121,5 +121,13 @@ public class NavigationControllers {
 		return "ResetPassword";
 	}
 	
-
+	@GetMapping(value = "/reports")
+	public String getReportsPage(Model model) {
+		return "reports";
+	}
+	
+	@GetMapping(value = "/viewusers")
+	public String getViewUsersPage(Model model) {
+		return "ViewUsers";
+	}
 }

@@ -1,0 +1,135 @@
+<link rel="icon" href="images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
+		<title>Reports</title>
+<link rel = "stylesheet" href = "/stylesheets/style.css">
+<link rel = "stylesheet" href = "/stylesheets/reports.css">
+
+<body background = "/images/background-4.jpg"></body>
+<div th:replace = "fragments/navbar :: navbar"></div>
+<br>
+<br>
+<div class="container">
+  <h2>Total costs and revenue per month</h2> 
+  <br>           
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Months</th>
+        <th>Total costs (lei)</th>
+        <th>Total revenue (lei)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>January</b></td>
+        <td>20000</td>
+        <td>60000</td>
+      </tr>
+      <tr>
+        <td><b>February</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>March</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>April</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>May</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>June</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>July</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>August</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>September</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>October</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>November</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>December</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<div class="container" id="toppizzas">
+  <h2>Top most ordered pizzas</h2> 
+  <br>           
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Pizza Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Quattro Stagioni pizza</td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+<br>
+<br>
+<div class="container" id="ingredientsquantity">
+  <h2>Total quantity per ingredients</h2> 
+  <br>           
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th><b>Ingredient</b></th>
+        <th><b>Total quantity</b></th>
+        <th><b>Unit of measure</b></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salami</td>
+        <td>4</td>
+        <td>piece(s)</td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+<br>
+
+ 	
+<!-- Footer -->
+<div th:replace="fragments/footer :: footer"></div>
+		<!-- Footer -->
+<script src = "/jscripts/index.js"></script>
+	<div th:replace="fragments/script :: script"></div>	
+	</body>
+</html>
