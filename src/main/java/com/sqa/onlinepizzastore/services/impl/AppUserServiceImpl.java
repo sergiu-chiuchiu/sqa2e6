@@ -88,7 +88,7 @@ public class AppUserServiceImpl implements AppUserService {
 			appUser.setEmail("admin@gmail.com");
 			appUser.setPassword(EncryptedPasswordUtils.encryptPassword("admin"));
 			appUser.setGender("M");
-			appUser.setUserName("admin");
+			appUser.setUserName("Admin");
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date d = sdf.parse("04/12/2003");
@@ -114,7 +114,7 @@ public class AppUserServiceImpl implements AppUserService {
 			appUser.setEmail("operator@gmail.com");
 			appUser.setPassword(EncryptedPasswordUtils.encryptPassword("admin"));
 			appUser.setGender("M");
-			appUser.setUserName("operator");
+			appUser.setUserName("Operator");
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date d = sdf.parse("22/06/1994");
