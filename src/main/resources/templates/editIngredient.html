@@ -38,6 +38,7 @@
 	<div class = "block">
 		<label>Name: </label>
 		 <input type="text" th:field="*{ing_name}" />
+		 <span class="text-danger">
 		 <td th:bgcolor="white" th:if="${#fields.hasErrors('ing_name')}" th:errors="*{ing_name}">.....</td>
 	</div>
 	<div class = "block">

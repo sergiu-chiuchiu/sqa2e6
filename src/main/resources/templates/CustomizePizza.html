@@ -32,41 +32,47 @@
 <br>
 <form action=# th:action="@{/menu/pizza/customizepizza}" th:object="${cust}" method="post" autocomplete="off">
 			<div>
-				<input type="hidden" th:field="*{customized_id}"/>
-									
+				<input type="hidden" th:field="*{customized_id}"/>								
 			</div>
 			<div class="text">
 				<label>Name:</label>
 				<input type="text" th:field="*{customized_name}"/>
-				<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>												
+				<span class="text-danger">
+				<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>	
+				</span>											
 			</div>
 			<div class="text">
 				<label>Energy:</label>
 				<input type="text" th:field="*{customized_energy}"/>
-				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>										
+				<span class="text-danger">
+				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>
+				</span>										
 			</div>			
 			<div class="radio-toolbar">
-			<p>Countertop:</p>							
+			<p>Countertop:</p>									
 				<input type="radio" th:field="*{countertops}" value="Italian"/><label>Italian</label>
 				</br>
 				<input type="radio" th:field="*{countertops}" value="Fluffy"/><label>Fluffy</label>
 				</br>
 				<input type="radio" th:field="*{countertops}" value="Multicereal"/><label>Multicereal</label>
 				</br>	
-				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>							
+				<span class="text-danger">
+				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>
+				</span>								
 			</div>			
 			<div class="radio-toolbar">
 			<p>Ingredients:</p>
 				<ul>
     	  		<li th:each="ingredient : ${ingredients}" >  
-    	    		<input type="checkbox" name="ingredients" th:field="*{ingredients}" th:value="${ingredient.ing_id}"/>
+    	    		<input type="checkbox" name="ingredients" th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}"/>
 	      			<label th:for="${ingredient.ing_name}" th:text="${ingredient.ing_name}">Ingredient Name</label>
-    	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>   
-    	  		  	     				      			       	
+	      			<span class="text-danger">
+    	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>
+    	  		  	</span>      	  		  	     				      			       	
           		</li>
 		  		</ul>	
 		   </div>								
-			<div>
+			<div class="button">
 				<button type="submit" class="btn btn-default">Create pizza</button>
 			</div>
 	</form>

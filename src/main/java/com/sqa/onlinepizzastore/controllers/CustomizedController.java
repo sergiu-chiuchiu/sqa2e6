@@ -63,9 +63,7 @@ public class CustomizedController {
 				System.out.println("BINDING RESULT ERROR");
 				return "CustomizePizza";
 			}
-			
-			
-			
+		
 			model.addAttribute("customized_id", cust.getCustomized_id());
 			model.addAttribute("customized_energy", cust.getCustomized_energy());
 			model.addAttribute("ingredients", cust.getIngredients());

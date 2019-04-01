@@ -43,7 +43,9 @@ public class Customized {
 	, joinColumns = {@JoinColumn(referencedColumnName = "customized_id")}
 	, inverseJoinColumns = {@JoinColumn(referencedColumnName="ing_id")})
     @JsonManagedReference
+    @NotNull
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();
+	
 	
 	public Integer getCustomized_id() {
 		return customized_id;

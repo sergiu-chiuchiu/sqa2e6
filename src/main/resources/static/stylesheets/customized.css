@@ -40,11 +40,23 @@ p{
 .radio-toolbar input[type="checkbox"] {
     text-align: right;
     color:white;
-
 }
 
 .radio-toolbar input[type="radio"]:checked+label {
   font-weight: bold;
+}
+
+.radio-toolbar input[type="checkbox"]:checked+label {
+  font-weight: bold;
+}
+.radio-toolbar span{
+	margin-left:170px;
+}
+
+.button button{
+	margin-bottom:5px;
+	margin-left:145px;
+	 font-weight: bold;
 }
 .hide{
   display:none;  

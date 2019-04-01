@@ -29,9 +29,9 @@
       <th scope="col">Update</th>
       <th scope="col">Id</th>
       <th scope="col">Name</th>
-      <th scope="col">Energy</th>
+      <th scope="col">Energy(kcal)</th>
       <th scope="col">Countertop</th>
-      <th scope="col">Ingredients</th>
+      <th scope="col">Ingredients</th>      
       <th></th>
       <th><a th:href="@{/menu/pizza/customizepizza}">Create a new ingredient</a></th>
     </tr>
@@ -49,12 +49,8 @@
         	<ul th:each="ingredient : ${customized.ingredients}">
         		<li th:text="${ingredient.ing_name}"></li>
         	</ul>
-        </td> 
-        <td>
-        <ul>
-        <li th:each="ingredient : ${ingredients}" th:field="*{ingredients}" th:text="${ingredient.ing_name}">1</li>
-        </td>       
-        </ul> 
+        </td>
+        <td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Delete</a></td> 
         </tr>
    </tbody>
 </table>
