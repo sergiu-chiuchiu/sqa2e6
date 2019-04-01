@@ -1,13 +1,10 @@
-
 <link rel="icon" href="images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
-		<title>Dips</title>
-    <link rel = "stylesheet" href = "/stylesheets/style.css">
-    <link rel = "stylesheet" href = "/stylesheets/dips.css">
-		
-	      <body background ="/images/backgrounddd.jpg"></body>
-<div th:replace = "fragments/navbar :: navbar"></div>
-
+<title>Dips</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/dips.css">
+<body background="/images/backgrounddd.jpg"></body>
+<div th:replace="fragments/navbar :: navbar"></div>
 <!-- Inceput Main -->
 <div class="container" id="principal">
 	<!--Start Carusel-->
@@ -20,8 +17,7 @@
 		</div>
 	</div>
 	<!--Sfarsit carusel-->
-	<br />
-	<br />
+	<br /> <br />
 </div>
 <!-- Tipuri sosuri -->
 <div class="container">
@@ -70,12 +66,7 @@
 </div>
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
-</footer>
-
-<script src = "/jscripts/form.js"></script>
 <div th:replace="fragments/script :: script"></div>
-<!---<script scr = "/jscripts/index.js"></script> -->
-	</body>
-
+<script src="/jscripts/form.js"></script>
+</body>
 </html>
