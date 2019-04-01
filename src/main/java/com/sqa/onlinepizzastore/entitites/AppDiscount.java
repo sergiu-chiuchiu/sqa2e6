@@ -71,7 +71,5 @@ public class AppDiscount {
 	public void setAppOrder(AppOrder appOrder) {
 		this.appOrder = appOrder;
 	}
-	
-	
-	
+
 }

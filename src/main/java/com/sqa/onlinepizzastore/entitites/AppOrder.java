@@ -46,6 +46,37 @@ public class AppOrder {
     @JoinColumn(name = "prom_id")  
 	private AppPromotion appPromotion;
 	
+	public AppShipping getAppShipping() {
+		return appShipping;
+	}
+
+	public void setAppShipping(AppShipping appShipping) {
+		this.appShipping = appShipping;
+	}
+
+	public AppReceipt getAppReceipt() {
+		return appReceipt;
+	}
+
+	public void setAppReceipt(AppReceipt appReceipt) {
+		this.appReceipt = appReceipt;
+	}
+
+	public AppDiscount getAppDiscount() {
+		return appDiscount;
+	}
+
+	public void setAppDiscount(AppDiscount appDiscount) {
+		this.appDiscount = appDiscount;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "receipt_id")
+	private AppReceipt appReceipt;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "shipping_id")
+	private AppShipping appShipping;
 	
 	@OneToOne(mappedBy = "appOrder", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)

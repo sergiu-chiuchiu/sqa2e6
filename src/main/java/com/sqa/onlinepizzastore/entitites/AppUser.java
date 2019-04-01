@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -63,6 +64,24 @@ public class AppUser {
     @JsonManagedReference
 	private Set<AppRole> appRoles = new HashSet<AppRole>();
 	
+	@OneToMany(mappedBy="appUser")
+	private Set<AppAddress> appAddresses  = new HashSet<AppAddress>();
+	
+	@OneToMany(mappedBy="appUser")
+	private Set<AppPayment> appPayments  = new HashSet<AppPayment>();
+	
+	public Set<AppPayment> getAppPayments() {
+		return appPayments;
+	}
+	public void setAppPayments(Set<AppPayment> appPayments) {
+		this.appPayments = appPayments;
+	}
+	public Set<AppAddress> getAppAddresses() {
+		return appAddresses;
+	}
+	public void setAppAddresses(Set<AppAddress> appAddresses) {
+		this.appAddresses = appAddresses;
+	}
 	public String getEmail() {
 		return email;
 	}
