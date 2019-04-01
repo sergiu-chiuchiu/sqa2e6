@@ -1,12 +1,16 @@
 package com.sqa.onlinepizzastore.dto;
 
 import java.util.Date;
+
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class AppUserDto {
 	
 	
 	private String email;
+	
 	
 	private String password;
 	private String passwordRepeat;

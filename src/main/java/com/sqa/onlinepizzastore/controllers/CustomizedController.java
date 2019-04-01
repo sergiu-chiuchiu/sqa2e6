@@ -34,15 +34,11 @@ public class CustomizedController {
 	     return ingredientService.findAll();
 	 	}
 	 
-	 @ModelAttribute("selected")
-	 public List<Ingredient> selected(Customized cust){
-		 return (List<Ingredient>) cust.getIngredients();
-	 }
 	 
 // VIEW CREATIONS-----------------------------------------
 	 
 	 	@RequestMapping(value = "/menu/pizza/viewCreations", method = RequestMethod.GET)
-	 	public ModelAndView viewcustoms() {
+	 	public ModelAndView viewcustoms() {	 		
 	 		ModelAndView mav = new ModelAndView("viewCreations"); //aici trebuie adaugat o pagina pentru a vizualiza ingredientele
 	 		mav.addObject("customs", customizedService.findAll());
 	 		return mav;
@@ -67,6 +63,9 @@ public class CustomizedController {
 				System.out.println("BINDING RESULT ERROR");
 				return "CustomizePizza";
 			}
+			
+			
+			
 			model.addAttribute("customized_id", cust.getCustomized_id());
 			model.addAttribute("customized_energy", cust.getCustomized_energy());
 			model.addAttribute("ingredients", cust.getIngredients());

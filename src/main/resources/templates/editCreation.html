@@ -38,12 +38,15 @@
 			<div class="text">
 				<label>Name:</label>
 				<input type="text" th:field="*{customized_name}"/>
-				<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>												
+				<p  th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</p>												
+			
 			</div>
 			<div class="text">
 				<label>Energy:</label>
 				<input type="text" th:field="*{customized_energy}"/>
-				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>										
+				
+				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>	
+												
 			</div>			
 			<div class="radio-toolbar">
 			<p>Countertop:</p>							

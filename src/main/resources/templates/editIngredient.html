@@ -43,7 +43,9 @@
 	<div class = "block">
 		<label>Type:</label> 
 		<input type="text" th:field="*{ing_type}" />
-		<td style ="color: white;" th:if="${#fields.hasErrors('ing_type')}" th:errors="*{ing_type}">.....</td>
+		<span class="text-danger">
+		<td class="text-danger" th:if="${#fields.hasErrors('ing_type')}" th:errors="*{ing_type}">.....</td>
+		</span>	
 	</div>
 	<div class = "block">
 		<label>Allergen:</label>

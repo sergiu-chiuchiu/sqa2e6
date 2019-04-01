@@ -45,7 +45,11 @@
         <td th:text="${customized.customized_name}">Title ...</td>
         <td th:text="${customized.customized_energy}">1</td>
         <td th:text="${customized.countertops}">1</td>
-        <td th:text="${customized.ingredients}">1</td>
+        <td>
+        	<ul th:each="ingredient : ${customized.ingredients}">
+        		<li th:text="${ingredient.ing_name}"></li>
+        	</ul>
+        </td> 
         <td>
         <ul>
         <li th:each="ingredient : ${ingredients}" th:field="*{ingredients}" th:text="${ingredient.ing_name}">1</li>
