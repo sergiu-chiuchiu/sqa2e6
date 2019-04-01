@@ -6,10 +6,12 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -31,6 +33,7 @@ public class AppCart {
 	
 	private String customerEmail;
 
+	private AppOrder appOrder;
 	
 	private Set<AppCartDetail> cartDetails= new HashSet<AppCartDetail>();
 	
@@ -62,7 +65,7 @@ public class AppCart {
 	public char getActive() {
 		return active;
 	}
-
+	
 	public void setActive(char active) {
 		this.active = active;
 	}
@@ -74,6 +77,17 @@ public class AppCart {
 
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
+	}
+	
+	
+	@OneToOne(mappedBy = "appCart", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+	public AppOrder getAppOrder() {
+		return appOrder;
+	}
+
+	public void setAppOrder(AppOrder appOrder) {
+		this.appOrder = appOrder;
 	}
 
 	public AppCart() {
