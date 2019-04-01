@@ -1,82 +1,124 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Example pizza!</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width = device-width, initial scale = 1.0">
+<meta name="description" content="Pizza Mia WebSite">
+<meta name="author" content="Frontend team">
+<title>Pizza Mia Edit Ingredients</title>
+<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/stylesheets/style.css"
+	th:href="@{/stylesheets/style.css}">
+<link rel="stylesheet" href="/stylesheets/ingredients.css"
+	th:href="@{/stylesheets/ingredients.css}">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-	<h3>Create your pizza!!</h3>
-	<form action="#" th:action="@{/editSave}" th:object="${ingredient}" method="post" >
-			<div>
-				<input type="hidden" th:field="*{ing_id}"/>					
-			</div>
-			<div>
-				Name:				
-				<input type="text" th:field="*{ing_name}"/>	
-				<td th:if="${#fields.hasErrors('ing_name')}" th:errors="*{ing_name}">.....</td>										
-			</div>
-			<div>
-				Type:
-				<input type="text" th:field="*{ing_type}"/>
-				<td th:if="${#fields.hasErrors('ing_type')}" th:errors="*{ing_type}">.....</td>								
-			</div>
-			<div>
-				Allergen:
-				<input type="text" th:field="*{ing_allergen}"/>
-				<td th:if="${#fields.hasErrors('ing_allergen')}" th:errors="*{ing_allergen}">.....</td>								
-			</div>
-			<div>
-				Quantity:
-				<input type="text" th:field="*{ing_quantity}"/>
-				<td th:if="${#fields.hasErrors('ing_quantity')}" th:errors="*{ing_quantity}">.....</td>								
-			</div>
-			<div>
-				Price:
-				<input type="text" th:field="*{ing_price}"/>
-				<td th:if="${#fields.hasErrors('ing_price')}" th:errors="*{ing_price}">.....</td>								
-			</div>
-			<div>
-				Weight:
-				<input type="text" th:field="*{ing_weight}"/>
-				<td th:if="${#fields.hasErrors('ing_weight')}" th:errors="*{ing_weight}">.....</td>								
-			</div>
-			<div>
-				Energy:
-				<input type="text" th:field="*{energy}"/>
-				<td th:if="${#fields.hasErrors('energy')}" th:errors="*{energy}">.....</td>								
-			</div>
-			<div>
-				Fat:
-				<input type="text" th:field="*{fat}"/>
-				<td th:if="${#fields.hasErrors('fat')}" th:errors="*{fat}">.....</td>								
-			</div>
-			<div>
-				Carbohydrate:
-				<input type="text" th:field="*{carbohydrate}"/>
-				<td th:if="${#fields.hasErrors('carbohydrate')}" th:errors="*{carbohydrate}">.....</td>								
-			</div>
-			<div>
-				Fibres:
-				<input type="text" th:field="*{fibres}"/>
-				<td th:if="${#fields.hasErrors('fibres')}" th:errors="*{fibres}">.....</td>	
-							
-			</div>
-			<div>
-				Proteine:
-				<input type="text" th:field="*{proteine}"/>
-				<td th:if="${#fields.hasErrors('proteine')}" th:errors="*{proteine}">.....</td>	
-							
-			</div>
-			<div>
-				Salt:
-				<input type="text" th:field="*{salt}"/>			
-				<td th:if="${#fields.hasErrors('salt')}" th:errors="*{salt}">.....</td>	
-								
-			</div>								
-			<div>
-				<button type="submit">Save ingredient</button>
-			</div>
-	</form>
-</body>
+<body background="/images/backgrounddd.jpg"></body>
+<!-- Navbar -->
+<div th:replace="fragments/navbar :: navbar"></div>
+<h3 id="titlePage">Edit the selected ingredient!</h3>
+<br>
+<br>
+<form action="#" th:action="@{/menu/ingredients/editIngredient}"
+	th:object="${ingredient}" method="post">
+	<div>
+		<input type="hidden" th:field="*{ing_id}" />
+	</div>
+	<div class = "block">
+		<label>Name: </label>
+		 <input type="text" th:field="*{ing_name}" />
+		 <td th:bgcolor="white" th:if="${#fields.hasErrors('ing_name')}" th:errors="*{ing_name}">.....</td>
+	</div>
+	<div class = "block">
+		<label>Type:</label> 
+		<input type="text" th:field="*{ing_type}" />
+		<td style ="color: white;" th:if="${#fields.hasErrors('ing_type')}" th:errors="*{ing_type}">.....</td>
+	</div>
+	<div class = "block">
+		<label>Allergen:</label>
+		 <input type="text" th:field="*{ing_allergen}" />
+		<td th:if="${#fields.hasErrors('ing_allergen')}"
+			th:errors="*{ing_allergen}">.....</td>
+	</div>
+	<div class = "block">
+		<label>Quantity:</label> 
+		<input type="text" th:field="*{ing_quantity}" />
+		<td th:if="${#fields.hasErrors('ing_quantity')}"
+			th:errors="*{ing_quantity}">.....</td>
+	</div>
+	<div class = "block">
+		<label>Price:</label>
+		 <input type="text" th:field="*{ing_price}" />
+		<td th:if="${#fields.hasErrors('ing_price')}" th:errors="*{ing_price}">.....</td>
+	</div>
+	<div class = "block">
+		<label>Weight:</label> 
+		<input type="text" th:field="*{ing_weight}" />
+		<td th:if="${#fields.hasErrors('ing_weight')}"
+			th:errors="*{ing_weight}">.....</td>
+	</div>
+	<div class ="block">
+		<label>Energy:</label>
+		 <input type="text" th:field="*{energy}" />
+		<td th:if="${#fields.hasErrors('energy')}" th:errors="*{energy}">.....</td>
+	</div>
+	<div class = "block">
+		<label>Fat:</label> 
+		<input type="text" th:field="*{fat}" />
+		<td th:if="${#fields.hasErrors('fat')}" th:errors="*{fat}">.....</td>
+	</div>
+	<div class = "block">
+		<label>Carbohydrate:</label> 
+		<input type="text"
+			th:field="*{carbohydrate}" />
+		<td th:if="${#fields.hasErrors('carbohydrate')}"
+			th:errors="*{carbohydrate}">.....</td>
+	</div>
+	<div class ="block">
+		<label>Fibres:</label>
+		 <input type="text" th:field="*{fibres}" />
+		<td th:if="${#fields.hasErrors('fibres')}" th:errors="*{fibres}">.....</td>
+
+	</div>
+	<div class = "block">
+		<label>Proteine:</label> 
+		<input type="text" th:field="*{proteine}" />
+		<td th:if="${#fields.hasErrors('proteine')}" th:errors="*{proteine}">.....</td>
+
+	</div>
+	<div class = "block">
+		<label>Salt:</label> 
+		<input type="text" th:field="*{salt}" />
+		<td th:if="${#fields.hasErrors('salt')}" th:errors="*{salt}">.....</td>
+
+	</div>
+	<div>
+		<button type="submit">Save ingredient</button>
+	</div>
+</form>
+
+<!-- Footer -->
+<div th:replace="fragments/footer :: footer"></div>
+<!-- Footer -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script src="/jscripts/index.js"></script>
+<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 </html>

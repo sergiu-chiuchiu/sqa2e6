@@ -1,12 +1,15 @@
 package com.sqa.onlinepizzastore.services.impl;
 
 import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 
 import com.sqa.onlinepizzastore.entitites.Customized;
+import com.sqa.onlinepizzastore.entitites.Ingredient;
 import com.sqa.onlinepizzastore.repositories.CustomizedRepository;
 import com.sqa.onlinepizzastore.services.CustomizedService;
 
@@ -16,6 +19,8 @@ public class CustomizedServiceImpl implements CustomizedService {
 
 	@Autowired
 	CustomizedRepository customizedRepository;
+	
+
 	
 	/*to save an customized*/
 	@Override
@@ -50,8 +55,8 @@ public class CustomizedServiceImpl implements CustomizedService {
 	
 	/*delete an customized*/
 	@Override
-	public void delete(Integer id) {
-		customizedRepository.deleteById(id);
+	public void delete(Customized cust) {
+		customizedRepository.delete(cust);
 	}
 	
 }

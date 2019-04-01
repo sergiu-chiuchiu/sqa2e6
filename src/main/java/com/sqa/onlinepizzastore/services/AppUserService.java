@@ -10,5 +10,8 @@ public interface AppUserService {
 
 	AppUser getAppUserByEmail(String email);
 
+	AppUser getAppUserByUserName(String userName);
+
+	AppUser updateAppUser(AppUser appUser);
 
 }

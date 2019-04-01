@@ -30,7 +30,7 @@
 <h3 id="titlePage">Make a new creation!</h3>
 <br>
 <br>
-<form action=# th:action="@{/menu/pizza/customizepizza}" th:object="${cust}" method="post" autocomplete="off">
+<form action=# th:action="@{/menu/pizza/viewCreations/editCreation/}" th:object="${cust}" method="post">
 			<div>
 				<input type="hidden" th:field="*{customized_id}"/>
 									
@@ -52,17 +52,16 @@
 				<input type="radio" th:field="*{countertops}" value="Fluffy"/><label>Fluffy</label>
 				</br>
 				<input type="radio" th:field="*{countertops}" value="Multicereal"/><label>Multicereal</label>
-				</br>	
-				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>							
+				</br>
+				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>								
 			</div>			
 			<div class="radio-toolbar">
 			<p>Ingredients:</p>
 				<ul>
     	  		<li th:each="ingredient : ${ingredients}" >  
-    	    		<input type="checkbox" name="ingredients" th:field="*{ingredients}" th:value="${ingredient.ing_id}"/>
+    	    		<input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.ing_id}" checked/>
 	      			<label th:for="${ingredient.ing_name}" th:text="${ingredient.ing_name}">Ingredient Name</label>
-    	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>   
-    	  		  	     				      			       	
+    	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>   	      				      			       	
           		</li>
 		  		</ul>	
 		   </div>								
