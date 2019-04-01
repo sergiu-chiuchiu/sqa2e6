@@ -19,7 +19,7 @@ import org.springframework.security.core.Authentication;
 import com.sqa.onlinepizzastore.dto.AppUserDto;
 
 import com.sqa.onlinepizzastore.entitites.AppRole;
-
+import com.sqa.onlinepizzastore.entitites.AppSubscribe;
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.services.AppRoleService;
 import com.sqa.onlinepizzastore.services.AppUserService;
@@ -56,7 +56,8 @@ public class UserAuthenticationController {
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
 			return "SignUp";
 		}
-
+		AppUser appUser = new AppUser();
+		appUser.setEmail(appUserDto.getEmail());
 		appUserService.saveAppUserAsUser(modelMapper.map(appUserDto, AppUser.class));
 		return "Menu";
 	}
@@ -68,7 +69,8 @@ public class UserAuthenticationController {
 	
 	@GetMapping(value = "/logoutSuccessful")
 	public String getLogout(Model model) {
-		model.addAttribute("Title", "Logout");
+		AppSubscribe appSubscribe = new AppSubscribe();
+		model.addAttribute("AppSubscribe", appSubscribe);
 		return "index";
 	}
 	
