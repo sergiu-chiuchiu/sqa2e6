@@ -10,7 +10,38 @@
 <br>
 <div class="container">
   <h2>Total costs and revenue per month</h2> 
-  <br>           
+  <label th:text ="Year"></label>
+  <select>
+    <option value="2010">2010</option>
+    <option value="2011">2011</option>
+    <option value="2012">2012</option>
+    <option value="2013">2013</option>
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+</select>
+<label th:text="Month"></label>
+  <select>
+    <option value="January">January</option>
+    <option value="February">February</option>
+    <option value="March">March</option>
+    <option value="April">April</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="August">August</option>
+    <option value="Semptember">Semptember</option>
+    <option value="October">October</option>
+    <option value="November">November</option>
+    <option value="December">December</option>
+</select>
+<br>
+<br>
+<br>
+         
   <table class="table table-dark table-striped">
     <thead>
       <tr>
@@ -24,61 +55,6 @@
         <td><b>January</b></td>
         <td>20000</td>
         <td>60000</td>
-      </tr>
-      <tr>
-        <td><b>February</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>March</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>April</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>May</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>June</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>July</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>August</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>September</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>October</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>November</b></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><b>December</b></td>
-        <td></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
@@ -106,6 +82,16 @@
 <div class="container" id="ingredientsquantity">
   <h2>Total quantity per ingredients</h2> 
   <br>           
+  <label th:text ="Ingredient"></label>
+  <select>
+    <option value="Salami">Salami</option>
+    <option value="Pepper">Pepper</option>
+    <option value="Tomato sauce">Tomato sauce</option>
+    <option value="Mozzarella">Mozzarella</option>
+    <option value="Mushroom">Mushroom</option>
+    <option value="Corn">Corn</option>
+    <option value="Cilli">Cilli</option>
+</select>
   <table class="table table-dark table-striped">
     <thead>
       <tr>
