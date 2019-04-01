@@ -1,29 +1,3 @@
-/* fieldset */
-fieldset { 
-    display: block;
-    align-content: left;
-    margin-left: 0px;
-    margin-right: 200px;
-    padding-top: 30px;
-    padding-bottom: 60px;
-    padding-left: 150px;
-    padding-right: 650px;
-    border: 10px;
-    border-color: #125688;
-  }
-
-  legend {
-    font-size: 50px;
-  }
-  
-#picture {
-  margin-top: 0px;
-  margin-left: 500px;
-  height: 350px;
-  width: 600px;
-  
-}
-
 body {
   font-family: 'Playfair Display', serif;
 }
@@ -317,4 +291,86 @@ body {
   .navbar-wrapper .navbar .container {
     border-radius: 4px;
   }
+}
+
+/* side nav */
+
+.sidenav {
+  height: 30%;
+  width: 130px;
+  position: fixed;
+  z-index: 1;
+  top: 250px;
+  left: 0;
+  background-color: sienna;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#picture {
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 500px;
+  width: 1000px;
+}
+
+/* side nav */
+
+.sidenav {
+  height: 30%;
+  width: 130px;
+  position: fixed;
+  z-index: 1;
+  top: 250px;
+  left: 0;
+  background-color: sienna;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

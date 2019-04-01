@@ -1,6 +1,5 @@
 <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
-
 <title>Pizza Mia WebSite</title>
 <link rel="stylesheet" href="/stylesheets/style.css">
 
@@ -32,12 +31,6 @@
 						<a class="btn btn-lg btn-primary btn-danger" href="Pizza.html"
 							th:href="@{/menu/pizza}" role="button">See now!</a>
 					</p>
-					<form th:action="@{/index}" th:object="${AppSubscribe}" method="POST" accept-charset="utf-8" class="form" role="form">
-						<input type="text"  name="email" value="" th:field="*{email}" class="form-control input-lg" placeholder="Your Email" >
-					  <br>
-					  <input type="submit" value="Subscribe">
-
-					</form>
 				</div>
 			</div>
 		</div>
@@ -88,6 +81,14 @@
 		aria-hidden="true"></span> <span class="sr-only">Next</span>
 	</a>
 </div>
+<!-- subscribe -->
+<form th:action="@{/index}" th:object="${AppSubscribe}" method="POST" accept-charset="utf-8" class="form" role="form">
+						<p> Do your want to subscribe? Enter yor email below and you will receive our promotions and news!</p>
+						<input type="text"  name="email" value="" th:field="*{email}" class="form-control input-lg" placeholder="Your Email" >
+					  <br>
+					  <input type="submit" value="Subscribe" class="btn btn-lg btn-primary btn-primary" role = "button">
+
+					</form>
 <!-- Acces the promotions and popular choices pages -->
 <div id="content-page" class="span12 content group">
 	<div id="post-terms2"
