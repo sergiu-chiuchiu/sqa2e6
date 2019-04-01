@@ -53,6 +53,12 @@
 						<a class="btn btn-lg btn-primary btn-danger" href="Pizza.html"
 							th:href="@{/menu/pizza}" role="button">See now!</a>
 					</p>
+					<form th:action="@{/index}" th:object="${AppSubscribe}" method="POST" accept-charset="utf-8" class="form" role="form">
+						<input type="text"  name="email" value="" th:field="*{email}" class="form-control input-lg" placeholder="Your Email" >
+					  <br>
+					  <input type="submit" value="Subscribe">
+
+					</form>
 				</div>
 			</div>
 		</div>

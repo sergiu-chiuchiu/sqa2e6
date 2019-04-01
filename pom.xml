@@ -15,6 +15,8 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -72,6 +74,12 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.mail/smtp -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>smtp</artifactId>
+		    <version>1.6.2</version>
+		</dependency> 
         
 	</dependencies>
 	<build>
