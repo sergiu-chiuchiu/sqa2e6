@@ -1,8 +1,10 @@
 <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
    <title>My profile</title>
-   <link rel="icon" href="IMAGES/logo.jpg" type="image/x-icon">
-
+   <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <link rel="stylesheet" href="/stylesheets/style.css">
    <link rel="stylesheet" href="/stylesheets/login.css">
    <link rel="stylesheet" href="/stylesheets/user.css">
@@ -12,7 +14,7 @@
    <div th:replace = "fragments/navbar :: navbar"></div>
    <!-- content-->
    <div class="sidenav">
-      <a href="UserProfile.html">My account</a>
+      <a th:href="@{/user}" href="UserProfile.html">My account</a>
       <a href="MyAddresses.html">My addresses</a>
       <a href="MyOrders.html">My orders</a>
       <a href="MyVouchers.html">My vouchers</a>
@@ -21,6 +23,8 @@
    <fieldset>
       <div class="user-menu-title">
          <legend class="user-menu-title"> My profile </legend>
+         <h4 th:if="${Message != null}" th:text="${Message}" class="text-info"></h4>
+         <h4 th:if="${Danger != null}" th:text="${Danger}" class="text-danger"></h4>
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 user-menu-hide">
          <div class="user-container">
@@ -49,15 +53,15 @@
 <!-- ************************************** reset password ************************************* -->
             <div class="user-container-subtitle">Change password</div>
 	        <div class="account_details">
-		        <form method="post" action="" id="change-password">
+		        <form method="POST" action="" th:action="@{/user/changePass}" th:object="${AppUserPasswords}" id="change-password">
                     <div class="form-group">
-                        <input type="password" placeholder="Old password*:" class=" width_input_cos form-control user-input" name="old_password"  id="old_password"/>
+                        <input type="password" placeholder="Old password*:" th:field="*{oldPassword}" class=" width_input_cos form-control user-input" name="old_password"  id="old_password"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="New password*:" class=" width_input_cos form-control user-input" name="password"  id="password"/>
+                        <input type="password" placeholder="New password*:" th:field="*{password}" class=" width_input_cos form-control user-input" name="password"  id="password"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Retype password*:" class=" width_input_cos form-control user-input" name="password_again"  id="password_again"/>
+                        <input type="password" placeholder="Retype password*:" th:field="*{passwordRepeat}" class=" width_input_cos form-control user-input" name="password_again"  id="password_again"/>
                     </div>
                     <input type="submit" class="user-button-save" value="Save" name="edit_password" />
 		        </form>
@@ -65,11 +69,11 @@
 <!-- ************************************** dezactivare cont ************************************* -->
             <div class="user-container-subtitle">Delete account</div>
             <div class="account_details">
-                <form method="post" action="" id="delete-account">
+                <form method="POST" action="" th:action="@{/user/deleteAccount}" th:object="${AppUserDelete}" id="delete-account">
                     <div class="form-group">
-                        <textarea name="reasons" id="reasons" class=" width_input_cos form-control user-textarea" placeholder="I want to delete my account because:"></textarea>
+                        <textarea name="message" value="" id="reasons" class=" width_input_cos form-control user-textarea" placeholder="I want to delete my account because:"></textarea>
                     </div>
-                    <input type="button" class="user-button-delete" value="Delete account" id="delete-account" name="delete-account" />
+                    <input type="submit" class="user-button-delete" value="Delete account" id="delete-account" name="delete-account" />
                 </form>
             </div>
         </div>
