@@ -1,6 +1,9 @@
 package com.sqa.onlinepizzastore.controllers;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,5 +86,30 @@ public class UserManagementController {
 		return "redirect:/auth/logout";
 	}
 		
+	@GetMapping(value = "/users")
+	public String viewUsers(Model model) {
+		model.addAttribute("AppUsers", appUserService.getAllUsers());
+		return "ViewUsers";
+	}
+	
+	@GetMapping(value = "/adduser")
+	public String addUser(Model model) throws ParseException {
+		AppUserDto appUserDto = new AppUserDto();
+		Date defaultBirthDate = new SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01");  
+		appUserDto.setBirthDate(defaultBirthDate);
+		model.addAttribute("AppUser", appUserDto);
+		
+		return "addUser";
+	}
+	
+	// + validari parola
+		@PostMapping(value = "/adduser")
+		public String saveNewPrivilegedUser(@ModelAttribute(value="AppUser") AppUserDto appUserDto) {
+			if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
+				return "adduser";
+			}
+			appUserService.savePrivilegedAppUser(modelMapper.map(appUserDto, AppUser.class), appUserDto.getRoleName());
+			return "adduser";
+		}
 	
 }

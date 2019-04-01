@@ -53,7 +53,7 @@
 					<a class="nav-link" th:if="${currentUserRole == 'ROLE_OPERATOR' or currentUserRole == 'ROLE_ADMIN'}" th:href="@{/operator}">Operator</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:if="${currentUserRole == 'ROLE_ADMIN'}" th:href="@{/admin}">Admin</a>
+					<a class="nav-link" th:if="${currentUserRole == 'ROLE_ADMIN'}" th:href="@{/user/users}">Admin</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">

@@ -56,8 +56,6 @@ public class UserAuthenticationController {
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
 			return "SignUp";
 		}
-		AppUser appUser = new AppUser();
-		appUser.setEmail(appUserDto.getEmail());
 		appUserService.saveAppUserAsUser(modelMapper.map(appUserDto, AppUser.class));
 		return "Menu";
 	}

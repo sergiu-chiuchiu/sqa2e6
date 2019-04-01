@@ -23,6 +23,8 @@ public class AppUserDto {
 	
 	private String gender;
 
+	private String roleName;
+	
 	public String getEmail() {
 		return email;
 	}
@@ -93,6 +95,14 @@ public class AppUserDto {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 	
 	
