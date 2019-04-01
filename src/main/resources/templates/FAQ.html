@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-    <html xmlns:th="http://www.thymeleaf.org">
-	    <head>
-		    <meta charset = "utf-8">
-		    <meta name = "viewport" content = "width = device-width, initial scale = 1.0">
-		    <meta name = "description" content = "Pizza Mia WebSite">
-		    <meta name = "author" content = "Frontend team">
-		    <title>FAQ</title>
-		    <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		    <link rel = "stylesheet" href = "/stylesheets/style.css">
-		    <link rel = "stylesheet" href = "/stylesheets/text.css">
-		    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-		    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	    </head>
-			<body background ="/images/background-4.jpg"></body>
-<div th:replace = "fragments/navbar :: navbar"></div>
+<link rel="icon" href="images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
+<title>FAQ</title>
+	
+<link rel = "stylesheet" href = "/stylesheets/style.css">
+<link rel = "stylesheet" href = "/stylesheets/text.css">
+
+<body background ="/images/background-4.jpg"></body>
+		<div th:replace = "fragments/navbar :: navbar"></div>
             <!-- FAQ content -->			
             <div id="content-page" class="span12 content group">
                 <div id="post-terms1" class="group post-terms page type-page status-publish hentry">
                     <h1>FAQ</h1>
                     </br>
                     <h3>What ingredients are used and what are their nutritional values?</h3>
-                    <p>We use only genuine and high quality ingredients. Every tab of our pizza lists the specific ingredients. Concerning yeast, classic pizzas use starter yeast while brewerâ€™s yeast is used for gluten free pizzas. The product cards found on our web site contain tabs listing the nutritional values.</p>
+                    <p>We use only genuine and high quality ingredients. Every tab of our pizza lists the specific ingredients. Concerning yeast, classic pizzas use starter yeast while brewer’s yeast is used for gluten free pizzas. The product cards found on our web site contain tabs listing the nutritional values.</p>
                     <h3>Can any of the pizza ingredients be changed or eliminated?</h3>
                     <p>Yes, you can specify if you want to change or eliminate the ingredients you want, or you can simply can customize your pizza.</p>
                     <h3>How do I order a pizza?</h3>
@@ -49,9 +40,9 @@
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
 <!-- Footer -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+<div th:replace="fragments/script :: script"></div>
 <script src = "/jscripts/index.js"></script>
-<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
 	</body>
 </html>
