@@ -1,0 +1,57 @@
+<link rel="icon" href="images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
+		<title>View users</title>
+<link rel = "stylesheet" href = "/stylesheets/style.css">
+<link rel = "stylesheet" href = "/stylesheets/viewusers.css">
+<div th:replace = "fragments/navbar :: navbar"></div>
+<body background = "/images/background-4.jpg"></body>
+
+<div class="container" id="viewUsers">
+  <h2>List of users</h2> 
+  <br>  
+  
+  <div class="btn-group">
+          <a th:href="@{/auth/adduser}" class="fas fa-user-plus"></a>
+          <a href="#" class="fas fa-trash-alt"></a>
+  </div>
+
+  <br>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>E-mail</th>
+        <th>User name</th>
+        <th>Points</th>
+        <th>Birth date</th>
+        <th>Gender</th>
+        <th>User role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+           <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+
+<!-- Footer -->
+<div th:replace="fragments/footer :: footer"></div>
+		<!-- Footer -->
+<script src = "/jscripts/index.js"></script>
+	<div th:replace="fragments/script :: script"></div>	
+	</body>
+</html>
