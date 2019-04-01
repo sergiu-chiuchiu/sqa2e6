@@ -19,14 +19,17 @@ public class AnnotationAdvice {
 	
 	@ModelAttribute("currentUserRole")
 	public String getCurrentUserRole() {
+		if (SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
+			return null;
+		}
+		
 		UserDetails userDetails = (UserDetails) 
 		         SecurityContextHolder.getContext()
 		               .getAuthentication().getPrincipal();
 		
 		String userRole = "";
 		for (GrantedAuthority e: userDetails.getAuthorities()) {
-			userRole = e.toString();
-			   
+			userRole = e.toString();			
 		}
 		return userRole;
 	}
