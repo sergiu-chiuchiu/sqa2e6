@@ -15,96 +15,146 @@ body {
   }
 }
 
-/*promotions carousel customization- first slide*/
+/*promotions customization- first slide*/
+
+#daysbanner{
+	width: 100%;
+	height: 70%;
+	text-align: center;
+}
+
 #title-first-slide{
-  text-align: center;
   text-shadow: 2px 0px red;
-  font-size: 80px;
+  font-size: 50px;
   font-family: french script ;
-  padding-left: 60px;
-  margin-top: 50px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
 }
 
 #text-first-slide{
   color:whitesmoke;
   text-shadow: 2px 0px red;
   font-size: 40px;
-  text-align: center;
   font-style: bold;
-  margin-left: 100px;
-  margin-bottom: 100px;
+  position: absolute;
+  top: 40%;
+  left: 30%;
 }
 
-/*promotions carousel customization second slide*/
+/*promotions customization second slide*/
+
+#tombolabanner{
+	width: 100%;
+	height: 70%;
+	text-align: center;
+}
 #title-second-slide{
-  text-align: left;
-  text-shadow: 2px 0px saddlebrown;
+  color:white;
+  text-shadow: 2px 0px red;
   font-size: 80px;
   font-family: french script ;
-  padding-left: 20px;
-  margin-top: 50px;
+  position: absolute;
+  text-align: center;
+  padding-right: 300px;
+  top: 90%;
+  left: 20%;
 }
 
 #text-second-slide {
   color:whitesmoke;
-  text-shadow: 4px 0px black;
+  text-shadow: 2px 0px red;
   font-size: 40px;
-  text-align: left;
   font-style: bold;
-  margin-left: 30px;
-  margin-bottom: 100px;
+  position: absolute;
+  top: 130%;
+  left: 30%;
 }
 
-#btn-tombola-promotions{
-  background-color: white;
-  margin-left: -700px;
-  color: black;
-  }
+.btn-tombola-promotions{
 
-/*promotions carousel customization third slide*/
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 10px;
+    text-shadow: 0px 1px 0px #898a88;
+    -webkit-box-shadow: 0px 0px 0px #a4e388;
+    -moz-box-shadow: 0px 0px 0px #a4e388;
+    box-shadow: 0px 0px 0px #a4e388;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    border: solid #3b6e22  1px;
+    text-decoration: none;
+  }
+  
+
+
+/*promotions customization third slide*/
+#eventsbanner{
+	width: 100%;
+	height: 70%;
+	text-align: center;
+}
+
+
 #title-third-slide{
+  color: #008000; 
   text-align: center;
-  text-shadow: 2px 0px saddlebrown;
+  text-shadow: 2px 0px #ADFF2F;
   font-size: 70px;
   font-family: french script ;
+  position: absolute;
+  top: 180%;
+  left:10%;
 }
 
 #text-third-slide {
   text-align: center;
   color:whitesmoke;
   text-shadow: 2px 0px green;
-  font-size: 20px;
+  font-size: 40px;
   font-style: bold;
+  position: absolute;
+  top: 200%;
+  left:10%;
 }
 
-#btn-events-promotions{
-background-color: green;
-color: white;
-margin: 0 auto;
+
+/*promotions customization fourth slide*/
+#drinksbanner{
+	width: 100%;
+	height: 70%;
+	text-align: center;
 }
 
-/*promotions carousel customization fourth slide*/
 #title-fourth-slide{
   text-align: center;
   text-shadow: 2px 0px darkgoldenrod;
   font-size: 70px;
   color: wheat;
   font-family: french script ;
+  position: absolute;
+  top: 280%;
+  left: 20%;
+  right: 10%;
 }
 
-#btn-drinksFree-promotions{
-  background-color:burlywood;
+#text-fourth-slide {
   color: white;
-  margin: 0 auto;
+  text-align: center;
+  text-shadow: 2px 0px darkgoldenrod;
+  font-size: 40px;
+  font-style: bold;
+  position: absolute;
+  top: 320%;
+  left:10%;
 }
-/*Day's promotion banner*/
-.daysPromotions {
-
-}
 
 
-/*Tombola form*/
+/*Events form*/
 body {
+  text-align:center;
   padding-top: 0px;
   padding-bottom: 0px;
   }
@@ -114,21 +164,23 @@ body {
    h1,h2,h3 {
    font-family: 'Kaushan Script', cursive;
    }
-    .myform {
-position: relative;
-display: -ms-flexbox;
-display: flex;
-padding: 1rem;
--ms-flex-direction: column;
-flex-direction: column;
-width: 100%;
-pointer-events: auto;
-background-color: #fff;
-background-clip: padding-box;
-border: 1px solid rgba(0,0,0,.2);
-border-radius: 1.1rem;
-outline: 0;
-max-width: 500px;
+   
+.myform {
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 1rem;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 1.1rem;
+	outline: 0;
+	max-width: 500px;
+	align-content:center;
 }
 
 #wrap {
