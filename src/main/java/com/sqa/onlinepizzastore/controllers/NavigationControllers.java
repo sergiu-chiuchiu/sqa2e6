@@ -26,10 +26,10 @@ import com.sqa.onlinepizzastore.util.WebUtils;
 @RequestMapping()
 public class NavigationControllers {
 	 
-	@GetMapping(value = "/index")
-	public String getIndex(Model model) {
-		return "index";
-	}
+//	@GetMapping(value = "/index")
+//	public String getIndex(Model model) {
+//		return "index";
+//	}
 	@GetMapping(value = "/aboutus")
 	public String getAboutUsPage(Model model) {
 		return "About us";
