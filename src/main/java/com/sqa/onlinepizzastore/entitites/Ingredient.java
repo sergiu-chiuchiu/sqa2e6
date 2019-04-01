@@ -1,11 +1,7 @@
 package com.sqa.onlinepizzastore.entitites;
 
 
-<<<<<<< HEAD
-
-=======
 import java.util.HashSet;
->>>>>>> db1c2996a2b83f8c1d21533eab3d2d4543b33960
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMax;
