@@ -40,16 +40,16 @@ public class NavigationControllers {
 		return "Menu";
 	}
 	
-	@GetMapping(value = "/menu/pizza")
-	public String getPizzaPage(Model model) {
-		return "Pizza";
-	}
+//	@GetMapping(value = "/menu/pizza")
+//	public String getPizzaPage(Model model) {
+//		return "Pizza";
+//	}
 	
-	@GetMapping(value = "/menu/ingredients")
-	public String getIngredientsPage(Model model) {
-		return "ingredients";
-	}
-	
+//	@GetMapping(value = "/menu/ingredients")
+//	public String getIngredientsPage(Model model) {
+//		return "ingredients";
+//	}
+//	
 	@GetMapping(value = "/menu/dips")
 	public String getDipsPage(Model model) {
 		return "Dips";
@@ -105,11 +105,18 @@ public class NavigationControllers {
 		return "Privacy";
 	}
 	
-	@GetMapping(value = "/menu/pizza/customizepizza")
-	public String getCustomizePizzaPage(Model model) {
-		return "CustomizePizza";
-	}
 
+//---------DEOARECE NU IMI LUA MIE GET-UL DIN CONTROLLER (Customized)
+	
+//	@GetMapping(value = "/menu/pizza/customizepizza")
+//	public String getCustomizePizzaPage(Model model) {
+//		return "CustomizePizza";
+//	}
+	
+//	@GetMapping(value = "/signup")
+//	public String getSignupPage(Model model) {
+//		return "SignUp";
+//	}
 	
 	@GetMapping(value = "/faq")
 	public String getFAQPage(Model model) {

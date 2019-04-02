@@ -1,19 +1,19 @@
-  #titlePage{
+#titlePage {
 	text-align: center;
 	color: white;
 	font-size: 40px;
 }
+
 li {
 	color: #CCCCCC;
-	margin-left: 60px;
 }
 
 li:before {
 	font-family: 'courier';
-    font-size: 9px;
-    float: left;
-    margin-top: 4px;
-    margin-left: -17px;
+	font-size: 9px;
+	float: left;
+	margin-top: 4px;
+	margin-left: -17px;
 	color: #CCCCCC;
 	margin-left: 70px;
 }
@@ -22,9 +22,45 @@ li:before {
 	text-align: justify;
 }
 
-.parent >ul {
+.parent>ul {
 	display: inline-block;
 	margin-left: 600px;
 }
 
+/*roxana*/
 
+input[type=text] {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:20px
+}
+
+label {
+    display:inline-block;
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 140px;
+    color:white;
+}
+
+.buttonLink {
+    color: black;
+    text-decoration: none;
+}
+h3{
+	margin-top:10px;
+}
+
+.button button{
+	margin-top:10px;
+	margin-bottom:5px;
+	margin-left:160px;
+	 font-weight: bold;
+}
+.button a {
+    color: black;
+    text-decoration: none;
+}

@@ -25,9 +25,9 @@ public class IngredientController {
 
 // VIEW INGREDIENTS-----------------------------------------
  
- 	@RequestMapping(value = "/viewIngredients", method = RequestMethod.GET)
+ 	@RequestMapping(value = "/menu/ingredients", method = RequestMethod.GET)
  	public ModelAndView messages() {
- 		ModelAndView mav = new ModelAndView("viewIngredients"); //aici trebuie adaugat o pagina pentru a vizualiza ingredientele
+ 		ModelAndView mav = new ModelAndView("ingredients"); //aici trebuie adaugat o pagina pentru a vizualiza ingredientele
  		mav.addObject("ingredients", ingredientService.findAll());
  		return mav;
  	}
@@ -41,19 +41,19 @@ public class IngredientController {
 	public ModelAndView delete(@PathVariable Integer id) {
 		Ingredient ingredient=ingredientService.findOne(id);		
 		ingredientService.delete(ingredient);
-		return new ModelAndView("redirect:/viewIngredients");
+		return new ModelAndView("redirect:/menu/ingredients");
 	}
 //---------------------- UPDATE	
 
 	
-	@RequestMapping(value="/editIngredient/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/menu/ingredients/editIngredient/{id}",method=RequestMethod.GET)
 	public String edit (@PathVariable Integer id, Model model) {		
 		Ingredient ingredient=ingredientService.findOne(id);
 		model.addAttribute("ingredient",ingredient);
 		return "editIngredient";
 	}
 	
-	@RequestMapping(value="/editSave",method=RequestMethod.POST)
+	@RequestMapping(value="/menu/ingredients/editIngredient",method=RequestMethod.POST)
 	public String editsave(@Valid @ModelAttribute("ingredient") Ingredient i, BindingResult bindingResult, Model model) {		
 		if (bindingResult.hasErrors()) {
 			System.out.println("BINDING RESULT ERROR");
@@ -73,17 +73,17 @@ public class IngredientController {
 		ingredient.setProteine(i.getProteine());
 		ingredient.setSalt(i.getSalt());			
 		ingredientService.save(ingredient);
-		return new String("redirect:/viewIngredients");
+		return new String("redirect:/menu/ingredients");
 	}		
 //-------------------------CREATE
 	
-	@RequestMapping(value="/addIngredient",method=RequestMethod.GET)
+	@RequestMapping(value="/menu/ingredients/addIngredient",method=RequestMethod.GET)
 	public String addIngredient(Model model) {		
 		model.addAttribute("i", new Ingredient());
 		return "addIngredient";
 	}
 	
-	@RequestMapping(value="/addIngredient", method=RequestMethod.POST)
+	@RequestMapping(value="/menu/ingredients/addIngredient", method=RequestMethod.POST)
 	public String addNewIngredient(@Valid @ModelAttribute("i") Ingredient i, BindingResult bindingResult, Model model) {		
 		if (bindingResult.hasErrors()) {
 			System.out.println("BINDING RESULT ERROR");
@@ -100,9 +100,8 @@ public class IngredientController {
 		model.addAttribute("Carbohydrate", i.getCarbohydrate());
 		model.addAttribute("Fibres", i.getFibres());
 		model.addAttribute("Proteine", i.getProteine());
-		model.addAttribute("Salt", i.getSalt());
-			
+		model.addAttribute("Salt", i.getSalt());			
 		ingredientService.save(i);
-		return "viewIngredients";
+		return new String("redirect:/menu/ingredients");
 }
 }

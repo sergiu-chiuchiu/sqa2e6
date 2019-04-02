@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,11 +29,16 @@ public class CustomizedController {
 	 @Autowired
 	 IngredientService ingredientService;
 
-
+	 @ModelAttribute("ingredients")
+	 	public List<Ingredient> ingredients() {
+	     return ingredientService.findAll();
+	 	}
+	 
+	 
 // VIEW CREATIONS-----------------------------------------
 	 
-	 	@RequestMapping(value = "/viewCreations", method = RequestMethod.GET)
-	 	public ModelAndView viewcustoms() {
+	 	@RequestMapping(value = "/menu/pizza/viewCreations", method = RequestMethod.GET)
+	 	public ModelAndView viewcustoms() {	 		
 	 		ModelAndView mav = new ModelAndView("viewCreations"); //aici trebuie adaugat o pagina pentru a vizualiza ingredientele
 	 		mav.addObject("customs", customizedService.findAll());
 	 		return mav;
@@ -48,33 +50,63 @@ public class CustomizedController {
 	 
 	 
 //---------------------- CREATE A PIZZA
-		@RequestMapping(value="/addCust", method=RequestMethod.GET)
+		@RequestMapping(value="/menu/pizza/customizepizza", method=RequestMethod.GET)
 		public String index(Model model) {
 			model.addAttribute("ingredients", ingredientService.findAll());
 			model.addAttribute("cust", new Customized());
-			return "addCust";
+			return "CustomizePizza";
 		}
 	 
-		@RequestMapping(value = "/addCust", method = RequestMethod.POST)
+		@RequestMapping(value = "/menu/pizza/customizepizza", method = RequestMethod.POST)
 		public String addNewCust(@Valid @ModelAttribute("cust") Customized cust, BindingResult bindingResult, Model model) {
 			if (bindingResult.hasErrors()) {
 				System.out.println("BINDING RESULT ERROR");
-				return "addCust";
+				return "CustomizePizza";
 			}
+		
 			model.addAttribute("customized_id", cust.getCustomized_id());
 			model.addAttribute("customized_energy", cust.getCustomized_energy());
 			model.addAttribute("ingredients", cust.getIngredients());
 			model.addAttribute("customized_name", cust.getCustomized_name());
 			model.addAttribute("countertops", cust.getCountertops());
 			customizedService.save(cust);
-			return "result";
+			return new String("redirect:/menu/pizza/viewCreations");
 			}
 		
 //-------------------UPDATE
+		@RequestMapping(value="/menu/pizza/viewCreations/editCreation/{id}", method=RequestMethod.GET)
+		public String viewC(@PathVariable Integer id, Model model) {
+			Customized cust=customizedService.findOne(id);
+			model.addAttribute("cust",cust);
+			return "editCreation";
+		}
+	 
+		@RequestMapping(value="/menu/pizza/viewCreations/editCreation",method=RequestMethod.POST)
+		public String editsave(@Valid @ModelAttribute("cust") Customized c, BindingResult bindingResult, Model model) {		
+			if (bindingResult.hasErrors()) {
+				System.out.println("BINDING RESULT ERROR");
+				return "editCreation";
+			}
+			Customized cust =customizedService.findOne(c.getCustomized_id());		
+			cust.setCustomized_id(c.getCustomized_id());
+			cust.setCustomized_name(c.getCustomized_name());
+			cust.setCustomized_energy(c.getCustomized_energy());
+			cust.setCountertops(c.getCountertops());
+			cust.setIngredients(c.getIngredients());			
+			customizedService.update(cust);
+			return new String("redirect:/menu/pizza/viewCreations");
+		}	
 		
-		
-		
-		
+//---------------------DELETE
+	 	@RequestMapping(value="/menu/pizza/viewCreations/deleteCreation/{id}",method=RequestMethod.GET)
+		public ModelAndView delete(@PathVariable Integer id) {
+			Customized cust=customizedService.findOne(id);		
+			customizedService.delete(cust);
+			return new ModelAndView("redirect:/menu/pizza/viewCreations");
+		}
+
+	 	
+	 	
 //		@RequestMapping(value = "/addCust", method = RequestMethod.POST)
 //		public Customized addNewPost(@RequestBody Customized cust, BindingResult bindingResult, Model model) {
 //			
@@ -84,20 +116,13 @@ public class CustomizedController {
 //		}
 	 	
 //----------------------	 	
-	 	@PostMapping(value="/")
-	 	public Customized saveCust(@RequestBody Customized saveCust) {
-	 		return customizedService.save(saveCust);
-	 	}
+//	 	@PostMapping(value="/")
+//	 	public Customized saveCust(@RequestBody Customized saveCust) {
+//	 		return customizedService.save(saveCust);
+//	 	}
+//	 	
+//	 	
 	 	
-	 	
-	 	@DeleteMapping(value="/deleteCust/{id}")
-	 	public void delete(@PathVariable("id") Integer id) {
-	 		if(customizedService.customizedExists(id)) {
-	 			customizedService.delete(id);
-	 		}else {
-	 			System.out.println("Entity does not exist");	 			
-	 		}
-	 	} 
 	 	
 	 	
 //	 	@PutMapping	(value="/updateCust/{id}")
@@ -112,17 +137,17 @@ public class CustomizedController {
 //}
 	 	
 	 	
-	 	
-		@RequestMapping(value="/editSaveCu", method= RequestMethod.POST)
-		public ModelAndView editsave(@ModelAttribute("customized") Customized c) {		
-			Customized customized = new Customized();
-			customized.setCustomized_name(c.getCustomized_name());
-			customized.setIngredients(c.getIngredients());
-			customized.setCountertops(c.getCountertops());			
-			customizedService.save(c);
-			return new ModelAndView("redirect:/viewsCustoms");
-		}
-	
+//	 	
+//		@RequestMapping(value="/editSaveCu", method= RequestMethod.POST)
+//		public ModelAndView editsave(@ModelAttribute("customized") Customized c) {		
+//			Customized customized = new Customized();
+//			customized.setCustomized_name(c.getCustomized_name());
+//			customized.setIngredients(c.getIngredients());
+//			customized.setCountertops(c.getCountertops());			
+//			customizedService.save(c);
+//			return new ModelAndView("redirect:/viewsCustoms");
+//		}
+//	
 	 
 //-----------------------	 
 	 	 
@@ -273,17 +298,13 @@ public class CustomizedController {
 		
 		
 		 
-	 	@RequestMapping(value = "/customized", method = RequestMethod.GET)
-	 	public ModelAndView messages() {
-		 	Customized customized = new Customized();
-	 		ModelAndView mav = new ModelAndView("addCust"); //aici trebuie adaugat o pagina pentru a vizualiza ingredientele
-	 		mav.addObject("ingredients", ingredientService.findAll());
-	 		mav.addObject("customized", customized);
-	 		return mav;
-	 	}
-	 	@ModelAttribute("ingredients")
-	 	public List<Ingredient> ingredients() {
-	     return ingredientService.findAll();
-	 	}
-	 	
+//	 	@RequestMapping(value = "/customized", method = RequestMethod.GET)
+//	 	public ModelAndView messages() {
+//		 	Customized customized = new Customized();
+//	 		ModelAndView mav = new ModelAndView("addCust"); //aici trebuie adaugat o pagina pentru a vizualiza ingredientele
+//	 		mav.addObject("ingredients", ingredientService.findAll());
+//	 		mav.addObject("customized", customized);
+//	 		return mav;
+//	 	}
+
 }
