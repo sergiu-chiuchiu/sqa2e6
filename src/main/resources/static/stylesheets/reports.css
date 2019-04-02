@@ -1,0 +1,24 @@
+h2 {
+	text-align: center;
+}
+
+#totalcosts {
+	width: 60%;
+}
+
+#toppizzas{
+	width: 30%;
+	align: center;
+}
+
+#ingredientsquantity{
+	width: 40%;
+	align: center;
+}
+
+
+@media print {
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
+  #page-footer {display: none}
+}

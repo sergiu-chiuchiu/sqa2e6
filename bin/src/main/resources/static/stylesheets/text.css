@@ -1,0 +1,50 @@
+h3 {
+    font-size: 30px;
+}
+
+#post-terms2 {
+	margin-top: 60px;
+	margin-left: 90px;
+	margin-right: 610px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-indent: 50px;
+	text-align: justify;
+}
+
+#post-terms1 {
+	margin-top: 60px;
+	margin-left: 90px;
+	margin-right: 100px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-indent: 50px;
+	text-align: justify;
+}
+
+#post-terms {
+	margin-top: 60px;
+	margin-left: 90px;
+	margin-right: 100px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-indent: 50px;
+	text-align: justify;
+}
+
+
+h2 {
+	font-size: 40px;
+}
+
+#banner {
+	margin-top: 0px;
+	margin-left: 500px;
+  	height: 350px;
+ 	 width:1600px;
+}
+
+

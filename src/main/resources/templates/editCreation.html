@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Pizza Mia Creation</title>
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<link rel="stylesheet" href="/stylesheets/style.css" th:href="@{/stylesheets/style.css}">
+	<link rel="stylesheet" href="/stylesheets/customized.css" th:href="@{/stylesheets/customized.css}">
+	<div th:replace="fragments/head :: head">
+</head>
+
+<body background="/images/backgrounddd.jpg">
+	<!-- Navbar -->
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<h3 id="titlePage">Modify a creation!</h3>
+	<br>
+	<br>
+	<form action=# th:action="@{/menu/pizza/viewCreations/editCreation/}" th:object="${cust}" method="post">
+		<div>
+			<input type="hidden" th:field="*{customized_id}" />
+
+		</div>
+		<div class="text">
+			<label>Name:</label>
+			<input type="text" th:field="*{customized_name}" />
+			<span class="text-danger">
+				<p th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</p>												
+				</span>
+			</div>
+			<div class="text">
+				<label>Energy:</label>
+				<input type="text" th:field="*{customized_energy}"/>
+				<span class="text-danger">
+				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>	
+				</span>								
+			</div>			
+			<div class="radio-toolbar">
+			<p>Countertop:</p>							
+				<input type="radio" th:field="*{countertops}" value="Italian"/><label>Italian</label>
+				</br>
+				<input type="radio" th:field="*{countertops}" value="Fluffy"/><label>Fluffy</label>
+				</br>
+				<input type="radio" th:field="*{countertops}" value="Multicereal"/><label>Multicereal</label>
+				</br>
+				<span class="text-danger">
+				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>	
+				</span>							
+			</div>			
+			<div class="radio-toolbar">
+			<p><a th:href="@{/menu/ingredients}" style="color:white;">Ingredients:</a></p>
+				<ul>
+    	  		<li th:each="ingredient : ${ingredients}" >  
+    	    		<input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.ing_id}" checked/>
+	      			<label th:for="${ingredient.ing_name}" th:text="${ingredient.ing_name}">Ingredient Name</label>
+	      			<span class="text-danger">
+    	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>
+    	  		  	</span>  	      				      			       	
+          		</li>
+		  		</ul>	
+		   </div>								
+			<div class="button">
+				<button type="submit" class="btn btn-default">Modify</button>
+			</div>
+	</form>
+
+<!-- Footer -->
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/script :: script"></div>
+<script src="/jscripts/index.js"></script>
+</body>
+</html>

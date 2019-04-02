@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Customize pizza</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/pizza.css">
+  <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+  <div th:replace="fragments/head :: head"></div>
+</head>
+
+<body background="/images/background-4.jpg">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">
+      <img id="logo" src="IMAGES/logo.jpg" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="About us.html">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="Menu.html" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Menu</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="Pizza.html">Pizza</a></li>
+            <li><a class="dropdown-item" href="Dips.html">Dips</a></li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Drinks</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Soda.html">Sodas</a></li>
+                <li><a class="dropdown-item" href="Cocktail.html">Cocktails</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="PopularChoices.html">Popular choices</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Promotions.html">Promotions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Help.html">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Contact.html">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="shopping-cart.html">
+            <img id="shopcart" src="IMAGES/shopcart.png" />
+          </a>
+        </li>
+      </ul>
+      <a class="btn btn-lg btn-primary mybtn" href="LogIn.html">Log in</a>
+    </div>
+  </nav>
+  <!-- Form -->
+  <form th:action="@{/customized}" th:object="${customized}" method="GET">
+    Name:
+    <input type="text" th:field="*{customized_name}" />
+    <br />
+    Choose your countertop:
+    <br />
+    <input type="radio" th:field="*{countertops}" value="Italian" /><label>Italian</label>
+    <br />
+    <input type="radio" th:field="*{countertops}" value="Fluffy" /><label>Fluffy</label>
+    <br />
+    <input type="radio" th:field="*{countertops}" value="Multicereal" /><label>Multicereal</label>
+    <br />
+    <ul>
+      <li th:each="ingredient : ${ingredients}">
+        <input type="checkbox" th:field="*{ingredients}" th:id="${ingredient.ing_name}" value="" />
+        <input type="checkbox" th:id="${ingredient.ing_name}" />
+        <label th:text="${ingredient.ing_name}"> Ing Name</label>
+        <label th:text="${ingredient.energy}">Energy</label>
+      </li>
+    </ul>
+
+    <br />
+    <input type="submit" name="Create Pizza" value="Submit" />
+  </form>
+  <div th:replace="fragments/footer :: footer"></div>
+  <div th:replace="fragments/script :: script"></div>
+  <script src="/jscripts/index.js"></script>
+</body>
+
+</html>
