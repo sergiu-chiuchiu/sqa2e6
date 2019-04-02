@@ -1,7 +1,6 @@
 body {
   height: 100%;
   width: 100%;
-  min-height: 100%;
 }
 
 .first-slide {
@@ -15,140 +14,90 @@ body {
   }
 }
 
-/*promotions customization- first slide*/
-
-#daysbanner{
-	width: 100%;
-	height: 70%;
-	text-align: center;
-}
-
+/*promotions carousel customization- first slide*/
 #title-first-slide{
+  text-align: center;
   text-shadow: 2px 0px red;
-  font-size: 50px;
+  font-size: 80px;
   font-family: french script ;
-  position: absolute;
-  top: 30%;
-  left: 30%;
+  padding-left: 60px;
+  margin-top: 50px;
 }
 
 #text-first-slide{
   color:whitesmoke;
   text-shadow: 2px 0px red;
   font-size: 40px;
+  text-align: center;
   font-style: bold;
-  position: absolute;
-  top: 40%;
-  left: 30%;
+  margin-left: 100px;
+  margin-bottom: 100px;
 }
 
-/*promotions customization second slide*/
-
-#tombolabanner{
-	width: 100%;
-	height: 70%;
-	text-align: center;
-}
+/*promotions carousel customization second slide*/
 #title-second-slide{
-  color:white;
-  text-shadow: 2px 0px red;
+  text-align: left;
+  text-shadow: 2px 0px saddlebrown;
   font-size: 80px;
   font-family: french script ;
-  position: absolute;
-  text-align: center;
-  padding-right: 300px;
-  top: 90%;
-  left: 20%;
+  padding-left: 20px;
+  margin-top: 50px;
 }
 
 #text-second-slide {
   color:whitesmoke;
-  text-shadow: 2px 0px red;
+  text-shadow: 4px 0px black;
   font-size: 40px;
+  text-align: left;
   font-style: bold;
-  position: absolute;
-  top: 130%;
-  left: 30%;
+  margin-left: 30px;
+  margin-bottom: 100px;
 }
 
-.btn-tombola-promotions{
-
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-radius: 10px;
-    text-shadow: 0px 1px 0px #898a88;
-    -webkit-box-shadow: 0px 0px 0px #a4e388;
-    -moz-box-shadow: 0px 0px 0px #a4e388;
-    box-shadow: 0px 0px 0px #a4e388;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    border: solid #3b6e22  1px;
-    text-decoration: none;
+#btn-tombola-promotions{
+  background-color: white;
+  margin-left: -700px;
+  color: black;
   }
-  
 
-
-/*promotions customization third slide*/
-#eventsbanner{
-	width: 100%;
-	height: 70%;
-	text-align: center;
-}
-
-
+/*promotions carousel customization third slide*/
 #title-third-slide{
-  color: #008000; 
   text-align: center;
-  text-shadow: 2px 0px #ADFF2F;
+  text-shadow: 2px 0px saddlebrown;
   font-size: 70px;
   font-family: french script ;
-  position: absolute;
-  top: 180%;
-  left:10%;
 }
 
 #text-third-slide {
   text-align: center;
   color:whitesmoke;
   text-shadow: 2px 0px green;
-  font-size: 40px;
+  font-size: 20px;
   font-style: bold;
-  position: absolute;
-  top: 200%;
-  left:10%;
 }
 
-
-/*promotions customization fourth slide*/
-#drinksbanner{
-	width: 100%;
-	height: 70%;
-	text-align: center;
+#third-slide-text {
+  text-align: center;
+  color:whitesmoke;
+  text-shadow: 2px 0px darkgoldenrod;
+  font-size: 25px;
+  font-style: bold;
 }
 
+/*promotions carousel customization fourth slide*/
 #title-fourth-slide{
   text-align: center;
   text-shadow: 2px 0px darkgoldenrod;
   font-size: 70px;
   color: wheat;
   font-family: french script ;
-  position: absolute;
-  top: 280%;
-  left: 20%;
-  right: 10%;
 }
 
 #text-fourth-slide {
-  color: white;
   text-align: center;
   text-shadow: 2px 0px darkgoldenrod;
-  font-size: 40px;
+  font-size: 25px;
   font-style: bold;
-  position: absolute;
-  top: 320%;
-  left:10%;
 }
 
 
@@ -166,7 +115,7 @@ body {
    }
    
 .myform {
-	position: relative;
+	position: absolute;
 	display: -ms-flexbox;
 	display: flex;
 	padding: 1rem;
@@ -180,7 +129,6 @@ body {
 	border-radius: 1.1rem;
 	outline: 0;
 	max-width: 500px;
-	align-content:center;
 }
 
 #wrap {

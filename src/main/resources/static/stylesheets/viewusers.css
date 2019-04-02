@@ -1,11 +1,23 @@
-.fas {
+#adduser {
   padding: 5px;
   font-size: 30px;
   width: 50px;
   text-decoration: none;
-  margin-left: 200px; 
+  margin-left: 450px;
+  align:right;
   color: red;
 }
+
+#trash{
+  right:10%;
+  padding: 5px;
+  font-size: 30px;
+  width: 50px;
+  text-decoration: none;
+  align:right;
+  color: red;
+}
+
 
 h2 {
 	text-align: center;

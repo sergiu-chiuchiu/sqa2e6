@@ -11,8 +11,7 @@
   <br>  
   
   <div class="btn-group">
-          <a th:href="@{/user/adduser}" class="fas fa-user-plus"></a>
-          <a href="#" class="fas fa-trash-alt"></a>
+	<a th:href="@{/auth/adduser}" class="fas fa-user-plus" id="adduser"></a>
   </div>
 
   <br>
@@ -25,6 +24,7 @@
         <th>Birth date</th>
         <th>Gender</th>
         <th>User role</th>
+        <th>Delete account</th>
       </tr>
     </thead>
     <tbody>
@@ -37,14 +37,7 @@
         <td th:each="appRole : ${appUser.appRoles}">
         	<span th:text="${appRole.roleName}"></span>
         </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><a href="#" class="fas fa-trash-alt" id ="trash"></a></td>
       </tr>
     </tbody>
   </table>
