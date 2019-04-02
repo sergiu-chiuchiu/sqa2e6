@@ -1,11 +1,8 @@
 <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
 <title>Help</title>
-
 <link rel="stylesheet" href="/stylesheets/help.css">
 <link rel="stylesheet" href="/stylesheets/text.css">
-
-
 <body background="/images/background-4.jpg"></body>
 <div th:replace="fragments/navbar :: navbar"></div>
 <div id="content-page" class="span12 content group">
@@ -39,8 +36,8 @@
 				<label for="password">Password</label> <input type="password"
 					class="form-control" id="password" placeholder="Password">
 			</div>
-			<label class="my-1 mr-2" for="inlineFormCustomSelectPref"> Problems </label> 
-				<select class="custom-select my-1 mr-sm-2"
+			<label class="my-1 mr-2" for="inlineFormCustomSelectPref">
+				Problems </label> <select class="custom-select my-1 mr-sm-2"
 				id="inlineFormCustomSelectPref">
 				<option selected>Choose...</option>
 				<option value="1">Delivery</option>
@@ -48,20 +45,19 @@
 				<option value="3">Promotions</option>
 			</select>
 			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Describe your problem</label>
+				<label for="exampleFormControlTextarea1">Describe your
+					problem</label>
 				<textarea class="form-control" id="exampleFormControlTextarea1"
 					rows="3"></textarea>
 			</div>
-			</div>
-			<button type="submit" class="btn btn-primary" th:onclick="checkpass()" value="validate">Sent</button>
+		</div>
+		<button type="submit" class="btn btn-primary" th:onclick="checkpass()"
+			value="validate">Sent</button>
 	</fieldset>
 </form>
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
 <div th:replace="fragments/script :: script"></div>
 <script src="/jscripts/index.js"></script>
-<script src="jscripts/form.js"></script>
-
 </body>
 </html>

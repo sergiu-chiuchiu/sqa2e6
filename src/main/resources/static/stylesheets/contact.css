@@ -2,7 +2,7 @@
 fieldset { 
   display: block;
   align-content: left;
-  margin-left: 0px;
+  margin-left: 10px;
   margin-right: 200px;
   padding-top: 30px;
   padding-bottom: 60px;
@@ -19,6 +19,7 @@ fieldset {
   #picture {
     margin-top: 0px;
     margin-left: 500px;
+    margin-right: 500px
     height: 350px;
     width: 900px;
     
@@ -261,10 +262,6 @@ body {
 	margin-left:40px;
 }
 
-#post-terms {
-	margin-top: 60px;
-	margin-left: 60px;
-	margin-right: 60px;
 }
 
 #post-privacy{

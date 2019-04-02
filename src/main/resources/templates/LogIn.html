@@ -1,78 +1,87 @@
 <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
-    <title>Log In</title>   
-    <link rel = "stylesheet" href = "/stylesheets/style.css">
-    <link rel = "stylesheet" href = "/stylesheets/login.css">
-  <body>
-      <body background ="/images/background-4.jpg"></body>
+<title>Log In</title>
+<link rel="stylesheet" href="/stylesheets/login.css">
+<body>
+<body background="/images/background-4.jpg"></body>
 <!-- Navbar -->
-<div th:replace = "fragments/navbar :: navbar"></div>
- <!-- Form -->
-   <div class="container">
-      <div class="row">
-         <div class="col-md-5 mx-auto">
-            <div id="first">
-               <div class="myform form ">
-                  <div class="logo mb-3">
-                     <div class="col-md-12 text-center">
-                        <h1>Login</h1>
-                     </div>
-                     <!-- /login?error=true -->
-				     <div th:if="${#request.getParameter('error') == 'true'}"
-				            style="color:red;margin:10px 0px;">
-				         Login Failed!<br />
-				         Reason : <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
-				            th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
-				                Static summary
-				         </span>
-				     </div>
-                  </div>
-                  <form th:action="@{/j_spring_security_check}" method="POST" name="login">
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" value='' class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                     </div>
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Password</label>
-                        <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
-                     </div>
-                     <div class="form-group">
-                        <label for="remember">Remember Me: </label><input class="ml-2" type="checkbox" id="remember" name="remember-me" />
-                     </div>
-                     <div class="form-group">
-                        <p class="text-center">By signing up you accept our <a href="Terms.html" th:href=@{/terms}>Terms Of Use</a></p>
-                     </div>
-                     <div class="col-md-12 text-center ">
-                        <button name="submit" type="submit" value="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
-                     </div>
-                     <div class="col-md-12 ">
-                        <div class="login-or">
-                           <hr class="hr-or">
-                              <span class="span-or">or</span>
-                        </div>
-                     </div>
-                     <div class="col-md-12 mb-3">
-                        <p class="text-center">
-                           <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus">
-                              </i> Signup using Google
-                           </a>
-                        </p>
-                        </div>
-                        <div class="form-group">
-                           <p class="text-center">Don't have account? <a href="SignUp.html" id="signup" th:href=@{/auth/signup}>Sign up here</a></p>
-                        </div>
-                     </form>  
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>     
-      </br>
-      </br>  
+<div th:replace="fragments/navbar :: navbar"></div>
+<!-- Form -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-5 mx-auto">
+			<div id="first">
+				<div class="myform form ">
+					<div class="logo mb-3">
+						<div class="col-md-12 text-center">
+							<h1>Login</h1>
+						</div>
+						<!-- /login?error=true -->
+						<div th:if="${#request.getParameter('error') == 'true'}"
+							style="color: red; margin: 10px 0px;">
+							Login Failed!<br /> Reason : <span
+								th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+								th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+								Static summary </span>
+						</div>
+					</div>
+					<form th:action="@{/j_spring_security_check}" method="POST"
+						name="login">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label> <input
+								type="email" name="email" value='' class="form-control"
+								id="email" aria-describedby="emailHelp"
+								placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Password</label> <input
+								type="password" name="password" id="password"
+								class="form-control" aria-describedby="emailHelp"
+								placeholder="Enter Password">
+						</div>
+						<div class="form-group">
+							<label for="remember">Remember Me: </label><input class="ml-2"
+								type="checkbox" id="remember" name="remember-me" />
+						</div>
+						<div class="form-group">
+							<p class="text-center">
+								By signing up you accept our <a href="Terms.html"
+									th:href=@{/terms}>Terms Of Use</a>
+							</p>
+						</div>
+						<div class="col-md-12 text-center ">
+							<button name="submit" type="submit" value="submit"
+								class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+						</div>
+						<div class="col-md-12 ">
+							<div class="login-or">
+								<hr class="hr-or">
+								<span class="span-or">or</span>
+							</div>
+						</div>
+						<div class="col-md-12 mb-3">
+							<p class="text-center">
+								<a href="javascript:void();" class="google btn mybtn"><i
+									class="fa fa-google-plus"> </i> Signup using Google </a>
+							</p>
+						</div>
+						<div class="form-group">
+							<p class="text-center">
+								Don't have account? <a href="SignUp.html" id="signup"
+									th:href=@{/auth/signup}>Sign up here</a>
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</br>
+</br>
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
-<!--<script src = "/jscripts/index.js"></script>-->
 <div th:replace="fragments/script :: script"></div>
-   </body>
+<script src="/jscripts/index.js"></script>
+</body>
 </html>

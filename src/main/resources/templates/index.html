@@ -2,9 +2,7 @@
 <div th:replace="fragments/head :: head"></div>
 <title>Pizza Mia WebSite</title>
 <link rel="stylesheet" href="/stylesheets/style.css">
-
 <body background="/images/backgrounddd.jpg"></body>
-
 <!-- Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
 <!-- Carousel -->
@@ -82,13 +80,16 @@
 	</a>
 </div>
 <!-- subscribe -->
-<form th:action="@{/index}" th:object="${AppSubscribe}" method="POST" accept-charset="utf-8" class="form" role="form">
-						<p> Do your want to subscribe? Enter yor email below and you will receive our promotions and news!</p>
-						<input type="text"  name="email" value="" th:field="*{email}" class="form-control input-lg" placeholder="Your Email" >
-					  <br>
-					  <input type="submit" value="Subscribe" class="btn btn-lg btn-primary btn-primary" role = "button">
+<form th:action="@{/index}" th:object="${AppSubscribe}" method="POST"
+	accept-charset="utf-8" class="form" role="form">
+	<p>Do your want to subscribe? Enter yor email below and you will
+		receive our promotions and news!</p>
+	<input type="text" name="email" value="" th:field="*{email}"
+		class="form-control input-lg" placeholder="Your Email"> <br>
+	<input type="submit" value="Subscribe"
+		class="btn btn-lg btn-primary btn-primary" role="button">
 
-					</form>
+</form>
 <!-- Acces the promotions and popular choices pages -->
 <div id="content-page" class="span12 content group">
 	<div id="post-terms2"
@@ -116,8 +117,7 @@
 </br>
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
-<!-- Footer --> 
-<script src="/jscripts/index.js"></script>
 <div th:replace="fragments/script :: script"></div>
+<script src="/jscripts/index.js"></script>
 </body>
 </html>

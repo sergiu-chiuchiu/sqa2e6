@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width = device-width, initial scale = 1.0">
-<meta name="description" content="Pizza Mia WebSite">
-<meta name="author" content="Frontend team">
-<title>Pizza Mia Creation</title>
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="/stylesheets/style.css"
-	th:href="@{/stylesheets/style.css}">
-<link rel="stylesheet" href="/stylesheets/customized.css"
-	th:href="@{/stylesheets/customized.css}">
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial scale = 1.0">
+	<meta name="description" content="Pizza Mia WebSite">
+	<meta name="author" content="Frontend team">
+	<title>Pizza Mia Creation</title>
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="/stylesheets/style.css" th:href="@{/stylesheets/style.css}">
+	<link rel="stylesheet" href="/stylesheets/customized.css" th:href="@{/stylesheets/customized.css}">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body background="/images/backgrounddd.jpg"></body>
+
+<body background="/images/backgrounddd.jpg">
 <!-- Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
 <h3 id="titlePage">Make a new creation!</h3>
 <br>
 <br>
 <form action=# th:action="@{/menu/pizza/customizepizza}" th:object="${cust}" method="post" autocomplete="off">
-			<div>
-				<input type="hidden" th:field="*{customized_id}"/>								
-			</div>
-			<div class="text">
-				<label>Name:</label>
-				<input type="text" th:field="*{customized_name}"/>
-				<span class="text-danger">
-				<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>	
+	<div>
+		<input type="hidden" th:field="*{customized_id}" />
+	</div>
+	<div class="text">
+		<label>Name:</label>
+		<input type="text" th:field="*{customized_name}" />
+		<span class="text-danger">
+			<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>	
 				</span>											
 			</div>
 			<div class="text">

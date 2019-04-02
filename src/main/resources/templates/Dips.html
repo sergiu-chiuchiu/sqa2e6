@@ -1,20 +1,23 @@
 <link rel="icon" href="images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
-		<title>Dips</title>
-    <link rel = "stylesheet" href = "/stylesheets/style.css">
-    <link rel = "stylesheet" href = "/stylesheets/dips.css">
-		
-	      <body background ="/images/backgrounddd.jpg"></body>
-<div th:replace = "fragments/navbar :: navbar"></div>
+<title>Dips</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/dips.css">
+<body background="/images/backgrounddd.jpg"></body>
+<div th:replace="fragments/navbar :: navbar"></div>
 <!-- Inceput Main -->
-    <div class="container" id="principal">
-<!--Start Carusel-->
-<div id="content-page" class="span12 content group">
-    <div id="post-terms2" class="group post-terms page type-page status-publish hentry">
-      <div class="row justify-content-center">
-        <img id = "dips-banner" src = "/images/dips_3.jpg"/>
-      </div>
-    </div>
+<div class="container" id="principal">
+	<!--Start Carusel-->
+	<div id="content-page" class="span12 content group">
+		<div id="post-terms2"
+			class="group post-terms page type-page status-publish hentry">
+			<div class="row justify-content-center">
+				<img id="dips-banner" src="/images/dips_3.jpg" />
+			</div>
+		</div>
+	</div>
+	<!--Sfarsit carusel-->
+	<br /> <br />
 </div>
 <!--Sfarsit carusel-->
 <div class="sidenav">
@@ -25,46 +28,53 @@
 		<br/><br/>
   </div>
 <!-- Tipuri sosuri -->
-  <div class="container">
-    <div class="card-deck mb-3 text-center">
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Sweet tomato dip</h4>
-        </div>
-        <img id = "dips" src = "/images/Sos dulce.jpg">
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title"> 2 LEI <small class="text-muted">/ dip</small></h1>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
-        </div>
-      </div>
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Hot tomato dip</h4>
-        </div>
-        <img id = "dips" src = "/images/sos_picantjpg.jpg">
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title"> 2 LEI <small class="text-muted">/ dip</small></h1>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-      </div>
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Mayonnaise Dip</h4>
-        </div>
-        <img id = "dips" src = "/images/sos-maioneza-usturoi.jpg">
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title"> 3 LEI <small class="text-muted">/ dip</small></h1>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-      </div>
-    </div>
-  </div>
-	<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
+<div class="container">
+	<div class="card-deck mb-3 text-center">
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Sweet tomato dip</h4>
+			</div>
+			<img id="dips" src="/images/Sos dulce.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					2 LEI <small class="text-muted">/ dip</small>
+				</h1>
+				<button type="button"
+					class="btn btn-lg btn-block btn-outline-primary">Add to
+					cart</button>
+			</div>
+		</div>
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Hot tomato dip</h4>
+			</div>
+			<img id="dips" src="/images/sos_picantjpg.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					2 LEI <small class="text-muted">/ dip</small>
+				</h1>
+				<button type="button" class="btn btn-lg btn-block btn-primary">Add
+					to cart</button>
+			</div>
+		</div>
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 class="my-0 font-weight-normal">Mayonnaise Dip</h4>
+			</div>
+			<img id="dips" src="/images/sos-maioneza-usturoi.jpg">
+			<div class="card-body">
+				<h1 class="card-title pricing-card-title">
+					3 LEI <small class="text-muted">/ dip</small>
+				</h1>
+				<button type="button" class="btn btn-lg btn-block btn-primary">Add
+					to cart</button>
+			</div>
+		</div>
+	</div>
+</div>
 <!-- Footer -->
-</footer>
-<script src = "/jscripts/form.js"></script>
+<div th:replace="fragments/footer :: footer"></div>
 <div th:replace="fragments/script :: script"></div>
-<!---<script scr = "/jscripts/index.js"></script> -->
-	</body>
+<script src="/jscripts/form.js"></script>
+</body>
 </html>

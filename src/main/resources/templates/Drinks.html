@@ -1,206 +1,223 @@
 <link rel="icon" href="images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
 <title>Drinks</title>
-    <link rel = "stylesheet" href = "/stylesheets/style.css">
-    <link rel = "stylesheet" href = "/stylesheets/drinks.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/drinks.css">
+</head>
+<body background="/images/backgrounddd.jpg">
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<!--Start Carusel-->
+	<div id="content-page" class="span12 content group">
+		<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
+			<div class="row justify-content-center">
+				<img id="drinks-banner" src="/images/has-juice-banner.jpg" />
+			</div>
+		</div>
+	</div>
+	<!--Sfarsit carusel-->
+	<br />
+	<br />
+	</div>
+	<!-- side filter -->
+	<!-- Tipuri bauturi -->
 
-      <body background ="/images/backgrounddd.jpg"></body>
-<div th:replace = "fragments/navbar :: navbar"></div>
-<!--Start Carusel-->
-<div id="content-page" class="span12 content group">
-    <div id="post-terms2" class="group post-terms page type-page status-publish hentry">
-      <div class="row justify-content-center">
-        <img id = "drinks-banner" src = "/images/has-juice-banner.jpg"/>
-      </div>
-    </div>
-</div>
-<!--Sfarsit carusel-->
-<br/><br/>
-</div>
-<!-- side filter -->
-<!-- Tipuri bauturi -->
-
-<div class="sidenav">
-	<a href="Pizza.html" th:href="@{/menu/pizza}">Pizza</a>
-	<a href="Dips.html" th:href="@{/menu/dips}">Dips</a>
-	<a th:href="@{/menu/pizza/viewCreations}">Creations</a>						
-    <a href="Soda.html" th:href="@{/menu/drinks/soda}">Sodas</a>
-    <a href="Cocktail.html" th:href="@{/menu/drinks/cocktail}">Cocktails</a>
-  </div> 
-  <div class="container">
-    <div class="card-deck mb-3 text-center">
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Coca Cola</h4>
-        </div>
-        <img id = "soda" src = "/images/drinks_cola.jpg">
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title"> 5 LEI <small class="text-muted">/ bottle</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>250 ML</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
-        </div>
-      </div>
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Fanta</h4>
-        </div>
-        <img id = "soda" src = "/images/drinks_fanta.jpg">
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title"> 5 LEI <small class="text-muted">/ bottle</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>250 ML</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-      </div>
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">7UP</h4>
-        </div>
-        <img id = "soda" src = "/images/drinks_7up.jpg">
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title"> 5 LEI <small class="text-muted">/ bottle</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>250 ML</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</br>
-<div class="container">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Lemonade</h4>
-      </div>
-      <img id = "lemonade" src = "/images/drinks_lemonade.jpg">
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title"> 12 LEI <small class="text-muted">/ glass</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>500 ML</li>
-          </br>
-          </br>
-          </br>
-          </br>
-          </br>
-          </br>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-        </div>
-      </div>
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Pina Colada Cocktail</h4>
-        </div>
-        <img id = "cocktail" src = "/images/drinks_pina_colada.jpg">
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title"> 20 LEI <small class="text-muted">/ glass</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>200 ML</li>
-              <li>60 ml white rom</li>
-              <li>100 ml pineapple juice</li>
-              <li>40 ml of coconut milk</li>
-              <li>crushed ice or ice flakes</li>
-              </br>
-              </br>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-          </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Mojito Cocktail</h4>
-            </div>
-            <img id = "cocktail" src = "/images/drinks_mojito.jpg">
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 22 LEI <small class="text-muted">/ glass</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>150 ML</li>
-                <li>50 ml white rom</li>
-                <li>juice of half a lime</li>
-                <li>25 ml of carbonated mineral water</li>
-                <li>crushed ice or ice flakes</li>
-                <li>some fresh mint leaves (around 12)</li>
-                <li>2 teaspoons of sugar</li>
-              </ul>
-              <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      </br>
-      <div class="container">
-        <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                  <h4 class="my-0 font-weight-normal">Cosmopolitan Cocktail</h4>
-                </div>
-            <img id = "cocktail" src = "/images/drinks_cosmopolitan.jpg">
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title"> 18 LEI <small class="text-muted">/ glass</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>100 ML</li>
-                <li>40 ml vodka</li>
-                <li>15 ml triple sec</li>
-                <li>20 ml fresh lime juice</li>
-                <li>20 ml of cranberry juice</li>
-                </br>
-                </br>
-              </ul>
-              <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-            </div>
-           </div>
-          <div class="card mb-4 box-shadow">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Watermelon Sangria </h4>
-            </div>
-            <img id = "cocktail" src = "/images/drinks_watermelon_sangria.jpg">
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title"> 25 LEI <small class="text-muted">/ glass</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>200 ML</li>
-                  <li>a glass of dry white wine</li>
-                  <li>red watermelon grain-trimmed</li>
-                  <li>60 ml brandy or cognac</li>
-                  <li>orange</li>
-                  <li>lime</li>
-                  </br>
-                </ul>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-              </div>
-             </div>
-              <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                  <h4 class="my-0 font-weight-normal">Blue Lagoon Cocktail</h4>
-                </div>
-                <img id = "cocktail" src = "/images/drinks_blue_lagoon.jpg">
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title"> 24 LEI <small class="text-muted">/ glass</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>100 ML</li>
-                    <li>30 ml vodka</li>
-                    <li>30 ml of blue curacao liqueur</li>
-                    <li>30 ml of lemonade</li>
-                    <li>ice</li>
-                    </br>
-                    </br>
-                  </ul>
-                  <button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+	<div class="sidenav">
+		<a href="Pizza.html" th:href="@{/menu/pizza}">Pizza</a>
+		<a href="Dips.html" th:href="@{/menu/dips}">Dips</a>
+		<a th:href="@{/menu/pizza/viewCreations}">Creations</a>
+		<a href="Soda.html" th:href="@{/menu/drinks/soda}">Sodas</a>
+		<a href="Cocktail.html" th:href="@{/menu/drinks/cocktail}">Cocktails</a>
+	</div>
+	<div class="container">
+		<div class="card-deck mb-3 text-center">
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Coca Cola</h4>
+				</div>
+				<img id="soda" src="/images/drinks_cola.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title"> 5 LEI <small class="text-muted">/ bottle</small></h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>250 ML</li>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+				</div>
+			</div>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Fanta</h4>
+				</div>
+				<img id="soda" src="/images/drinks_fanta.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title"> 5 LEI <small class="text-muted">/ bottle</small></h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>250 ML</li>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
+				</div>
+			</div>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">7UP</h4>
+				</div>
+				<img id="soda" src="/images/drinks_7up.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title"> 5 LEI <small class="text-muted">/ bottle</small></h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>250 ML</li>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</br>
+	<div class="container">
+		<div class="card-deck mb-3 text-center">
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Lemonade</h4>
+				</div>
+				<img id="lemonade" src="/images/drinks_lemonade.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						12 LEI <small class="text-muted">/ glass</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>500 ML</li>
+						</br>
+						</br>
+						</br>
+						</br>
+						</br>
+						</br>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Pina Colada Cocktail</h4>
+				</div>
+				<img id="cocktail" src="/images/drinks_pina_colada.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						20 LEI <small class="text-muted">/ glass</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>200 ML</li>
+						<li>60 ml white rom</li>
+						<li>100 ml pineapple juice</li>
+						<li>40 ml of coconut milk</li>
+						<li>crushed ice or ice flakes</li>
+						</br>
+						</br>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Mojito Cocktail</h4>
+				</div>
+				<img id="cocktail" src="/images/drinks_mojito.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						22 LEI <small class="text-muted">/ glass</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>150 ML</li>
+						<li>50 ml white rom</li>
+						<li>juice of half a lime</li>
+						<li>25 ml of carbonated mineral water</li>
+						<li>crushed ice or ice flakes</li>
+						<li>some fresh mint leaves (around 12)</li>
+						<li>2 teaspoons of sugar</li>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</br>
+	<div class="container">
+		<div class="card-deck mb-3 text-center">
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Cosmopolitan Cocktail</h4>
+				</div>
+				<img id="cocktail" src="/images/drinks_cosmopolitan.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						18 LEI <small class="text-muted">/ glass</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>100 ML</li>
+						<li>40 ml vodka</li>
+						<li>15 ml triple sec</li>
+						<li>20 ml fresh lime juice</li>
+						<li>20 ml of cranberry juice</li>
+						</br>
+						</br>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Watermelon Sangria</h4>
+				</div>
+				<img id="cocktail" src="/images/drinks_watermelon_sangria.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						25 LEI <small class="text-muted">/ glass</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>200 ML</li>
+						<li>a glass of dry white wine</li>
+						<li>red watermelon grain-trimmed</li>
+						<li>60 ml brandy or cognac</li>
+						<li>orange</li>
+						<li>lime</li>
+						</br>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Blue Lagoon Cocktail</h4>
+				</div>
+				<img id="cocktail" src="/images/drinks_blue_lagoon.jpg">
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">
+						24 LEI <small class="text-muted">/ glass</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>100 ML</li>
+						<li>30 ml vodka</li>
+						<li>30 ml of blue curacao liqueur</li>
+						<li>30 ml of lemonade</li>
+						<li>ice</li>
+						</br>
+						</br>
+					</ul>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Add
+						to cart</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
 	<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
+	<script src="/jscripts/form.js"></script>
+</body>
 
-<div th:replace="fragments/script :: script"></div>
-<script src = "/jscripts/form.js"></script>
-<!-- <script scr = "/jscripts/index.js"></script> -->
-	</body>
 </html>
