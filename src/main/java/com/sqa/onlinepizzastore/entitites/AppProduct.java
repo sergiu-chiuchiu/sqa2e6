@@ -47,10 +47,21 @@ public class AppProduct {
 	
 	
 	public Set<AppCartDetail> cartDetails= new HashSet<AppCartDetail>();
+	
+	public Set<AppIngPerProd> ingPerProd= new HashSet<AppIngPerProd>();
 
 	@OneToMany(mappedBy="appProduct")
 	public Set<AppCartDetail> getCartDetails() {
 		return cartDetails;
+	}
+
+	@OneToMany(mappedBy="product")
+	public Set<AppIngPerProd> getIngPerProd() {
+		return ingPerProd;
+	}
+
+	public void setIngPerProd(Set<AppIngPerProd> ingPerProd) {
+		this.ingPerProd = ingPerProd;
 	}
 
 	public void setCartDetails(Set<AppCartDetail> cartDetails) {

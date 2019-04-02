@@ -1,6 +1,7 @@
 package com.sqa.onlinepizzastore.entitites;
 
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMax;
@@ -67,6 +68,18 @@ public class Ingredient {
 	@ManyToMany(mappedBy="ingredients")
     @JsonBackReference
 	private Set<Customized> customs;
+
+	@OneToMany(mappedBy="ingredient")
+	public Set<AppIngPerProd> ingPerProd= new HashSet<AppIngPerProd>();
+	
+
+	public Set<AppIngPerProd> getIngPerProd() {
+		return ingPerProd;
+	}
+
+	public void setIngPerProd(Set<AppIngPerProd> ingPerProd) {
+		this.ingPerProd = ingPerProd;
+	}
 
 	public Integer getIng_id() {
 		return ing_id;

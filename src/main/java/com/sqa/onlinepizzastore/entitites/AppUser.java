@@ -7,12 +7,15 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -46,6 +49,10 @@ public class AppUser {
 	private Date birthDate;
 	
 	private String gender;
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cart_no")
+	private AppCart appCart; 
 	
 	@ManyToMany(cascade = {
 			CascadeType.MERGE,
@@ -57,6 +64,24 @@ public class AppUser {
     @JsonManagedReference
 	private Set<AppRole> appRoles = new HashSet<AppRole>();
 	
+	@OneToMany(mappedBy="appUser")
+	private Set<AppAddress> appAddresses  = new HashSet<AppAddress>();
+	
+	@OneToMany(mappedBy="appUser")
+	private Set<AppPayment> appPayments  = new HashSet<AppPayment>();
+	
+	public Set<AppPayment> getAppPayments() {
+		return appPayments;
+	}
+	public void setAppPayments(Set<AppPayment> appPayments) {
+		this.appPayments = appPayments;
+	}
+	public Set<AppAddress> getAppAddresses() {
+		return appAddresses;
+	}
+	public void setAppAddresses(Set<AppAddress> appAddresses) {
+		this.appAddresses = appAddresses;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -108,5 +133,13 @@ public class AppUser {
 	public AppUser() {
 		super();
 	}
+	public AppCart getAppCart() {
+		return appCart;
+	}
+	public void setAppCart(AppCart appCart) {
+		this.appCart = appCart;
+	}
 
+	
+	
 }
