@@ -28,22 +28,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr th:each="appUser : ${AppUsers}">
+        <td th:text="${appUser.email}"></td>
+        <td th:text="${appUser.userName}"></td>
+        <td th:text="${appUser.points}"></td>
+        <td th:text="${appUser.birthDate}"></td>
+        <td th:text="${appUser.gender}"></td>
+        <td th:each="appRole : ${appUser.appRoles}">
+        	<span th:text="${appRole.roleName}"></span>
+        </td>
         <td><a href="#" class="fas fa-trash-alt" id ="trash"></a></td>
-      </tr>
-           <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
       </tr>
     </tbody>
   </table>

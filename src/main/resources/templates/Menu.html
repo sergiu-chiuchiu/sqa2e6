@@ -1,31 +1,38 @@
 <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
-		<title>Menu</title>
-		<link rel = "stylesheet" href = "/stylesheets/style.css">
-		<link rel = "stylesheet" href = "/stylesheets/menu.css">
-		<link rel = "stylesheet" href = "/stylesheets/text.css">
-			<body background="/images/background-4.jpg"></body>
-    <div th:replace = "fragments/navbar :: navbar"></div>
-			<div id="content-page" class="span12 content group">
-	    		<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
-						<div class="row justify-content-center">
-							<img id = "banner" src = "/images/pizza-banner.jpg"/>
-						</div>
-					</div>
-					<div id="post-terms" class="group post-terms page type-page status-publish hentry">
-						<p> See our pizza menu <a href = "Pizza.html" th:href="@{/menu/pizza}">here.</a></p>
-						<p> Choose your favorite pizza dip  <a href = "Dips.html" th:href="@{/menu/dips}">here.</a></p>
-						<p> A pizza needs a drink.  <a href = "Drinks.html" th:href="@{/menu/drinks}">Here </a>you can see our drinks.</p>
-					 </div>
-					  <div class="sidenav">
-						<a href="Pizza.html" th:href="@{/menu/pizza}">Pizza</a>
-						<a href="Dips.html" th:href="@{/menu/dips}">Dips</a>
-						<a href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a>
-					  </div> 
-<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
-<div th:replace="fragments/script :: script"></div>
-<!--<script src = "/jscripts/index.js"></script>-->
-	</body>
+<title>Menu</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/menu.css">
+<link rel="stylesheet" href="/stylesheets/text.css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body background="/images/background-4.jpg">
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<div id="content-page" class="span12 content group">
+		<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
+			<div class="row justify-content-center">
+				<img id="banner" src="/images/pizza-banner.jpg" />
+			</div>
+		</div>
+		<div id="post-terms" class="group post-terms page type-page status-publish hentry">
+			<p> See our pizza menu <a href="Pizza.html" th:href="@{/menu/pizza}">here.</a></p>
+			<p> Choose your favorite pizza dip <a href="Dips.html" th:href="@{/menu/dips}">here.</a></p>
+			<p> A pizza needs a drink. <a href="Drinks.html" th:href="@{/menu/drinks}">Here </a>you can see our drinks.
+			</p>
+		</div>
+		<div class="sidenav">
+			<a href="Pizza.html" th:href="@{/menu/pizza}">Pizza</a>
+			<a href="Dips.html" th:href="@{/menu/dips}">Dips</a>
+			<a th:href="@{/menu/pizza/viewCreations}">Creations</a>
+			<a href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a>
+		</div>
+		<!-- Footer -->
+		<div th:replace="fragments/footer :: footer"></div>
+		<!-- Footer -->
+		<div th:replace="fragments/script :: script"></div>
+		<!--<script src = "/jscripts/index.js"></script>-->
+</body>
+
 </html>

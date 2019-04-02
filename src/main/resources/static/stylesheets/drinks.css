@@ -84,11 +84,11 @@
   /* side nav */
   
 .sidenav {
-  height: 20%;
+  height: 40%;
   width: 160px;
   position: fixed;
   z-index: 1;
-  top: 550px;
+  top: 350px;
   left: 0;
   background-color: firebrick;
   overflow-x: hidden;

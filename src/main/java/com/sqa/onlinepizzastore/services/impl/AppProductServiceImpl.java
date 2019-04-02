@@ -1,8 +1,9 @@
 package com.sqa.onlinepizzastore.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sqa.onlinepizzastore.entitites.AppProduct;
 import com.sqa.onlinepizzastore.repositories.AppProductRepository;
 import com.sqa.onlinepizzastore.services.AppProductService;
@@ -14,10 +15,35 @@ public class AppProductServiceImpl implements AppProductService {
 	AppProductRepository appProductRepository;
 	
 	@Override
-	public AppProduct saveAppProduct(AppProduct appProductToSave) {
+	public AppProduct save(AppProduct appProductToSave) {
 		return appProductRepository.save(appProductToSave);
 	}
-
+	
+	@Override
+	public AppProduct update(AppProduct appProductToUpdate) {
+		return appProductRepository.save(appProductToUpdate);
+	}
+	@Override
+	public List<AppProduct> findAll(){
+		return appProductRepository.findAll();
+	}
+		
+	@Override
+	public AppProduct findOne(Long id) {
+		return appProductRepository.findById(id).orElse(null);
+	}
+	
+	
+	@Override
+	public void delete(AppProduct appProductToDelete) {
+		appProductRepository.delete(appProductToDelete);
+	}
+	
+	
+	
+	
+	
+	
 //	@Override
 //	public AppProduct getAppProductById(Long prodId) {
 //		return appProductRepository.getAppProductById(prodId);

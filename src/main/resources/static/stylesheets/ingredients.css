@@ -6,7 +6,6 @@
 
 li {
 	color: #CCCCCC;
-	margin-left: 60px;
 }
 
 li:before {
@@ -27,4 +26,3 @@ li:before {
 	display: inline-block;
 	margin-left: 600px;
 }
-

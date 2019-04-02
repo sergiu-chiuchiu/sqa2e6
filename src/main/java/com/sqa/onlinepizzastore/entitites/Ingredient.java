@@ -1,6 +1,7 @@
 package com.sqa.onlinepizzastore.entitites;
 
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMax;
@@ -20,6 +21,7 @@ public class Ingredient {
 	private Integer ing_id;
 	
 	@Column(unique = true, nullable = false)
+	@NotNull(message="The name of ingredient is mandatory!")
 	private String ing_name;
 	
 	@NotBlank(message = "The type of ingredient is mandatory!")
@@ -28,45 +30,48 @@ public class Ingredient {
 	@NotNull(message = "The ingredient is allergen?")
 	private Boolean	ing_allergen;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00") 
+	@NotNull 
 	private Double ing_weight;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00")
+	@NotNull 
 	private Double ing_price;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00")
+	@NotNull 
 	private Double ing_quantity;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00")
+	@NotNull 
 	private Double energy;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00")
+	@NotNull 
 	private Double fat;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00")
+	@NotNull 
 	private Double carbohydrate;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00")
+	@NotNull 
 	private Double fibres;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00")
+	@NotNull 
 	private Double proteine;
 	
-	@DecimalMin("0.00") 
-	@DecimalMax("99999.00")
+	@NotNull 
 	private Double salt;
 	
 	@ManyToMany(mappedBy="ingredients")
     @JsonBackReference
 	private Set<Customized> customs;
+
+	@OneToMany(mappedBy="ingredient")
+	public Set<AppIngPerProd> ingPerProd= new HashSet<AppIngPerProd>();
+	
+
+	public Set<AppIngPerProd> getIngPerProd() {
+		return ingPerProd;
+	}
+
+	public void setIngPerProd(Set<AppIngPerProd> ingPerProd) {
+		this.ingPerProd = ingPerProd;
+	}
 
 	public Integer getIng_id() {
 		return ing_id;

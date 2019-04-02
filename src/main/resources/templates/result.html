@@ -12,7 +12,7 @@
 	<h4>Countertop:</h4>
 	<p th:text="${countertops}" />
 	<h4>Ingredients:</h4>
-	<p th:text="${ingredients}" />
+	<p th:text="${ingredients.ing_name}" />
 	<input onclick='javascript:window.history.back()' value='Create another pizza' type='button' />
 <div th:replace="fragments/script :: script"></div>
 </body>

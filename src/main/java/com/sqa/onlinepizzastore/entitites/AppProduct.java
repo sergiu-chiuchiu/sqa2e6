@@ -45,12 +45,24 @@ public class AppProduct {
 
 	private Double prodWeight;
 	
+	private String imageLink;
 	
 	public Set<AppCartDetail> cartDetails= new HashSet<AppCartDetail>();
+	
+	public Set<AppIngPerProd> ingPerProd= new HashSet<AppIngPerProd>();
 
 	@OneToMany(mappedBy="appProduct")
 	public Set<AppCartDetail> getCartDetails() {
 		return cartDetails;
+	}
+
+	@OneToMany(mappedBy="product")
+	public Set<AppIngPerProd> getIngPerProd() {
+		return ingPerProd;
+	}
+
+	public void setIngPerProd(Set<AppIngPerProd> ingPerProd) {
+		this.ingPerProd = ingPerProd;
 	}
 
 	public void setCartDetails(Set<AppCartDetail> cartDetails) {
@@ -88,7 +100,7 @@ public class AppProduct {
 	}
 
 	@NotBlank
-	@Column(name = "prod_qty", unique = true, nullable = false)
+	@Column(name = "prod_qty", nullable = false)
 	public String getProdQty() {
 		return prodQty;
 	}
@@ -146,6 +158,14 @@ public class AppProduct {
 
 	public void setProdWeight(Double prodWeight) {
 		this.prodWeight = prodWeight;
+	}
+
+	public String getImageLink() {
+		return imageLink;
+	}
+
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
 	}
 
 	

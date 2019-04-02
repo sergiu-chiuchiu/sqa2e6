@@ -1,6 +1,8 @@
 package com.sqa.onlinepizzastore.entitites;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,11 +32,10 @@ public class Customized {
 	@Size(min=3, max=50)
 	private String customized_name;
 	
-
 	@NotNull(message="The energy is mandatory!")
 	private Integer  customized_energy; 
 
-	@NotBlank(message="Select one countertop!")
+	@NotNull(message="Select one countertop!")
 	private String countertops;
 	
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
@@ -42,8 +43,8 @@ public class Customized {
 	, joinColumns = {@JoinColumn(referencedColumnName = "customized_id")}
 	, inverseJoinColumns = {@JoinColumn(referencedColumnName="ing_id")})
     @JsonManagedReference
+    @NotNull
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();
-	
 	
 	
 	public Integer getCustomized_id() {

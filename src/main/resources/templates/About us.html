@@ -1,37 +1,56 @@
 <link rel="icon" href="images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
-		<title>About us</title>
-		<link rel = "stylesheet" href = "/stylesheets/style.css">
-		<link rel = "stylesheet" href = "/stylesheets/aboutus.css">
+<title>About us</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/aboutus.css">
+<body background="/images/background-4.jpg"></body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div id="content-page" class="span12 content group">
+	<div id="post-terms2"
+		class="group post-terms page type-page status-publish hentry">
+		<div class="row justify-content-center">
+			<img id="welcome" src="/images/welcome-pizza.jpg" />
+		</div>
+	</div>
+	<div id="post-terms"
+		class="group post-terms page type-page status-publish hentry">
+		<p>
+			Pizza Mia is located at Bulevardul Carol I, nr. 22, Iasi. We pride
+			ourselves on using fresh ingredients to create delicious food at
+			affordable prices. Check our offer which lets you <a
+				href="CustomizePizza.html" th:href="@{/menu/pizza/customizepizza}">customize
+				your own pizza </a> online!
+		</p>
+		<p>
+			If you have any questions about us, please contact us using our<a
+				href="Contact.html" th:href="@{/contact}"> contact form</a> or by
+			telephoning on 0184 256692.
+		</p>
+		</br>
+		<h3>Information about us</h3>
+		</br>
+		<p>We are a proud team which will seek to serve the pizza eaters
+			wildest dreams, using the best ingredients ever.</p>
+		<p>
+			Be brave and try our facility of customizing your own type pizza. The
+			customized pizza can be saved on your own profile, so <a
+				href="SignUp.html" th:href="@{/auth/signup}">sign up</a> first!
+		</p>
+		<p>
+			See our <a href="Menu.html" th:href="@{/menu}">menu!</a>
+		</p>
+	</div>
+	</br>
+	<div id="post-terms3"
+		class="group post-terms page type-page status-publish hentry">
+		<div class="row justify-content-center">
+			<img id="aboutimg" src="/images/aboutimg.jpg" />
+		</div>
+	</div>
+	<!-- Footer -->
+	<div th:replace="fragments/footer :: footer"></div>
 
-			<body background = "/images/background-4.jpg"></body>
-    <div th:replace = "fragments/navbar :: navbar"></div>
-	  		<div id="content-page" class="span12 content group">
-	    		<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
-						<div class="row justify-content-center">
-							<img id = "welcome" src = "/images/welcome-pizza.jpg"/>
-						</div>
-					</div>
-					<div id="post-terms" class="group post-terms page type-page status-publish hentry">
-        				<p> Pizza Mia is located at Bulevardul Carol I, nr. 22, Iasi. We pride ourselves on using fresh ingredients to create delicious food at affordable prices. Check our offer which lets you <a href ="CustomizePizza.html" th:href="@{/menu/pizza/customizepizza}">customize your own pizza </a> online!</p>
-						<p>If you have any questions about us, please contact us using our<a href = "Contact.html" th:href="@{/contact}"> contact form</a> or by telephoning on 0184 256692.</p>
-						</br>
-						<h3>Information about us</h3>
-						</br>
-						<p>We are a proud team which will seek to serve the pizza eaters wildest dreams, using the best ingredients ever.</p>
-						<p>Be brave and try our facility of customizing your own type pizza. The customized pizza can be saved on your own profile, so <a href = "SignUp.html" th:href="@{/auth/signup}">sign up</a> first! </p>
-						<p> See our  <a href = "Menu.html" th:href="@{/menu}">menu!</a></p>
-					</div>
-					</br>
- 					<div id="post-terms3" class="group post-terms page type-page status-publish hentry">
-						<div class="row justify-content-center">
-							<img id = "aboutimg" src = "/images/aboutimg.jpg"/>
-						</div>
-					</div>
-<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-		<!-- Footer -->
-	<div th:replace="fragments/script :: script"></div>	
-	<script src = "/jscripts/index.js"></script>
+	<div th:replace="fragments/script :: script"></div>
+	<script src="/jscripts/index.js"></script>
 	</body>
-</html>
+	</html>

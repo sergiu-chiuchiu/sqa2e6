@@ -56,14 +56,14 @@ public class UserAuthenticationController {
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
 			return "SignUp";
 		}
-		AppUser appUser = new AppUser();
-		appUser.setEmail(appUserDto.getEmail());
 		appUserService.saveAppUserAsUser(modelMapper.map(appUserDto, AppUser.class));
 		return "Menu";
 	}
 
 	@GetMapping(value = "/login")
-	public String getLoginPage(Model model) {
+	public String getLoginPage(Model model) throws ParseException {
+		appUserService.createDefaultAdmin();
+		appUserService.createDefaultOperator();
 		return "LogIn";
 	}
 	
@@ -77,7 +77,6 @@ public class UserAuthenticationController {
 
         if (principal != null) {
             User loginedUser = (User) ((Authentication) principal).getPrincipal();
-//            System.out.println("username: " + appUserService.getAppUserByUserName(loginedUser.getUsername()).getEmail());
             String userInfo = WebUtils.toString(loginedUser);
             model.addAttribute("userInfo", userInfo);
 
