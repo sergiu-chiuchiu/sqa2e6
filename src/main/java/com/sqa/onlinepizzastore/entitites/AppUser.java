@@ -49,7 +49,9 @@ public class AppUser {
 	private Date birthDate;
 	
 	private String gender;
-
+	
+	private String passwordResetToken;
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cart_no")
 	private AppCart appCart; 
@@ -126,6 +128,12 @@ public class AppUser {
 		this.gender = gender;
 	}
 	
+	public String getPasswordResetToken() {
+		return passwordResetToken;
+	}
+	public void setPasswordResetToken(String passwordResetToken) {
+		this.passwordResetToken = passwordResetToken;
+	}
 	public void addAppRole(AppRole appRole) {
 		this.appRoles.add(appRole);
 	}

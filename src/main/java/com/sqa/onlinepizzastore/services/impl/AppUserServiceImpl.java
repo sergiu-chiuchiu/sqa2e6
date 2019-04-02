@@ -1,5 +1,7 @@
 package com.sqa.onlinepizzastore.services.impl;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,18 +9,26 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.UUID;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.context.Context;
 
 import com.sqa.onlinepizzastore.dto.AppUserDto;
 import com.sqa.onlinepizzastore.entitites.AppRole;
 import com.sqa.onlinepizzastore.entitites.AppUser;
+import com.sqa.onlinepizzastore.entitites.Mail;
 import com.sqa.onlinepizzastore.repositories.AppUserRepository;
 import com.sqa.onlinepizzastore.services.AppRoleService;
 import com.sqa.onlinepizzastore.services.AppUserService;
+import com.sqa.onlinepizzastore.util.EmailBodyTemplates;
 import com.sqa.onlinepizzastore.util.EncryptedPasswordUtils;
 
 @Service
@@ -28,7 +38,9 @@ public class AppUserServiceImpl implements AppUserService {
 	AppUserRepository appUserRepository;
 	@Autowired
 	AppRoleService appRoleService;
-
+	@Autowired
+	private HttpServletRequest request;
+	
 	@Override
 	public AppUser getAppUserByEmail(String email) {
 		return appUserRepository.getAppUserByEmail(email);
@@ -143,5 +155,28 @@ public class AppUserServiceImpl implements AppUserService {
 
 		return appUserRepository.save(appUser);
 	}
+	
+	@Override
+	public void sendPasswordResetEmail(AppUser appUser) throws AddressException, MessagingException, MalformedURLException {
+		String passwordResetToken = UUID.randomUUID().toString();
+		
+		URL url = new URL(request.getScheme(),
+				request.getServerName(),
+				request.getServerPort(),
+				request.getContextPath());
+		
+		String reqUrl = url.toString().concat("/auth/resetPassword/" + passwordResetToken);
+		System.out.println("LINK IS: " + reqUrl);
+		
+//		String emailBody = EmailBodyTemplates.getPasswordResetBodyTemplate(passwordResetToken, "TestUsername", reqUrl);
+//		System.out.println("WHY: " + emailBody);
+//		Mail mail = new Mail();
+//		mail.Send("qqsergiu@yahoo.com", "Test email", emailBody);
+	}
 
+	@Override
+	public AppUser getAppUserByPasswordResetToken(String passwordResetToken) {
+		return appUserRepository.getAppUserByPasswordResetToken(passwordResetToken);
+	}
+	
 }
