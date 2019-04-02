@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset = "utf-8">
-    <meta name = "viewport" content = "width = device-width, initial scale = 1.0">
-    <meta name = "description" content = "Pizza Mia WebSite">
-    <meta name = "author" content = "Frontend team">
-    <title>Pizza Mia Creations</title>
-    <link rel = "icon" href = "/images/logo.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel = "stylesheet" href = "/stylesheets/style.css" th:href="@{/stylesheets/style.css}">
-    <link rel = "stylesheet" href = "/stylesheets/ingredients.css" th:href="@{/stylesheets/ingredients.css}">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-    <body background ="/images/backgrounddd.jpg"></body>
+
+<head>
+  <title>Pizza Mia Creations</title>
+
+  <link rel="stylesheet" href="/stylesheets/style.css" th:href="@{/stylesheets/style.css}">
+  <link rel="stylesheet" href="/stylesheets/ingredients.css" th:href="@{/stylesheets/ingredients.css}">
+  <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+  <div th:replace="fragments/head :: head"></div>
+</head>
+
+<body background="/images/backgrounddd.jpg"></body>
 <!-- Navbar -->
-    <div th:replace = "fragments/navbar :: navbar"></div>
+<div th:replace="fragments/navbar :: navbar"></div>
 <h3 id="titlePage">Creations</h3>
 <br>
 <br>
 <table class="table table-dark">
-<thead>
+  <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Delete</th>
@@ -29,29 +25,32 @@
       <th scope="col">Name</th>
       <th scope="col">Energy(kcal)</th>
       <th scope="col">Countertop</th>
-      <th scope="col">Ingredients</th>      
-      <th><button class="btn btn-default"><a class="buttonLink" th:href="@{/menu/pizza/customizepizza}">Create a new dish</a></button></th>
+      <th scope="col">Ingredients</th>
+      <th><button class="btn btn-default"><a class="buttonLink" th:href="@{/menu/pizza/customizepizza}">Create a new
+            dish</a></button></th>
     </tr>
   </thead>
   <tbody>
-  <tr th:each="customized : ${customs}">
-  		<td scope="row"></th>  		
-  		<td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Delete</a></td>
-  		<td><a th:href="@{|/menu/pizza/viewCreations/editCreation/${customized.customized_id}|}">Update</a></td>
-        <td th:text="${customized.customized_name}">Title ...</td>
-        <td th:text="${customized.customized_energy}">1</td>
-        <td th:text="${customized.countertops}">1</td>
-        <td>
-        	<ul th:each="ingredient : ${customized.ingredients}">
-        		<li th:text="${ingredient.ing_name}"></li>
-        	</ul>
-        </td>
-        <td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Add to cart</a></td> 
-        </tr>
-   </tbody>
+    <tr th:each="customized : ${customs}">
+      <td scope="row">
+        </th>
+      <td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Delete</a></td>
+      <td><a th:href="@{|/menu/pizza/viewCreations/editCreation/${customized.customized_id}|}">Update</a></td>
+      <td th:text="${customized.customized_name}">Title ...</td>
+      <td th:text="${customized.customized_energy}">1</td>
+      <td th:text="${customized.countertops}">1</td>
+      <td>
+        <ul th:each="ingredient : ${customized.ingredients}">
+          <li th:text="${ingredient.ing_name}"></li>
+        </ul>
+      </td>
+      <td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Add to cart</a></td>
+    </tr>
+  </tbody>
 </table>
 <div th:replace="fragments/footer :: footer"></div>
 <div th:replace="fragments/script :: script"></div>
-<script src = "/jscripts/index.js"></script>
+<script src="/jscripts/index.js"></script>
 </body>
-</html> 
+
+</html>

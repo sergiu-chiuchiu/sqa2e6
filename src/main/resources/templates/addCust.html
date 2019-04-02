@@ -1,19 +1,23 @@
-<link rel="icon" href="images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
-<title>Example pizza!</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
+<head>
+	<title>Example pizza!</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="icon" href="images/logo.jpg" type="image/x-icon">
+	<div th:replace="fragments/head :: head"></div>
 </head>
+
 <body>
 	<h3>Create your pizza!!</h3>
 	<form action="#" th:action="@{/addCust}" th:object="${cust}" method="post" autocomplete="off">
-			<div>
-				<input type="hidden" th:field="*{customized_id}"/>					
-			</div>
-			<div>
-				Name:
-				<input type="text" th:field="*{customized_name}"/>
-				<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>												
+		<div>
+			<input type="hidden" th:field="*{customized_id}" />
+		</div>
+		<div>
+			Name:
+			<input type="text" th:field="*{customized_name}" />
+			<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>												
 			</div>
 			<div>
 				Energy:
@@ -40,7 +44,7 @@
 				<button type="submit">Create pizza</button>
 			</div>
 	</form>
-	
+<div th:replace="fragments/footer :: footer"></div>
 <div th:replace="fragments/scripts :: scripts"></div>
 </body>
 </html>

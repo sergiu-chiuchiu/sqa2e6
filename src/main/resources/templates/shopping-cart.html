@@ -1,97 +1,99 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
-    <title>Shopping cart</title>
-    <link rel = "stylesheet" href = "/stylesheets/style.css">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Shopping cart</title>
   <title>Responsive Shopping Cart</title>
-	<link rel = "stylesheet" href = "/stylesheets/style.css">
-      <link rel="stylesheet" href="/stylesheets/styleShoppingCart.css">
-  
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/styleShoppingCart.css">
+  <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+  <div th:replace="fragments/head :: head"></div>
 </head>
 
- <body background ="/images/background-4.jpg"></body>
-<!-- Navbar -->
-<div th:replace = "fragments/navbar :: navbar"></div>
+<body background="/images/background-4.jpg">
+  <!-- Navbar -->
+  <div th:replace="fragments/navbar :: navbar"></div>
   <h1>Shopping Cart</h1>
 
-<div class="shopping-cart">
+  <div class="shopping-cart">
 
-  <div class="column-labels">
-    <label class="product-image">Image</label>
-    <label class="product-details">Product</label>
-    <label class="product-price">Price</label>
-    <label class="product-quantity">Quantity</label>
-    <label class="product-removal">Remove</label>
-    <label class="product-line-price">Total</label>
-  </div>
+    <div class="column-labels">
+      <label class="product-image">Image</label>
+      <label class="product-details">Product</label>
+      <label class="product-price">Price</label>
+      <label class="product-quantity">Quantity</label>
+      <label class="product-removal">Remove</label>
+      <label class="product-line-price">Total</label>
+    </div>
 
-  <div class="product">
-    <div class="product-image">
-      <img src="/images/pizza_cappricio.jpg">
+    <div class="product">
+      <div class="product-image">
+        <img src="/images/pizza_cappricio.jpg">
+      </div>
+      <div class="product-details">
+        <div class="product-title">Pizza 1</div>
+        <p class="product-description">descriere</p>
+      </div>
+      <div class="product-price">22</div>
+      <div class="product-quantity">
+        <input type="number" value="1" min="1">
+      </div>
+      <div class="product-removal">
+        <button class="remove-product">
+          Remove
+        </button>
+      </div>
+      <div class="product-line-price">22</div>
     </div>
-    <div class="product-details">
-      <div class="product-title">Pizza 1</div>
-      <p class="product-description">descriere</p>
-    </div>
-    <div class="product-price">22</div>
-    <div class="product-quantity">
-      <input type="number" value="1" min="1">
-    </div>
-    <div class="product-removal">
-      <button class="remove-product">
-        Remove
-      </button>
-    </div>
-    <div class="product-line-price">22</div>
-  </div>
 
-  <div class="product">
-    <div class="product-image">
-      <img src="/images/pizza_margherita.jpg">
+    <div class="product">
+      <div class="product-image">
+        <img src="/images/pizza_margherita.jpg">
+      </div>
+      <div class="product-details">
+        <div class="product-title">Pizza 2</div>
+        <p class="product-description">descriere</p>
+      </div>
+      <div class="product-price">15</div>
+      <div class="product-quantity">
+        <input type="number" value="1" min="1">
+      </div>
+      <div class="product-removal">
+        <button class="remove-product">
+          Remove
+        </button>
+      </div>
+      <div class="product-line-price">15</div>
     </div>
-    <div class="product-details">
-      <div class="product-title">Pizza 2</div>
-      <p class="product-description">descriere</p>
-    </div>
-    <div class="product-price">15</div>
-    <div class="product-quantity">
-      <input type="number" value="1" min="1">
-    </div>
-    <div class="product-removal">
-      <button class="remove-product">
-        Remove
-      </button>
-    </div>
-    <div class="product-line-price">15</div>
-  </div>
 
-  <div class="totals">
-    <div class="totals-item">
-      <label>Subtotal</label>
-      <div class="totals-value" id="cart-subtotal">37</div>
-    </div>
-	<!--DAN 
+    <div class="totals">
+      <div class="totals-item">
+        <label>Subtotal</label>
+        <div class="totals-value" id="cart-subtotal">37</div>
+      </div>
+      <!--DAN 
     <div class="totals-item">
       <label>Tax (19%)</label>
       <div class="totals-value" id="cart-tax">0</div>
     </div>
 	-->
-    <div class="totals-item">
-      <label>Shipping</label>
-      <div class="totals-value" id="cart-shipping">5.00</div>
-    </div>
-    <div class="totals-item totals-item-total">
-      <label>Grand Total</label>
-      <div class="totals-value" id="cart-total">42</div>
+      <div class="totals-item">
+        <label>Shipping</label>
+        <div class="totals-value" id="cart-shipping">5.00</div>
+      </div>
+      <div class="totals-item totals-item-total">
+        <label>Grand Total</label>
+        <div class="totals-value" id="cart-total">42</div>
+      </div>
     </div>
   </div>
-</div>
- <!--Ionela's-->
-	<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
-<div th:replace="fragments/script :: script"></div>
-      <script src = "/jscripts/index.js"></script>
-	  <script src ="/jscripts/indexshoppingcart.js"></script>
-      
-  </body>
+  <!--Ionela's-->
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: footer"></div>
+  <div th:replace="fragments/script :: script"></div>
+  <script src="/jscripts/index.js"></script>
+  <script src="/jscripts/indexshoppingcart.js"></script>
+
+</body>
+
 </html>
