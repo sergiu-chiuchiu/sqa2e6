@@ -139,6 +139,10 @@ public class AppUserServiceImpl implements AppUserService {
 		}
 		appUser.addAppRole(appRole);
 		
+		//Encrypt password before persist
+		String encryptedPass = EncryptedPasswordUtils.encryptPassword(appUser.getPassword()); 
+		appUser.setPassword(encryptedPass);
+		
 		return appUserRepository.save(appUser);
 	}
 	
