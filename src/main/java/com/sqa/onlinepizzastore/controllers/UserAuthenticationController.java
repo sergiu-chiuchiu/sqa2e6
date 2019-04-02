@@ -28,31 +28,31 @@ import com.sqa.onlinepizzastore.util.WebUtils;
 @Controller
 @RequestMapping(value = "/auth")
 public class UserAuthenticationController {
-	
+
 	private final AppUserService appUserService;
 	private final ModelMapper modelMapper;
-	
+
 	@Autowired
 	public UserAuthenticationController(AppUserService appUserService, ModelMapper modelMapper) {
 		super();
 		this.modelMapper = modelMapper;
 		this.appUserService = appUserService;
 	}
-	 
+
 	// could work if we auto logout user on username check
 	@GetMapping(value = "/signup")
 	public String getSignUp(Model model) throws ParseException {
 		AppUserDto appUserDto = new AppUserDto();
-		Date defaultBirthDate = new SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01");  
+		Date defaultBirthDate = new SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01");
 		appUserDto.setBirthDate(defaultBirthDate);
 		model.addAttribute("AppUser", appUserDto);
 
 		return "SignUp";
 	}
-	
+
 	// + validari parola
 	@PostMapping(value = "/signup")
-	public String saveNewuser(@ModelAttribute(value="AppUser") AppUserDto appUserDto) {
+	public String saveNewuser(@ModelAttribute(value = "AppUser") AppUserDto appUserDto) {
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
 			return "SignUp";
 		}
@@ -66,24 +66,44 @@ public class UserAuthenticationController {
 		appUserService.createDefaultOperator();
 		return "LogIn";
 	}
-	
+
 	@GetMapping(value = "/logoutSuccessful")
 	public String getLogout() {
 		return "redirect:/index";
 	}
-	
+
 	@GetMapping(value = "/403")
-    public String accessDenied(Model model, Principal principal) {
+	public String accessDenied(Model model, Principal principal) {
+		if (principal != null) {
+			User loginedUser = (User) ((Authentication) principal).getPrincipal();
+			String userInfo = WebUtils.toString(loginedUser);
+			model.addAttribute("userInfo", userInfo);
 
-        if (principal != null) {
-            User loginedUser = (User) ((Authentication) principal).getPrincipal();
-            String userInfo = WebUtils.toString(loginedUser);
-            model.addAttribute("userInfo", userInfo);
+			String message = "Hi " + principal.getName() //
+					+ "<br /> You do not have permission to access this page!";
+			model.addAttribute("message", message);
+		}
+		return "403";
+	}
 
-            String message = "Hi " + principal.getName() //
-                    + "<br /> You do not have permission to access this page!";
-            model.addAttribute("message", message);
-        }
-        return "403";
-    }
+	@GetMapping(value = "/reqPassReset")
+	public String resetPassword(Model model) {
+		AppUserDto appUserDto = new AppUserDto();
+		model.addAttribute("AppUser", appUserDto);
+		return "RequestPasswordReset";
+	}
+
+	@PostMapping(value = "/reqPassReset")
+	public String processResetPassword(Model model, @ModelAttribute(value = "AppUser") AppUser appUserEmail) {
+		AppUser appUser = appUserService.getAppUserByEmail(appUserEmail.getEmail());
+		if (appUser == null) {
+			System.out.println("Email Not found");
+			model.addAttribute("message", "The e-mail you have provided does not exist!");
+			return "RequestPasswordReset";
+		}
+		System.out.println("Email found");
+
+		return "redirect:/index";
+	}
+
 }

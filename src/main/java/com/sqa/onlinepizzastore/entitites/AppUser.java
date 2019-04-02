@@ -57,7 +57,7 @@ public class AppUser {
 	@ManyToMany(cascade = {
 			CascadeType.MERGE,
 			CascadeType.PERSIST
-	})
+	}, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role"
 	, joinColumns = {@JoinColumn(referencedColumnName = "email")}
 	, inverseJoinColumns = {@JoinColumn(referencedColumnName="role_id")})
