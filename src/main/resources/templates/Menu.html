@@ -1,11 +1,13 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
-<title>Menu</title>
-<link rel="stylesheet" href="/stylesheets/style.css">
-<link rel="stylesheet" href="/stylesheets/menu.css">
-<link rel="stylesheet" href="/stylesheets/text.css">
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Menu</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="/stylesheets/menu.css">
+	<link rel="stylesheet" href="/stylesheets/text.css">
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<div th:replace="fragments/head :: head"></div>
 </head>
 
 <body background="/images/background-4.jpg">
@@ -30,9 +32,8 @@
 		</div>
 		<!-- Footer -->
 		<div th:replace="fragments/footer :: footer"></div>
-		<!-- Footer -->
 		<div th:replace="fragments/script :: script"></div>
-		<!--<script src = "/jscripts/index.js"></script>-->
+		<script src = "/jscripts/index.js"></script>
 </body>
 
 </html>

@@ -1,72 +1,29 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
-<title>Popular choices</title>
-<link rel="stylesheet" href="/stylesheets/style.css">
-<link rel="stylesheet" href="/stylesheets/popular_choices.css">
-<body background="/images/backgrounddd.jpg"></body>
-<div th:replace="fragments/navbar :: navbar"></div>
-<!-- Content -->
-</br>
-</br>
-<div class="container">
-	<div class="card-deck mb-3 text-center">
-		<div class="card mb-4 box-shadow">
-			<div class="card-header">
-				<h4 class="my-0 font-weight-normal">Cappricio Pizza</h4>
-			</div>
-			<img id="pizza" src="/images/pizza_cappricio.jpg">
-			<div class="card-body">
-				<h1 class="card-title pricing-card-title">
-					20 LEI <small class="text-muted">/ pizza</small>
-				</h1>
-				<p>Rate</p>
-				<div class="rating">
-					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-				</div>
-			</div>
-		</div>
-		<div class="card mb-4 box-shadow">
-			<div class="card-header">
-				<h4 class="my-0 font-weight-normal">Quatro Stagione Pizza</h4>
-			</div>
-			<img id="pizza" src="/images/pizza_quatro_stagione.jpg">
-			<div class="card-body">
-				<h1 class="card-title pricing-card-title">
-					23 LEI <small class="text-muted">/ pizza</small>
-				</h1>
-				<p>Rate</p>
-				<div class="rating">
-					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-				</div>
-			</div>
-		</div>
-		<div class="card mb-4 box-shadow">
-			<div class="card-header">
-				<h4 class="my-0 font-weight-normal">Hawai Pizza</h4>
-			</div>
-			<img id="pizza" src="/images/pizza_hawai.jpg">
-			<div class="card-body">
-				<h1 class="card-title pricing-card-title">
-					28 LEI <small class="text-muted">/ pizza</small>
-				</h1>
-				<p>Rate</p>
-				<div class="rating">
-					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-				</div>
-			</div>
-		</div>
-	</div>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Popular choices</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="/stylesheets/popular_choices.css">
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body background="/images/backgrounddd.jpg">
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<!-- Content -->
+	</br>
 	</br>
 	<div class="container">
 		<div class="card-deck mb-3 text-center">
 			<div class="card mb-4 box-shadow">
 				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Vegeratian Pizza</h4>
+					<h4 class="my-0 font-weight-normal">Cappricio Pizza</h4>
 				</div>
-				<img id="pizza" src="/images/pizza_vegetariana.jpg">
+				<img id="pizza" src="/images/pizza_cappricio.jpg">
 				<div class="card-body">
 					<h1 class="card-title pricing-card-title">
-						17 LEI <small class="text-muted">/ pizza</small>
+						20 LEI <small class="text-muted">/ pizza</small>
 					</h1>
 					<p>Rate</p>
 					<div class="rating">
@@ -76,12 +33,12 @@
 			</div>
 			<div class="card mb-4 box-shadow">
 				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Diavolo Pizza</h4>
+					<h4 class="my-0 font-weight-normal">Quatro Stagione Pizza</h4>
 				</div>
-				<img id="pizza" src="/images/pizza_diavolo.jpg">
+				<img id="pizza" src="/images/pizza_quatro_stagione.jpg">
 				<div class="card-body">
 					<h1 class="card-title pricing-card-title">
-						21 LEI <small class="text-muted">/ pizza</small>
+						23 LEI <small class="text-muted">/ pizza</small>
 					</h1>
 					<p>Rate</p>
 					<div class="rating">
@@ -91,12 +48,12 @@
 			</div>
 			<div class="card mb-4 box-shadow">
 				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Napoli Pizza</h4>
+					<h4 class="my-0 font-weight-normal">Hawai Pizza</h4>
 				</div>
-				<img id="pizza" src="/images/pizza_napoli.jpg">
+				<img id="pizza" src="/images/pizza_hawai.jpg">
 				<div class="card-body">
 					<h1 class="card-title pricing-card-title">
-						25 LEI <small class="text-muted">/ pizza</small>
+						28 LEI <small class="text-muted">/ pizza</small>
 					</h1>
 					<p>Rate</p>
 					<div class="rating">
@@ -105,10 +62,60 @@
 				</div>
 			</div>
 		</div>
-<!-- End content -->
-<div th:replace = "fragments/footer :: footer"></div>
-<div th:replace = "fragments/script :: script"></div>
-<script src="/jscripts/index.js"></script>
-<script src = "/jscript/popular_choices.js"></script>
+		</br>
+		<div class="container">
+			<div class="card-deck mb-3 text-center">
+				<div class="card mb-4 box-shadow">
+					<div class="card-header">
+						<h4 class="my-0 font-weight-normal">Vegeratian Pizza</h4>
+					</div>
+					<img id="pizza" src="/images/pizza_vegetariana.jpg">
+					<div class="card-body">
+						<h1 class="card-title pricing-card-title">
+							17 LEI <small class="text-muted">/ pizza</small>
+						</h1>
+						<p>Rate</p>
+						<div class="rating">
+							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-4 box-shadow">
+					<div class="card-header">
+						<h4 class="my-0 font-weight-normal">Diavolo Pizza</h4>
+					</div>
+					<img id="pizza" src="/images/pizza_diavolo.jpg">
+					<div class="card-body">
+						<h1 class="card-title pricing-card-title">
+							21 LEI <small class="text-muted">/ pizza</small>
+						</h1>
+						<p>Rate</p>
+						<div class="rating">
+							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-4 box-shadow">
+					<div class="card-header">
+						<h4 class="my-0 font-weight-normal">Napoli Pizza</h4>
+					</div>
+					<img id="pizza" src="/images/pizza_napoli.jpg">
+					<div class="card-body">
+						<h1 class="card-title pricing-card-title">
+							25 LEI <small class="text-muted">/ pizza</small>
+						</h1>
+						<p>Rate</p>
+						<div class="rating">
+							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End content -->
+			<div th:replace="fragments/footer :: footer"></div>
+			<div th:replace="fragments/script :: script"></div>
+			<script src="/jscripts/index.js"></script>
+			<script src="/jscript/popular_choices.js"></script>
 </body>
+
 </html>

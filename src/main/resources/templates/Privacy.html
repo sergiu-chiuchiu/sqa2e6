@@ -1,27 +1,19 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
-<title>Privacy Policy</title>
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="/stylesheets/style.css">
-<link rel="stylesheet" href="/stylesheets/text.css">
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Privacy Policy</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="/stylesheets/text.css">
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<div th:replace="fragments/head :: head"></div>
 </head>
-<body background="/images/background-4.jpg"></body>
+
+<body background="/images/background-4.jpg">
 <div th:replace="fragments/navbar :: navbar"></div>
 <div id="content-page" class="span12 content group">
-	<div id="post-privacy"
-		class="group post-privacy page type-page status-publish hentry">
-		<div id="post-terms1"
-			class="group post-terms page type-page status-publish hentry">
+	<div id="post-privacy" class="group post-privacy page type-page status-publish hentry">
+		<div id="post-terms1" class="group post-terms page type-page status-publish hentry">
 
 			</br>
 			<h3>User Registration</h3>
@@ -49,8 +41,7 @@
 				or liable for any loss that you incur as a result of someone else
 				using your User Account and/or password</p>
 		</div>
-		<div id="post-terms2"
-			class="group post-terms page type-page status-publish hentry">
+		<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
 			<h3>Pricing and Payment</h3>
 			<p>You hereby agree to pay in full the prices (including, without
 				limitation, all applicable taxes) for any orders placed using your
@@ -70,8 +61,7 @@
 				law, notices of cancellation, policies, contracts, and applications<strong>.</strong>
 			</p>
 		</div>
-		<div id="post-terms1"
-			class="group post-terms page type-page status-publish hentry">
+		<div id="post-terms1" class="group post-terms page type-page status-publish hentry">
 			<h3>Cancellations/Changes:</h3>
 			<p>
 				Your online order will be processed immediately; cancellations and
@@ -104,30 +94,26 @@
 				We always strive for 100% customer satisfaction which means we want
 				our customers to be completely satisfied with their order
 				experience. Should a customer be unsatisfied with an order quality
-				or experience please <a href="Contact.html" th:href=@{/contact}>contact</a>
-				our customer service team, so we can address your concern.
-			</p>
+				or experience please <a href="Contact.html" th:href=@{/contact}>contact </a> our customer service team,
+					so we can address your concern. </p> </div> <div id="post-terms2"
+					class="group post-terms page type-page status-publish hentry">
+					<h3>Privacy policy</h3>
+					<p>At Pizza Mia, we respect your privacy and are committed to
+						protecting the personal information that you entrust to us. Our
+						Privacy Policy describes the type of information we collect, how we
+						use that information, and the security measures that we put in place
+						to protect it. We also outline how to contact us should you have any
+						questions about our Privacy Policy or if you wish to remove your
+						personal information from our customer database.</p>
+					</br>
+					<h3>What type of information does Pizza Mia collect?</h3>
+					<p>Each time you place an order with Pizza Mia, we collect the
+						personal information that is required to help process and fulfill
+						your pizza order. This personal information includes your name,
+						phone number, address, and the details of the Pizza Mia products and
+						services you are ordering.</p>
 		</div>
-		<div id="post-terms2"
-			class="group post-terms page type-page status-publish hentry">
-			<h3>Privacy policy</h3>
-			<p>At Pizza Mia, we respect your privacy and are committed to
-				protecting the personal information that you entrust to us. Our
-				Privacy Policy describes the type of information we collect, how we
-				use that information, and the security measures that we put in place
-				to protect it. We also outline how to contact us should you have any
-				questions about our Privacy Policy or if you wish to remove your
-				personal information from our customer database.</p>
-			</br>
-			<h3>What type of information does Pizza Mia collect?</h3>
-			<p>Each time you place an order with Pizza Mia, we collect the
-				personal information that is required to help process and fulfill
-				your pizza order. This personal information includes your name,
-				phone number, address, and the details of the Pizza Mia products and
-				services you are ordering.</p>
-		</div>
-		<div id="post-terms1"
-			class="group post-terms page type-page status-publish hentry">
+		<div id="post-terms1" class="group post-terms page type-page status-publish hentry">
 			<h3>How is this information used?</h3>
 			<p>
 				Your personal information is stored in our customer database to help
@@ -154,8 +140,7 @@
 				information for any purpose other than those identified in this
 				policy.</p>
 		</div>
-		<div id="post-terms2"
-			class="group post-terms page type-page status-publish hentry">
+		<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
 			<h3>Removal of personal informations:</h3>
 			<p>
 				Personal information is retained in our customer database for
@@ -176,4 +161,5 @@
 		<div th:replace="fragments/script :: script"></div>
 		<script src="/jscripts/index.js"></script>
 		</body>
-		</html>
+
+</html>
