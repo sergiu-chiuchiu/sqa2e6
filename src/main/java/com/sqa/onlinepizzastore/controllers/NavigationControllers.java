@@ -26,10 +26,6 @@ import com.sqa.onlinepizzastore.util.WebUtils;
 @RequestMapping()
 public class NavigationControllers {
 	 
-//	@GetMapping(value = "/index")
-//	public String getIndex(Model model) {
-//		return "index";
-//	}
 	@GetMapping(value = "/aboutus")
 	public String getAboutUsPage(Model model) {
 		return "About us";
@@ -39,17 +35,7 @@ public class NavigationControllers {
 	public String getMenuPage(Model model) {
 		return "Menu";
 	}
-	
-//	@GetMapping(value = "/menu/pizza")
-//	public String getPizzaPage(Model model) {
-//		return "Pizza";
-//	}
-	
-//	@GetMapping(value = "/menu/ingredients")
-//	public String getIngredientsPage(Model model) {
-//		return "ingredients";
-//	}
-//	
+		
 	@GetMapping(value = "/menu/dips")
 	public String getDipsPage(Model model) {
 		return "Dips";
@@ -79,16 +65,7 @@ public class NavigationControllers {
 	public String getPromotionsPage(Model model) {
 		return "Promotions";
 	}
-	
-//	@GetMapping(value = "/help")
-//	public String getHelpPage(Model model) {
-//		return "Help";
-//	}
-	
-//	@GetMapping(value = "/contact")
-//	public String getContactPage(Model model) {
-//		return "Contact";
-//	}
+
 	
 	@GetMapping(value = "/shoppingcart")
 	public String getShoppingCartPage(Model model) {
@@ -104,19 +81,6 @@ public class NavigationControllers {
 	public String getPrivacyPage(Model model) {
 		return "Privacy";
 	}
-	
-
-//---------DEOARECE NU IMI LUA MIE GET-UL DIN CONTROLLER (Customized)
-	
-//	@GetMapping(value = "/menu/pizza/customizepizza")
-//	public String getCustomizePizzaPage(Model model) {
-//		return "CustomizePizza";
-//	}
-	
-//	@GetMapping(value = "/signup")
-//	public String getSignupPage(Model model) {
-//		return "SignUp";
-//	}
 	
 	@GetMapping(value = "/faq")
 	public String getFAQPage(Model model) {
@@ -136,11 +100,6 @@ public class NavigationControllers {
 	@GetMapping(value = "/viewusers")
 	public String getViewUsersPage(Model model) {
 		return "ViewUsers";
-	}
-	
-	@GetMapping(value = "/auth/adduser")
-	public String getAddUserPage(Model model) {
-		return "addUser";
 	}
 		
 	@GetMapping(value = "/404")
