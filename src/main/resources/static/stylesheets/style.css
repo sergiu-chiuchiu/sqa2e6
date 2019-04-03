@@ -301,9 +301,9 @@ body {
   .sidenav a {font-size: 18px;}
 }
 
-form {
-  position: right;
-  margin-left:1050px;
+#form {
+  position: center;
+  margin-left:35%;
   margin-bottom:20px;
   display: -ms-flexbox;
   display: flex;
