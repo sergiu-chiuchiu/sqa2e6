@@ -130,8 +130,9 @@ public class UserAuthenticationController {
 		}
 
 		AppUserDto appUserDto = new AppUserDto();
+		appUserDto.setPasswordResetToken(token);
 		model.addAttribute("AppUser", appUserDto);
-
+		model.addAttribute("token", token);
 		return "ResetPassword";
 	}
 
@@ -144,20 +145,17 @@ public class UserAuthenticationController {
 			model.addAttribute("message", "Invalid token!");
 			return "redirect:/index";
 		}
-		
+		// Check if passwords are the same
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
-///////////////////////////////////////////////////
-			String test = request.getRequestURL().toString();
-			System.out.println("sfdsfdssd " + test);
-///////////////////////////////////////////////////			
+			String reqUrl = request.getRequestURL().toString();
 			model.addAttribute("message", "Passwords do not match!");
-			return "redirect:" + test;
+			return "redirect:" + reqUrl;
 		}
-		appUserService.saveAppUserAsUser(modelMapper.map(appUserDto, AppUser.class));
-		
-		String test = request.getRequestURL().toString();
-		System.out.println("sfdsfdssd " + test);
-		
+
+		appUser.setPasswordResetToken(null);
+		modelMapper.map(appUserDto, appUser);
+		appUserService.updateAppUser(appUser);
+
 		model.addAttribute("message", "Password has been reset successfully!");
 		return "redirect:/index";
 	}

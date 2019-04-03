@@ -16,6 +16,8 @@ public class AppUserDto {
 	private String password;
 	private String passwordRepeat;
 	
+	private String passwordResetToken;
+	
 	private String message;
 	
 	private String userName;
@@ -59,6 +61,14 @@ public class AppUserDto {
 
 	public void setPasswordRepeat(String passwordRepeat) {
 		this.passwordRepeat = passwordRepeat;
+	}
+	
+	public String getPasswordResetToken() {
+		return passwordResetToken;
+	}
+
+	public void setPasswordResetToken(String passwordResetToken) {
+		this.passwordResetToken = passwordResetToken;
 	}
 
 	public String getMessage() {
