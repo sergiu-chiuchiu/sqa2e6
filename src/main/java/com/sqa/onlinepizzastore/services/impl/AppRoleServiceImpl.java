@@ -18,13 +18,16 @@ public class AppRoleServiceImpl implements AppRoleService {
 	AppRoleRepository appRoleRepository;
 
 	@Override
-
 	public List<AppRole> getAppRoleByAppUserEmail(String email) {
 		return appRoleRepository.getAppRoleByAppUserEmail(email);
 	}
 	
 	@Override
-
+	public List<AppRole> getAppRoleByAppUserName(String userName) {
+		return appRoleRepository.getAppRoleByAppUserName(userName);
+	}
+	
+	@Override
 	public AppRole getAppRoleByRoleName(String roleName) {
 		return appRoleRepository.getAppRoleByRoleName(roleName);
 	}
