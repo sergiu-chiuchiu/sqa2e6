@@ -1,4 +1,4 @@
-fieldset {
+#fieldset {
     display: block;
     margin-left: 200px;
     margin-right: 150px;
@@ -10,11 +10,14 @@ fieldset {
     border-color: #125688;
 }
 
+h3{
+	margin-left:0%;
+}
 
 .user-menu-title {
     font-size: 50px;
     font-style: italic;
-    text-align: center;
+    margin-left:16%;
 }
 .user-container-subtitle {
     margin-left: 300px;
