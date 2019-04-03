@@ -1,6 +1,10 @@
 package com.sqa.onlinepizzastore.dto;
 
 import java.util.Date;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class AppUserDto {
@@ -8,8 +12,15 @@ public class AppUserDto {
 	
 	private String email;
 	
+	private String oldPassword;
+	
 	private String password;
+	
 	private String passwordRepeat;
+	
+	private String passwordResetToken;
+	
+	private String message;
 	
 	private String userName;
 	
@@ -20,12 +31,22 @@ public class AppUserDto {
 	
 	private String gender;
 
+	private String roleName;
+	
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
 	}
 
 	public String getPassword() {
@@ -42,6 +63,22 @@ public class AppUserDto {
 
 	public void setPasswordRepeat(String passwordRepeat) {
 		this.passwordRepeat = passwordRepeat;
+	}
+	
+	public String getPasswordResetToken() {
+		return passwordResetToken;
+	}
+
+	public void setPasswordResetToken(String passwordResetToken) {
+		this.passwordResetToken = passwordResetToken;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public String getUserName() {
@@ -74,6 +111,14 @@ public class AppUserDto {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 	
 	

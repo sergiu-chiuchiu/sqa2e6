@@ -1,81 +1,73 @@
 <!DOCTYPE html>
-	<html xmlns:th="http://www.thymeleaf.org">
-	  <head>
-		<meta charset = "utf-8">
-		<meta name = "viewport" content = "width = device-width, initial scale = 1.0">
-		<meta name = "description" content = "Pizza Mia WebSite">
-		<meta name = "author" content = "Frontend team">
-		<title>Contact</title>
-		<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel = "stylesheet" href = "/stylesheets/style.css">
-		<link rel = "stylesheet" href = "/stylesheets/contact.css">
-		<link rel = "stylesheet" href= "/stylesheets/text.css">
-		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	  </head>
-			<body background ="/images/background-4.jpg"></body>
-<div th:replace = "fragments/navbar :: navbar"></div>
-				<div id="content-page" class="span12 content group">
-						<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
-							<div class="row justify-content-center">
-								<img id = "picture" src = "/images/contactus.jpg"/>
-							</div>
-						</div>
-					<div id="post-terms1" class="group post-terms page type-page status-publish hentry">
-        		<p>If you want to share your opinion about us complete the form below. By complete this form you help us to improve our services and products.</p>
-					</div>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Contact</title>
+<link rel="stylesheet" href="/stylesheets/contact.css">
+<link rel="stylesheet" href="/stylesheets/text.css">	
+<link rel="icon" href="images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
+</head>
+<body background="/images/background-4.jpg">
+<div th:replace="fragments/navbar :: navbar"></div>
+<div id="content-page" class="span12 content group">
+	<div id="post-terms2"
+		class="group post-terms page type-page status-publish hentry">
+		<div class="row justify-content-center">
+			<img id="picture" src="/images/contactus.jpg" />
+		</div>
+	</div>
+	<div id="post-terms1"
+		class="group post-terms page type-page status-publish hentry">
+		<p>If you want to share your opinion about us complete the form
+			below. By complete this form you help us to improve our services and
+			products.</p>
+	</div>
 	<!-- Form -->
 	<form th:action="@{/contact}" method="post">
 		<fieldset>
 			<legend> Contact form </legend>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="firstName">First name</label>
-					<input type="firstName" class="form-control" id="firstName" placeholder="First Name" autofocus="autofocus">
+					<label for="firstName">First name</label> <input type="firstName"
+						class="form-control" id="firstName" placeholder="First Name"
+						autofocus="autofocus">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="lasttName">Last name</label>
-					<input type="lastName" class="form-control" id="lastName" placeholder="Last Name" autofocus="autofocus">
+					<label for="lasttName">Last name</label> <input type="lastName"
+						class="form-control" id="lastName" placeholder="Last Name"
+						autofocus="autofocus">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" placeholder="Email" autofocus="autofocus">
+					<label for="email">Email</label> <input type="email"
+						class="form-control" id="email" placeholder="Email"
+						autofocus="autofocus">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="col-md-6 mb-3">
-					<label for="city">City</label>
-					<input type="text" class="form-control" id="city" placeholder="City" required>
-						<div class="invalid-feedback">
-							Please provide a valid city.
-						</div>
+					<label for="city">City</label> <input type="text"
+						class="form-control" id="city" placeholder="City" required>
+					<div class="invalid-feedback">Please provide a valid city.</div>
 				</div>
 				<div class="col-md-3 mb-3">
-					<label for="state">State</label>
-					<input type="text" class="form-control" id="state" placeholder="State" required>
-						<div class="invalid-feedback">
-						Please provide a valid state.
-						</div>
+					<label for="state">State</label> <input type="text"
+						class="form-control" id="state" placeholder="State" required>
+					<div class="invalid-feedback">Please provide a valid state.</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="textarea">Write here</label>
 				<textarea class="form-control" id="textarea" rows="3"></textarea>
 			</div>
-			<button type="submit" class="btn btn-primary"> Sent </button>
+			<button type="submit" class="btn btn-primary">Sent</button>
 		</fieldset>
 	</form>
 	<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
-</footer>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src = "/jscripts/index.js"></script>
-<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
+	<script src="/jscripts/index.js"></script>
 	</body>
-</html>
+	</html>

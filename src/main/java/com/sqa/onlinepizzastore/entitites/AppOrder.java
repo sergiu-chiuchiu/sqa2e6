@@ -2,6 +2,7 @@ package com.sqa.onlinepizzastore.entitites;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,8 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
 
@@ -26,6 +30,7 @@ public class AppOrder {
 	private Long orderId;
 	
 	@NotBlank
+	@Temporal(TemporalType.DATE)
 	@Column(name = "order_date", nullable = false)
 	private Date orderDate;
 	
@@ -36,6 +41,47 @@ public class AppOrder {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cart_no")
 	private AppCart appCart;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "prom_id")  
+	private AppPromotion appPromotion;
+	
+	public AppShipping getAppShipping() {
+		return appShipping;
+	}
+
+	public void setAppShipping(AppShipping appShipping) {
+		this.appShipping = appShipping;
+	}
+
+	public AppReceipt getAppReceipt() {
+		return appReceipt;
+	}
+
+	public void setAppReceipt(AppReceipt appReceipt) {
+		this.appReceipt = appReceipt;
+	}
+
+	public AppDiscount getAppDiscount() {
+		return appDiscount;
+	}
+
+	public void setAppDiscount(AppDiscount appDiscount) {
+		this.appDiscount = appDiscount;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "receipt_id")
+	private AppReceipt appReceipt;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "shipping_id")
+	private AppShipping appShipping;
+	
+	@OneToOne(mappedBy = "appOrder", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+	private AppDiscount appDiscount;
+	
 	
 	public Long getOrderId() {
 		return orderId;
@@ -67,6 +113,14 @@ public class AppOrder {
 
 	public void setAppCart(AppCart appCart) {
 		this.appCart = appCart;
+	}
+
+	public AppPromotion getAppPromotion() {
+		return appPromotion;
+	}
+
+	public void setAppPromotion(AppPromotion appPromotion) {
+		this.appPromotion = appPromotion;
 	}
 
 	

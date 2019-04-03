@@ -24,17 +24,26 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 public class AppCart {
 
-	
 	private Long cartNo;
 	
-	
 	private char active;
-	
 	
 	private String customerEmail;
 
 	private AppOrder appOrder;
 	
+	private AppUser appUser;
+	
+	@OneToOne(mappedBy = "appCart", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+	public AppUser getAppUser() {
+		return appUser;
+	}
+
+	public void setAppUser(AppUser appUser) {
+		this.appUser = appUser;
+	}
+
 	private Set<AppCartDetail> cartDetails= new HashSet<AppCartDetail>();
 	
 	@OneToMany(mappedBy="appCart")

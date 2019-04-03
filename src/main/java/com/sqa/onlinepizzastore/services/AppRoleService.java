@@ -16,5 +16,8 @@ public interface AppRoleService {
 
 	AppRole getAppRoleByRoleName(String roleName);
 
+
+	List<AppRole> getAppRoleByAppUserName(String userName);
+
 	
 }

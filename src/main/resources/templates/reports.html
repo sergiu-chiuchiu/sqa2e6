@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Reports</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/reports.css">
+  <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+  <div th:replace="fragments/head :: head"></div>
+</head>
+
+<body background="/images/background-4.jpg">
+  <div th:replace="fragments/navbar :: navbar"></div>
+  <br>
+  <br>
+  <div class="container">
+    <h2>Total costs and revenue per month</h2>
+    <label th:text="Year"></label>
+    <select>
+      <option value="2010">2010</option>
+      <option value="2011">2011</option>
+      <option value="2012">2012</option>
+      <option value="2013">2013</option>
+      <option value="2014">2014</option>
+      <option value="2015">2015</option>
+      <option value="2016">2016</option>
+      <option value="2017">2017</option>
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+    </select>
+    <label th:text="Month"></label>
+    <select>
+      <option value="January">January</option>
+      <option value="February">February</option>
+      <option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="Semptember">Semptember</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option value="December">December</option>
+    </select>
+    <br>
+    <br>
+    <br>
+
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Months</th>
+          <th>Total costs (lei)</th>
+          <th>Total revenue (lei)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>January</b></td>
+          <td>20000</td>
+          <td>60000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <div class="container" id="toppizzas">
+    <h2>Top most ordered pizzas</h2>
+    <br>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Pizza Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quattro Stagioni pizza</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <div class="container" id="ingredientsquantity">
+    <h2>Total quantity per ingredients</h2>
+    <br>
+    <label th:text="Ingredient"></label>
+    <select>
+      <option value="Salami">Salami</option>
+      <option value="Pepper">Pepper</option>
+      <option value="Tomato sauce">Tomato sauce</option>
+      <option value="Mozzarella">Mozzarella</option>
+      <option value="Mushroom">Mushroom</option>
+      <option value="Corn">Corn</option>
+      <option value="Cilli">Cilli</option>
+    </select>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th><b>Ingredient</b></th>
+          <th><b>Total quantity</b></th>
+          <th><b>Unit of measure</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Salami</td>
+          <td>4</td>
+          <td>piece(s)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: footer"></div>
+  <div th:replace="fragments/script :: script"></div>
+  <script src="/jscripts/index.js"></script>
+</body>
+
+</html>

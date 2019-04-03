@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<title>Pizza</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<div th:replace="fragments/head :: head"></div>
+	<title>Pizza</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
 	<h3>Your creation</h3>
-	<h4>Name:</h4>	
+	<h4>Name:</h4>
 	<p th:text="${customized_name}" />
-	<h4>Energy:</h4>	
+	<h4>Energy:</h4>
 	<p th:text="${customized_energy}" />
 	<h4>Countertop:</h4>
 	<p th:text="${countertops}" />
 	<h4>Ingredients:</h4>
-	<p th:text="${ingredients}" />
+	<p th:text="${ingredients.ing_name}" />
 	<input onclick='javascript:window.history.back()' value='Create another pizza' type='button' />
+	
+	<div th:replace="fragments/script :: script"></div>
 </body>
+
 </html>

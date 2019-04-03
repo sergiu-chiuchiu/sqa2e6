@@ -1,164 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset = "utf-8">
-    <meta name = "viewport" content = "width = device-width, initial scale = 1.0">
-    <meta name = "description" content = "Pizza Mia WebSite">
-    <meta name = "author" content = "Frontend team">
-    <title>Customize pizza</title>
-    <link rel = "icon" href = "/images/logo.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel = "stylesheet" href = "/stylesheets/style.css">
-    <link rel = "stylesheet" href = "/stylesheets/pizza.css">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-    <body background ="/images/background-4.jpg"></body>
-<div th:replace = "fragments/navbar :: navbar"></div>
-<!-- Form -->
-  <form th:action="@{/CustomizePizza}" th:object="${Customized}" method="POST">  
-      		Id:
-         <input type="text" th:field="*{customized_id}" />     
-         <br/>   
-      	 Name:
-         <input type="text" th:field="*{customized_name}" />    
-         <br/>
-         Date:
-         <input type="text" th:field="*{customized_date}" />     
-         <br/>   
-         Energy:
-         <input type="text" th:field="*{customized_energy}" />     
-         <br/>
-         Countertop:
-         <input type="text" th:field="*{countertops}" />     
-         <br/>  
-         Ing:
-         <input type="text" th:field="*{ingredients}" />     
-         <br/>
-          <ul>
-    	  <li th:each="Ingredient : ${ingredientList}">
-	      	<label th:for="${ingredient.ing_name}">Ingredient name</label>
-          	<input type="checkbox" th:id="${ingredient.ing_name}"/>
-          </li>
-		  </ul>             
-        <p class = "form-pizza-text">Standard pizza</p>
-          <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-          <label class="form-check-label" for="defaultCheck1">Mozarela</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-          <label class="form-check-label" for="defaultCheck1">Tomatoes souce</label>
-        </div> 
-              
-        <div class="custom-control custom-radio">
-  			<input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
-  			<label class="custom-control-label" for="defaultGroupExample1">Option 1</label>
-		</div> 
 
-		<!-- Group of default radios - option 2 -->
-		<div class="custom-control custom-radio">
-  			<input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
-  			<label class="custom-control-label" for="defaultGroupExample2">Option 2</label>
+<head>
+	<title>Pizza Mia Creation</title>
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<link rel="stylesheet" href="/stylesheets/style.css" th:href="@{/stylesheets/style.css}">
+	<link rel="stylesheet" href="/stylesheets/customized.css" th:href="@{/stylesheets/customized.css}">
+	<div th:replace="fragments/head :: head">
+</head>
+
+<body background="/images/backgrounddd.jpg">
+	<!-- Navbar -->
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<h3 id="titlePage">Make a new creation!</h3>
+	<br>
+	<br>
+	<form action=# th:action="@{/menu/pizza/customizepizza}" th:object="${cust}" method="post" autocomplete="off">
+		<div>
+			<input type="hidden" th:field="*{customized_id}" />
 		</div>
-
-			<!-- Group of default radios - option 3 -->
-		<div class="custom-control custom-radio">
-  			<input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
-  			<label class="custom-control-label" for="defaultGroupExample3">Option 3</label>
-		</div> 
-		
-		 
-        </br>
-        <p class = "form-pizza-text"> Select the type of meat you want. Please choose maxim 2 ingredients.</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Ham Prague (+ 5 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Country ham (+ 5 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Chicken fillet (+ 7 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Beef (+ 10 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Salami (+ 4 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Bacon (+ 8 LEI)</label>
-        </div>
-        </br>
-        <p class = "form-pizza-text">Select the vegetables you want. Please, select maxim 5 ingredients.</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Mushrooms (+ 2 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Corn (+ 2 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Cherry tomatoes (+ 3 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Olives (+ 1 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Sweet pepers (+ 2 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Chilli (+ 3 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Green basil (+ 4 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Rucola (+ 6 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Pinneapple (+ 10 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Parmesan (+ 5 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Gorgonzola (+ 6 LEI)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">Cheese (+ 3 LEI)</label>
-        </div>
-        </br>
-        <button type="submit" class="btn btn-primary"> Add to cart </button>
-    </fieldset>
-  </form>
-	<!-- Footer -->
+		<div class="text">
+			<label>Name:</label>
+			<input type="text" th:field="*{customized_name}" />
+			<span class="text-danger">
+				<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>	
+				</span>											
+			</div>
+			<div class="text">
+				<label>Energy:</label>
+				<input type="text" th:field="*{customized_energy}"/>
+				<span class="text-danger">
+				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>
+				</span>										
+			</div>			
+			<div class="radio-toolbar">
+			<p>Countertop:</p>									
+				<input type="radio" th:field="*{countertops}" value="Italian"/><label>Italian</label>
+				</br>
+				<input type="radio" th:field="*{countertops}" value="Fluffy"/><label>Fluffy</label>
+				</br>
+				<input type="radio" th:field="*{countertops}" value="Multicereal"/><label>Multicereal</label>
+				</br>	
+				<span class="text-danger">
+				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>
+				</span>								
+			</div>			
+			<div class="radio-toolbar">
+			<p><a th:href="@{/menu/ingredients}" style="color:white;">Ingredients:</a></p>
+				<ul>
+    	  		<li th:each="ingredient : ${ingredients}" >  
+    	    		<input type="checkbox" name="ingredients" th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}"/>
+	      			<label th:for="${ingredient.ing_name}" th:text="${ingredient.ing_name}">Ingredient Name</label>
+	      			<span class="text-danger">
+    	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>
+    	  		  	</span>      	  		  	     				      			       	
+          		</li>
+		  		</ul>	
+		   </div>								
+			<div class="button">
+				<button type="submit" class="btn btn-default">Create pizza</button>
+				<button class="btn btn-default"><a th:href="@{/menu/pizza/viewCreations}" style="color:black;">View Creations</a></button>
+			</div>
+	</form>
+<!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
-      <!-- Footer -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src = "/jscripts/index.js"></script>
-        <script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+<div th:replace="fragments/script :: script"></div>
+<script src="/jscripts/index.js"></script>
         </body>
       </html>

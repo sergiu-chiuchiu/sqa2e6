@@ -132,15 +132,6 @@ body {
 }
 
 
-.fa {
-  padding: 10px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin-left: 15px;
-  border-radius: 50%; 
-}
 .btn-group{
 /*to center the button group!!!*/
 	padding-left: 50%;
@@ -201,28 +192,6 @@ body {
 	float:left;
 }
 
-.fa:hover {
-    opacity: 0.4;
-}
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-.fa-youtube {
-  background: #bb0000;
-  color: white;
-}
-
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
-
-.fa-skype {
-  background: #00aff0;
-  color: white;
-}
-
 .footer-text{
 	margin-top: 5px;
 	padding: 20px;
@@ -234,12 +203,12 @@ body {
 .float-left{
 	margin-left:40px;
 }
-
+/*
 #post-terms {
 	margin-top: 60px;
 	margin-left: 60px;
 	margin-right: 60px;
-}
+}*/
 
 #post-privacy{
 	margin-top: 60px;
@@ -266,6 +235,8 @@ body {
   margin-left: .1rem;
   margin-right: .1rem;
 }
+
+
 
 #shopcart {
 	margin-top: 5px;
@@ -329,3 +300,31 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+form {
+  position: right;
+  margin-left:1050px;
+  margin-bottom:20px;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #eaedf2;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 20px;
+  outline: 0;
+  max-width: 500px;
+}
+
+#picture {
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 500px;
+  width: 1000px;
+}
+

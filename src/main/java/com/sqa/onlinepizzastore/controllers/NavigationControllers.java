@@ -40,16 +40,16 @@ public class NavigationControllers {
 		return "Menu";
 	}
 	
-	@GetMapping(value = "/menu/pizza")
-	public String getPizzaPage(Model model) {
-		return "Pizza";
-	}
+//	@GetMapping(value = "/menu/pizza")
+//	public String getPizzaPage(Model model) {
+//		return "Pizza";
+//	}
 	
-	@GetMapping(value = "/menu/ingredients")
-	public String getIngredientsPage(Model model) {
-		return "ingredients";
-	}
-	
+//	@GetMapping(value = "/menu/ingredients")
+//	public String getIngredientsPage(Model model) {
+//		return "ingredients";
+//	}
+//	
 	@GetMapping(value = "/menu/dips")
 	public String getDipsPage(Model model) {
 		return "Dips";
@@ -95,11 +95,6 @@ public class NavigationControllers {
 		return "shopping-cart";
 	}
 	
-//	@GetMapping(value = "/login")
-//	public String getLogInPage(Model model) {
-//		return "LogIn";
-//	}
-	
 	@GetMapping(value = "/terms")
 	public String getTermsPage(Model model) {
 		return "Terms";
@@ -110,10 +105,13 @@ public class NavigationControllers {
 		return "Privacy";
 	}
 	
-	@GetMapping(value = "/menu/pizza/customizepizza")
-	public String getCustomizePizzaPage(Model model) {
-		return "CustomizePizza";
-	}
+
+//---------DEOARECE NU IMI LUA MIE GET-UL DIN CONTROLLER (Customized)
+	
+//	@GetMapping(value = "/menu/pizza/customizepizza")
+//	public String getCustomizePizzaPage(Model model) {
+//		return "CustomizePizza";
+//	}
 	
 //	@GetMapping(value = "/signup")
 //	public String getSignupPage(Model model) {
@@ -129,5 +127,24 @@ public class NavigationControllers {
 	public String getResetPasswordPage(Model model) {
 		return "ResetPassword";
 	}
-
+	
+	@GetMapping(value = "/reports")
+	public String getReportsPage(Model model) {
+		return "reports";
+	}
+	
+	@GetMapping(value = "/viewusers")
+	public String getViewUsersPage(Model model) {
+		return "ViewUsers";
+	}
+	
+	@GetMapping(value = "/auth/adduser")
+	public String getAddUserPage(Model model) {
+		return "addUser";
+	}
+		
+	@GetMapping(value = "/404")
+	public String get404Page(Model model) {
+		return "PageNotFound";
+	}
 }

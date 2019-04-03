@@ -11,6 +11,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+
 public class Mail {
 
 	public Mail() {
@@ -27,6 +28,7 @@ public class Mail {
      * @throws AddressException if the email address parse failed
      * @throws MessagingException if the connection is dead or not in the connected state or if the message is not a MimeMessage
      */
+	
     public static void Send(String recipientEmail, String title, String message) throws AddressException, MessagingException {
         Mail.Send("estrazionefatture2019", "Fatture2019!", recipientEmail, "", title, message);
     }

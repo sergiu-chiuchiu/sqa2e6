@@ -45,6 +45,7 @@ public class AppProduct {
 
 	private Double prodWeight;
 	
+	private String imageLink;
 	
 	public Set<AppCartDetail> cartDetails= new HashSet<AppCartDetail>();
 	
@@ -99,7 +100,7 @@ public class AppProduct {
 	}
 
 	@NotBlank
-	@Column(name = "prod_qty", unique = true, nullable = false)
+	@Column(name = "prod_qty", nullable = false)
 	public String getProdQty() {
 		return prodQty;
 	}
@@ -157,6 +158,14 @@ public class AppProduct {
 
 	public void setProdWeight(Double prodWeight) {
 		this.prodWeight = prodWeight;
+	}
+
+	public String getImageLink() {
+		return imageLink;
+	}
+
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
 	}
 
 	
