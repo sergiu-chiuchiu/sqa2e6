@@ -24,8 +24,8 @@
     <fieldset>
         <div class="user-menu-title">
             <legend class="user-menu-title"> My profile </legend>
-            <h4 th:if="${Message != null}" th:text="${Message}" class="text-info"></h4>
-            <h4 th:if="${Danger != null}" th:text="${Danger}" class="text-danger"></h4>
+            <h4 th:if="${message != null}" th:text="${message}" class="text-info"></h4>
+            <h4 th:if="${danger != null}" th:text="${danger}" class="text-danger"></h4>
         </div>
         <div class="col-xs-12 col-sm-9 col-md-9 user-menu-hide">
             <div class="user-container">
@@ -70,9 +70,9 @@
 <!-- ************************************** dezactivare cont ************************************* -->
             <div class="user-container-subtitle">Delete account</div>
             <div class="account_details">
-                <form method="POST" action="" th:action="@{/user/deleteAccount}" th:object="${AppUserDelete}" id="delete-account">
+                <form th:method="delete" action="" th:action="@{/user}" id="delete-account">
                     <div class="form-group">
-                        <textarea name="message" value="" id="reasons" class=" width_input_cos form-control user-textarea" placeholder="I want to delete my account because:"></textarea>
+                        <textarea name="message" th:value="${message}" id="reasons" class=" width_input_cos form-control user-textarea" placeholder="I want to delete my account because:"></textarea>
                     </div>
                     <input type="submit" class="user-button-delete" value="Delete account" id="delete-account" name="delete-account" />
                 </form>

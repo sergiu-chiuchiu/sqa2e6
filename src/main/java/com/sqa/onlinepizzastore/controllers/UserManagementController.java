@@ -12,10 +12,12 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sqa.onlinepizzastore.dto.AppUserDto;
 import com.sqa.onlinepizzastore.entitites.AppUser;
@@ -71,21 +73,22 @@ public class UserManagementController {
 				modelMapper.map(appUserDtoPasswords, appUserToUpdate);
 
 				appUserService.updateAppUser(appUserToUpdate);
-				model.addAttribute("Message", "Password Updated Successfully");
+				model.addAttribute("message", "Password Updated Successfully");
 			} else {
-				model.addAttribute("Danger", "New passwords do not match");
+				model.addAttribute("danger", "New passwords do not match");
 			}
 		} else {
-			model.addAttribute("Danger", "Old Password is incorrect");
+			model.addAttribute("danger", "Old Password is incorrect");
 		}
 
 		model.addAttribute("AppUser", appUserToUpdate);
 		return "UserProfile";
 	}
 
-	@PostMapping(value = "/deleteAccount")
-	public String deleteAccount(@ModelAttribute(value = "AppUserDelete") AppUserDto appUserMessage, Principal principal,
+	@DeleteMapping
+	public String deleteAccount(@RequestParam(value = "message") String message, Principal principal,
 			Model model) {
+		System.out.println("Message " + message);
 		AppUser appUserToDelete = appUserService.getLoggedInAppUserByPrincipal(principal);
 		appUserService.deleteAppUser(appUserToDelete);
 		return "redirect:/auth/logout";
