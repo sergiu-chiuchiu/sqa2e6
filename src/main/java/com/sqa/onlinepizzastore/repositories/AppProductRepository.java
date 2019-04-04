@@ -8,9 +8,9 @@ import com.sqa.onlinepizzastore.entitites.AppProduct;
 @Repository
 public interface AppProductRepository extends JpaRepository<AppProduct, Long> {
 
-//	AppProduct getAppProductById(Long prodId);
+	AppProduct getAppProductByProductId(Long prodId);
 	
-//	AppProduct getAppProductByName(String prodName);
+	AppProduct getAppProductByProductName(String prodName);
 	
 //	@Query("SELECT ar FROM AppRole ar JOIN ar.users WHERE email = :email")
 //	List<AppRole> getAppRoleByAppUserEmail(@Param("email") String email);

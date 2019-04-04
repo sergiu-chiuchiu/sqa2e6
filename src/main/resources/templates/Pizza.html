@@ -66,8 +66,11 @@
 			</div>
 		</div>
 		<div class="card mb-4 box-shadow">
+		<form th:action="@{/menu/pizza}" th:object="${AppProduct}" method="POST"
+	accept-charset="utf-8" class="form" role="form">
 			<div class="card-header">
-				<h4 class="my-0 font-weight-normal">Hawai Pizza</h4>
+			
+				<h4 class="my-0 font-weight-normal" name="Hawai Pizza" th:field="*{productName}">Hawai Pizza</h4>
 			</div>
 			<img id="pizza" src="/images/pizza_hawai.jpg">
 			<div class="card-body">
@@ -80,8 +83,13 @@
 					</br>
 					</br>
 				</ul>
-				<button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
+				
+	
+
+
+				<button th:action type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </div>

@@ -21,7 +21,7 @@ public class AppCartServiceImpl implements AppCartService {
 	}
 
 	@Override
-	public List<AppCart> getAppCartByAppUserEmail(String email) {
+	public AppCart getAppCartByAppUserEmail(String email) {
 		return appCartRepository.getAppCartByAppUserEmail(email);
 	}
 

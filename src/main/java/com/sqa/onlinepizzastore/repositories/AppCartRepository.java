@@ -13,7 +13,7 @@ import com.sqa.onlinepizzastore.entitites.AppCart;
 public interface AppCartRepository extends JpaRepository<AppCart, Long> {
 
 	@Query("SELECT ar FROM AppCart ar WHERE customer_email = :customer_email")
-	List<AppCart> getAppCartByAppUserEmail(@Param("customer_email") String customer_email);
+	AppCart getAppCartByAppUserEmail(@Param("customer_email") String customer_email);
 	
 	AppCart getAppCartByCartNo(Long cartNo);
 
