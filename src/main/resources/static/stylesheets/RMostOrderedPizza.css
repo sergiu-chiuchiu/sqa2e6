@@ -214,13 +214,42 @@ body {
 	}
 }
 
-
+/*Report*/
 h2 {
 	text-align: center;
 }
 
 #totalcosts {
 	width: 60%;
+}
+
+#titleheader{
+	float:left;
+}
+
+#currentDate{
+	float: right;
+}
+
+
+#submitBtn{
+	margin-top: 5%;
+}
+
+#tableReport{
+width: 60%;
+}
+
+#crtno{
+	width: 30%;
+}
+
+#costs{
+	width: 20%;
+}
+
+#revenue{
+	width: 10%;
 }
 
 #toppizzas{
