@@ -3,7 +3,6 @@
 
 <head>
     <title>My profile</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/login.css">
     <link rel="stylesheet" href="/stylesheets/user.css">
     <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
@@ -21,7 +20,7 @@
         <a href="MyVouchers.html">My vouchers</a>
     </div>
 
-    <fieldset>
+    <fieldset id="fieldset">
         <div class="user-menu-title">
             <legend class="user-menu-title"> My profile </legend>
             <h4 th:if="${message != null}" th:text="${message}" class="text-info"></h4>

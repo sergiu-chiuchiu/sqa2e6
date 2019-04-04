@@ -1,120 +1,321 @@
+/* navbar */
 body {
-  height: 100%;
-  width: 100%;
+	font-family: 'Playfair Display', serif;
 }
 
-.first-slide {
-  width: 100%;
+.navbar-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 20;
 }
 
-@media (max-width: 767px) {
-  .block {
-      margin-left: -20px;
-      margin-right: -20px;
-  }
+.navbar-wrapper>.container {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.navbar-wrapper .navbar {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.navbar-wrapper .navbar .container {
+	width: auto;
+}
+
+#logo {
+	margin-top: 5px;
+	height: 50px;
+}
+
+@media ( min-width : 768px) {
+	.navbar-wrapper {
+		margin-top: 20px;
+	}
+	.navbar-wrapper .container {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	.navbar-wrapper .navbar {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.navbar-wrapper .navbar .container {
+		border-radius: 4px;
+	}
+}
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+	padding-top: 0.1rem;
+	padding-bottom: 1rem;
+	color: black;
+}
+
+/* Carousel base class */
+.carousel {
+	height: 500px;
+	margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	z-index: 5;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+	height: 500px;
+}
+
+.carousel-item>img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 500px;
+}
+
+/* footer */
+#page-footer {
+	background-color: #f2f2f2;
+	padding-bottom: 50px;
+}
+
+#page-footer h5 {
+	padding-left: 40px;
+	padding-top: 20px;
+	border-left: 3px solid 000000;
+	padding-bottom: 6px;
+	margin-bottom: 20px;
+	color: 000000;
+	text-align: center;
+}
+
+#page-footer #id {
+	margin-left: 80px;
+}
+
+#page-footer ul.quick-links li {
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+
+#page-footer ul.quick-links li:hover {
+	padding-left: 5px;
+	font-weight: 700;
+}
+
+#page-footer ul.quick-links li a i {
+	padding-right: 10px;
+	color: black;
+}
+
+#page-footer ul.quick-links li a {
+	padding-right: 40px;
+	color: black;
+}
+
+#page-footer ul.contact-infos li a i {
+	padding-left: 10px;
+	color: black;
+}
+
+#page-footer ul.contact-infos li a {
+	padding-left: 40px;
+	color: black;
+}
+
+#page-footer hr {
+	margin-left: -200px;
+	margin-right: -200px;
+}
+
+#page-footer ul.text li a {
+	float: right;
+	color: black;
+	padding-left: 30px;
+	margin-bottom: 10px;
+}
+
+#inner-remaining {
+	position: absolute;
+	width: 80%;
+}
+
+#copyright {
+	float: left;
+}
+
+.footer-text {
+	margin-top: 5px;
+	padding: 20px;
+}
+
+.float-right {
+	margin-right: 60px;
+}
+
+.float-left {
+	margin-left: 40px;
+}
+
+/* dropdown */
+/*Sub-dropdown menu*/
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu a::after {
+	transform: rotate(-90deg);
+	position: absolute;
+	right: 20px;
+	top: .8em;
+}
+
+.dropdown-submenu .dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-left: .1rem;
+	margin-right: .1rem;
+}
+
+#shopcart {
+	margin-top: 5px;
+	height: 50px;
+}
+
+@media ( min-width : 768px) {
+	.navbar-wrapper {
+		margin-top: 20px;
+	}
+	.navbar-wrapper .container {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	.navbar-wrapper .navbar {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.navbar-wrapper .navbar .container {
+		border-radius: 4px;
+	}
+}
+
+@media ( max-width : 767px) {
+	.block {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
 }
 
 /*promotions carousel customization- first slide*/
-#title-first-slide{
-  text-align: center;
-  text-shadow: 2px 0px red;
-  font-size: 80px;
-  font-family: french script ;
-  padding-left: 60px;
-  margin-top: 50px;
+#title-first-slide {
+	text-align: center;
+	text-shadow: 2px 0px red;
+	font-size: 80px;
+	font-family: french script;
+	padding-left: 60px;
+	margin-top: 50px;
 }
 
-#text-first-slide{
-  color:whitesmoke;
-  text-shadow: 2px 0px red;
-  font-size: 40px;
-  text-align: center;
-  font-style: bold;
-  margin-left: 100px;
-  margin-bottom: 100px;
+#text-first-slide {
+	color: whitesmoke;
+	text-shadow: 2px 0px red;
+	font-size: 40px;
+	text-align: center;
+	font-style: bold;
+	margin-left: 100px;
+	margin-bottom: 100px;
 }
 
 /*promotions carousel customization second slide*/
-#title-second-slide{
-  text-align: left;
-  text-shadow: 2px 0px saddlebrown;
-  font-size: 80px;
-  font-family: french script ;
-  padding-left: 20px;
-  margin-top: 50px;
+#title-second-slide {
+	text-align: left;
+	text-shadow: 2px 0px saddlebrown;
+	font-size: 80px;
+	font-family: french script;
+	padding-left: 20px;
+	margin-top: 50px;
 }
 
 #text-second-slide {
-  color:whitesmoke;
-  text-shadow: 4px 0px black;
-  font-size: 40px;
-  text-align: left;
-  font-style: bold;
-  margin-left: 30px;
-  margin-bottom: 100px;
+	color: whitesmoke;
+	text-shadow: 4px 0px black;
+	font-size: 40px;
+	text-align: left;
+	font-style: bold;
+	margin-left: 30px;
+	margin-bottom: 100px;
 }
 
-#btn-tombola-promotions{
-  background-color: white;
-  margin-left: -700px;
-  color: black;
-  }
+#btn-tombola-promotions {
+	background-color: white;
+	margin-left: -700px;
+	color: black;
+}
 
 /*promotions carousel customization third slide*/
-#title-third-slide{
-  text-align: center;
-  text-shadow: 2px 0px saddlebrown;
-  font-size: 70px;
-  font-family: french script ;
+#title-third-slide {
+	text-align: center;
+	text-shadow: 2px 0px saddlebrown;
+	font-size: 70px;
+	font-family: french script;
 }
 
 #text-third-slide {
-  text-align: center;
-  color:whitesmoke;
-  text-shadow: 2px 0px green;
-  font-size: 20px;
-  font-style: bold;
+	text-align: center;
+	color: whitesmoke;
+	text-shadow: 2px 0px green;
+	font-size: 20px;
+	font-style: bold;
 }
 
 #third-slide-text {
-  text-align: center;
-  color:whitesmoke;
-  text-shadow: 2px 0px darkgoldenrod;
-  font-size: 25px;
-  font-style: bold;
+	text-align: center;
+	color: whitesmoke;
+	text-shadow: 2px 0px darkgoldenrod;
+	font-size: 25px;
+	font-style: bold;
 }
 
 /*promotions carousel customization fourth slide*/
-#title-fourth-slide{
-  text-align: center;
-  text-shadow: 2px 0px darkgoldenrod;
-  font-size: 70px;
-  color: wheat;
-  font-family: french script ;
+#title-fourth-slide {
+	text-align: center;
+	text-shadow: 2px 0px darkgoldenrod;
+	font-size: 70px;
+	color: wheat;
+	font-family: french script;
 }
 
 #text-fourth-slide {
-  text-align: center;
-  text-shadow: 2px 0px darkgoldenrod;
-  font-size: 25px;
-  font-style: bold;
+	text-align: center;
+	text-shadow: 2px 0px darkgoldenrod;
+	font-size: 25px;
+	font-style: bold;
 }
-
 
 /*Events form*/
 body {
-  text-align:center;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  }
-  a {
-   text-decoration:none !important;
-   }
-   h1,h2,h3 {
-   font-family: 'Kaushan Script', cursive;
-   }
-   
-.myform {
+	text-align: center;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+h1, h2, h3 {
+	font-family: 'Kaushan Script', cursive;
+}
+
+myform {
 	position: absolute;
 	display: -ms-flexbox;
 	display: flex;
@@ -125,76 +326,84 @@ body {
 	pointer-events: auto;
 	background-color: #fff;
 	background-clip: padding-box;
-	border: 1px solid rgba(0,0,0,.2);
+	border: 1px solid rgba(0, 0, 0, .2);
 	border-radius: 1.1rem;
 	outline: 0;
 	max-width: 500px;
 }
 
 #wrap {
-  background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-  /* Mozilla Firefox */ 
-  background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-  /* Opera */ 
-  background-image: -o-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-  /* Webkit (Safari/Chrome 10) */ 
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
-  /* Webkit (Chrome 11+) */ 
-  background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-  /* W3C Markup, IE10 Release Preview */ 
-  background-image: linear-gradient(to bottom, #FFFFFF 0%, #D3D8E8 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  }
-  legend {
-    color: white;
-    font-size:25px;
-    font-weight:bold;
-  }
-  .submit-btn {
-    background: #79bc64;
-    background-image: -webkit-linear-gradient(top, #79bc64, #578843);
-    background-image: -moz-linear-gradient(top, #79bc64, #578843);
-    background-image: -ms-linear-gradient(top, #79bc64, #578843);
-    background-image: -o-linear-gradient(top, #79bc64, #578843);
-    background-image: linear-gradient(to bottom, #79bc64, #578843);
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-radius: 10px;
-    text-shadow: 0px 1px 0px #898a88;
-    -webkit-box-shadow: 0px 0px 0px #a4e388;
-    -moz-box-shadow: 0px 0px 0px #a4e388;
-    box-shadow: 0px 0px 0px #a4e388;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    border: solid #3b6e22  1px;
-    text-decoration: none;
-  }
-  
-  .submit-btn:hover {
-    background: #79bc64;
-    background-image: -webkit-linear-gradient(top, #79bc64, #5e7056);
-    background-image: -moz-linear-gradient(top, #79bc64, #5e7056);
-    background-image: -ms-linear-gradient(top, #79bc64, #5e7056);
-    background-image: -o-linear-gradient(top, #79bc64, #5e7056);
-    background-image: linear-gradient(to bottom, #79bc64, #5e7056);
-    text-decoration: none;
-  }
-  .navbar-default .navbar-brand {
-      color:#fff;
-      font-size:30px;
-      font-weight:bold;
-    }
-  .form .form-control { margin-bottom: 20px; }
-  @media (min-width:768px) {
-    #home{
-      margin-top:70px;
-    }
-    #home .slogan {
-      color: #0e385f;
-      line-height: 29px;
-      font-weight: bold;
-    }
-  }
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+	/* Mozilla Firefox */
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+	/* Opera */
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+	/* Webkit (Safari/Chrome 10) */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF),
+		color-stop(1, #D3D8E8));
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+	/* W3C Markup, IE10 Release Preview */
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #D3D8E8 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#formTitle {
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.submit-btn {
+	background: #79bc64;
+	background-image: -webkit-linear-gradient(top, #79bc64, #578843);
+	background-image: -moz-linear-gradient(top, #79bc64, #578843);
+	background-image: -ms-linear-gradient(top, #79bc64, #578843);
+	background-image: -o-linear-gradient(top, #79bc64, #578843);
+	background-image: linear-gradient(to bottom, #79bc64, #578843);
+	-webkit-border-radius: 4;
+	-moz-border-radius: 4;
+	border-radius: 10px;
+	text-shadow: 0px 1px 0px #898a88;
+	-webkit-box-shadow: 0px 0px 0px #a4e388;
+	-moz-box-shadow: 0px 0px 0px #a4e388;
+	box-shadow: 0px 0px 0px #a4e388;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	border: solid #3b6e22 1px;
+	text-decoration: none;
+}
+
+.submit-btn:hover {
+	background: #79bc64;
+	background-image: -webkit-linear-gradient(top, #79bc64, #5e7056);
+	background-image: -moz-linear-gradient(top, #79bc64, #5e7056);
+	background-image: -ms-linear-gradient(top, #79bc64, #5e7056);
+	background-image: -o-linear-gradient(top, #79bc64, #5e7056);
+	background-image: linear-gradient(to bottom, #79bc64, #5e7056);
+	text-decoration: none;
+}
+
+.navbar-default .navbar-brand {
+	color: #fff;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.form .form-control {
+	margin-bottom: 20px;
+}
+
+@media ( min-width :768px) {
+	#home {
+		margin-top: 70px;
+	}
+	#home .slogan {
+		color: #0e385f;
+		line-height: 29px;
+		font-weight: bold;
+	}
+}

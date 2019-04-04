@@ -102,25 +102,6 @@ body {
   font-size: 14px;
 }
 
-.notfound-social {
-  margin-bottom: 15px;
-}
-.notfound-social>a {
-  display: inline-block;
-  height: 40px;
-  line-height: 40px;
-  width: 40px;
-  font-size: 14px;
-  color: #fff;
-  background-color: #222225;
-  margin: 3px;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-.notfound-social>a:hover {
-  color: #fff;
-  background-color:red;
-}
 
 @media only screen and (max-width: 480px) {
   .notfound .notfound-404 {

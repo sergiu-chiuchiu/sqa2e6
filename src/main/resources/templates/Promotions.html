@@ -3,7 +3,6 @@
 
 <head>
   <title>Promotions</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/stylesheets/promotions.css">
   <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
   <div th:replace="fragments/head :: head"></div>
@@ -15,7 +14,6 @@
 
   <!-- Carousel -->
   <section class="block">
-    <main role="main">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -106,7 +104,6 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </main>
   </section>
 
 
@@ -115,7 +112,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <form name="myform" action="" method="post" accept-charset="utf-8" class="form" role="form">
-          <legend>Choose the event details</legend>
+          <legend id="formTitle">Choose the event details</legend>
           <div class="row">
             <div class="col-xs-6 col-md-6">
               <input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name"
