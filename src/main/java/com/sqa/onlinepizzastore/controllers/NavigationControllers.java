@@ -92,9 +92,14 @@ public class NavigationControllers {
 		return "ResetPassword";
 	}
 	
-	@GetMapping(value = "/reports")
+	@GetMapping(value = "/report/total-revenue-and-costs")
+	public String getReportPage(Model model) {
+		return "RTotalRevenueandCosts";
+	}
+	
+	@GetMapping(value = "/report/most-ordered-pizza")
 	public String getReportsPage(Model model) {
-		return "reports";
+		return "RMostOrderedPizza";
 	}
 	
 	@GetMapping(value = "/viewusers")
