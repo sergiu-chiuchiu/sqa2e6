@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sqa.onlinepizzastore.dto.AppUserDto;
 import com.sqa.onlinepizzastore.dto.AppUserPaswordChangeDto;
 import com.sqa.onlinepizzastore.dto.AppUserProfileDto;
+import com.sqa.onlinepizzastore.dto.AppUserSignUpAdminDto;
 import com.sqa.onlinepizzastore.dto.MessageDto;
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.services.AppUserService;
@@ -64,14 +65,15 @@ public class UserManagementController {
 		}
 
 		AppUser appUserToUpdate = appUserService.getLoggedInAppUserByPrincipal(principal);
-		
+
 		if (!appUserDto.getUserName().equals(appUserToUpdate.getUserName())) {
-			return "redirect:/auth/logout"; 
+			return "redirect:/auth/logout";
 		}
 
 		modelMapper.map(appUserDto, appUserToUpdate);
 		appUserService.updateAppUser(appUserToUpdate);
-		rattrs.addFlashAttribute("message", new MessageDto("text-success", "Your profile information has been updated successfully"));
+		rattrs.addFlashAttribute("message",
+				new MessageDto("text-success", "Your profile information has been updated successfully"));
 		return "redirect:/user";
 	}
 
@@ -83,18 +85,19 @@ public class UserManagementController {
 
 		String oldPass = appUserDtoPasswords.getOldPassword();
 		AppUser appUserToUpdate = appUserService.getLoggedInAppUserByPrincipal(principal);
-		
+
 		if (EncryptedPasswordUtils.checkPasswordMatch(oldPass, appUserToUpdate.getPassword())) {
 			if (bindingResult.hasErrors()) {
 				return "UserProfile";
 			}
-			
+
 			if (appUserDtoPasswords.getPassword().equals(appUserDtoPasswords.getPasswordRepeat())
 					&& appUserDtoPasswords.getPassword() != null) {
 				modelMapper.map(appUserDtoPasswords, appUserToUpdate);
 
 				appUserService.updateAppUserPassword(appUserToUpdate);
-				rattr.addFlashAttribute("message", new MessageDto("text-success", "Your profile information has been updated successfully"));
+				rattr.addFlashAttribute("message",
+						new MessageDto("text-success", "Your profile information has been updated successfully"));
 			} else {
 				rattr.addFlashAttribute("message", new MessageDto("text-warning", "The new passwords do not match"));
 			}
@@ -131,10 +134,19 @@ public class UserManagementController {
 
 	// + validari parola
 	@PostMapping(value = "/adduser")
-	public String saveNewPrivilegedUser(@ModelAttribute(value = "AppUser") AppUserDto appUserDto) {
-		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
+	public String saveNewPrivilegedUser(@Valid @ModelAttribute(value = "AppUser") AppUserSignUpAdminDto appUserDto,
+			BindingResult bindingResult, RedirectAttributes rattr) {
+		// field validations
+		if (bindingResult.hasErrors()) {
 			return "adduser";
 		}
+
+		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
+			System.out.println("pass not match");
+			rattr.addFlashAttribute("message", new MessageDto("text-warning", "Passwords do not match!"));
+			return "redirect:/user/adduser";
+		}
+
 		appUserService.savePrivilegedAppUser(modelMapper.map(appUserDto, AppUser.class), appUserDto.getRoleName());
 		return "adduser";
 	}
