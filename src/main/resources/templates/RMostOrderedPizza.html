@@ -15,18 +15,19 @@
 	<div class="container">
 		<p id="titleheader">Pizza Mia</p>
 		<p id="currentDate">04/04/2019</p>
-		<br>
-		<br>
+		<br> <br>
 		<h2>Top of most ordered pizzas</h2>
 		<br>
 		<table class="table table-dark table-striped" align="center">
 			<thead>
 				<tr>
+					<th>Crt no</th>
 					<th>Pizza Name</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr id="crtno">
+					<td>1.</td>
 					<td>Quattro Stagioni pizza</td>
 				</tr>
 			</tbody>
@@ -34,7 +35,7 @@
 	</div>
 	<br>
 	<br>
-	<div class="container" id="ingredientsquantity">
+	<!--<div class="container" id="ingredientsquantity">
 		<h2>Total quantity per ingredients</h2>
 		<br> <label th:text="Ingredient"></label> <select>
 			<option value="Salami">Salami</option>
@@ -62,7 +63,7 @@
 			</tbody>
 		</table>
 	</div>
-	<br>
+	<br>-->
 
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>

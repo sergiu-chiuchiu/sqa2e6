@@ -217,6 +217,8 @@ body {
 /*Report*/
 h2 {
 	text-align: center;
+	padding-left: 10%;
+	padding-right: 20%;
 }
 
 #totalcosts {
@@ -224,16 +226,24 @@ h2 {
 }
 
 #titleheader{
-	float:left;
+	float:left;	
+	padding-left:20%;
+	padding-bottom: 5%;
 }
 
 #currentDate{
 	float: right;
+	padding: 0% 20% 0% 5%;
 }
 
 
 #submitBtn{
 	margin-top: 5%;
+}
+
+#textBox{
+	padding-left:20%;
+	padding-bottom: 5%;
 }
 
 #tableReport{
@@ -262,6 +272,10 @@ width: 60%;
 	align: center;
 }
 
+#container{
+	margin: 0% 30% 0% 10%;
+	padding: 0% 6%;
+}
 
 @media print {
   @page { margin: 0; }
