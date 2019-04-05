@@ -18,6 +18,9 @@ public interface AppRoleRepository extends JpaRepository<AppRole, Long>{
 	@Query("SELECT ar FROM AppRole ar JOIN ar.users WHERE email = :email")
 	List<AppRole> getAppRoleByAppUserEmail(@Param("email") String email);
 	
+	@Query("SELECT ar FROM AppRole ar JOIN ar.users WHERE user_name = :userName")
+	List<AppRole> getAppRoleByAppUserName(@Param("userName") String userName);
+	
 	AppRole getAppRoleByRoleName(String roleName);
 	
 }

@@ -1,63 +1,62 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
-<title>Help</title>
-<link rel="stylesheet" href="/stylesheets/help.css">
-<link rel="stylesheet" href="/stylesheets/text.css">
-<body background="/images/background-4.jpg"></body>
-<div th:replace="fragments/navbar :: navbar"></div>
-<div id="content-page" class="span12 content group">
-	<div id="post-terms2"
-		class="group post-terms page type-page status-publish hentry">
-		<div class="row justify-content-center">
-			<img id="picture" src="/images/faq.jpg" />
-		</div>
-	</div>
-	<div id="post-terms1"
-		class="group post-terms page type-page status-publish hentry">
-		<p>
-			If you have questions about delivery, order and promotions, consult
-			our <a href="FAQ.html" th:href=@{/faq}>FAQ</a> or complete the form
-			below.
-		</p>
-	</div>
-</div>
-<!-- Form -->
-<form th:action="@{/help}" method="post">
-	<fieldset class="form-group">
-		<legend> Help form </legend>
-		<div class="form-row">
-			<div class="form-group col-md-6">
-				<label for="email">Email</label> <input type="email"
-					class="form-control" id="email" name="email" placeholder="Email"
-					autofocus="autofocus">
-			</div>
-			<p th:id="message"></p>
-			<div class="form-group col-md-6">
-				<label for="password">Password</label> <input type="password"
-					class="form-control" id="password" placeholder="Password">
-			</div>
-			<label class="my-1 mr-2" for="inlineFormCustomSelectPref">
-				Problems </label> <select class="custom-select my-1 mr-sm-2"
-				id="inlineFormCustomSelectPref">
-				<option selected>Choose...</option>
-				<option value="1">Delivery</option>
-				<option value="2">Order</option>
-				<option value="3">Promotions</option>
-			</select>
-			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Describe your
-					problem</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1"
-					rows="3"></textarea>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Help</title>
+	<link rel="stylesheet" href="/stylesheets/help.css">
+	<link rel="stylesheet" href="/stylesheets/text.css">
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body background="/images/background-4.jpg">
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<div id="content-page" class="span12 content group">
+		<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
+			<div class="row justify-content-center">
+				<img id="picture" src="/images/faq.jpg" />
 			</div>
 		</div>
-		<button type="submit" class="btn btn-primary" th:onclick="checkpass()"
-			value="validate">Sent</button>
-	</fieldset>
-</form>
+		<div id="post-terms1" class="group post-terms page type-page status-publish hentry">
+			<p>
+				If you have questions about delivery, order and promotions, consult
+				our <a href="FAQ.html" th:href=@{/faq}>FAQ </a> or complete the form below. </p> </div> </div> <!-- Form
+					-->
+					<form th:action="@{/help}" method="post">
+						<fieldset class="form-group">
+							<legend> Help form </legend>
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="email">Email</label> <input type="email" class="form-control" id="email"
+										name="email" placeholder="Email" autofocus="autofocus">
+								</div>
+								<p th:id="message"></p>
+								<div class="form-group col-md-6">
+									<label for="password">Password</label> <input type="password" class="form-control"
+										id="password" placeholder="Password">
+								</div>
+								<label class="my-1 mr-2" for="inlineFormCustomSelectPref">
+									Problems </label> <select class="custom-select my-1 mr-sm-2"
+									id="inlineFormCustomSelectPref">
+									<option selected>Choose...</option>
+									<option value="1">Delivery</option>
+									<option value="2">Order</option>
+									<option value="3">Promotions</option>
+								</select>
+								<div class="form-group">
+									<label for="exampleFormControlTextarea1">Describe your
+										problem</label>
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary" th:onclick="checkpass()"
+								value="validate">Sent</button>
+						</fieldset>
+					</form>
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
 <div th:replace="fragments/script :: script"></div>
 <script src="/jscripts/index.js"></script>
 </body>
+
 </html>

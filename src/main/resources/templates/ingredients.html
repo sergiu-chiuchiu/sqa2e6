@@ -1,10 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Pizza Mia Ingredients</title>
+    <link rel = "stylesheet" href = "/stylesheets/ingredients.css">  
 <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
-    <title>Pizza Mia Ingredients</title>
-    <link rel = "stylesheet" href = "/stylesheets/style.css">
-    <link rel = "stylesheet" href = "/stylesheets/ingredients.css">
-<body>
-    <body background ="/images/backgrounddd.jpg"></body>
+</head>  
+
+    <body background ="/images/backgrounddd.jpg">
 <!-- Navbar -->
     <div th:replace = "fragments/navbar :: navbar"></div>
 
@@ -55,7 +59,6 @@
 
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>
-<!-- Footer -->
 <div th:replace="fragments/script :: script"></div>
   <script src = "/jscripts/index.js"></script>
   </body>

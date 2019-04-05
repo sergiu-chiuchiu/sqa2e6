@@ -1,39 +1,44 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
-<title>Pizza</title>
-<link rel="stylesheet" href="/stylesheets/style.css">
-<link rel="stylesheet" href="/stylesheets/pizza.css">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-<body background="/images/backgrounddd.jpg"></body>
-<div th:replace="fragments/navbar :: navbar"></div>
-<!-- Inceput Main -->
-<div class="container" id="principal">
-	<!--Start Carusel-->
-	<div id="content-page" class="span12 content group">
-		<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
-			<div class="row justify-content-center">
-				<img id="pizza-banner" src="/images/img_menu.jpg" />
+<head>
+	<title>Pizza</title>
+	<link rel="stylesheet" href="/stylesheets/pizza.css">
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body background="/images/backgrounddd.jpg">
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<div class="container" id="principal">
+		<!--Start Carusel-->
+		<div id="content-page" class="span12 content group">
+			<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
+				<div class="row justify-content-center">
+					<img id="pizza-banner" src="/images/img_menu.jpg" />
+				</div>
 			</div>
 		</div>
+		<!--Sfarsit carusel-->
+		<div class="sidenav">
+			<a href="Dips.html" th:href="@{/menu/dips}">Dips</a>
+			<a th:href="@{/menu/pizza/viewCreations}">Creations</a>
+			<a href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a>
+		</div>
+		<br />
 	</div>
-	<!--Sfarsit carusel-->
-	<div class="sidenav">
-		<a href="Dips.html" th:href="@{/menu/dips}">Dips</a>
-		<a th:href="@{/menu/pizza/viewCreations}">Creations</a>
-		<a href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a>
-	</div>
-	<br />
-</div>
 <!-- Tipuri pizza -->
-<div class="container">
-				<div class="card mb-3 box-shadow">
+					
+	<div class="container">
+				<div class="card-deck mb-3 text-center">
+					<div class="card mb-4 box-shadow">
 						<div class="card-header">
-							<h4 class="my-0 font-weight-normal">Customize your pizza</h4>
+							<h4 class="my-0 font-weight-normal">Create your own pizza!</h4>
 						</div>
-						<img id="pizza" src="/images/contact_background.jpg">
+						<img id="pizza" src="/images/pizza_margherita.jpg">
 						<div class="card-body">
 							<h1 class="card-title pricing-card-title">
-								up to 10 LEI <small class="text-muted">/ pizza</small>
+								Start from 5 LEI <small class="text-muted">/ pizza</small>
 							</h1>
 							<ul class="list-unstyled mt-3 mb-4">
 								<li>tomato souce</li>
@@ -41,8 +46,9 @@
 								</br>
 								</br>
 								</br>
-							</ul>
-							<a class="btn btn-lg btn-block btn-primary" href="CustomizePizza.html"
+								</br>
+							</ul> 							
+                            <a class="btn btn-lg btn-block btn-primary" href="CustomizePizza.html"
 								th:href=@{/menu/pizza/customizepizza}>Choose the rest of the ingredients</a> </div>
 					</div>
 												
@@ -76,11 +82,9 @@
 	 </div> 
 <!-- ----------------------------------SF THYMELEAF----------------------------------- -->
 
-				<!-- Footer -->
-								<div th:replace="fragments/footer :: footer"></div>
-								<!-- Footer -->
-								<div th:replace="fragments/script :: script"></div>
-								<script src="/jscripts/form.js"></script>
-								</body>
+<!-- Footer -->
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/script :: script"></div>
+</body>
 
-								</html>
+</html>

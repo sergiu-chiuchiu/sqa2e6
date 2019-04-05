@@ -23,19 +23,19 @@ import com.sqa.onlinepizzastore.services.AppUserService;
 import com.sqa.onlinepizzastore.util.EncryptedPasswordUtils;
 
 @Controller
-@RequestMapping(value="/user")
+@RequestMapping(value = "/user")
 public class UserManagementController {
-	
+
 	private final AppUserService appUserService;
 	private final ModelMapper modelMapper;
-	
+
 	@Autowired
 	public UserManagementController(AppUserService appUserService, ModelMapper modelMapper) {
 		super();
 		this.modelMapper = modelMapper;
 		this.appUserService = appUserService;
 	}
-	
+
 	// add option to change username
 	// Gender to be added
 	@GetMapping
@@ -48,24 +48,28 @@ public class UserManagementController {
 	}
 
 	@PostMapping
-	public String updateUserProfile(@ModelAttribute(value="AppUser") AppUserDto appUserDto, @ModelAttribute(value="AppUserPasswords") AppUserDto appUserDtoPasswords, Principal principal, Model model) {
+	public String updateUserProfile(@ModelAttribute(value = "AppUser") AppUserDto appUserDto,
+			@ModelAttribute(value = "AppUserPasswords") AppUserDto appUserDtoPasswords, Principal principal,
+			Model model) {
 		AppUser appUserToUpdate = appUserService.getLoggedInAppUserByPrincipal(principal);
-		
+
 		modelMapper.map(appUserDto, appUserToUpdate);
 		appUserService.updateAppUser(appUserToUpdate);
 		model.addAttribute("Message", "User information updated successfully");
 		return "UserProfile";
 	}
-	
+
 	@PostMapping(value = "/changePass")
-	public String updateUserPassword(@ModelAttribute(value="AppUserPasswords") AppUserDto appUserDtoPasswords, Principal principal, Model model) {
+	public String updateUserPassword(@ModelAttribute(value = "AppUserPasswords") AppUserDto appUserDtoPasswords,
+			Principal principal, Model model) {
 		String oldPass = appUserDtoPasswords.getOldPassword();
 		AppUser appUserToUpdate = appUserService.getLoggedInAppUserByPrincipal(principal);
-		
-		if(EncryptedPasswordUtils.checkPasswordMatch(oldPass, appUserToUpdate.getPassword())) {
-			if(appUserDtoPasswords.getPassword().equals(appUserDtoPasswords.getPasswordRepeat()) && appUserDtoPasswords.getPassword() != null) {
+
+		if (EncryptedPasswordUtils.checkPasswordMatch(oldPass, appUserToUpdate.getPassword())) {
+			if (appUserDtoPasswords.getPassword().equals(appUserDtoPasswords.getPasswordRepeat())
+					&& appUserDtoPasswords.getPassword() != null) {
 				modelMapper.map(appUserDtoPasswords, appUserToUpdate);
-				
+
 				appUserService.updateAppUser(appUserToUpdate);
 				model.addAttribute("Message", "Password Updated Successfully");
 			} else {
@@ -78,38 +82,39 @@ public class UserManagementController {
 		model.addAttribute("AppUser", appUserToUpdate);
 		return "UserProfile";
 	}
-	
+
 	@PostMapping(value = "/deleteAccount")
-	public String deleteAccount(@ModelAttribute(value="AppUserDelete") AppUserDto appUserMessage, Principal principal, Model model) {
+	public String deleteAccount(@ModelAttribute(value = "AppUserDelete") AppUserDto appUserMessage, Principal principal,
+			Model model) {
 		AppUser appUserToDelete = appUserService.getLoggedInAppUserByPrincipal(principal);
 		appUserService.deleteAppUser(appUserToDelete);
 		return "redirect:/auth/logout";
 	}
-		
+
 	@GetMapping(value = "/users")
 	public String viewUsers(Model model) {
 		model.addAttribute("AppUsers", appUserService.getAllUsers());
 		return "ViewUsers";
 	}
-	
+
 	@GetMapping(value = "/adduser")
 	public String addUser(Model model) throws ParseException {
 		AppUserDto appUserDto = new AppUserDto();
-		Date defaultBirthDate = new SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01");  
+		Date defaultBirthDate = new SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01");
 		appUserDto.setBirthDate(defaultBirthDate);
 		model.addAttribute("AppUser", appUserDto);
-		
+
 		return "addUser";
 	}
-	
+
 	// + validari parola
-		@PostMapping(value = "/adduser")
-		public String saveNewPrivilegedUser(@ModelAttribute(value="AppUser") AppUserDto appUserDto) {
-			if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
-				return "adduser";
-			}
-			appUserService.savePrivilegedAppUser(modelMapper.map(appUserDto, AppUser.class), appUserDto.getRoleName());
+	@PostMapping(value = "/adduser")
+	public String saveNewPrivilegedUser(@ModelAttribute(value = "AppUser") AppUserDto appUserDto) {
+		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
 			return "adduser";
 		}
-	
+		appUserService.savePrivilegedAppUser(modelMapper.map(appUserDto, AppUser.class), appUserDto.getRoleName());
+		return "adduser";
+	}
+
 }

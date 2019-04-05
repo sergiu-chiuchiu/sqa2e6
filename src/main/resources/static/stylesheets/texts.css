@@ -1,3 +1,5 @@
+/* navbar */
+
 body {
   font-family: 'Playfair Display', serif;
 }
@@ -60,8 +62,8 @@ body {
 }
 
 
+/* footer */
 
-/*Ionela's*/
 #page-footer{
 	background-color: #f2f2f2;
 	padding-bottom:50px;
@@ -82,7 +84,12 @@ body {
 	margin-left:80px;
 }
 
-
+.btn-group{
+	padding-left: 50%;
+	position:static;
+	justify-content:center;
+	margin-left:-90px;
+}
 #page-footer ul.quick-links li{
 	padding: 3px 0;
 	-webkit-transition: .5s all ease;
@@ -148,17 +155,6 @@ body {
 	margin-left:40px;
 }
 
-#post-terms {
-	margin-top: 60px;
-	margin-left: 60px;
-	margin-right: 60px;
-}
-
-#post-privacy{
-	margin-top: 60px;
-	margin-left: 60px;
-	margin-right: 60px;
-}
 
 /* dropdown */
 /*Sub-dropdown menu*/
@@ -206,84 +202,53 @@ body {
   }
 }
 
-/* side nav */
-
-.sidenav {
-  height: 30%;
-  width: 130px;
-  position: fixed;
-  z-index: 1;
-  top: 250px;
-  left: 0;
-  background-color: sienna;
-  overflow-x: hidden;
-  padding-top: 20px;
+h3 {
+    font-size: 30px;
 }
 
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: black;
-  display: block;
+#post-terms2 {
+	margin-top: 60px;
+	margin-left: 90px;
+	margin-right: 610px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-indent: 50px;
+	text-align: justify;
 }
 
-.sidenav a:hover {
-  color: #f1f1f1;
+#post-terms1 {
+	margin-top: 60px;
+	margin-left: 90px;
+	margin-right: 100px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-indent: 50px;
+	text-align: justify;
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
+#post-terms {
+	margin-top: 60px;
+	margin-left: 90px;
+	margin-right: 100px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-indent: 50px;
+	text-align: justify;
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+
+h2 {
+	font-size: 40px;
 }
 
-#picture {
-  margin-top: 20px;
-  margin-left: 100px;
-  margin-right: 100px;
-  height: 500px;
-  width: 1000px;
+#banner {
+	margin-top: 0px;
+	margin-left: 500px;
+  	height: 350px;
+ 	 width:1600px;
 }
 
-/* side nav */
 
-.sidenav {
-  height: 30%;
-  width: 130px;
-  position: fixed;
-  z-index: 1;
-  top: 250px;
-  left: 0;
-  background-color: sienna;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: black;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}

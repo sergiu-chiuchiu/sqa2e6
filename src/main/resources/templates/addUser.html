@@ -1,44 +1,50 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
   <title>Add User</title>
-
-  <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/stylesheets/adduser.css">
-<body>
+  <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+  <div th:replace="fragments/head :: head"></div>
+</head>
 
-  <body background="/images/background-4.jpg"></body>
+<body background="/images/background-4.jpg">
   <!-- Navbar -->
-<div th:replace = "fragments/navbar :: navbar"></div>
-<br>
-<br>
+  <div th:replace="fragments/navbar :: navbar"></div>
+  <br>
+  <br>
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
   <!-- Form -->
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <form action="#" th:action="@{/user/adduser}" th:object="${AppUser}" method="POST" accept-charset="utf-8" class="form" role="form">
+        <form action="#" th:action="@{/user/adduser}" th:object="${AppUser}" method="POST" accept-charset="utf-8"
+          class="form" role="form">
           <legend>Create a new user</legend>
           <div class="row">
             <div class="col-xs-12 col-md-12">
-              <input type="text" name="userName" value="" th:field="*{userName}" class="form-control input-lg" placeholder="Full Name" />
+              <input type="text" name="userName" value="" th:field="*{userName}" class="form-control input-lg"
+                placeholder="Full Name" />
             </div>
           </div>
-          <input type="email" name="email" value="" th:field="*{email}" class="form-control input-lg" placeholder="Your Email" />
-          <input type="password" name="password" value="" th:field="*{password}" class="form-control input-lg" placeholder="Password" />
-          <input type="password" name="confirm_password" value="" th:field="*{passwordRepeat}" class="form-control input-lg"
-            placeholder="Confirm Password" />
-         <label>User role: </label>
-         <br />
-         <select th:field="*{roleName}">
-		    <option th:value="'ROLE_ADMIN'" th:text="Admin" value="admin"></option>
-		    <option th:value="'ROLE_OPERATOR'" th:text="Operator" value="operator"></option>
-		    <option th:value="'ROLE_USER'" th:text="User" value="user"></option>
-		</select>
-		<br />
-		<br />
+          <input type="email" name="email" value="" th:field="*{email}" class="form-control input-lg"
+            placeholder="Your Email" />
+          <input type="password" name="password" value="" th:field="*{password}" class="form-control input-lg"
+            placeholder="Password" />
+          <input type="password" name="confirm_password" value="" th:field="*{passwordRepeat}"
+            class="form-control input-lg" placeholder="Confirm Password" />
+          <label>User role: </label>
+          <br />
+          <select th:field="*{roleName}">
+            <option th:value="'ROLE_ADMIN'" th:text="Admin" value="admin"></option>
+            <option th:value="'ROLE_OPERATOR'" th:text="Operator" value="operator"></option>
+            <option th:value="'ROLE_USER'" th:text="User" value="user"></option>
+          </select>
+          <br />
+          <br />
           <label>Birth Date</label>
           <div class="row">
             <div class="col-xs-4 col-md-4">
@@ -52,7 +58,7 @@
           <label class="radio-inline">
             <input type="radio" name="gender" value="F" th:field="*{gender}" id=female />Female</label>
           <br />
-			
+
           <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data
             Use Policy, including our Cookie Use.</span>
           </br>
@@ -67,11 +73,11 @@
   </br>
   </br>
   </br>
- <!-- Footer-->
-<div th:replace="fragments/footer :: footer"></div>
+  <!-- Footer-->
+  <div th:replace="fragments/footer :: footer"></div>
   <!-- Footer -->
- <div th:replace="fragments/script :: script"></div>
- <!-- <script src="/jscripts/index.js"></script>-->
+  <div th:replace="fragments/script :: script"></div>
+  <script src="/jscripts/index.js"></script>
 </body>
 
 </html>
