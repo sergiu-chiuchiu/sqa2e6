@@ -70,7 +70,6 @@ public class UserAuthenticationController {
 		// check password matching
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
 			model.addAttribute("message", new MessageDto("text-warning", "The passwords are not matching"));
-			System.out.println("passowrods not matching");
 			return "SignUp";
 		}
 		
