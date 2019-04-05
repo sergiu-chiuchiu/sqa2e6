@@ -3,7 +3,7 @@
 
 <head>
 <title>Report</title>
-<link rel="stylesheet" href="/stylesheets/RTotalRevenueandCosts.css">
+<link rel="stylesheet" href="/stylesheets/RMostOrderedPizza.css">
 <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
 </head>
@@ -12,13 +12,13 @@
 	<div th:replace="fragments/navbar :: navbar"></div>
 	<br>
 	<br>
-	<div class="container">
+	<div class="container" id="container">
 		<p id="titleheader">Pizza Mia</p>
 		<p id="currentDate">04/04/2019</p>
-		<br> <br>
-		<h2>Top of most ordered pizzas</h2>
 		<br>
-		<table class="table table-dark table-striped" align="center">
+		<h2 class="text-center">Top of most ordered pizzas</h2>
+		<br>
+		<table class="table table-dark table-striped" id="mostordered">
 			<thead>
 				<tr>
 					<th>Crt no</th>
@@ -30,40 +30,16 @@
 					<td>1.</td>
 					<td>Quattro Stagioni pizza</td>
 				</tr>
-			</tbody>
-		</table>
-	</div>
-	<br>
-	<br>
-	<!--<div class="container" id="ingredientsquantity">
-		<h2>Total quantity per ingredients</h2>
-		<br> <label th:text="Ingredient"></label> <select>
-			<option value="Salami">Salami</option>
-			<option value="Pepper">Pepper</option>
-			<option value="Tomato sauce">Tomato sauce</option>
-			<option value="Mozzarella">Mozzarella</option>
-			<option value="Mushroom">Mushroom</option>
-			<option value="Corn">Corn</option>
-			<option value="Cilli">Cilli</option>
-		</select>
-		<table class="table table-dark table-striped">
-			<thead>
-				<tr>
-					<th><b>Ingredient</b></th>
-					<th><b>Total quantity</b></th>
-					<th><b>Unit of measure</b></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Salami</td>
-					<td>4</td>
-					<td>piece(s)</td>
+				<tr id="crtno">
+					<td>2.</td>
+					<td>Quattro Formaggi pizza</td>
 				</tr>
 			</tbody>
 		</table>
+		<p id="pageno">Page 1/1</p>
 	</div>
-	<br>-->
+	<br>
+	<br>
 
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>
