@@ -359,3 +359,7 @@ form {
   width: 1000px;
 }
 
+.card.mb-3.box-shadow{
+	margin-left:300px;
+	margin-right:300px;
+}

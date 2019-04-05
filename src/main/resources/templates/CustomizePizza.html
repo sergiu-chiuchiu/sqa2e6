@@ -11,22 +11,74 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="/stylesheets/style.css" th:href="@{/stylesheets/style.css}">
+	<!-- <link rel="stylesheet" href="/stylesheets/style.css" th:href="@{/stylesheets/style.css}">-->
 	<link rel="stylesheet" href="/stylesheets/customized.css" th:href="@{/stylesheets/customized.css}">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<body background="/images/backgrounddd.jpg">	
 
-<body background="/images/backgrounddd.jpg">
+    <script th:inline="javascript">
+	function checkTotal() {		
+		document.listForm.total.value = '';
+		var sum = 5;
+		for (i=0;i<document.listForm.ingredients.length;i++) {
+		  if (document.listForm.ingredients[i].checked) {
+		  	sum = sum + parseInt(document.listForm.ingredients[i].value);
+		  	}
+		}
+		document.listForm.total.value = sum;
+		}
+	
+	var c =function(){
+		if($('input[name="price"]').is(':checked')){
+			$('input[name="idCust"]').is(':checked')
+		}else{
+			$('input[name="idCust"]').is(':unchecked')
+		}
+	}
+	
+	
+	function check(){
+
+			if(document.getElementById("price").checked==true){
+				document.getElementById("idCust").checked=true;
+			}else if(document.getElementById("price").checked==false){
+				document.getElementById("idCust").checked=false;
+			}else {
+				document.getElementById("idCust").checked=false;
+			}
+	}
+	</script>
+
+
+<!--  
+	
+				 <script>
+	document.getElementById("price").onchange= function()
+	{
+
+	if (document.getElementById("price").checked==true)
+	{
+	document.getElementById("idCust").checked=true;
+	}
+	else if (document.getElementById("price").checked==false)
+	{
+	document.getElementById("idCust").checked=false;
+	}
+	}
+	</script>	
+-->
 <!-- Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
 <h3 id="titlePage">Make a new creation!</h3>
 <br>
 <br>
-<form action=# th:action="@{/menu/pizza/customizepizza}" th:object="${cust}" method="post" autocomplete="off">
+<form name="listForm" class ="formPIT" action=# th:action="@{/menu/pizza/customizepizza}" th:object="${cust}" method="post" autocomplete="off">
 	<div>
 		<input type="hidden" th:field="*{customized_id}" />
 	</div>
+	Total: <input type="text" size="2" name="total" value="0"/>
 	<div class="text">
 		<label>Name:</label>
 		<input type="text" th:field="*{customized_name}" />
@@ -56,10 +108,15 @@
 			<div class="radio-toolbar">
 			<p><a th:href="@{/menu/ingredients}" style="color:white;">Ingredients:</a></p>
 				<ul>
-    	  		<li th:each="ingredient : ${ingredients}" >  
-    	    		<input type="checkbox" name="ingredients" th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}"/>
+    	  		<li th:each="ingredient : ${ingredients}"  >  
+    	    		<input class="checked" type="checkbox" id="idCust" name="ingredients" 
+    	    		 th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}"/>
+    	    		<input type="checkbox" id="price" name="ingPrice" 
+    						  th:field="*{ingredients}" th:value="${ingredient.ing_price}" th:checked="*{ingredients}"/>
 	      			<label th:for="${ingredient.ing_name}" th:text="${ingredient.ing_name}">Ingredient Name</label>
+	      			<label th:for="${ingredient.ing_price}" th:text="${ingredient.ing_price}">Ingredient Name</label>
 	      			<span class="text-danger">
+	      			<!--  <td th:text="${#aggregates.sum(ingredient.ing_price)}">Ingredient Name</td>-->
     	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>
     	  		  	</span>      	  		  	     				      			       	
           		</li>
@@ -69,6 +126,7 @@
 				<button type="submit" class="btn btn-default">Create pizza</button>
 				<button class="btn btn-default"><a th:href="@{/menu/pizza/viewCreations}" style="color:black;">View Creations</a></button>
 			</div>
+
 	</form>
 <!-- Footer -->
 <div th:replace="fragments/footer :: footer"></div>

@@ -16,7 +16,6 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Update</th>
-      <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">Type</th>
       <th scope="col">Allergen</th>
@@ -37,7 +36,6 @@
   <tr th:each="ingredient : ${ingredients}">
   		<td scope="row"></th>  		
   		<td><a th:href="@{|/menu/ingredients/editIngredient/${ingredient.ing_id}|}">Update</a></td>
-  		<td th:text="${ingredient.ing_id}"></th>
         <td th:text="${ingredient.ing_name}">Title ...</td>
         <td th:text="${ingredient.ing_type}">1</td>
         <td th:text="${ingredient.ing_allergen}">1</td>

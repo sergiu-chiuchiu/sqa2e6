@@ -15,10 +15,12 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="/stylesheets/style.css"
-	th:href="@{/stylesheets/style.css}">
+<!--  <link rel="stylesheet" href="/stylesheets/style.css"
+	th:href="@{/stylesheets/style.css}">-->
 <link rel="stylesheet" href="/stylesheets/ingredients.css"
 	th:href="@{/stylesheets/ingredients.css}">
+	<link rel="stylesheet" href="/stylesheets/customized.css"
+	th:href="@{/stylesheets/customized.css}">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display"
 	rel="stylesheet">
 <link rel="stylesheet"
@@ -27,7 +29,7 @@
 <body background="/images/backgrounddd.jpg"></body>
 <!-- Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
-<h3 id="titlePage">Edit the selected ingredient!</h3>
+<h3 id="titlePage">Add a new ingredient!</h3>
 <br>
 <br>
 <form action="#" th:action="@{/menu/ingredients/addIngredient}"
