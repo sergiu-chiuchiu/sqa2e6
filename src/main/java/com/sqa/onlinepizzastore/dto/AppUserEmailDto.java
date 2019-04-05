@@ -5,12 +5,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class AppUserEmailDto {
-	
-	protected String email;
-
 	@Email
 	@NotBlank
 	@Size(min = 4, max = 40)
+	protected String email;
+
+	
 	public String getEmail() {
 		return email;
 	}

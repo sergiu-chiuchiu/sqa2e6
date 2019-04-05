@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.sqa.onlinepizzastore.services.AppRoleService;
 
+// Use this class to add global attributes to the templates
 @ControllerAdvice(annotations = Controller.class)
 public class AnnotationAdvice {
 	@Autowired

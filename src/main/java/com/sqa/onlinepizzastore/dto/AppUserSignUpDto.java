@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class AppUserSignUpDto extends AppUserPersonalDataDto {
+public class AppUserSignUpDto extends AppUserProfileDto {
 
 	@NotBlank
 	@Size(min = 8, max = 40)

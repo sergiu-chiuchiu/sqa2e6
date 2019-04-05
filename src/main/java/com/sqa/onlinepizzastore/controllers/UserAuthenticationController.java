@@ -144,7 +144,7 @@ public class UserAuthenticationController {
 	}
 
 	@PostMapping(value = "/resetPassword/{token}")
-	public String ProcessResetPasswordForm(Model model, @Valid @ModelAttribute(value = "AppUser") AppUserDto appUserDto,
+	public String ProcessResetPasswordForm(Model model, @ModelAttribute(value = "AppUser") AppUserDto appUserDto,
 			@PathVariable("token") String token) {
 		// Check if token exists
 		AppUser appUser = appUserService.getAppUserByPasswordResetToken(token);

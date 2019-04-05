@@ -5,7 +5,7 @@ import javax.validation.constraints.Size;
 
 public class AppUserPaswordChangeDto extends AppUserPassResetDto {
 	@NotBlank
-	@Size(min = 8, max = 40)
+//	@Size(min = 8, max = 40)
 	protected String oldPassword;
 	
 	public String getOldPassword() {

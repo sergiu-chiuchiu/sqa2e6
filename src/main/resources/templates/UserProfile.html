@@ -2,87 +2,140 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>My profile</title>
-    <link rel="stylesheet" href="/stylesheets/login.css">
-    <link rel="stylesheet" href="/stylesheets/user.css">
-    <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-    <div th:replace="fragments/head :: head"></div>
+<title>My profile</title>
+<link rel="stylesheet" href="/stylesheets/login.css">
+<link rel="stylesheet" href="/stylesheets/user.css">
+<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
 </head>
 
 <body background="/images/background-4.jpg">
-    <!-- Navbar -->
-    <div th:replace="fragments/navbar :: navbar"></div>
-    <!-- content-->
-    <div class="sidenav">
-        <a th:href="@{/user}" href="UserProfile.html">My account</a>
-        <a href="MyAddresses.html">My addresses</a>
-        <a href="MyOrders.html">My orders</a>
-        <a href="MyVouchers.html">My vouchers</a>
-    </div>
+	<!-- Navbar -->
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<!-- content-->
+	<div class="sidenav">
+		<a th:href="@{/user}" href="UserProfile.html">My account</a> <a
+			href="MyAddresses.html">My addresses</a> <a href="MyOrders.html">My
+			orders</a> <a href="MyVouchers.html">My vouchers</a>
+	</div>
 
-    <fieldset id="fieldset">
-        <div class="user-menu-title">
-            <legend class="user-menu-title"> My profile </legend>
-            <h4 th:if="${message != null}" th:text="${message}" class="text-info"></h4>
-            <h4 th:if="${danger != null}" th:text="${danger}" class="text-danger"></h4>
-        </div>
-        <div class="col-xs-12 col-sm-9 col-md-9 user-menu-hide">
-            <div class="user-container">
-                <h3>Welcome : <span th:if="${#request.userPrincipal != null}" th:utext="${#request.userPrincipal.name}"></span></h3>
-		    <div class="user-container-title">Account settings</div>
-            <div class="user-divider"></div>
-            <div class="user-container-subtitle">Personal data</div>
-            <div class="account_details">
-			<form method="POST" accept-charset="utf-8" action="#" th:action="@{/user}" th:object="${AppUser}" id="detalii-cont" name="detalii-cont" role="form">
-				<div class="form-group">
-					<input type="text" readonly name="userName" value="" th:field="*{userName}" class=" width_input_cos form-control user-input" placeholder="Full Name" />
+	<fieldset id="fieldset">
+		<div class="user-menu-title">
+			<legend class="user-menu-title"> My profile </legend>
+			
+		</div>
+		<div class="col-xs-12 col-sm-9 col-md-9 user-menu-hide">
+			<div class="user-container">
+				<h3>
+					Welcome : <span th:if="${#request.userPrincipal != null}"
+						th:utext="${#request.userPrincipal.name}"></span>
+				</h3>
+				<h4 th:attrappend="class=' ' + ${message.messageType}"
+				th:if="${message != null}" th:text="${message.message}">Password
+				match Error</h4>
+				<div class="user-container-title">Account settings</div>
+				<div class="user-divider"></div>
+				<div class="user-container-subtitle">Personal data</div>
+				<div class="account_details">
+					<form method="POST" accept-charset="utf-8" action="#"
+						th:action="@{/user}" th:object="${AppUser}" id="detalii-cont"
+						name="detalii-cont" role="form">
+						<div class="form-group">
+							<div class="text-danger" th:if="${#fields.hasErrors('userName')}"
+								th:errors="*{userName}">UserName Error</div>
+							<div class="text-info">Changing this field will log you
+								out from current session!</div>
+							<input type="text" name="userName" value=""
+								th:field="*{userName}"
+								class=" width_input_cos form-control user-input"
+								placeholder="Full Name" />
+						</div>
+						<div class="form-group">
+							<div class="text-danger" th:if="${#fields.hasErrors('email')}"
+								th:errors="*{email}">Email Error</div>
+							<input readonly type="email" id="email" name="email" value=""
+								th:field="*{email}"
+								class=" width_input_cos form-control user-input"
+								placeholder="Email address*:" />
+						</div>
+						<div class="form-group">
+							<div class="text-danger" th:if="${#fields.hasErrors('points')}"
+								th:errors="*{points}">Points Error</div>
+							<input type="text" id="points" name="points" value=""
+								th:field="*{points}"
+								class=" width_input_cos form-control user-input" readonly />
+						</div>
+						<div class="form-group">
+							<div class="text-danger"
+								th:if="${#fields.hasErrors('birthDate')}"
+								th:errors="*{birthDate}">Birth date Error</div>
+							<input type="date" id="birthDate" name="birthDate"
+								th:field="*{birthDate}" value=""
+								class=" width_input_cos form-control user-input"
+								min="1950-01-01" max="2013-12-31" />
+						</div>
+						<button type="submit" class="user-button-save" value="Save"
+							name="account_details">Save</button>
+					</form>
 				</div>
-                <div class="form-group">
-                	<input type="email" id="email" name="email" value="" th:field="*{email}" class=" width_input_cos form-control user-input" placeholder="Email address*:" />
-                </div>
-                <div class="form-group">
-                	<input type="text" id="points" name="points" value="" th:field="*{points}" class=" width_input_cos form-control user-input" readonly />
-                </div>
-                <div class="form-group">
-               		<input type="date" id="birthDate" name="birthDate" th:field="*{birthDate}" value="" class=" width_input_cos form-control user-input" min="1950-01-01" max="2013-12-31" />
-                </div>
-				<button type="submit" class="user-button-save" value="Save" name="account_details" >Save</button>
-			</form>
-		    </div>
-            <div class="user-divider"></div>
-<!-- ************************************** reset password ************************************* -->
-            <div class="user-container-subtitle">Change password</div>
-	        <div class="account_details">
-		        <form method="POST" action="" th:action="@{/user/changePass}" th:object="${AppUserPasswords}" id="change-password">
-                    <div class="form-group">
-                        <input type="password" placeholder="Old password*:" th:field="*{oldPassword}" class=" width_input_cos form-control user-input" name="old_password"  id="old_password"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="New password*:" th:field="*{password}" class=" width_input_cos form-control user-input" name="password"  id="password"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Retype password*:" th:field="*{passwordRepeat}" class=" width_input_cos form-control user-input" name="password_again"  id="password_again"/>
-                    </div>
-                    <input type="submit" class="user-button-save" value="Save" name="edit_password" />
-		        </form>
-            </div>
-<!-- ************************************** dezactivare cont ************************************* -->
-            <div class="user-container-subtitle">Delete account</div>
-            <div class="account_details">
-                <form th:method="delete" action="" th:action="@{/user}" id="delete-account">
-                    <div class="form-group">
-                        <textarea name="message" th:value="${message}" id="reasons" class=" width_input_cos form-control user-textarea" placeholder="I want to delete my account because:"></textarea>
-                    </div>
-                    <input type="submit" class="user-button-delete" value="Delete account" id="delete-account" name="delete-account" />
-                </form>
-            </div>
-        </div>
-    </div>
-</fieldset>
+				<div class="user-divider"></div>
+				<!-- ************************************** reset password ************************************* -->
+				<div class="user-container-subtitle">Change password</div>
+				<div class="account_details">
+					<form method="POST" action="" th:action="@{/user/changePass}"
+						th:object="${AppUserPasswords}" id="change-password">
+						<div class="form-group">
+							<div class="text-danger"
+								th:if="${#fields.hasErrors('oldPassword')}"
+								th:errors="*{oldPassword}">Old Pass Error</div>
+							<input type="password" placeholder="Old password*:"
+								th:field="*{oldPassword}"
+								class=" width_input_cos form-control user-input"
+								name="old_password" id="old_password" />
+						</div>
+						<div class="form-group">
+							<div class="text-danger"
+								th:if="${#fields.hasErrors('password')}"
+								th:errors="*{password}">Birth date Error</div>
+							<input type="password" placeholder="New password*:"
+								th:field="*{password}"
+								class=" width_input_cos form-control user-input" name="password"
+								id="password" />
+						</div>
+						<div class="form-group">
+							<div class="text-danger"
+								th:if="${#fields.hasErrors('passwordRepeat')}"
+								th:errors="*{passwordRepeat}">Birth date Error</div>
+							<input type="password" placeholder="Retype password*:"
+								th:field="*{passwordRepeat}"
+								class=" width_input_cos form-control user-input"
+								name="password_again" id="password_again" />
+						</div>
+						<input type="submit" class="user-button-save" value="Save"
+							name="edit_password" />
+					</form>
+				</div>
+				<!-- ************************************** dezactivare cont ************************************* -->
+				<div class="user-container-subtitle">Delete account</div>
+				<div class="account_details">
+					<form th:method="delete" action="" th:action="@{/user}"
+						id="delete-account">
+						<div class="form-group">
+							<textarea name="message" th:value="${message}" id="reasons"
+								class=" width_input_cos form-control user-textarea"
+								placeholder="I want to delete my account because:"></textarea>
+						</div>
+						<input type="submit" class="user-button-delete"
+							value="Delete account" id="delete-account" name="delete-account" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</fieldset>
 
-<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<div th:replace="fragments/script :: script"></div>
-<script src = "/jscripts/index.js"></script>
-   </body>
+	<!-- Footer -->
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
+	<script src="/jscripts/index.js"></script>
+</body>
 </html>

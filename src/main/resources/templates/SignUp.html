@@ -19,9 +19,9 @@
 					method="POST" accept-charset="utf-8" class="form" role="form">
 					<legend>Sign Up</legend>
 					<h4 th:attrappend="class=' ' + ${message.messageType}"
-						th:if="${message != null}" th:text="${message.message}">Email
-						Error</h4>
-						<br />
+						th:if="${message != null}" th:text="${message.message}">Password
+						match Error</h4>
+					<br />
 					<div class="row">
 						<div class="col-xs-12 col-md-12">
 							<div class="text-danger" th:if="${#fields.hasErrors('userName')}"
@@ -43,7 +43,6 @@
 					<div class="text-danger"
 						th:if="${#fields.hasErrors('passwordRepeat')}"
 						th:errors="*{passwordRepeat}">Confirm password Error</div>
-					
 					<input type="password" name="confirm_password" value=""
 						th:field="*{passwordRepeat}" class="form-control input-lg"
 						placeholder="Confirm Password" /> <label>Birth Date</label>
