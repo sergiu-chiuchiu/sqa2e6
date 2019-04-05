@@ -27,6 +27,7 @@ import org.springframework.security.core.Authentication;
 
 import com.sqa.onlinepizzastore.dto.AppUserDto;
 import com.sqa.onlinepizzastore.dto.AppUserEmailDto;
+import com.sqa.onlinepizzastore.dto.AppUserPassResetDto;
 import com.sqa.onlinepizzastore.dto.AppUserSignUpDto;
 import com.sqa.onlinepizzastore.dto.MessageDto;
 import com.sqa.onlinepizzastore.entitites.AppUser;
@@ -129,41 +130,48 @@ public class UserAuthenticationController {
 	}
 
 	@GetMapping(value = "/resetPassword/{token}")
-	public String resetPasswordForm(Model model, @PathVariable("token") String token) {
+	public String resetPasswordForm(RedirectAttributes rattr, Model model, 
+			@PathVariable("token") String token) {
 		// Check if token exists
 		AppUser appUser = appUserService.getAppUserByPasswordResetToken(token);
 		if (appUser == null) {
-			model.addAttribute("message", "Invalid token!");
+			rattr.addFlashAttribute("message", new MessageDto("alert-warning", "Invalid password reset link!"));
 			return "redirect:/index";
 		}
 
-		AppUserDto appUserDto = new AppUserDto();
+		AppUserPassResetDto appUserDto = new AppUserPassResetDto();
 		model.addAttribute("AppUser", appUserDto);
 		model.addAttribute("token", token);
 		return "ResetPassword";
 	}
 
 	@PostMapping(value = "/resetPassword/{token}")
-	public String ProcessResetPasswordForm(Model model, @ModelAttribute(value = "AppUser") AppUserDto appUserDto,
-			@PathVariable("token") String token) {
+	public String ProcessResetPasswordForm(RedirectAttributes rattr, Model model, @Valid @ModelAttribute(value = "AppUser") AppUserPassResetDto appUserDto,
+			BindingResult bindingResult, @PathVariable("token") String token) {
 		// Check if token exists
 		AppUser appUser = appUserService.getAppUserByPasswordResetToken(token);
 		if (appUser == null) {
-			model.addAttribute("message", "Invalid token!");
+			rattr.addFlashAttribute("message", new MessageDto("alert-warning", "Invalid password reset link!"));
 			return "redirect:/index";
+		}
+		
+		String reqUrl = request.getRequestURL().toString();
+		
+		// field validations
+		if (bindingResult.hasErrors()) {
+			return "ResetPassword";
 		}
 		// Check if passwords are the same
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
-			String reqUrl = request.getRequestURL().toString();
-			model.addAttribute("message", "Passwords do not match!");
+			rattr.addFlashAttribute("message", new MessageDto("text-warning", "Passwords do not match!"));
 			return "redirect:" + reqUrl;
 		}
 
 		appUser.setPasswordResetToken(null);
 		modelMapper.map(appUserDto, appUser);
-		appUserService.updateAppUser(appUser);
+		appUserService.updateAppUserPassword(appUser);
 
-		model.addAttribute("message", "Password has been reset successfully!");
+		rattr.addFlashAttribute("message", new MessageDto("alert-success", "Password has been reset successfully!"));
 		return "redirect:/index";
 	}
 
