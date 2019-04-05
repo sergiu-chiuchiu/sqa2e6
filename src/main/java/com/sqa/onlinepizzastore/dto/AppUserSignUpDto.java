@@ -10,14 +10,13 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class AppUserSignUpDto extends AppUserProfileDto {
+import com.sqa.onlinepizzastore.validations.ValidPassword;
 
-	@NotBlank
-	@Size(min = 8, max = 40)
+public class AppUserSignUpDto extends AppUserProfileDto {
+	@ValidPassword
 	protected String password;
 	
-	@NotBlank
-	@Size(min = 8, max = 40)
+	@ValidPassword
 	protected String passwordRepeat;
 
 	@Override

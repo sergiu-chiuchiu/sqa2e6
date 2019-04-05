@@ -142,7 +142,6 @@ public class UserManagementController {
 		}
 
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
-			System.out.println("pass not match");
 			rattr.addFlashAttribute("message", new MessageDto("text-warning", "Passwords do not match!"));
 			return "redirect:/user/adduser";
 		}

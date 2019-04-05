@@ -37,13 +37,13 @@
 						class="form-control input-lg" placeholder="Your Email" />
 					<div class="text-danger" th:if="${#fields.hasErrors('password')}"
 						th:errors="*{password}">Password Error</div>
-					<input type="password" name="password" value=""
+					<input id="password" type="password" name="password" value=""
 						th:field="*{password}" class="form-control input-lg"
 						placeholder="Password" />
 					<div class="text-danger"
 						th:if="${#fields.hasErrors('passwordRepeat')}"
 						th:errors="*{passwordRepeat}">Confirm password Error</div>
-					<input type="password" name="confirm_password" value=""
+					<input id="passwordRepeat" type="password" name="confirm_password" value=""
 						th:field="*{passwordRepeat}" class="form-control input-lg"
 						placeholder="Confirm Password" /> <label>Birth Date</label>
 					<div class="row">

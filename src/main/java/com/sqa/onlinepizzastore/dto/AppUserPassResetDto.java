@@ -3,14 +3,14 @@ package com.sqa.onlinepizzastore.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.sqa.onlinepizzastore.validations.ValidPassword;
+
 public class AppUserPassResetDto {
 	
-	@NotBlank
-	@Size(min = 8, max = 40)
+	@ValidPassword
 	protected String password;
-	
-	@NotBlank
-	@Size(min = 8, max = 40)
+
+	@ValidPassword
 	protected String passwordRepeat;
 	
 
