@@ -264,3 +264,16 @@ fieldset {
 .sidenav a:hover {
   color: #f1f1f1;
 }
+.card-deck.mb-3.text-center {
+	display: flex;
+	flex-wrap: wrap;
+}
+.card-deck.mb-3.text-center > [class*='mb-'] {
+	display: flex;
+	flex-direction: column;
+}
+
+card.mb-4.box-shadow{
+	flex: 1;
+}
+

@@ -76,6 +76,7 @@ public class CustomizedController {
 //-------------------UPDATE
 		@RequestMapping(value="/menu/pizza/viewCreations/editCreation/{id}", method=RequestMethod.GET)
 		public String viewC(@PathVariable Integer id, Model model) {
+			System.out.println("enter edit");
 			Customized cust=customizedService.findOne(id);
 			model.addAttribute("cust",cust);
 			return "editCreation";
