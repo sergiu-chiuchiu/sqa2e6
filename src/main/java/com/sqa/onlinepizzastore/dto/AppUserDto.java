@@ -9,7 +9,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class AppUserDto {
 	
-	
 	private String email;
 	
 	private String oldPassword;
@@ -17,10 +16,6 @@ public class AppUserDto {
 	private String password;
 	
 	private String passwordRepeat;
-	
-	private String passwordResetToken;
-	
-	private String message;
 	
 	private String userName;
 	
@@ -65,22 +60,6 @@ public class AppUserDto {
 		this.passwordRepeat = passwordRepeat;
 	}
 	
-	public String getPasswordResetToken() {
-		return passwordResetToken;
-	}
-
-	public void setPasswordResetToken(String passwordResetToken) {
-		this.passwordResetToken = passwordResetToken;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
 	public String getUserName() {
 		return userName;
 	}

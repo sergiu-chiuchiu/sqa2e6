@@ -32,6 +32,9 @@ public class Customized {
 	@Size(min=3, max=50)
 	private String customized_name;
 	
+	@NotNull(message="The price is mandatory!")
+	private Integer  customized_price;
+	
 	@NotNull(message="The energy is mandatory!")
 	private Integer  customized_energy; 
 
@@ -68,6 +71,19 @@ public class Customized {
 	public void setCustomized_name(String customized_name) {
 		this.customized_name = customized_name;
 	}
+
+
+	
+	public Integer getCustomized_price() {
+		return customized_price;
+	}
+
+
+
+	public void setCustomized_price(Integer customized_price) {
+		this.customized_price = customized_price;
+	}
+
 
 
 	public Integer getCustomized_energy() {
