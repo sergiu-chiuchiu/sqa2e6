@@ -4,11 +4,12 @@
 <head>
 	<title>Pizza Mia Creation</title>
 	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-	<link rel="stylesheet" href="/stylesheets/customized.css" th:href="@{/stylesheets/customized.css}">
+	<link rel="stylesheet" href="/stylesheets/customized.css">
 	<div th:replace="fragments/head :: head"></div>
 </head>
-<body background="/images/backgrounddd.jpg">	
 
+<body background="/images/backgrounddd.jpg">	
+<div th:replace="fragments/navbar :: navbar"></div>
     <script th:inline="javascript">
 	function checkTotal() {		
 		document.listForm.customized_price.value = '';
@@ -96,8 +97,8 @@
 
 	</form>
 <!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<div th:replace="fragments/script :: script"></div>
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
 <script src="/jscripts/index.js"></script>
         </body>
       </html>

@@ -203,15 +203,15 @@ body {
 }
 
 /* fieldset */
-fieldset { 
+form { 
   display: block;
   align-content: left;
-  margin-left: 10px;
+  margin-left: 80px;
   margin-right: 200px;
   padding-top: 30px;
   padding-bottom: 60px;
-  padding-left: 150px;
-  padding-right: 750px;
+  padding-left: 60px;
+  padding-right: 550px;
   border: 10px;
   border-color: #125688;
 }

@@ -309,23 +309,23 @@ body {
 	}
 }
 
-#form {
-	position: center;
-	margin-left: 35%;
-	margin-bottom: 20px;
-	display: -ms-flexbox;
-	display: flex;
-	padding: 20px;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	width: 100%;
-	pointer-events: auto;
-	background-color: #eaedf2;
-	background-clip: padding-box;
-	border: 1px solid rgba(0, 0, 0, .2);
-	border-radius: 20px;
-	outline: 0;
-	max-width: 500px;
+form {
+  position: center;
+  margin-left:35%;
+  margin-bottom:20px;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #eaedf2;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 20px;
+  outline: 0;
+  max-width: 500px;
 }
 
 #picture {
