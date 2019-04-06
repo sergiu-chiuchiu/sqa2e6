@@ -56,6 +56,29 @@ body {
 	color: black;
 }
 
+/* Carousel base class */
+.carousel {
+	height: 500px;
+	margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	z-index: 5;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+	height: 500px;
+}
+
+.carousel-item>img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 500px;
+}
+
 /* footer */
 #page-footer {
 	background-color: #f2f2f2;
@@ -74,13 +97,6 @@ body {
 
 #page-footer #id {
 	margin-left: 80px;
-}
-
-.btn-group {
-	padding-left: 50%;
-	position: static;
-	justify-content: center;
-	margin-left: -90px;
 }
 
 #page-footer ul.quick-links li {
@@ -191,91 +207,64 @@ body {
 	}
 }
 
-/* pizza images */
-#pizza {
-
-	height: 150px;
-	width: 150px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+@media ( max-width : 767px) {
+	.block {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
 }
 
-.form-pizza-text {
-	font-size: 18px;
-	font-style: oblique;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
-		sans-serif;
-	color: dimgrey;
+/*Report*/
+h2 {
+	text-align: center;
 }
 
-legend {
-	font-size: 40px;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+#totalcosts {
+	width: 60%;
 }
 
-h1 {
-	color: steelblue;
+#titleheader{
+	float:left;
 }
 
-p {
-	color: black;
-}
-
-fieldset {
-	display: block;
-	margin-left: 20px;
-	margin-right: 20px;
-	padding-top: 20px;
-	padding-bottom: 40px;
-	padding-left: 350px;
-	padding-right: 350px;
-	border: 10px;
-	border-color: #125688;
-}
-
-#pizza-banner {
-	height: 400px;
-	width: 800px;
-}
-
-/* side nav */
-
-.sidenav {
-  height: 30%;
-  width: 130px;
-  position: fixed;
-  z-index: 1;
-  top: 250px;
-  left: 0;
-  background-color: sienna;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: black;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-.card-deck.mb-3.text-center {
-	display: flex;
-	flex-wrap: wrap;
-}
-.card-deck.mb-3.text-center > [class*='mb-'] {
-	display: flex;
-	flex-direction: column;
-}
-
-card.mb-4.box-shadow{
-	flex: 1;
+#currentDate{
+	float: right;
 }
 
 
+#submitBtn{
+	margin-top: 5%;
+}
+
+#tableReport{
+width: 60%;
+}
+
+#crtno{
+	width: 30%;
+}
+
+#costs{
+	width: 20%;
+}
+
+#revenue{
+	width: 10%;
+}
+
+#toppizzas{
+	width: 30%;
+	align: center;
+}
+
+#ingredientsquantity{
+	width: 40%;
+	align: center;
+}
+
+
+@media print {
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
+  #page-footer {display: none}
+}

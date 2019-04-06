@@ -2,22 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Coktails</title>
-	<link rel="stylesheet" href="/stylesheets/style.css">
-	<link rel="stylesheet" href="/stylesheets/drinks.css">
-	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-	<div th:replace="fragments/head :: head"></div>
+<title>Cocktails</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/drinks.css">
+<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
 </head>
 
 <body background="/images/backgrounddd.jpg">
 	<div th:replace="fragments/navbar :: navbar"></div>
-	<!-- Inceput Main -->
+
 	<div class="container" id="principal">
 		<!--Start Carusel-->
 		<div id="content-page" class="span12 content group">
-			<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
+			<div id="post-terms2"
+				class="group post-terms page type-page status-publish hentry">
 				<div class="row justify-content-center">
-					<img id="drinks-banner" src="/images/Cocktails+Banner.jpg" />
+					<img id="drinks-banner" src="/images/CocktailsBanner.jpg" />
 				</div>
 			</div>
 		</div>
@@ -25,10 +26,10 @@
 
 		</br>
 		<div class="sidenav">
-			<a href="Pizza.html" th:href="@{/menu/pizza}">Pizza</a>
-			<a href="Dips.html" th:href="@{/menu/dips}">Dips</a>
-			<a th:href="@{/menu/pizza/viewCreations}">Creations</a>
-			<a href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a>
+			<a href="Pizza.html" th:href="@{/menu/pizza}">Pizza</a> 
+			<a href="Dips.html" th:href="@{/menu/dips}">Dips</a> 
+			<a th:href="@{/menu/pizza/viewCreations}">Creations</a> 
+			<a href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a> 
 			<a href="Soda.html" th:href="@{/menu/drinks/soda}">Sodas</a>
 		</div>
 		<!-- Tipuri bauturi -->

@@ -53,13 +53,15 @@ public class AppUserServiceImpl implements AppUserService {
 
 	@Override
 	public AppUser updateAppUser(AppUser appUser) {
-		String pass = appUser.getPassword();
-		if (pass != null) {
-			appUser.setPassword(EncryptedPasswordUtils.encryptPassword(pass));
-		}
 		return appUserRepository.save(appUser);
 	}
 
+	@Override
+	public AppUser updateAppUserPassword(AppUser appUser) {
+		appUser.setPassword(EncryptedPasswordUtils.encryptPassword(appUser.getPassword()));
+		return appUserRepository.save(appUser);
+	}
+	
 	@Override
 	public AppUser saveAppUserAsUser(AppUser appUserToSave) {
 		String encryptedPass = EncryptedPasswordUtils.encryptPassword(appUserToSave.getPassword());

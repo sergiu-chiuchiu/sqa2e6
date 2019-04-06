@@ -290,20 +290,20 @@ body {
   color: #f1f1f1;
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
+/* .main {
+  margin-left: 160px; Same as the width of the sidenav
+  font-size: 28px; Increased text to enable scrolling
   padding: 0px 10px;
-}
+} */
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
 
-form {
-  position: right;
-  margin-left:1050px;
+#form {
+  position: center;
+  margin-left:35%;
   margin-bottom:20px;
   display: -ms-flexbox;
   display: flex;
@@ -328,3 +328,7 @@ form {
   width: 1000px;
 }
 
+.card.mb-3.box-shadow{
+	margin-left:300px;
+	margin-right:300px;
+}

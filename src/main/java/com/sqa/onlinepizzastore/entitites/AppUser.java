@@ -102,7 +102,6 @@ public class AppUser {
 	public void setPoints(Integer points) {
 		this.points = points;
 	}
-
 	public String getUserName() {
 		return userName;
 	}
