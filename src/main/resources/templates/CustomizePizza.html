@@ -4,11 +4,12 @@
 <head>
 	<title>Pizza Mia Creation</title>
 	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-	<link rel="stylesheet" href="/stylesheets/customized.css" th:href="@{/stylesheets/customized.css}">
+	<link rel="stylesheet" href="/stylesheets/customized.css">
 	<div th:replace="fragments/head :: head"></div>
 </head>
-<body background="/images/backgrounddd.jpg">	
 
+<body background="/images/backgrounddd.jpg">	
+<div th:replace="fragments/navbar :: navbar"></div>
     <script th:inline="javascript">
 	function checkTotal() {		
 		document.listForm.total.value = '';
@@ -60,8 +61,6 @@
 	}
 	</script>	
 -->
-<!-- Navbar -->
-<div th:replace="fragments/navbar :: navbar"></div>
 <h3 id="titlePage">Make a new creation!</h3>
 <br>
 <br>
@@ -99,7 +98,7 @@
 			<div class="radio-toolbar">
 			<p><a th:href="@{/menu/ingredients}" style="color:white;">Ingredients:</a></p>
 				<ul>
-    	  		<li th:each="ingredient : ${ingredients}"  >  
+    	  		<li class = "ing" th:each="ingredient : ${ingredients}"  >  
     	    		<input class="checked" type="checkbox" id="idCust" name="ingredients" 
     	    		 th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}"/>
     	    		<input type="checkbox" id="price" name="ingPrice" 
@@ -120,8 +119,8 @@
 
 	</form>
 <!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<div th:replace="fragments/script :: script"></div>
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
 <script src="/jscripts/index.js"></script>
         </body>
       </html>
