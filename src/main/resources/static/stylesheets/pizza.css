@@ -193,6 +193,7 @@ body {
 
 /* pizza images */
 #pizza {
+
 	height: 150px;
 	width: 150px;
 	display: block;
@@ -248,7 +249,7 @@ fieldset {
   z-index: 1;
   top: 250px;
   left: 0;
-  background-color: sienna;
+  background-color: black;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -257,7 +258,7 @@ fieldset {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: black;
+  color: grey;
   display: block;
 }
 
@@ -267,13 +268,38 @@ fieldset {
 .card-deck.mb-3.text-center {
 	display: flex;
 	flex-wrap: wrap;
+	
+}
+
+.card.mb-1.box-shadow {
+	margin-left: 350px;
+	margin-right: 350px;
 }
 .card-deck.mb-3.text-center > [class*='mb-'] {
 	display: flex;
 	flex-direction: column;
+		margin-bottom: 50px;
 }
 
-card.mb-4.box-shadow{
-	flex: 1;
+.card.mb-4.box-shadow {
+	/*flex: 1;*/
+		height: 730px;
 }
 
+.btn.btn-lg.btn-block.btn-outline-primary {
+	bottom: 0; 
+    position: absolute; 
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    display: block; 
+    bottom: 10px;
+    padding-bottom: 30px;
+	padding-top: 30px;
+	padding-right: 110px;
+	padding-left:100px;
+	width: 100px;  
+	height: 30px;
+	text-align: center;
+	margin: auto;
+}
