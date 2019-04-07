@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sqa.onlinepizzastore.entitites.AppProduct;
+import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.repositories.AppProductRepository;
 import com.sqa.onlinepizzastore.services.AppProductService;
 
@@ -37,6 +38,16 @@ public class AppProductServiceImpl implements AppProductService {
 	@Override
 	public void delete(AppProduct appProductToDelete) {
 		appProductRepository.delete(appProductToDelete);
+	}
+
+	@Override
+	public List<AppProduct> getAllProducts() {
+		return appProductRepository.findAll();
+	}
+
+	@Override
+	public AppProduct getAppProductByProductName(String productName) {
+		return appProductRepository.getAppProductByProductName(productName);
 	}
 	
 	

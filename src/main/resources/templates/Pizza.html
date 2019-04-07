@@ -54,11 +54,13 @@
 												
 	<!-- ---------------------------THYMELEAF PRODUCT---------------------------- -->							
 	<div class="row">
+
 	<div class="col"  th:each="appProduct: ${pizzas}">
 
 		<div class="card mb-4 box-shadow">
 			<div class="card-header">
 				<h4 th:text="${appProduct.productName}" class="my-0 font-weight-normal"></h4>
+				<h5 th:text="${appProduct.productId}" class="my-0 font-weight-normal"></h5>
 			</div>
 			<img id="pizza" th:attr="src = ${appProduct.imageLink}">
 			<div class="card-body">
@@ -70,11 +72,14 @@
 						<li th:text="${ing.ing_name}"></li>
 					</ul>
 				</ul>
-				<button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+				
+				<button type="submit" class="btn btn-lg btn-block btn-outline-primary" ><a th:href="@{|/shoppingcart/${appProduct.productName}|}">Add to cart</a></button>
+				
 			</div>
 		</div>
-			
+
 		</div>	
+				
 		<div class="w-75"></div>
 	</div>
 </div>
