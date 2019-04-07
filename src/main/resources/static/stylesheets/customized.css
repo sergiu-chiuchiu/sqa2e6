@@ -10,6 +10,9 @@ ul {
 li {
 	padding-left: 0px;
 }
+#ing li{
+	margin-left:130px;
+}
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -231,6 +234,9 @@ input[type="text"] {
     display:inline-block;
     vertical-align:middle;
     margin-left:20px;
+    resize: both;
+  	overflow: auto;
+
 }
 
 p{
@@ -252,6 +258,7 @@ p{
     text-align: right;
     color:white;
     margin-left:165px;
+    
 }	
 .radio-toolbar label{
     text-align: right;
