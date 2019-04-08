@@ -1,59 +1,84 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
 <title>Sign up</title>
 <link rel="stylesheet" href="/stylesheets/signup.css">
-<body>
-<body background="/images/background-4.jpg"></body>
-<!-- Navbar -->
-<div th:replace="fragments/navbar :: navbar"></div>
-<!-- Form -->
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<form action="#" th:action="@{/auth/signup}" th:object="${AppUser}"
-				method="POST" accept-charset="utf-8" class="form" role="form">
-				<legend>Sign Up</legend>
-				<div class="row">
-					<div class="col-xs-12 col-md-12">
-						<input type="text" name="userName" value="" th:field="*{userName}"
-							class="form-control input-lg" placeholder="Full Name" />
+<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body background="/images/background-4.jpg">
+	<!-- Navbar -->
+	<div th:replace="fragments/navbar :: navbar"></div>
+	<!-- Form -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<form action="#" th:action="@{/auth/signup}" th:object="${AppUser}"
+					method="POST" accept-charset="utf-8" class="form" role="form">
+					<legend>Sign Up</legend>
+					<h4 th:attrappend="class=' ' + ${message.messageType}"
+						th:if="${message != null}" th:text="${message.message}">Password
+						match Error</h4>
+					<br />
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="text-danger" th:if="${#fields.hasErrors('userName')}"
+								th:errors="*{userName}">UserName Error</div>
+							<input type="text" name="userName" value=""
+								th:field="*{userName}" class="form-control input-lg"
+								placeholder="Full Name" />
+						</div>
 					</div>
-				</div>
-				<input type="email" name="email" value="" th:field="*{email}"
-					class="form-control input-lg" placeholder="Your Email" /> <input
-					type="password" name="password" value="" th:field="*{password}"
-					class="form-control input-lg" placeholder="Password" /> <input
-					type="password" name="confirm_password" value=""
-					th:field="*{passwordRepeat}" class="form-control input-lg"
-					placeholder="Confirm Password" /> <label>Birth Date</label>
-				<div class="row">
-					<div class="col-xs-4 col-md-4">
-						<input type="date" name="birthDate" th:field="*{birthDate}"
-							min="1950-01-01" max="2013-12-31" />
+					<div class="text-danger" th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}">Email Error</div>
+					<input type="email" name="email" value="" th:field="*{email}"
+						class="form-control input-lg" placeholder="Your Email" />
+					<div class="text-danger" th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}">Password Error</div>
+					<input id="password" type="password" name="password" value=""
+						th:field="*{password}" class="form-control input-lg"
+						placeholder="Password" />
+					<div class="text-danger"
+						th:if="${#fields.hasErrors('passwordRepeat')}"
+						th:errors="*{passwordRepeat}">Confirm password Error</div>
+					<input id="passwordRepeat" type="password" name="confirm_password" value=""
+						th:field="*{passwordRepeat}" class="form-control input-lg"
+						placeholder="Confirm Password" /> <label>Birth Date</label>
+					<div class="row">
+						<div class="text-danger" th:if="${#fields.hasErrors('birthDate')}"
+							th:errors="*{birthDate}">Birth date Error</div>
+						<div class="col-xs-4 col-md-4">
+							<input type="date" name="birthDate" th:field="*{birthDate}"
+								min="1950-01-01" max="2013-12-31" />
+						</div>
 					</div>
-				</div>
-				<label>Gender : </label> <label class="radio-inline"> <input
-					type="radio" name="gender" value="M" th:field="*{gender}" id=male />Male
-				</label> <label class="radio-inline"> <input type="radio"
-					name="gender" value="F" th:field="*{gender}" id=female />Female
-				</label> <br /> <span class="help-block">By clicking Create my
-					account, you agree to our Terms and that you have read our Data Use
-					Policy, including our Cookie Use.</span> </br> </br>
-				<button class="btn btn-lg btn-primary btn-block signup-btn"
-					type="submit">Create my account</button>
-			</form>
+					<br />
+					<div class="text-danger" th:if="${#fields.hasErrors('gender')}"
+						th:errors="*{gender}">Gender Error</div>
+					<label>Gender : </label> <label class="radio-inline"> <input
+						type="radio" name="gender" value="M" th:field="*{gender}" id=male />Male
+					</label> <label class="radio-inline"> <input type="radio"
+						name="gender" value="F" th:field="*{gender}" id=female />Female
+					</label> <br /> <span class="help-block">By clicking Create my
+						account, you agree to our Terms and that you have read our Data
+						Use Policy, including our Cookie Use.</span> </br> </br>
+					<button class="btn btn-lg btn-primary btn-block signup-btn"
+						type="submit">Create my account</button>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
-</br>
-</br>
-</br>
-</br>
-</br>
-<!-- Footer-->
-<div th:replace="fragments/footer :: footer"></div>
-<div th:replace="fragments/script :: script"></div>
-<script src="/jscripts/index.js"></script>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	<!-- Footer-->
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
+	<script src="/jscripts/index.js"></script>
 </body>
 
 </html>

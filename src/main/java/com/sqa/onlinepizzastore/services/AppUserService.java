@@ -36,4 +36,6 @@ public interface AppUserService {
 
 	AppUser getAppUserByPasswordResetToken(String passwordResetToken);
 
+	AppUser updateAppUserPassword(AppUser appUser);
+
 }

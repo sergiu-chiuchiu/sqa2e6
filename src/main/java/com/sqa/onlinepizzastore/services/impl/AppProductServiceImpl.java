@@ -43,6 +43,17 @@ public class AppProductServiceImpl implements AppProductService {
 	public AppProduct findOne(String productName) {
 		return appProductRepository.getAppProductByProductName(productName);
 	}
+
+	@Override
+	public List<AppProduct> getAllProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AppProduct getAppProductByProductName(String productName) {
+		return appProductRepository.getAppProductByProductName(productName);
+	}
 	
 	
 	

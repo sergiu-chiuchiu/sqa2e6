@@ -53,13 +53,15 @@ public class AppUserServiceImpl implements AppUserService {
 
 	@Override
 	public AppUser updateAppUser(AppUser appUser) {
-		String pass = appUser.getPassword();
-		if (pass != null) {
-			appUser.setPassword(EncryptedPasswordUtils.encryptPassword(pass));
-		}
 		return appUserRepository.save(appUser);
 	}
 
+	@Override
+	public AppUser updateAppUserPassword(AppUser appUser) {
+		appUser.setPassword(EncryptedPasswordUtils.encryptPassword(appUser.getPassword()));
+		return appUserRepository.save(appUser);
+	}
+	
 	@Override
 	public AppUser saveAppUserAsUser(AppUser appUserToSave) {
 		String encryptedPass = EncryptedPasswordUtils.encryptPassword(appUserToSave.getPassword());
@@ -158,20 +160,24 @@ public class AppUserServiceImpl implements AppUserService {
 	
 	@Override
 	public void sendPasswordResetEmail(AppUser appUser) throws AddressException, MessagingException, MalformedURLException {
+		// preparing required info for geing sent via email
 		String passwordResetToken = UUID.randomUUID().toString();
-		
 		URL url = new URL(request.getScheme(),
 				request.getServerName(),
 				request.getServerPort(),
-				request.getContextPath());
+				request.getContextPath().concat("/auth/resetPassword"));
+		String reqUrl = url.toString();
+		String userName = appUser.getUserName();
+		String email = appUser.getEmail();
 		
-		String reqUrl = url.toString().concat("/auth/resetPassword/" + passwordResetToken);
-		System.out.println("LINK IS: " + reqUrl);
+		//set AppUser reset password token
+		appUser.setPasswordResetToken(passwordResetToken);
+		appUserRepository.save(appUser);
 		
-//		String emailBody = EmailBodyTemplates.getPasswordResetBodyTemplate(passwordResetToken, "TestUsername", reqUrl);
-//		System.out.println("WHY: " + emailBody);
-//		Mail mail = new Mail();
-//		mail.Send("qqsergiu@yahoo.com", "Test email", emailBody);
+		String emailBody = EmailBodyTemplates.getPasswordResetBodyTemplate(passwordResetToken, userName, reqUrl);
+		//sending the email
+		Mail mail = new Mail();
+		mail.Send(email, "Pizza Mia password reset", emailBody);
 	}
 
 	@Override

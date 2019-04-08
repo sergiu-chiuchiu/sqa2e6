@@ -34,7 +34,8 @@ public class Ingredient {
 	private Double ing_weight;
 	
 	@NotNull 
-	private Double ing_price;
+	private Integer ing_price;
+
 	
 	@NotNull 
 	private Double ing_quantity;
@@ -118,11 +119,21 @@ public class Ingredient {
 		this.ing_weight = ing_weight;
 	}
 
-	public Double getIng_price() {
+	
+	
+//	public Double getIng_price() {
+//		return ing_price;
+//	}
+//
+//	public void setIng_price(Double ing_price) {
+//		this.ing_price = ing_price;
+//	}
+
+	public Integer getIng_price() {
 		return ing_price;
 	}
 
-	public void setIng_price(Double ing_price) {
+	public void setIng_price(Integer ing_price) {
 		this.ing_price = ing_price;
 	}
 

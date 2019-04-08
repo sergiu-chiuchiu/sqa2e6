@@ -1,25 +1,26 @@
-<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-<div th:replace="fragments/head :: head"></div>
-<title>Page not found</title>
-<link rel = "stylesheet" href = "/stylesheets/pageNotFound.css">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-	  <body background="/images/imageForBackgroung.jpg">
-			<div id="notfound">
-				<div class="notfound-bg"></div>
-				<div class="notfound">
-					<div class="notfound-404">
-						<h1>404</h1>
-					</div>
-					<h2>Oops! Page Not Found</h2>
-					<div class="notfound-social">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-youtube"></i></a>
-						<a href="#"><i class="fa fa-instagram"></i></a>
-						<a href="#"><i class="fa fa-skype"></i></a>
-					</div>
-					<a href="index.html" th:href=@{/index}>Back To Homepage</a> 
-				</div>
+<head>
+	<title>Page not found</title>
+	<link rel="stylesheet" href="/stylesheets/pageNotFound.css">
+	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+	<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body background="/images/imageForBackgroung.jpg">
+	<div id="notfound">
+		<div class="notfound-bg"></div>
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>404</h1>
 			</div>
-<div th:replace="fragments/script :: script"></div>		
-	  </body>
+			<h2>Oops! Page Not Found</h2>
+			<br>
+			<a href="index.html" th:href=@{/index}>Back To Homepage</a> 
+		</div> 
+	</div> 
+	<div th:replace="fragments/script :: script"></div>
+</body>
+
 </html>

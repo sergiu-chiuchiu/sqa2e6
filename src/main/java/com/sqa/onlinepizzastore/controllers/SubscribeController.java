@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sqa.onlinepizzastore.dto.AppUserDto;
+import com.sqa.onlinepizzastore.dto.MessageDto;
 import com.sqa.onlinepizzastore.entitites.AppSubscribe;
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.entitites.Mail;
@@ -32,9 +33,10 @@ public class SubscribeController {
 	}
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public String getIndexForm(Model model) {
+	public String getIndexForm(Model model, @ModelAttribute("message") MessageDto messageDto) {
 		AppSubscribe appSubscribe = new AppSubscribe();
 		model.addAttribute("AppSubscribe", appSubscribe);
+		
 		return "index";
 	}
 	

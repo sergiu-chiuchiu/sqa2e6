@@ -132,15 +132,6 @@ body {
 }
 
 
-.fa {
-  padding: 10px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin-left: 15px;
-  border-radius: 50%; 
-}
 .btn-group{
 /*to center the button group!!!*/
 	padding-left: 50%;
@@ -199,28 +190,6 @@ body {
 
 #copyright{
 	float:left;
-}
-
-.fa:hover {
-    opacity: 0.4;
-}
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-.fa-youtube {
-  background: #bb0000;
-  color: white;
-}
-
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
-
-.fa-skype {
-  background: #00aff0;
-  color: white;
 }
 
 .footer-text{
@@ -321,11 +290,11 @@ body {
   color: #f1f1f1;
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
+/* .main {
+  margin-left: 160px; Same as the width of the sidenav
+  font-size: 28px; Increased text to enable scrolling
   padding: 0px 10px;
-}
+} */
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -333,8 +302,8 @@ body {
 }
 
 form {
-  position: right;
-  margin-left:1050px;
+  position: center;
+  margin-left:35%;
   margin-bottom:20px;
   display: -ms-flexbox;
   display: flex;
@@ -359,3 +328,7 @@ form {
   width: 1000px;
 }
 
+.card.mb-3.box-shadow{
+	margin-left:300px;
+	margin-right:300px;
+}
