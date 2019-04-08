@@ -110,7 +110,6 @@ public class UserManagementController {
 
 	@DeleteMapping
 	public String deleteAccount(@RequestParam(value = "message") String message, Principal principal, Model model) {
-		System.out.println("Message " + message);
 		AppUser appUserToDelete = appUserService.getLoggedInAppUserByPrincipal(principal);
 		appUserService.deleteAppUser(appUserToDelete);
 		return "redirect:/auth/logout";
