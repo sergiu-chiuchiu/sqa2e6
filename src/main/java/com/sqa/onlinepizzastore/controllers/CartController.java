@@ -132,12 +132,14 @@ public class CartController {
 		List<AppCart> carts = appCartService.getAppCartByAppUserEmail("admin@gmail.com");
 		int index = findActiveCart(carts);
 		AppCart activeCart = new AppCart();
+		System.out.println(index);
 		if(index!=-1) {
 			activeCart = carts.get(index);
 		}
-		List<AppProduct> list = new ArrayList<AppProduct>();
+//		List<AppProduct> list = new ArrayList<AppProduct>();
 		List<CustomizeCartItem> cartItemsDiplay = new ArrayList<CustomizeCartItem>();
  		List<CartItem> cartItems = new ArrayList<>(activeCart.getCartItems());
+ 		System.out.println(cartItems.size());
 		for(int i=0; i<cartItems.size(); i++) {
 			AppProduct app = cartItems.get(i).getProduct();
 			CustomizeCartItem cci = new CustomizeCartItem();
