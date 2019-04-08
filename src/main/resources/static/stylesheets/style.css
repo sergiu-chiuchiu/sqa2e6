@@ -55,13 +55,13 @@ body {
 	color: black;
 }
 
+#alerts {
+	text-align: center;
+}
+
 .alert {
-	padding: 20%;
-	margin-right: 70%;
-	color: white;
 	margin-bottom: 15px;
-	position: relative;
-	margin-bottom: 15px;
+	display: inline-block;
 }
 
 
