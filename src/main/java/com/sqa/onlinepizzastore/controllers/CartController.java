@@ -88,7 +88,7 @@ public class CartController {
 			cartItemService.updateCartItem(modelMapper.map(cartI.get(index), CartItem.class));
 			
 		}
-		return "shopping-cart";
+		return "redirect:/menu/pizza";
 	}
 	
 	private int exists(String productName, Set<CartItem> cart) {

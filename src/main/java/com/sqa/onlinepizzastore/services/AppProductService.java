@@ -17,6 +17,7 @@ public interface AppProductService {
 	
 	AppProduct getAppProductByProductName(String productName);
 //	AppProduct saveAppProduct(AppProduct appProductToSave);
+	AppProduct findOne(String productName);
 
 //	AppProduct getAppProductById(Long prodId);
 //
