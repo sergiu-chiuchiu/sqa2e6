@@ -21,7 +21,7 @@ public class ReportsController {
 	
 	
 	@GetMapping(value = "ordersReport")
-	public String getOrderesReport(Model model) {
+	public String getOrdersReport(Model model) {
 		return "RMostOrderedPizza";
 	}
 	

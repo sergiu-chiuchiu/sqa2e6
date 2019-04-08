@@ -49,15 +49,27 @@
 					th:href="@{/help}">Help</a></li>
 				<li class="nav-item"><a class="nav-link" href="Contact.html"
 					th:href="@{/contact}">Contact</a></li>
+				<li class="nav-item dropdown"
+					th:if="${currentUserRole == 'ROLE_OPERATOR' or currentUserRole == 'ROLE_ADMIN'}"><a
+					class="nav-link dropdown-toggle" href="#" th:href="@{/menu}"
+					id="navbarDropdownMenuLink" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">Reports</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" href="RMostOrderedPizza.html"
+							th:if="${currentUserRole == 'ROLE_OPERATOR' or currentUserRole == 'ROLE_ADMIN'}"
+							th:href="@{/reports/ordersReport}">Most ordered pizza</a></li>
+						<li><a class="dropdown-item"
+							href="RTotalRevenueandCosts.html"
+							th:if="${currentUserRole == 'ROLE_OPERATOR' or currentUserRole == 'ROLE_ADMIN'}"
+							th:href="@{/reports/revenueReport}">Total revenue and cost</a></li>
+						<li><a class="dropdown-item"
+							href="RTotalRevenueandCosts.html"
+							th:if="${currentUserRole == 'ROLE_OPERATOR' or currentUserRole == 'ROLE_ADMIN'}"
+							th:href="@{/reports/quantityReport}">Quantity Report</a></li>
+					</ul></li>
 				<li class="nav-item"><a class="nav-link"
 					th:if="${currentUserRole == 'ROLE_OPERATOR' or currentUserRole == 'ROLE_ADMIN'}"
-					th:href="@{/reports/ordersReport}">Orders Report</a></li>
-				<li class="nav-item"><a class="nav-link"
-					th:if="${currentUserRole == 'ROLE_OPERATOR' or currentUserRole == 'ROLE_ADMIN'}"
-					th:href="@{/reports/revenueReport}">Revenue Report</a></li>
-				<li class="nav-item"><a class="nav-link"
-					th:if="${currentUserRole == 'ROLE_OPERATOR' or currentUserRole == 'ROLE_ADMIN'}"
-					th:href="@{/reports/quantityReport}">Quantity Report</a></li>
+					th:href="@{/operator}">Operator</a></li>
 				<li class="nav-item"><a class="nav-link"
 					th:if="${currentUserRole == 'ROLE_ADMIN'}" th:href="@{/user/users}">Admin</a>
 				</li>
