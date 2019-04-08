@@ -99,7 +99,6 @@ public class AppProduct {
 		this.productName = productName;
 	}
 
-	@NotBlank
 	@Column(name = "prod_qty", nullable = false)
 	public String getProdQty() {
 		return prodQty;
@@ -109,7 +108,12 @@ public class AppProduct {
 		this.prodQty = prodQty;
 	}
 
-	@NotBlank
+	public AppProduct(Long productId, String prodQty) {
+		super();
+		this.productId = productId;
+		this.prodQty = prodQty;
+	}
+
 	@Column(name = "allergens", nullable = false)
 	public Character getAllergens() {
 		return allergens;
@@ -119,7 +123,6 @@ public class AppProduct {
 		this.allergens = allergens;
 	}
 
-	@NotBlank
 	@Column(name = "energy_value", nullable = false)
 	public Double getEnergyValue() {
 		return energyValue;
@@ -129,7 +132,6 @@ public class AppProduct {
 		this.energyValue = energyValue;
 	}
 
-	@NotBlank
 	@Column(name = "price", nullable = false)
 	public Double getPrice() {
 		return price;
@@ -139,7 +141,6 @@ public class AppProduct {
 		this.price = price;
 	}
 
-	@NotBlank
 	@Temporal(TemporalType.DATE)
 	@Column(name = "prod_date", nullable = false)
 	public Date getProdDate() {
@@ -150,7 +151,6 @@ public class AppProduct {
 		this.prodDate = prodDate;
 	}
 
-	@NotBlank
 	@Column(name = "prod_weight", nullable = false)
 	public Double getProdWeight() {
 		return prodWeight;

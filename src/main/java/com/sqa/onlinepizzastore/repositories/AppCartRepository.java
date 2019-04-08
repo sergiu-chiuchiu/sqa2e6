@@ -17,4 +17,7 @@ public interface AppCartRepository extends JpaRepository<AppCart, Long> {
 	
 	AppCart getAppCartByCartNo(Long cartNo);
 
+	@Query("SELECT ar FROM AppCart ar WHERE active = :active")
+	AppCart getAppCartByActive(@Param("active") char active);
+	
 }
