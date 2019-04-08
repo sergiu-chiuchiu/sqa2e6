@@ -35,26 +35,6 @@ public class NavigationControllers {
 	public String getMenuPage(Model model) {
 		return "Menu";
 	}
-		
-	@GetMapping(value = "/menu/dips")
-	public String getDipsPage(Model model) {
-		return "Dips";
-	}
-	
-	@GetMapping(value = "/menu/drinks")
-	public String getDrinksPage(Model model) {
-		return "Drinks";
-	}
-	
-	@GetMapping(value = "/menu/drinks/soda")
-	public String getSodaPage(Model model) {
-		return "Soda";
-	}
-	
-	@GetMapping(value = "/menu/drinks/cocktail")
-	public String getCocktailPage(Model model) {
-		return "Cocktail";
-	}
 	
 	@GetMapping(value = "/popularchoices")
 	public String getPopularChoicesPage(Model model) {

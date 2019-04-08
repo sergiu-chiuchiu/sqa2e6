@@ -35,6 +35,9 @@ public class Customized {
 	@NotNull(message="Choose some ingredients!")
 	private Integer  customized_price;
 	
+	@NotNull
+	private Integer  customized_cost;
+	
 	@NotNull(message="Choose some ingredients!")
 	private Integer  customized_energy; 
 
@@ -82,6 +85,17 @@ public class Customized {
 
 	public void setCustomized_price(Integer customized_price) {
 		this.customized_price = customized_price;
+	}
+
+	
+
+	public Integer getCustomized_cost() {
+		return customized_cost;
+	}
+
+
+	public void setCustomized_cost(Integer customized_cost) {
+		this.customized_cost = customized_cost;
 	}
 
 
