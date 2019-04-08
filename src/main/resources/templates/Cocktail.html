@@ -3,7 +3,6 @@
 
 <head>
 <title>Cocktails</title>
-<link rel="stylesheet" href="/stylesheets/style.css">
 <link rel="stylesheet" href="/stylesheets/drinks.css">
 <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 <div th:replace="fragments/head :: head"></div>
@@ -34,145 +33,22 @@
 		</div>
 		<!-- Tipuri bauturi -->
 		<div class="container">
-			<div class="card-deck mb-3 text-center">
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Lemonade</h4>
-					</div>
-					<img id="lemonade" src="/images/drinks_lemonade.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							12 LEI <small class="text-muted">/ glass</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>500 ML</li>
-							</br>
-							</br>
-							</br>
-							</br>
-							</br>
-							</br>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Pina Colada Cocktail</h4>
-					</div>
-					<img id="cocktail" src="/images/drinks_pina_colada.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							20 LEI <small class="text-muted">/ glass</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>200 ML</li>
-							<li>60 ml white rom</li>
-							<li>100 ml pineapple juice</li>
-							<li>40 ml of coconut milk</li>
-							<li>crushed ice or ice flakes</li>
-							</br>
-							</br>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Mojito Cocktail</h4>
-					</div>
-					<img id="cocktail" src="/images/drinks_mojito.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							22 LEI <small class="text-muted">/ glass</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>150 ML</li>
-							<li>50 ml white rom</li>
-							<li>juice of half a lime</li>
-							<li>25 ml of carbonated mineral water</li>
-							<li>crushed ice or ice flakes</li>
-							<li>some fresh mint leaves (around 12)</li>
-							<li>2 teaspoons of sugar</li>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
+			<div class="row">
+		<div class="col-sm-4" th:each="appProduct: ${cocktails}" >
+			<div class="card mb-4 box-shadow" >
+			<div class="card-header">
+				<h4 th:text="${appProduct.productName}"  class="my-0 font-weight-normal" ></h4>
 			</div>
-		</div>
-		</br>
-		<div class="container">
-			<div class="card-deck mb-3 text-center">
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Cosmopolitan Cocktail</h4>
-					</div>
-					<img id="cocktail" src="/images/drinks_cosmopolitan.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							18 LEI <small class="text-muted">/ glass</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>100 ML</li>
-							<li>40 ml vodka</li>
-							<li>15 ml triple sec</li>
-							<li>20 ml fresh lime juice</li>
-							<li>20 ml of cranberry juice</li>
-							</br>
-							</br>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Watermelon Sangria</h4>
-					</div>
-					<img id="cocktail" src="/images/drinks_watermelon_sangria.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							25 LEI <small class="text-muted">/ glass</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>200 ML</li>
-							<li>a glass of dry white wine</li>
-							<li>red watermelon grain-trimmed</li>
-							<li>60 ml brandy or cognac</li>
-							<li>orange</li>
-							<li>lime</li>
-							</br>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Blue Lagoon Cocktail</h4>
-					</div>
-					<img id="cocktail" src="/images/drinks_blue_lagoon.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							24 LEI <small class="text-muted">/ glass</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>100 ML</li>
-							<li>30 ml vodka</li>
-							<li>30 ml of blue curacao liqueur</li>
-							<li>30 ml of lemonade</li>
-							<li>ice</li>
-							</br>
-							</br>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
+			<img id="pizza" th:attr="src = ${appProduct.imageLink}">
+			<div class="card-body">
+				<h1 th:text="${appProduct.price} + ' Lei'" class="card-title pricing-card-title"></h1>
+				<p th:text="${appProduct.energyValue} + ' Kcal'"></p>
+				<p th:text="${appProduct.description}"></p>
+				<button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
 			</div>
+			</div>	
+		</div>	
+		<div class="w-75"></div>
 		</div>
 	</div>
 	<!-- Footer -->

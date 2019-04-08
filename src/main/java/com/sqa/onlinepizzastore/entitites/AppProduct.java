@@ -39,6 +39,7 @@ public class AppProduct {
 	
 	private Double price;
 	
+	private Double prodCost;
 
 	private Date prodDate;
 	
@@ -46,6 +47,10 @@ public class AppProduct {
 	private Double prodWeight;
 	
 	private String imageLink;
+	
+	private String description;
+	
+	private String type;
 	
 	public Set<AppCartDetail> cartDetails= new HashSet<AppCartDetail>();
 	
@@ -168,6 +173,31 @@ public class AppProduct {
 		this.imageLink = imageLink;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Double getProdCost() {
+		return prodCost;
+	}
+
+	public void setProdCost(Double prodCost) {
+		this.prodCost = prodCost;
+	}
+
+	
 	
 	
 }

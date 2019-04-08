@@ -52,8 +52,7 @@
 												
 	<!-- ---------------------------THYMELEAF PRODUCT---------------------------- -->							
 	<div class="row">
-	<div class="col"  th:each="appProduct: ${pizzas}">
-
+	<div class="col-sm-3"  th:each="appProduct: ${pizzas}">
 		<div class="card mb-4 box-shadow">
 			<div class="card-header">
 				<h4 th:text="${appProduct.productName}" class="my-0 font-weight-normal"></h4>
@@ -62,15 +61,15 @@
 			<div class="card-body">
 				<h1 th:text="${appProduct.price} + ' Lei/Pizza'" class="card-title pricing-card-title"></h1>
 				<p th:text="${appProduct.energyValue} + ' Kcal'"></p>
-				<ul th:each="ingPer: ${appProduct.ingPerProd}" class="list-unstyled mt-3 mb-4">
+				<ul th:each="ingPer: ${appProduct.ingPerProd}">
 					<!--  <ul th:text="${ingPer.product}"></ul> -->
 					<ul th:each="ing : ${ingPer.ingredient}">
 						<li th:text="${ing.ing_name}"></li>
 					</ul>
 				</ul>
 				<button type="button" class="btn btn-lg btn-block btn-outline-primary" >Add to cart</button>
-			</div>
-		</div>	
+			</div>			
+		</div>			
 		</div>	
 		<div class="w-75"></div>
 	</div>

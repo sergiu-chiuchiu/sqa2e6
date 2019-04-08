@@ -32,47 +32,23 @@
 	</div>
 	<!-- Tipuri sosuri -->
 	<div class="container">
-		<div class="card-deck mb-3 text-center">
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Sweet tomato dip</h4>
-				</div>
-				<img id="dips" src="/images/Sos dulce.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title">
-						2 LEI <small class="text-muted">/ dip</small>
-					</h1>
-					<button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to
-						cart</button>
-				</div>
+	<div class="row">
+	<div class="col"  th:each="appProduct: ${dips}">
+
+		<div class="card mb-4 box-shadow">
+			<div class="card-header">
+				<h4 th:text="${appProduct.productName}" class="my-0 font-weight-normal"></h4>
 			</div>
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Hot tomato dip</h4>
-				</div>
-				<img id="dips" src="/images/sos_picantjpg.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title">
-						2 LEI <small class="text-muted">/ dip</small>
-					</h1>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add
-						to cart</button>
-				</div>
+			<img id="pizza" th:attr="src = ${appProduct.imageLink}">
+			<div class="card-body">
+				<h1 th:text="${appProduct.price} + ' Lei'" class="card-title pricing-card-title"></h1>
+				<p th:text="${appProduct.energyValue} + ' Kcal'"></p>
+				<button type="button" class="btn btn-lg btn-block btn-outline-primary" >Add to cart</button>
 			</div>
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Mayonnaise Dip</h4>
-				</div>
-				<img id="dips" src="/images/sos-maioneza-usturoi.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title">
-						3 LEI <small class="text-muted">/ dip</small>
-					</h1>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add
-						to cart</button>
-				</div>
-			</div>
-		</div>
+		</div>	
+		</div>	
+		<div class="w-75"></div>
+	</div>
 	</div>
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>

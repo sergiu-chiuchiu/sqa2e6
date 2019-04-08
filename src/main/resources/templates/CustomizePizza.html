@@ -13,24 +13,28 @@
 
     <script th:inline="javascript">
 /*-------------------------------check total (energy & price) and show ingredients----------------------------------------- */	
-	function checkTotal() {		
+	function checkTotal() {	
+		document.listForm.customized_cost.value = '';
 		document.listForm.customized_price.value = '';
 		document.listForm.customized_energy.value = '';
 		document.listForm.selectedIng.value = '';
 		var sum = 0;
 		var energy=700;
 		var selectedIng="";
+		var cost=0;
 		for (i=0;i<document.listForm.ingredients.length;i++) {
 		  if (document.listForm.ingredients[i].checked) {
 			  sum = sum + parseInt(document.listForm.ingredients[i].getAttribute("price"));
 			  energy = energy + parseInt(document.listForm.ingredients[i].getAttribute("energy"));
 			  selectedIng +=document.listForm.ingredients[i].getAttribute("ing")+ ", ";
+			  cost = cost + parseInt(document.listForm.ingredients[i].getAttribute("cost"));
 		  	}
 		}
 		document.listForm.customized_price.value = sum;
 		document.listForm.customized_energy.value = energy;		
 		document.listForm.selectedIng.value = selectedIng;
-		document.getElementById("ingList").size=selectedIng.length
+		document.getElementById("ingList").size=selectedIng.length;
+		document.listForm.customized_cost.value = cost;
 	}
 /*-----------------------------Don't allow more than 6------------------------------------------- */	
 	function chkcontrol() {	
@@ -84,7 +88,9 @@ function UncheckAll(){
 	<div>
 		<input type="hidden" th:field="*{customized_id}" />
 	</div>
-
+	<div>
+		<input type="hidden" th:field="*{customized_cost}" />
+	</div>
 	<div class="text">
 		<label>Name:</label>
 		<input type="text" th:field="*{customized_name}" />
@@ -129,8 +135,8 @@ function UncheckAll(){
     	  		<li class="ing" th:each="ingredient : ${ingredients}" onchange="contraints()">     	    		    	    	
     	    		 
     	    		 
-    	    		 <input class="checked" type="checkbox" id="idCust" onchange=checkTotal() th:attr="price=${ingredient.ing_price}, energy=${ingredient.energy}, ing=${ingredient.ing_name}"
-    	    th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}" onclick="chkcontrol()">
+    	    		 <input class="checked" type="checkbox" id="idCust" onchange=checkTotal() th:attr="price=${ingredient.ing_price}, energy=${ingredient.energy}, 
+    	    		 ing=${ingredient.ing_name}, cost=${ingredient.ing_cost}" th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}" onclick="chkcontrol()">
     	   					  
 	      			<label th:for="${ingredient.ing_name}" th:text="${ingredient.ing_name}">Ingredient Name</label>
 	      			<label th:for="${ingredient.ing_price}" th:text="${ingredient.ing_price}">Ingredient Name</label>

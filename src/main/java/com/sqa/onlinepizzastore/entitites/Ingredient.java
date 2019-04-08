@@ -36,6 +36,8 @@ public class Ingredient {
 	@NotNull 
 	private Integer ing_price;
 
+	@NotNull 
+	private Integer ing_cost;
 	
 	@NotNull 
 	private Double ing_quantity;
@@ -121,20 +123,21 @@ public class Ingredient {
 
 	
 	
-//	public Double getIng_price() {
-//		return ing_price;
-//	}
-//
-//	public void setIng_price(Double ing_price) {
-//		this.ing_price = ing_price;
-//	}
-
 	public Integer getIng_price() {
 		return ing_price;
 	}
 
 	public void setIng_price(Integer ing_price) {
 		this.ing_price = ing_price;
+	}
+
+	
+	public Integer getIng_cost() {
+		return ing_cost;
+	}
+
+	public void setIng_cost(Integer ing_cost) {
+		this.ing_cost = ing_cost;
 	}
 
 	public Double getIng_quantity() {
