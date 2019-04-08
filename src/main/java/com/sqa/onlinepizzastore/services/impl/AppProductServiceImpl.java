@@ -38,6 +38,11 @@ public class AppProductServiceImpl implements AppProductService {
 	public void delete(AppProduct appProductToDelete) {
 		appProductRepository.delete(appProductToDelete);
 	}
+
+	@Override
+	public AppProduct findOne(String productName) {
+		return appProductRepository.getAppProductByProductName(productName);
+	}
 	
 	
 	
