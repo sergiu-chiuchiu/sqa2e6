@@ -40,7 +40,7 @@ public class AppUserServiceImpl implements AppUserService {
 	AppRoleService appRoleService;
 	@Autowired
 	private HttpServletRequest request;
-	
+
 	@Override
 	public AppUser getAppUserByEmail(String email) {
 		return appUserRepository.getAppUserByEmail(email);
@@ -61,7 +61,7 @@ public class AppUserServiceImpl implements AppUserService {
 		appUser.setPassword(EncryptedPasswordUtils.encryptPassword(appUser.getPassword()));
 		return appUserRepository.save(appUser);
 	}
-	
+
 	@Override
 	public AppUser saveAppUserAsUser(AppUser appUserToSave) {
 		String encryptedPass = EncryptedPasswordUtils.encryptPassword(appUserToSave.getPassword());
@@ -91,11 +91,14 @@ public class AppUserServiceImpl implements AppUserService {
 
 	@Override
 	public void createDefaultAdmin() throws ParseException {
-
 		if (this.getAppUserByEmail("admin@gmail.com") == null) {
 			// Creating Admin role
-			AppRole appRole = new AppRole();
-			appRole.setRoleName("ROLE_ADMIN");
+			AppRole appRole = appRoleService.getAppRoleByRoleName("ROLE_ADMIN");
+			if (appRole == null) {
+				appRole = new AppRole();
+				appRole.setRoleName("ROLE_ADMIN");
+				appRoleService.saveAppRole(appRole);
+			}
 			// Creating Admin
 			AppUser appUser = new AppUser();
 			appUser.addAppRole(appRole);
@@ -117,8 +120,14 @@ public class AppUserServiceImpl implements AppUserService {
 
 		if (this.getAppUserByEmail("operator@gmail.com") == null) {
 			// Creating Oper role
-			AppRole appRole = new AppRole();
-			appRole.setRoleName("ROLE_OPERATOR");
+//			AppRole appRole = new AppRole();
+//			appRole.setRoleName("ROLE_OPERATOR");
+			AppRole appRole = appRoleService.getAppRoleByRoleName("ROLE_OPERATOR");
+			if (appRole == null) {
+				appRole = new AppRole();
+				appRole.setRoleName("ROLE_OPERATOR");
+				appRoleService.saveAppRole(appRole);
+			}
 			// Creating Oper
 			AppUser appUser = new AppUser();
 			appUser.addAppRole(appRole);
@@ -157,25 +166,24 @@ public class AppUserServiceImpl implements AppUserService {
 
 		return appUserRepository.save(appUser);
 	}
-	
+
 	@Override
-	public void sendPasswordResetEmail(AppUser appUser) throws AddressException, MessagingException, MalformedURLException {
+	public void sendPasswordResetEmail(AppUser appUser)
+			throws AddressException, MessagingException, MalformedURLException {
 		// preparing required info for geing sent via email
 		String passwordResetToken = UUID.randomUUID().toString();
-		URL url = new URL(request.getScheme(),
-				request.getServerName(),
-				request.getServerPort(),
+		URL url = new URL(request.getScheme(), request.getServerName(), request.getServerPort(),
 				request.getContextPath().concat("/auth/resetPassword"));
 		String reqUrl = url.toString();
 		String userName = appUser.getUserName();
 		String email = appUser.getEmail();
-		
-		//set AppUser reset password token
+
+		// set AppUser reset password token
 		appUser.setPasswordResetToken(passwordResetToken);
 		appUserRepository.save(appUser);
-		
+
 		String emailBody = EmailBodyTemplates.getPasswordResetBodyTemplate(passwordResetToken, userName, reqUrl);
-		//sending the email
+		// sending the email
 		Mail mail = new Mail();
 		mail.Send(email, "Pizza Mia password reset", emailBody);
 	}
@@ -184,5 +192,5 @@ public class AppUserServiceImpl implements AppUserService {
 	public AppUser getAppUserByPasswordResetToken(String passwordResetToken) {
 		return appUserRepository.getAppUserByPasswordResetToken(passwordResetToken);
 	}
-	
+
 }
