@@ -136,7 +136,7 @@ public class CartController {
 		if(index!=-1) {
 			activeCart = carts.get(index);
 		}
-//		List<AppProduct> list = new ArrayList<AppProduct>();
+		//List<AppProduct> list = new ArrayList<AppProduct>();
 		List<CustomizeCartItem> cartItemsDiplay = new ArrayList<CustomizeCartItem>();
  		List<CartItem> cartItems = new ArrayList<>(activeCart.getCartItems());
  		System.out.println(cartItems.size());
