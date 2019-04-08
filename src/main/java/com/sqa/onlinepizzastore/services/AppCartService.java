@@ -15,7 +15,6 @@ public interface AppCartService {
 
 	List<AppCart> getAppCartByAppUserEmail(String email);
 
-
 	AppCart getAppCartByCartNo(Long cartNo);
 	
 	AppCart getAppCartByActive(char c);
