@@ -286,20 +286,19 @@ fieldset {
 		height: 730px;
 }
 
-.btn.btn-lg.btn-block.btn-outline-primary {
-	bottom: 0; 
+.btn.btn-lg.btn-block.btn-primary {
     position: absolute; 
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    display: block; 
+    display: block;
+    margin:auto;
     bottom: 10px;
     padding-bottom: 30px;
-	padding-top: 30px;
+	padding-top: 10px;
 	padding-right: 110px;
-	padding-left:100px;
-	width: 100px;  
+	padding-left: 100px;
+	width: 50px;  
 	height: 30px;
-	text-align: center;
-	margin: auto;
+	white-space: nowrap;
+ 	align-items: center;
+    justify-content: center;
+
 }
