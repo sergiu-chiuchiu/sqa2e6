@@ -120,8 +120,6 @@ public class AppUserServiceImpl implements AppUserService {
 
 		if (this.getAppUserByEmail("operator@gmail.com") == null) {
 			// Creating Oper role
-//			AppRole appRole = new AppRole();
-//			appRole.setRoleName("ROLE_OPERATOR");
 			AppRole appRole = appRoleService.getAppRoleByRoleName("ROLE_OPERATOR");
 			if (appRole == null) {
 				appRole = new AppRole();

@@ -14,42 +14,28 @@
 	<br>
 	<div class="container" id="container">
 		<p id="titleheader">Pizza Mia</p>
-		<p id="currentDate">04/04/2019</p>
+		<p id="currentDate">09/04/2019</p>
 		<br>
+		<h2 class="text-center">List of ingredients quantity stored</h2>
 		<br>
-		<h2>Total costs and revenue per month</h2>
-		<br>
-		<form th:action="@{/report/total-revenue-and-costs}" id="textBox">
-			Type the year: <input type="text" name="fyear"><br> <br>
-			Type a month: <input type="text" name="fmonth"><br> <input
-				type="submit" value="Submit" id="submitBtn">
-		</form>
-		<table class="table table-dark table-striped" id="tableReport"
-			align="center">
-<thead>
+		<table class="table table-dark table-striped" id="mostordered">
+			<thead>
 				<tr>
 					<th>Ingredient name</th>
-					<th>Price per unit</th>
+					<th>Price per unit (RON)</th>
 					<th>No. of units</th>
-					<th>Total quantity (g or ml)</th>
+					<th>Total quantity (g)</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr id="crtno">
-					<td>Cheese</td>
-					<td>3</td>
-					<td>30</td>
-					<td>4000</td>
-				</tr>
-				<tr id="crtno">
-					<td>Milk</td>
-					<td>5</td>
-					<td>15</td>
-					<td>6500</td>
+				<tr id="crtno" th:each="ingredient : ${ingredients}">
+					<td th:text="${ingredient.ing_name}">Cheese</td>
+					<td th:text="${ingredient.ing_price}">3</td>
+					<td th:text="${ingredient.ing_quantity}">30</td>
+					<td th:text="${ingredient.ing_quantity * ingredient.ing_weight}">4000</td>
 				</tr>
 			</tbody>
 		</table>
-		<p id="pageno">Page 1/1</p>
 	</div>
 	<br>
 	<br>
