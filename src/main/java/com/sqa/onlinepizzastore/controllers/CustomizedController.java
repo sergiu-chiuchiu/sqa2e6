@@ -63,12 +63,7 @@ public class CustomizedController {
 				System.out.println("BINDING RESULT ERROR");
 				return "CustomizePizza";
 			}
-		
-			model.addAttribute("customized_id", cust.getCustomized_id());
-			model.addAttribute("customized_energy", cust.getCustomized_energy());
-			model.addAttribute("ingredients", cust.getIngredients());
-			model.addAttribute("customized_name", cust.getCustomized_name());
-			model.addAttribute("countertops", cust.getCountertops());
+			
 			customizedService.save(cust);
 			return new String("redirect:/menu/pizza/viewCreations");
 			}

@@ -14,7 +14,6 @@
 	<div th:replace="fragments/navbar :: navbar"></div>
 	<!-- Carousel -->
 
-
 	<div th:attrappend="class=' ' + ${message.messageType}"
 		th:if="${message.message != null}" class="alert alert-dismissible fade show" role="alert">
 	  <strong th:text="${message.message}">Message here!</strong>
@@ -22,7 +21,6 @@
 	    <span aria-hidden="true">&times;</span>
 	  </button>
 	</div>
-
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -95,7 +93,16 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
-
+	<div id="alerts">
+		<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> Your
+			password was unsuccessfully resetted.
+		</div>
+		<div class="alert alert-success">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> Your
+			password was successfully resetted.
+		</div>
+	</div>
 	<!-- subscribe -->
 	<form id="form" th:action="@{/index}" th:object="${AppSubscribe}"
 		method="POST" accept-charset="utf-8" class="form" role="form">
