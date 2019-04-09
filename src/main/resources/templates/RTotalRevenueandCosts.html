@@ -34,27 +34,22 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1.</td>
-					<td colspan=2>20000</td>
-					<td>60000</td>
-				</tr>
-				<tr>
-					<td>2.</td>
-					<td colspan=2>20000</td>
-					<td>60000</td>
+				<tr th:each="order, iStat : ${report}">
+					<td th:text="${iStat.index + 1} + .">1.</td>
+					<td colspan=2 th:text="${order.orderCost}">20000</td>
+					<td th:text="${order.orderTotal}">60000</td>
 				</tr>
 				<tr>
 					<td><b>Total Costs</b></td>
-					<td colspan=3 class="text-right"><b>40000</b></td>
+					<td colspan=3 class="text-right" th:text="${totalCost}"><b>40000</b></td>
 				</tr>
 				<tr>
 					<td><b>Total Revenue</b></td>
-					<td colspan=3 class="text-right"><b>120000</b></td>
+					<td colspan=3 class="text-right" th:text="${totalRevenue}"><b>120000</b></td>
 				</tr>
 				<tr>
 					<td><b>Total Month (Revenue-Costs)</b></td>
-					<td colspan=3 class="text-right"><b>80000</b></td>
+					<td colspan=3 class="text-right" th:text="${netIncome}"><b>80000</b></td>
 				</tr>
 			</tbody>
 		</table>
