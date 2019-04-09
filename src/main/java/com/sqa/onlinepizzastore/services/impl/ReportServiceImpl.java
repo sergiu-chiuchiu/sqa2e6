@@ -31,7 +31,7 @@ public class ReportServiceImpl implements ReportService {
 			revenueReportsDto.add(revenueReportDto);
 		}
 
-		return revenueReportsDto;	
+		return revenueReportsDto;
 	}
 
 }

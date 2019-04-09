@@ -12,30 +12,32 @@
 	<div th:replace="fragments/navbar :: navbar"></div>
 	<br>
 	<br>
-	<div class="container" id="container">
-		<p id="titleheader">Pizza Mia</p>
-		<p id="currentDate">09/04/2019</p>
-		<br>
-		<h2 class="text-center">List of ingredients quantity stored</h2>
-		<br>
-		<table class="table table-dark table-striped" id="mostordered">
-			<thead>
-				<tr>
-					<th>Ingredient name</th>
-					<th>Price per unit (RON)</th>
-					<th>No. of units</th>
-					<th>Total quantity (g)</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr id="crtno" th:each="ingredient : ${ingredients}">
-					<td th:text="${ingredient.ing_name}">Cheese</td>
-					<td th:text="${ingredient.ing_price}">3</td>
-					<td th:text="${ingredient.ing_quantity}">30</td>
-					<td th:text="${ingredient.ing_quantity * ingredient.ing_weight}">4000</td>
-				</tr>
-			</tbody>
-		</table>
+	<div id="print">
+		<div class="container" id="container">
+			<p id="titleheader">Pizza Mia</p>
+			<p id="currentDate">09/04/2019</p>
+			<br>
+			<h2 class="text-center">List of ingredients quantity stored</h2>
+			<br>
+			<table class="table table-dark table-striped" id="mostordered">
+				<thead>
+					<tr>
+						<th>Ingredient name</th>
+						<th>Price per unit (RON)</th>
+						<th>No. of units</th>
+						<th>Total quantity (g)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="crtno" th:each="ingredient : ${ingredients}">
+						<td th:text="${ingredient.ing_name}">Cheese</td>
+						<td th:text="${ingredient.ing_price}">3</td>
+						<td th:text="${ingredient.ing_quantity}">30</td>
+						<td th:text="${ingredient.ing_quantity * ingredient.ing_weight}">4000</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<br>
 	<br>
