@@ -1,8 +1,15 @@
 package com.sqa.onlinepizzastore.controllers;
 
 
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import javax.validation.Valid;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +19,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.sqa.onlinepizzastore.entitites.AppCart;
+import com.sqa.onlinepizzastore.entitites.AppUser;
+import com.sqa.onlinepizzastore.entitites.CartItem;
 import com.sqa.onlinepizzastore.entitites.Customized;
 import com.sqa.onlinepizzastore.entitites.Ingredient;
+import com.sqa.onlinepizzastore.services.AppCartService;
+import com.sqa.onlinepizzastore.services.AppUserService;
+import com.sqa.onlinepizzastore.services.CartItemService;
 import com.sqa.onlinepizzastore.services.CustomizedService;
 import com.sqa.onlinepizzastore.services.IngredientService;
 
@@ -28,6 +42,14 @@ public class CustomizedController {
 	 
 	 @Autowired
 	 IngredientService ingredientService;
+	 @Autowired
+	 AppCartService appCartService;
+	 @Autowired
+	 AppUserService appUserService;
+	 @Autowired
+	CartItemService cartItemService;
+	 @Autowired
+	ModelMapper modelMapper;
 
 	 @ModelAttribute("ingredients")
 	 	public List<Ingredient> ingredients() {
@@ -101,6 +123,64 @@ public class CustomizedController {
 			return new ModelAndView("redirect:/menu/pizza/viewCreations");
 		}
 
+	 	
+//-------------------------------------------add cust to cart
+	 	
+//	 	@RequestMapping(value = "shoppingcart/{customized_name}", method = RequestMethod.GET)
+//		public String buyCust(@PathVariable("customized_name") String customizedName, Model model, Principal principal) {
+//			AppUser appUser = appUserService.getLoggedInAppUserByPrincipal(principal);
+//			AppCart appCart = appCartService.getAppCartByActive('A');		
+//			if(appCart==null) {
+//				appCart = new AppCart();
+//				appCart.setCustomerEmail(appUser.getEmail());
+//				appCart.setActive('A');
+//				appCartService.saveAppCart(modelMapper.map(appCart, AppCart.class));
+//				
+//				Set<CartItem> cartItems = new HashSet<CartItem>();
+//				appCart.setCartItems(cartItems);
+//			}		
+//			
+//			Set<CartItem> cartItems = appCart.getCartItems();
+//			int index = this.exists(customizedName, cartItems);
+//			System.out.println(index);
+//			if(index==-1) {
+//				CartItem cartItem = new CartItem();
+//				cartItem.setCustomized(customizedService.getCustomizedByCustomizedName(customizedName));
+//				cartItem.setQty(1);
+//				cartItem.setAppCart(appCart);
+//				cartItems.add(cartItem);
+//				cartItemService.saveCartItem(modelMapper.map(cartItem, CartItem.class));
+//			}
+//			else {
+//				List<CartItem> cartI = new ArrayList<>(cartItems); 
+//				int qty = cartI.get(index).getQty() + 1;
+//				cartI.get(index).setQty(qty);
+//				cartItems = new HashSet<>(cartI);
+//				cartItemService.updateCartItem(modelMapper.map(cartI.get(index), CartItem.class));
+//				
+//			}
+//			return "redirect:/menu/pizza/viewCreations";
+//		}
+//	 	
+//	 	
+//		private int exists(String productName, Set<CartItem> cart) {
+//			List<CartItem> cartItems = new ArrayList<>(cart); 
+//			for (int i = 0; i < cart.size(); i++) {
+//				if (cartItems.get(i).getProduct().getProductName().equals(productName)) {
+//					return i;
+//				}
+//			}
+//			return -1;
+//		}
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	//----------------------------------------------------------------------------------------
+	 	
+	 	
+	 	
 	 	
 	 	
 //		@RequestMapping(value = "/addCust", method = RequestMethod.POST)

@@ -16,5 +16,7 @@ public interface CustomizedService {
 	Customized findOne(Integer id);
 	void delete(Customized cust);
 	Boolean customizedExists(Integer id);
+	Customized getCustomizedByCustomizedName(String customizedName);
+	
  }
 

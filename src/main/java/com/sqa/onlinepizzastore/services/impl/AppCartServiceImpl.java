@@ -43,5 +43,11 @@ public class AppCartServiceImpl implements AppCartService {
 		return appCartRepository.getAppCartByCartNo(appCart.getCartNo()).getCartItems();
 	}
 
+	@Override
+	public AppCart updateAppCart(AppCart appCart) {
+		
+		return appCartRepository.save(appCart);
+	}
+
 
 }

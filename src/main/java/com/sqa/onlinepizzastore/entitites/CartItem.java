@@ -33,6 +33,10 @@ public class CartItem implements Serializable{
     @JoinColumn(name = "product_id")  
 	private AppProduct product;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customized_id")  
+	private Customized customized;
+	
 	@Column(name = "qty", nullable = false)
 	private int qty;
 
@@ -77,6 +81,14 @@ public class CartItem implements Serializable{
 
 	public void setQty(int qty) {
 		this.qty = qty;
+	}
+
+	public Customized getCustomized() {
+		return customized;
+	}
+
+	public void setCustomized(Customized customized) {
+		this.customized = customized;
 	}
 	
 	
