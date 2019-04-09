@@ -51,7 +51,6 @@ public class AppCartDetail {
 
 	private Integer cartQty;
 	
-	@NotBlank
 	@Temporal(TemporalType.DATE)
 	@Column(name = "cart_date", nullable = false)
 	public Date getCartDate() {
@@ -61,7 +60,7 @@ public class AppCartDetail {
 		this.cartDate = cartDate;
 	}
 	
-	@NotBlank
+
 	@Column(name = "cart_qty", nullable = false)
 	public Integer getCartQty() {
 		return cartQty;

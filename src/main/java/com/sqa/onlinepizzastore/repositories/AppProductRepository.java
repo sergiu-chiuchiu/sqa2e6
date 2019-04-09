@@ -13,7 +13,8 @@ public interface AppProductRepository extends JpaRepository<AppProduct, Long> {
 
 	AppProduct getAppProductByProductId(Long prodId);
 	
-	AppProduct getAppProductByProductName(String prodName);
+	@Query("SELECT ar FROM AppProduct ar WHERE productName = :productName")
+	AppProduct getAppProductByProductName(String productName);
 	
 //	@Query("SELECT ar FROM AppRole ar JOIN ar.users WHERE email = :email")
 //	List<AppRole> getAppRoleByAppUserEmail(@Param("email") String email);

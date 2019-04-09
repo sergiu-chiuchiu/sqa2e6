@@ -13,3 +13,7 @@ $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
    
     return false;
   });
+
+function printReport() {
+	  window.print();
+	}

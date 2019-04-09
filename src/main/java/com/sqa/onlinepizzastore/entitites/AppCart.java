@@ -45,12 +45,24 @@ public class AppCart {
 	}
 
 	private Set<AppCartDetail> cartDetails= new HashSet<AppCartDetail>();
+	private Set<CartItem> cartItems= new HashSet<CartItem>();
 	
+	@OneToMany(mappedBy="appCart")
+	public Set<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(Set<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
 	@OneToMany(mappedBy="appCart")
 	public Set<AppCartDetail> getCartDetails() {
 		return cartDetails;
 	}
 
+
+	
 	public void setCartDetails(Set<AppCartDetail> cartDetails) {
 		this.cartDetails = cartDetails;
 	}

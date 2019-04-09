@@ -253,6 +253,7 @@ body {
 }
 
 @media print {
+<<<<<<< HEAD
 	@page {
 		margin: 0;
 	}
@@ -262,4 +263,14 @@ body {
 	#page-footer {
 		display: none
 	}
+=======
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
+  #page-footer {display: none}
+}
+
+.btn.btn-lg.btn-danger {
+	margin-left: 700px;
+	margin-right: 700px;
+>>>>>>> ce356b5230d3d728163c80758499df4611168dfc
 }

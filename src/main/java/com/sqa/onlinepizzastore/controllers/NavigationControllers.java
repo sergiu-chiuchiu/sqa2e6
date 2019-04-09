@@ -47,10 +47,10 @@ public class NavigationControllers {
 	}
 
 	
-	@GetMapping(value = "/shoppingcart")
-	public String getShoppingCartPage(Model model) {
-		return "shopping-cart";
-	}
+//	@GetMapping(value = "/shoppingcart")
+//	public String getShoppingCartPage(Model model) {
+//		return "shopping-cart";
+//	}
 	
 	@GetMapping(value = "/terms")
 	public String getTermsPage(Model model) {

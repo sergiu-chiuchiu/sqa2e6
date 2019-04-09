@@ -338,6 +338,10 @@ label {
   text-indent: -9999px;
 }
 
+.continue-shopping {
+	background-color: orange;
+}
+
 /* Product entries */
 .product {
   margin-bottom: 20px;
