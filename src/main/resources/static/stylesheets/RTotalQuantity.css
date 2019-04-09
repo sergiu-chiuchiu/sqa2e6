@@ -215,62 +215,64 @@ body {
 }
 
 /*Report*/
-.text-center {
-	float: left;
-	padding-left: 30%;
-	padding-bottom: 2%;
-	padding-top: 0;
+h2 {
+	text-align: center;
+	padding-left: 10%;
+	padding-right: 20%;
 }
 
-#titleheader {
-	float: left;
-	padding-left: 30%;
+#totalcosts {
+	width: 60%;
+}
+
+#titleheader{
+	float:left;	
+	padding-left:20%;
 	padding-bottom: 5%;
 }
 
-#currentDate {
+#currentDate{
 	float: right;
-	padding: 0% 30% 0% 5%;
+	padding: 0% 20% 0% 5%;
 }
 
-#mostordered {
-	width: 40%;
-	margin-left: 30%;
+
+#submitBtn{
 	margin-top: 5%;
 }
 
-#crtno {
+#textBox{
+	padding-left:20%;
+	padding-bottom: 5%;
+}
+
+#tableReport{
+width: 60%;
+}
+
+#crtno{
 	width: 30%;
 }
 
-#toppizzas {
-	width: 30%;
-	align: center;
+#costs{
+	width: 20%;
 }
 
-#pageno {
-	margin-left: 60%;
+#revenue{
+	width: 10%;
+}
+
+#container{
+	margin: 0% 30% 0% 10%;
+	padding: 0% 6%;
+}
+
+#pageno{
+	margin-left:70%;
 }
 
 @media print {
-<<<<<<< HEAD
-	@page {
-		margin: 0;
-	}
-	body {
-		margin: 1.6cm;
-	}
-	#page-footer {
-		display: none
-	}
-=======
   @page { margin: 0; }
   body { margin: 1.6cm; }
   #page-footer {display: none}
-}
-
-.btn.btn-lg.btn-danger {
-	margin-left: 700px;
-	margin-right: 700px;
->>>>>>> ce356b5230d3d728163c80758499df4611168dfc
 }

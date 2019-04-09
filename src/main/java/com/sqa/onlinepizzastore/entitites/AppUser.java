@@ -52,9 +52,8 @@ public class AppUser {
 	
 	private String passwordResetToken;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cart_no")
-	private AppCart appCart; 
+	@OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL)
+	private Set<AppCart> appCarts = new HashSet<AppCart>();
 	
 	@ManyToMany(cascade = {
 			CascadeType.MERGE,
@@ -140,12 +139,13 @@ public class AppUser {
 	public AppUser() {
 		super();
 	}
-	public AppCart getAppCart() {
-		return appCart;
+	public Set<AppCart> getAppCarts() {
+		return appCarts;
 	}
-	public void setAppCart(AppCart appCart) {
-		this.appCart = appCart;
+	public void setAppCarts(Set<AppCart> appCarts) {
+		this.appCarts = appCarts;
 	}
+	
 
 	
 	

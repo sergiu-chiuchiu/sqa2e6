@@ -11,7 +11,6 @@ public interface AppProductService {
 	AppProduct save(AppProduct appProductToSave);
 	AppProduct update(AppProduct appProductToUpdate);
 	List<AppProduct> findAll();
-	
 	AppProduct findOne(Long Id);
 	void delete(AppProduct appProductToDelete);
 	List<AppProduct> getAllProducts();

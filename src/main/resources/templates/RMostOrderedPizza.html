@@ -15,32 +15,46 @@
 	<div class="container" id="container">
 		<p id="titleheader">Pizza Mia</p>
 		<p id="currentDate">04/04/2019</p>
+		<br> <br>
+		<h2>Total costs and revenue per month</h2>
 		<br>
-		<h2 class="text-center">Top of most ordered pizzas</h2>
-		<br>
-		<table class="table table-dark table-striped" id="mostordered">
+		<form th:action="@{/report/total-revenue-and-costs}" id="textBox">
+			Type the year: <input type="text" name="fyear"><br> <br>
+			Type a month: <input type="text" name="fmonth"><br> <input
+				type="submit" value="Submit" id="submitBtn">
+		</form>
+		<table class="table table-dark table-striped" id="tableReport"
+			align="center">
 			<thead>
 				<tr>
-					<th>Crt no</th>
-					<th>Pizza Name</th>
+					<th>Ingredient name</th>
+					<th>Price per unit</th>
+					<th>No. of units</th>
+					<th>Total quantity (g or ml)</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr id="crtno">
-					<td>1.</td>
-					<td>Quattro Stagioni pizza</td>
+					<td>Cheese</td>
+					<td>3</td>
+					<td>30</td>
+					<td>4000</td>
 				</tr>
 				<tr id="crtno">
-					<td>2.</td>
-					<td>Quattro Formaggi pizza</td>
+					<td>Milk</td>
+					<td>5</td>
+					<td>15</td>
+					<td>6500</td>
 				</tr>
 			</tbody>
 		</table>
 		<p id="pageno">Page 1/1</p>
 	</div>
-	<br>
-	<br>
-
+	<br />
+	<button class="btn btn-lg btn-danger" onclick="printReport()">Print
+		this report</button>
+	<br />
+	<br />
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>
 	<div th:replace="fragments/script :: script"></div>

@@ -20,7 +20,7 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer ing_id;
 	
-	@Column(unique = true, nullable = false)
+	@Column(name = "ing_name", unique = true, nullable = false)
 	@NotNull(message="The name of ingredient is mandatory!")
 	private String ing_name;
 	

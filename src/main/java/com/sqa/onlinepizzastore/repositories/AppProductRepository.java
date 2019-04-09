@@ -13,7 +13,6 @@ public interface AppProductRepository extends JpaRepository<AppProduct, Long> {
 
 	AppProduct getAppProductByProductId(Long prodId);
 	
-
 	@Query("SELECT ar FROM AppProduct ar WHERE productName = :productName")
 	AppProduct getAppProductByProductName(String productName);
 	

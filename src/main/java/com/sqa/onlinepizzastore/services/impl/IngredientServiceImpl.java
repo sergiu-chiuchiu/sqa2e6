@@ -3,6 +3,7 @@ package com.sqa.onlinepizzastore.services.impl;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.sqa.onlinepizzastore.entitites.Ingredient;
@@ -41,6 +42,12 @@ public class IngredientServiceImpl implements IngredientService{
 	@Override
 	public void delete(Ingredient ing) {
 		ingredientRepository.delete(ing);
-}
+	}
+	
+	@Override
+	public List<Ingredient> findAllSortedAsc(String sortColumn) {
+		List<Ingredient> ingredients = ingredientRepository.findAll();
+		return ingredients;
+	}
 
 }
