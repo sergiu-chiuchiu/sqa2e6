@@ -24,26 +24,21 @@ public class AppProduct {
 	
 	
 	private Long productId;
-	
-	
+		
 	private String productName;
-	
-	
+		
 	private String prodQty;
 	
 	private Character allergens;
 	
-
 	private Double energyValue;
-	
-	
+		
 	private Double price;
 	
 	private Double prodCost;
 
 	private Date prodDate;
 	
-
 	private Double prodWeight;
 	
 	private String imageLink;

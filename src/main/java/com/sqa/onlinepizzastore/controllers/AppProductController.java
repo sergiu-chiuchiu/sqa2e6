@@ -1,7 +1,6 @@
 package com.sqa.onlinepizzastore.controllers;
 
 import java.util.List;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +8,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.validation.Valid;
 import com.sqa.onlinepizzastore.entitites.AppProduct;
 import com.sqa.onlinepizzastore.entitites.Ingredient;
 import com.sqa.onlinepizzastore.repositories.AppProductRepository;
 import com.sqa.onlinepizzastore.services.AppCartDetailService;
 import com.sqa.onlinepizzastore.services.AppCartService;
+import com.sqa.onlinepizzastore.entitites.Mail;
+import com.sqa.onlinepizzastore.services.AppCartDetailService;
+import com.sqa.onlinepizzastore.services.AppCartService;
+import com.sqa.onlinepizzastore.repositories.AppProductRepository;
 import com.sqa.onlinepizzastore.services.AppProductService;
 import com.sqa.onlinepizzastore.services.IngredientService;
 
@@ -116,10 +121,11 @@ public class AppProductController {
 	}
 
 	@ModelAttribute("cocktails")
-	public List<AppProduct> cocktails() {
+	public List<AppProduct> cocktails(){
 		return appProductRepository.findCocktails();
+	
 	}
-
+}
 //	 	@RequestMapping(value="/menu/pizza", method=RequestMethod.POST)
 //		public String addProductToCart( @ModelAttribute(value="appProduct") AppProduct appProduct, BindingResult bindingResult, Model model) throws ParseException, MessagingException {
 //			//AppProduct appProduct = new AppProduct();
@@ -142,4 +148,4 @@ public class AppProductController {
 //			return "shopping-cart";
 //		}
 
-}
+

@@ -33,7 +33,7 @@ public class Customized {
 	private String customized_name;
 	
 	@NotNull(message="Choose some ingredients!")
-	private Integer  customized_price;
+	private Double  customized_price;
 	
 	@NotNull
 	private Integer  customized_cost;
@@ -77,17 +77,20 @@ public class Customized {
 
 
 	
-	public Integer getCustomized_price() {
+
+	
+
+	public Double getCustomized_price() {
 		return customized_price;
 	}
 
 
 
-	public void setCustomized_price(Integer customized_price) {
+	public void setCustomized_price(Double customized_price) {
 		this.customized_price = customized_price;
 	}
 
-	
+
 
 	public Integer getCustomized_cost() {
 		return customized_cost;

@@ -31,8 +31,7 @@
   </thead>
   <tbody>
     <tr th:each="customized : ${customs}">
-      <td scope="row">
-        </th>
+      <td scope="row"></td>
       <td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Delete</a></td>
       <td><a th:href="@{|/menu/pizza/viewCreations/editCreation/${customized.customized_id}|}">Update</a></td>
       <td th:text="${customized.customized_name}">Title ...</td>
@@ -44,7 +43,7 @@
           <li th:text="${ingredient.ing_name}"></li>
         </ul>
       </td>
-      <td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Add to cart</a></td>
+      <td><a th:href="@{|/shoppingcart/pizza/${customized.customized_name}|}">Add to cart</a></td>
     </tr>
   </tbody>
 </table>

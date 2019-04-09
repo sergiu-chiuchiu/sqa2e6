@@ -11,10 +11,11 @@ import com.sqa.onlinepizzastore.entitites.CartItem;
 public interface AppCartService {
 
 	AppCart saveAppCart(AppCart appCart);
+	
+	AppCart updateAppCart(AppCart appCart);
 
 
 	List<AppCart> getAppCartByAppUserEmail(String email);
-
 
 	AppCart getAppCartByCartNo(Long cartNo);
 	

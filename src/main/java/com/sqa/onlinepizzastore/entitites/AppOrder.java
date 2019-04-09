@@ -29,13 +29,13 @@ public class AppOrder {
 	@Column(name = "order_id", unique = true)
 	private Long orderId;
 	
-	@NotBlank
+	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "order_date", nullable = false)
+	@Column(name = "order_date")
 	private Date orderDate;
 	
-	@NotBlank
-	@Column(name = "total_amt", nullable = false)
+	
+	@Column(name = "total_amt")
 	private Double totalAmt;
 	
 	@OneToOne(fetch = FetchType.LAZY)
