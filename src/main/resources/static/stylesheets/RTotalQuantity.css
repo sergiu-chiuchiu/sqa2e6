@@ -276,3 +276,12 @@ width: 60%;
   body { margin: 1.6cm; }
   #page-footer {display: none}
 }
+
+.btn.btn-lg.btn-danger {
+	margin-left: 700px;
+	margin-right: 700px;
+}
+.btn2.btn-lg.btn-danger {
+		margin-left: 715px;
+	margin-right: 715px;
+}
