@@ -32,7 +32,7 @@ public class ReportsController {
 	
 	@GetMapping(value = "quantityReport")
 	public String getTotalQuantityPerIngredientReport(Model model) {
-		List<Ingredient> ingredients = ingredientService.findAll();
+		List<Ingredient> ingredients = ingredientService.findAllSortedAsc("fds");
 		model.addAttribute("ingredients", ingredients);
 		return "RTotalQuantity";
 	}

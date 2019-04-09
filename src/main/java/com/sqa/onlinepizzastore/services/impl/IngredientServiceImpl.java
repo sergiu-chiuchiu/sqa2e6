@@ -45,10 +45,8 @@ public class IngredientServiceImpl implements IngredientService{
 	}
 	
 	@Override
-	public List<Ingredient> findAllSortedAsc(String sortAttribute) {
-		System.out.println("entered service");
-		List<Ingredient> ingredients = ingredientRepository.findAll(Sort.by(Sort.Direction.ASC, "energy"));
-		System.out.println("fetched list: " + ingredients);
+	public List<Ingredient> findAllSortedAsc(String sortColumn) {
+		List<Ingredient> ingredients = ingredientRepository.findAll();
 		return ingredients;
 	}
 
