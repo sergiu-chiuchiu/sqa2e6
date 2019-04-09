@@ -56,8 +56,9 @@ public CartController(AppProductService appProductService, CartItemService cartI
 
 	@RequestMapping(value = "shoppingcart/{productName}", method = RequestMethod.GET)
 	public String buy(@PathVariable("productName") String productName, Model model, Principal principal) {
-		AppUser appUser = appUserService.getLoggedInAppUserByPrincipal(principal);
-		AppCart appCart = appCartService.getAppCartByActive('A');
+		AppUser appUser = appUserService.getLoggedInAppUserByPrincipal(principal);	
+		List<AppCart> carts = appCartService.getAppCartByAppUserEmail(appUser.getEmail());
+		AppCart appCart = findCart(carts);	
 		
 		if(appCart==null) {
 			appCart = new AppCart();
@@ -93,17 +94,15 @@ public CartController(AppProductService appProductService, CartItemService cartI
 	}
 	
 	@RequestMapping(value = "/shoppingcart", method = RequestMethod.GET)
-	public String viewCartItems(Model model) {
-		List<AppCart> carts = appCartService.getAppCartByAppUserEmail("admin@gmail.com");
-		int index = findActiveCart(carts);
-		AppCart activeCart = new AppCart();
-
-		if(index!=-1) {
-			activeCart = carts.get(index);
-		}
+	public String viewCartItems(Model model, Principal principal) {
+		
+		AppUser appUser = appUserService.getLoggedInAppUserByPrincipal(principal);	
+		List<AppCart> carts = appCartService.getAppCartByAppUserEmail(appUser.getEmail());
+		AppCart appCart = findCart(carts);	
+		
 		//List<AppProduct> list = new ArrayList<AppProduct>();
 		List<CustomizeCartItem> cartItemsDiplay = new ArrayList<CustomizeCartItem>();
- 		List<CartItem> cartItems = new ArrayList<>(activeCart.getCartItems());
+ 		List<CartItem> cartItems = new ArrayList<>(appCart.getCartItems());
 
 		for(int i=0; i<cartItems.size(); i++) {
 			if(cartItems.get(i).getCustomized()==null) {
@@ -129,13 +128,22 @@ public CartController(AppProductService appProductService, CartItemService cartI
 		return "shopping-cart";
 	}
 	
-	
+	public AppCart findCart(List<AppCart> list) {
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getActive()== 'A') {
+				return list.get(i);
+			}
+		}
+		
+		return null;
+	}
 //------------------------------------ incercare customized shopping cart--------------------	
 	
 @RequestMapping(value = "shoppingcart/pizza/{customized_name}", method = RequestMethod.GET)
 public String buyCust(@PathVariable("customized_name") String customizedName, Model model, Principal principal) {
-	AppUser appUser = appUserService.getLoggedInAppUserByPrincipal(principal);
-	AppCart appCart = appCartService.getAppCartByActive('A');	
+	AppUser appUser = appUserService.getLoggedInAppUserByPrincipal(principal);	
+	List<AppCart> carts = appCartService.getAppCartByAppUserEmail(appUser.getEmail());
+	AppCart appCart = findCart(carts);	
 	System.out.println("ias");
 	if(appCart==null) {
 		appCart = new AppCart();
