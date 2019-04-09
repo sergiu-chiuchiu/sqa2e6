@@ -286,7 +286,7 @@ fieldset {
 		height: 730px;
 }
 
-.btn.btn-lg.btn-block.btn-primary {
+.btn.btn-lg.btn-block.btn-outline-primary {
     position: absolute; 
     display: block;
     margin:auto;
