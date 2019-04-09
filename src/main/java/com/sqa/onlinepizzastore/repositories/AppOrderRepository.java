@@ -8,6 +8,4 @@ import com.sqa.onlinepizzastore.entitites.AppOrder;
 @Repository
 public interface AppOrderRepository extends JpaRepository<AppOrder, Long> {
 
-
-
 }
