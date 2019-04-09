@@ -12,6 +12,7 @@
 	<div th:replace="fragments/navbar :: navbar"></div>
 	<br>
 	<br>
+	<div id ="print">
 	<div class="container">
 		<p id="titleheader">Pizza Mia</p>
 		<p id="currentDate">04/04/2019</p>
@@ -59,11 +60,14 @@
 			</tbody>
 		</table>
 	</div>
+	</div>
 	<br>
 	<br>
 	<button class="btn btn-lg btn-danger" onclick="printReport()">Print this report</button>
 </br>
 </br>
+<div id="print-btn"></div>
+	<button id="submit" class = "btn2 btn-lg btn-danger ">Save as PDF</button>
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>
 	<div th:replace="fragments/script :: script"></div>
