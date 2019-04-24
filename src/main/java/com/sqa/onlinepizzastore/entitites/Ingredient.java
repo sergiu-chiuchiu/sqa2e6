@@ -20,7 +20,7 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer ing_id;
 	
-	@Column(unique = true, nullable = false)
+	@Column(name = "ing_name", unique = true, nullable = false)
 	@NotNull(message="The name of ingredient is mandatory!")
 	private String ing_name;
 	
@@ -34,7 +34,10 @@ public class Ingredient {
 	private Double ing_weight;
 	
 	@NotNull 
-	private Double ing_price;
+	private Integer ing_price;
+
+	@NotNull 
+	private Integer ing_cost;
 	
 	@NotNull 
 	private Double ing_quantity;
@@ -118,12 +121,23 @@ public class Ingredient {
 		this.ing_weight = ing_weight;
 	}
 
-	public Double getIng_price() {
+	
+	
+	public Integer getIng_price() {
 		return ing_price;
 	}
 
-	public void setIng_price(Double ing_price) {
+	public void setIng_price(Integer ing_price) {
 		this.ing_price = ing_price;
+	}
+
+	
+	public Integer getIng_cost() {
+		return ing_cost;
+	}
+
+	public void setIng_cost(Integer ing_cost) {
+		this.ing_cost = ing_cost;
 	}
 
 	public Double getIng_quantity() {

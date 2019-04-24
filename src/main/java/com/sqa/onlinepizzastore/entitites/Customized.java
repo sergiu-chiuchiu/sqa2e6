@@ -32,7 +32,13 @@ public class Customized {
 	@Size(min=3, max=50)
 	private String customized_name;
 	
-	@NotNull(message="The energy is mandatory!")
+	@NotNull(message="Choose some ingredients!")
+	private Double  customized_price;
+	
+	@NotNull
+	private Integer  customized_cost;
+	
+	@NotNull(message="Choose some ingredients!")
 	private Integer  customized_energy; 
 
 	@NotNull(message="Select one countertop!")
@@ -68,6 +74,33 @@ public class Customized {
 	public void setCustomized_name(String customized_name) {
 		this.customized_name = customized_name;
 	}
+
+
+	
+
+	
+
+	public Double getCustomized_price() {
+		return customized_price;
+	}
+
+
+
+	public void setCustomized_price(Double customized_price) {
+		this.customized_price = customized_price;
+	}
+
+
+
+	public Integer getCustomized_cost() {
+		return customized_cost;
+	}
+
+
+	public void setCustomized_cost(Integer customized_cost) {
+		this.customized_cost = customized_cost;
+	}
+
 
 
 	public Integer getCustomized_energy() {

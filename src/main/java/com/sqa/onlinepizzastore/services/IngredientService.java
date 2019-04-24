@@ -10,5 +10,6 @@ public interface IngredientService {
 	List<Ingredient> findAll();
 	Ingredient findOne(Integer id);
 	void delete(Ingredient ing);
+	List<Ingredient> findAllSortedAsc(String sortAttribute);
 	
 }

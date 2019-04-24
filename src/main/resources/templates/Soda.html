@@ -3,7 +3,6 @@
 
 <head>
 	<title>Sodas</title>
-	<link rel="stylesheet" href="/stylesheets/style.css">
 	<link rel="stylesheet" href="/stylesheets/drinks.css">
 	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
 	<div th:replace="fragments/head :: head"></div>
@@ -11,7 +10,6 @@
 
 <body background="/images/backgrounddd.jpg">
 	<div th:replace="fragments/navbar :: navbar"></div>
-	<!-- Inceput Main -->
 	<div class="container" id="principal">
 		<!--Start Carusel-->
 		<div id="content-page" class="span12 content group">
@@ -32,56 +30,22 @@
 		</br>
 		<!-- Tipuri bauturi -->
 		<div class="container">
-			<div class="card-deck mb-3 text-center">
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Coca Cola</h4>
-					</div>
-					<img id="soda" src="/images/drinks_cola.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							5 LEI <small class="text-muted">/ bottle</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>250 ML</li>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to
-							cart</button>
-					</div>
-				</div>
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Fanta</h4>
-					</div>
-					<img id="soda" src="/images/drinks_fanta.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							5 LEI <small class="text-muted">/ bottle</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>250 ML</li>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">7UP</h4>
-					</div>
-					<img id="soda" src="/images/drinks_7up.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							5 LEI <small class="text-muted">/ bottle</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>250 ML</li>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
+	<div class="row">
+		<div class="col-sm-4" th:each="appProduct: ${sodas}" >
+			<div class="card mb-4 box-shadow" >
+			<div class="card-header">
+				<h4 th:text="${appProduct.productName}"  class="my-0 font-weight-normal" ></h4>
 			</div>
+			<img id="pizza" th:attr="src = ${appProduct.imageLink}">
+			<div class="card-body">
+				<h1 th:text="${appProduct.price} + ' Lei'" class="card-title pricing-card-title"></h1>
+				<p th:text="${appProduct.energyValue} + ' Kcal'"></p>
+				<p th:text="${appProduct.description}"></p>
+				<button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+			</div>
+			</div>	
+		</div>	
+		<div class="w-75"></div>
 		</div>
 	</div>
 	<!-- Footer -->

@@ -13,9 +13,6 @@
 	<!-- Navbar -->
 	<div th:replace="fragments/navbar :: navbar"></div>
 	<!-- Carousel -->
-	
-	<main role="main">
-	
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -88,16 +85,26 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
+	<div id="alerts">
+		<div th:attrappend="class=' ' + ${message.messageType}"
+			th:if="${message.message != null}"
+			class="alert alert-dismissible fade show" role="alert">
+			<strong th:text="${message.message}">Message here!</strong>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
 	<!-- subscribe -->
-	<form th:action="@{/index}" th:object="${AppSubscribe}" method="POST"
-		accept-charset="utf-8" class="form" role="form">
+	<form id="form" th:action="@{/index}" th:object="${AppSubscribe}"
+		method="POST" accept-charset="utf-8" class="form" role="form">
 		<p>Do your want to subscribe? Enter yor email below and you will
 			receive our promotions and news!</p>
 		<input type="text" name="email" value="" th:field="*{email}"
 			class="form-control input-lg" placeholder="Your Email"> <br>
 		<input type="submit" value="Subscribe"
 			class="btn btn-lg btn-primary btn-primary" role="button">
-
 	</form>
 	<!-- Acces the promotions and popular choices pages -->
 	<div id="content-page" class="span12 content group">

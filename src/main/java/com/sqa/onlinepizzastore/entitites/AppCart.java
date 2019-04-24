@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,8 +36,8 @@ public class AppCart {
 	
 	private AppUser appUser;
 	
-	@OneToOne(mappedBy = "appCart", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+	
+	@ManyToOne
 	public AppUser getAppUser() {
 		return appUser;
 	}
@@ -45,12 +47,24 @@ public class AppCart {
 	}
 
 	private Set<AppCartDetail> cartDetails= new HashSet<AppCartDetail>();
+	private Set<CartItem> cartItems= new HashSet<CartItem>();
 	
+	@OneToMany(mappedBy="appCart")
+	public Set<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(Set<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
 	@OneToMany(mappedBy="appCart")
 	public Set<AppCartDetail> getCartDetails() {
 		return cartDetails;
 	}
 
+
+	
 	public void setCartDetails(Set<AppCartDetail> cartDetails) {
 		this.cartDetails = cartDetails;
 	}
@@ -79,7 +93,7 @@ public class AppCart {
 		this.active = active;
 	}
 
-	@Column(name = "customer_email", unique = true, nullable = false)
+	@Column(name = "customer_email", nullable = false)
 	public String getCustomerEmail() {
 		return customerEmail;
 	}

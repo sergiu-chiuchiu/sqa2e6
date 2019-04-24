@@ -71,7 +71,8 @@ public class IngredientController {
 		ingredient.setCarbohydrate(i.getCarbohydrate());
 		ingredient.setFibres(i.getFibres());
 		ingredient.setProteine(i.getProteine());
-		ingredient.setSalt(i.getSalt());			
+		ingredient.setSalt(i.getSalt());
+		
 		ingredientService.save(ingredient);
 		return new String("redirect:/menu/ingredients");
 	}		

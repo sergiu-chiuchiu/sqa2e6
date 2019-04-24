@@ -58,5 +58,10 @@ public class CustomizedServiceImpl implements CustomizedService {
 	public void delete(Customized cust) {
 		customizedRepository.delete(cust);
 	}
-	
+
+	@Override
+	public Customized getCustomizedByCustomizedName(String customizedName) {		
+		return customizedRepository.getCustomizedByCustomizedName(customizedName);
+	}
+
 }

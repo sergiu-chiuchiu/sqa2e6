@@ -5,19 +5,27 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sqa.onlinepizzastore.dto.AppUserDto;
+import com.sqa.onlinepizzastore.dto.AppUserPaswordChangeDto;
+import com.sqa.onlinepizzastore.dto.AppUserProfileDto;
+import com.sqa.onlinepizzastore.dto.AppUserSignUpAdminDto;
+import com.sqa.onlinepizzastore.dto.MessageDto;
 import com.sqa.onlinepizzastore.entitites.AppUser;
 import com.sqa.onlinepizzastore.services.AppUserService;
 import com.sqa.onlinepizzastore.util.EncryptedPasswordUtils;
@@ -36,56 +44,73 @@ public class UserManagementController {
 		this.appUserService = appUserService;
 	}
 
-	// add option to change username
 	// Gender to be added
 	@GetMapping
-	public String getUSerProfile(Model model, Principal principal) {
+	public String getUserProfile(Model model, Principal principal) {
 		AppUser appUser = appUserService.getLoggedInAppUserByPrincipal(principal);
-		AppUserDto appUserDto = new AppUserDto();
-		model.addAttribute("AppUser", appUser);
+		AppUserPaswordChangeDto appUserDto = new AppUserPaswordChangeDto();
+		AppUserProfileDto appUserProfileDto = modelMapper.map(appUser, AppUserProfileDto.class);
+
+		model.addAttribute("AppUser", appUserProfileDto);
 		model.addAttribute("AppUserPasswords", appUserDto);
 		return "UserProfile";
 	}
 
 	@PostMapping
-	public String updateUserProfile(@ModelAttribute(value = "AppUser") AppUserDto appUserDto,
-			@ModelAttribute(value = "AppUserPasswords") AppUserDto appUserDtoPasswords, Principal principal,
-			Model model) {
+	public String updateUserProfile(@Valid @ModelAttribute(value = "AppUser") AppUserProfileDto appUserDto,
+			BindingResult bindingResult, Principal principal, RedirectAttributes rattrs,
+			@ModelAttribute(value = "AppUserPasswords") AppUserPaswordChangeDto appUserDtoPasswords) {
+
+		if (bindingResult.hasErrors()) {
+			return "UserProfile";
+		}
+
 		AppUser appUserToUpdate = appUserService.getLoggedInAppUserByPrincipal(principal);
+
+		if (!appUserDto.getUserName().equals(appUserToUpdate.getUserName())) {
+			return "redirect:/auth/logout";
+		}
 
 		modelMapper.map(appUserDto, appUserToUpdate);
 		appUserService.updateAppUser(appUserToUpdate);
-		model.addAttribute("Message", "User information updated successfully");
-		return "UserProfile";
+		rattrs.addFlashAttribute("message",
+				new MessageDto("text-success", "Your profile information has been updated successfully"));
+		return "redirect:/user";
 	}
 
 	@PostMapping(value = "/changePass")
-	public String updateUserPassword(@ModelAttribute(value = "AppUserPasswords") AppUserDto appUserDtoPasswords,
-			Principal principal, Model model) {
+	public String updateUserPassword(
+			@Valid @ModelAttribute(value = "AppUserPasswords") AppUserPaswordChangeDto appUserDtoPasswords,
+			BindingResult bindingResult, Principal principal, RedirectAttributes rattr,
+			@ModelAttribute(value = "AppUser") AppUserProfileDto appUserDto) {
+
 		String oldPass = appUserDtoPasswords.getOldPassword();
 		AppUser appUserToUpdate = appUserService.getLoggedInAppUserByPrincipal(principal);
 
 		if (EncryptedPasswordUtils.checkPasswordMatch(oldPass, appUserToUpdate.getPassword())) {
+			if (bindingResult.hasErrors()) {
+				return "UserProfile";
+			}
+
 			if (appUserDtoPasswords.getPassword().equals(appUserDtoPasswords.getPasswordRepeat())
 					&& appUserDtoPasswords.getPassword() != null) {
 				modelMapper.map(appUserDtoPasswords, appUserToUpdate);
 
-				appUserService.updateAppUser(appUserToUpdate);
-				model.addAttribute("Message", "Password Updated Successfully");
+				appUserService.updateAppUserPassword(appUserToUpdate);
+				rattr.addFlashAttribute("message",
+						new MessageDto("text-success", "Your profile information has been updated successfully"));
 			} else {
-				model.addAttribute("Danger", "New passwords do not match");
+				rattr.addFlashAttribute("message", new MessageDto("text-warning", "The new passwords do not match"));
 			}
 		} else {
-			model.addAttribute("Danger", "Old Password is incorrect");
+			rattr.addFlashAttribute("message", new MessageDto("text-danger", "Invalid old password"));
 		}
 
-		model.addAttribute("AppUser", appUserToUpdate);
-		return "UserProfile";
+		return "redirect:/user";
 	}
 
-	@PostMapping(value = "/deleteAccount")
-	public String deleteAccount(@ModelAttribute(value = "AppUserDelete") AppUserDto appUserMessage, Principal principal,
-			Model model) {
+	@DeleteMapping
+	public String deleteAccount(@RequestParam(value = "message") String message, Principal principal, Model model) {
 		AppUser appUserToDelete = appUserService.getLoggedInAppUserByPrincipal(principal);
 		appUserService.deleteAppUser(appUserToDelete);
 		return "redirect:/auth/logout";
@@ -95,6 +120,14 @@ public class UserManagementController {
 	public String viewUsers(Model model) {
 		model.addAttribute("AppUsers", appUserService.getAllUsers());
 		return "ViewUsers";
+	}
+	
+	@GetMapping(value = "/users/delete/{email}")
+	public String deleteUser(@PathVariable("email") String email) {
+		AppUser appUserToDelete = appUserService.getAppUserByEmail(email);
+		appUserService.deleteAppUser(appUserToDelete);
+		
+		return "redirect:/user/users";
 	}
 
 	@GetMapping(value = "/adduser")
@@ -109,10 +142,18 @@ public class UserManagementController {
 
 	// + validari parola
 	@PostMapping(value = "/adduser")
-	public String saveNewPrivilegedUser(@ModelAttribute(value = "AppUser") AppUserDto appUserDto) {
-		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
+	public String saveNewPrivilegedUser(@Valid @ModelAttribute(value = "AppUser") AppUserSignUpAdminDto appUserDto,
+			BindingResult bindingResult, RedirectAttributes rattr) {
+		// field validations
+		if (bindingResult.hasErrors()) {
 			return "adduser";
 		}
+
+		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
+			rattr.addFlashAttribute("message", new MessageDto("text-warning", "Passwords do not match!"));
+			return "redirect:/user/adduser";
+		}
+
 		appUserService.savePrivilegedAppUser(modelMapper.map(appUserDto, AppUser.class), appUserDto.getRoleName());
 		return "adduser";
 	}

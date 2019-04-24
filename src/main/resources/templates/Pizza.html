@@ -2,20 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Pizza</title>
-	<link rel="stylesheet" href="/stylesheets/style.css">
-	<link rel="stylesheet" href="/stylesheets/pizza.css">
-	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-	<div th:replace="fragments/head :: head"></div>
+<title>Pizza</title>
+<link rel="stylesheet" href="/stylesheets/pizza.css">
+<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
+<div th:replace="fragments/head :: head"></div>
 </head>
 
 <body background="/images/backgrounddd.jpg">
 	<div th:replace="fragments/navbar :: navbar"></div>
-	<!-- Inceput Main -->
 	<div class="container" id="principal">
 		<!--Start Carusel-->
 		<div id="content-page" class="span12 content group">
-			<div id="post-terms2" class="group post-terms page type-page status-publish hentry">
+			<div id="post-terms2"
+				class="group post-terms page type-page status-publish hentry">
 				<div class="row justify-content-center">
 					<img id="pizza-banner" src="/images/img_menu.jpg" />
 				</div>
@@ -23,395 +22,79 @@
 		</div>
 		<!--Sfarsit carusel-->
 		<div class="sidenav">
-			<a href="Dips.html" th:href="@{/menu/dips}">Dips</a>
-			<a th:href="@{/menu/pizza/viewCreations}">Creations</a>
-			<a href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a>
+			<a href="Dips.html" th:href="@{/menu/dips}">Dips</a> <a
+				th:href="@{/menu/pizza/viewCreations}">Creations</a> <a
+				href="Drinks.html" th:href="@{/menu/drinks}">Drinks</a>
 		</div>
 		<br />
 	</div>
 	<!-- Tipuri pizza -->
+
+
 	<div class="container">
 		<div class="card-deck mb-3 text-center">
-
-			<div class="card mb-4 box-shadow" th:each="appProduct: ${pizzas}">
+			<div class="card mb-1 box-shadow">
 				<div class="card-header">
-					<h4 th:text="${appProduct.productName}" class="my-0 font-weight-normal">Cappricio Pizza</h4>
+					<h4 class="my-0 font-weight-normal">Create your own pizza!</h4>
 				</div>
-				<img id="pizza" th:attr="src = ${appProduct.imageLink}">
+				<img id="pizza" src="/images/pizza_margherita.jpg">
 				<div class="card-body">
-					<h1 th:text="${appProduct.price} + ' Lei/Pizza'" class="card-title pricing-card-title"> 20 LEI
-						<small class="text-muted">/ pizza</small></h1>
-					<ul th:each="ingPer: ${appProduct.ingPerProd}" class="list-unstyled mt-3 mb-4">
-						<!--  <ul th:text="${ingPer.product}"></ul> -->
-						<ul th:each="ing : ${ingPer.ingredient}">
-							<li th:text="${ing.ing_name}"></li>
+					<h1 class="card-title pricing-card-title">
+						Start from 5 LEI <small class="text-muted">/ pizza</small>
+					</h1>
+					<ul class="list-unstyled mt-3 mb-4">
+						<li>tomato souce</li>
+						<li>mozzarella</li>
+						</br>
+					</ul>
+					<a class="btn1 btn-lg btn-block btn-primary"
+						href="CustomizePizza.html" th:href=@{/menu/pizza/customizepizza}>Choose
+						the rest of the ingredients</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- ---------------------------THYMELEAF PRODUCT---------------------------- -->
+		<div class="row">
+			<div class="col-sm-3" th:each="appProduct: ${pizzas}">
+
+				<div class="card mb-4 box-shadow">
+					<div class="card-header">
+						<h4 th:text="${appProduct.productName}"
+							class="my-0 font-weight-normal"></h4>
+					</div>
+					<img id="pizza" th:attr="src = ${appProduct.imageLink}">
+					<div class="card-body">
+						<h1 th:text="${appProduct.price} + ' Lei/Pizza'"
+							class="card-title pricing-card-title"></h1>
+						<p th:text="${appProduct.energyValue} + ' Kcal'"></p>
+						<ul th:each="ingPer: ${appProduct.ingPerProd}"
+							class="list-unstyled mt-3 mb-4">
+							<!--  <ul th:text="${ingPer.product}"></ul> -->
+							<ul th:each="ing : ${ingPer.ingredient}">
+								<li th:text="${ing.ing_name}"></li>
+							</ul>
 						</ul>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+						<button type="submit"
+							class="btn btn-lg btn-block btn-outline-primary">
+							<a th:href="@{|/shoppingcart/${appProduct.productName}|}">Add
+								to cart</a>
+						</button>
+					
+					</div>
 				</div>
-			</div>
 
-
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Quatro Stagione Pizza</h4>
-				</div>
-				<img id="pizza" src="/images/pizza_quatro_stagione.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title"> 23 LEI <small class="text-muted">/ pizza</small></h1>
-					<ul class="list-unstyled mt-3 mb-4">
-						<li>tomato sauce</li>
-						<li>mozzarella</li>
-						<li>ham Prague</li>
-						<li>artichokes</li>
-						<li>salami</li>
-						<li>mushrooms</li>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-				</div>
-			</div>
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Hawai Pizza</h4>
-				</div>
-				<img id="pizza" src="/images/pizza_hawai.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title"> 28 LEI <small class="text-muted">/ pizza</small></h1>
-					<ul class="list-unstyled mt-3 mb-4">
-						<li>tomato sauce</li>
-						<li>mozzarella</li>
-						<li>ham Prague</li>
-						<li>pineapple</li>
-						</br>
-						</br>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-				</div>
-			</div>
+			</div><div class="w-75"></div>
 		</div>
 	</div>
-	</br>
 
-	<!-- ----------------------------------PANA AICI INCERCARE LEGARE THYMELEAF----------------------------------- -->
-	<div class="container">
-		<div class="card-deck mb-3 text-center">
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Cappricio Pizza</h4>
-				</div>
-				<img id="pizza" src="/images/pizza_cappricio.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title"> 20 LEI <small class="text-muted">/ pizza</small></h1>
-					<ul class="list-unstyled mt-3 mb-4">
-						<li>tomato sauce</li>
-						<li>mozzarella</li>
-						<li>ham Prague</li>
-						<li>bell peper</li>
-						<li>corn</li>
-						<li>mushrooms</li>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
-				</div>
-			</div>
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Quatro Stagione Pizza</h4>
-				</div>
-				<img id="pizza" src="/images/pizza_quatro_stagione.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title"> 23 LEI <small class="text-muted">/ pizza</small></h1>
-					<ul class="list-unstyled mt-3 mb-4">
-						<li>tomato sauce</li>
-						<li>mozzarella</li>
-						<li>ham Prague</li>
-						<li>artichokes</li>
-						<li>salami</li>
-						<li>mushrooms</li>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-				</div>
-			</div>
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Hawai Pizza</h4>
-				</div>
-				<img id="pizza" src="/images/pizza_hawai.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title"> 28 LEI <small class="text-muted">/ pizza</small></h1>
-					<ul class="list-unstyled mt-3 mb-4">
-						<li>tomato sauce</li>
-						<li>mozzarella</li>
-						<li>ham Prague</li>
-						<li>pineapple</li>
-						</br>
-						</br>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add to cart</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	</br>
-	<div class="container">
+	
 
-		<div class="card-deck mb-3 text-center">
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Vegeratian Pizza</h4>
-				</div>
-				<img id="pizza" src="/images/pizza_vegetariana.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title">
-						17 LEI <small class="text-muted">/ pizza</small>
-					</h1>
-					<ul class="list-unstyled mt-3 mb-4">
-						<li>tomato sauce</li>
-						<li>mozzarella or starch cheese</li>
-						<li>olives</li>
-						<li>sweet pepers</li>
-						<li>corn</li>
-						<li>mushrooms</li>
-						<li>tomatoes</li>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add
-						to cart</button>
-				</div>
-			</div>
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Diavolo Pizza</h4>
-				</div>
-				<img id="pizza" src="/images/pizza_diavolo.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title">
-						21 LEI <small class="text-muted">/ pizza</small>
-					</h1>
-					<ul class="list-unstyled mt-3 mb-4">
-						<li>tomato sauce</li>
-						<li>mozzarella</li>
-						<li>country ham</li>
-						<li>cilli</li>
-						<li>tomatoes</li>
-						<li>olive</li>
-						</br>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add
-						to cart</button>
-				</div>
-			</div>
-			<div class="card mb-4 box-shadow">
-				<div class="card-header">
-					<h4 class="my-0 font-weight-normal">Napoli Pizza</h4>
-				</div>
-				<img id="pizza" src="/images/pizza_napoli.jpg">
-				<div class="card-body">
-					<h1 class="card-title pricing-card-title">
-						25 LEI <small class="text-muted">/ pizza</small>
-					</h1>
-					<ul class="list-unstyled mt-3 mb-4">
-						<li>tomato sauce</li>
-						<li>mozzarella</li>
-						<li>dried salami Napoli</li>
-						<li>green peper</li>
-						<li>mushrooms</li>
-						<li>parmesan</li>
-						</br>
-					</ul>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Add
-						to cart</button>
-				</div>
-			</div>
-		</div>
-		</br>
-		<div class="container">
-			<div class="card-deck mb-3 text-center">
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Pizza Roma</h4>
-					</div>
-					<img id="pizza" src="/images/pizza_roma.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							22 LEI <small class="text-muted">/ pizza</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>cherry tomatoes</li>
-							<li>mozzarella</li>
-							<li>mini mozzarella</li>
-							<li>green basil</li>
-							<li>tomato
-								<source>
-							</li>
-							</br>
-							</br>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Pizza Picanty</h4>
-					</div>
-					<img id="pizza" src="/images/pizza_picanty.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							26 LEI <small class="text-muted">/ pizza</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>tomato sauce</li>
-							<li>mozzarella</li>
-							<li>dry spicy salami</li>
-							</br>
-							</br>
-							</br>
-							</br>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
-				<div class="card mb-4 box-shadow">
-					<div class="card-header">
-						<h4 class="my-0 font-weight-normal">Pizza Salami</h4>
-					</div>
-					<img id="pizza" src="/images/pizza_salami.jpg">
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">
-							24 LEI <small class="text-muted">/ pizza</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>tomato sauce</li>
-							<li>mozzarella</li>
-							<li>salami Napoli with green peper</li>
-							<li>pepperoni</li>
-							<li>mushrooms</li>
-							<li>tomatoes</li>
-							<li>rucola</li>
-						</ul>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Add
-							to cart</button>
-					</div>
-				</div>
-			</div>
-			</br>
-			<div class="container">
-				<div class="card-deck mb-3 text-center">
-					<div class="card mb-4 box-shadow">
-						<div class="card-header">
-							<h4 class="my-0 font-weight-normal">Margherita Pizza</h4>
-						</div>
-						<img id="pizza" src="/images/pizza_margherita.jpg">
-						<div class="card-body">
-							<h1 class="card-title pricing-card-title">
-								14 LEI <small class="text-muted">/ pizza</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4">
-								<li>tomato souce</li>
-								<li>mozzarella</li>
-								</br>
-								</br>
-								</br>
-								</br>
-							</ul>
-							<button type="button" class="btn btn-lg btn-block btn-primary">Add
-								to cart</button>
-						</div>
-					</div>
-					<div class="card mb-4 box-shadow">
-						<div class="card-header">
-							<h4 class="my-0 font-weight-normal">Tonno Pizza</h4>
-						</div>
-						<img id="pizza" src="/images/pizza_tonno.jpg">
-						<div class="card-body">
-							<h1 class="card-title pricing-card-title">
-								26 LEI <small class="text-muted">/ pizza</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4">
-								<li>tomato sauce</li>
-								<li>mozzarella</li>
-								<li>tuna</li>
-								<li>tomatoes</li>
-								<li>onion</li>
-								</br>
-							</ul>
-							<button type="button" class="btn btn-lg btn-block btn-primary">Add
-								to cart</button>
-						</div>
-					</div>
-					<div class="card mb-4 box-shadow">
-						<div class="card-header">
-							<h4 class="my-0 font-weight-normal">Salmone Pizza</h4>
-						</div>
-						<img id="pizza" src="/images/pizza_salmone.jpg">
-						<div class="card-body">
-							<h1 class="card-title pricing-card-title">
-								31 LEI <small class="text-muted">/ pizza</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4">
-								<li>tomatoes</li>
-								<li>mozzarella</li>
-								<li>smoked salmon</li>
-								<li>onion</li>
-								<li>parsley</li>
-								<li>oregano</li>
-							</ul>
-							<button type="button" class="btn btn-lg btn-block btn-primary">Add
-								to cart</button>
-						</div>
-					</div>
-				</div>
-				</br>
-				<div class="container">
-					<div class="card-deck mb-3 text-center">
-						<div class="card mb-4 box-shadow">
-							<div class="card-header">
-								<h4 class="my-0 font-weight-normal">Quatro Formaggi Pizza</h4>
-							</div>
-							<img id="pizza" src="/images/pizza_quatro_formaggi.jpg">
-							<div class="card-body">
-								<h1 class="card-title pricing-card-title">
-									27 LEI <small class="text-muted">/ pizza</small>
-								</h1>
-								<ul class="list-unstyled mt-3 mb-4">
-									<li>tomato souce</li>
-									<li>mozzarella</li>
-									<li>gorgonzola</li>
-									<li>parmesan</li>
-									<li>cheese
-										<source>
-									</li>
-								</ul>
-								<button type="button" class="btn btn-lg btn-block btn-primary">Add
-									to cart</button>
-							</div>
-						</div>
-						<div class="card mb-4 box-shadow">
-							<div class="card-header">
-								<h4 class="my-0 font-weight-normal">Customize your pizza</h4>
-							</div>
-							<img id="pizza" src="/images/contact_background.jpg">
-							<div class="card-body">
-								<h1 class="card-title pricing-card-title">
-									up to 10 LEI <small class="text-muted">/ pizza</small>
-								</h1>
-								<ul class="list-unstyled mt-3 mb-4">
-									<li>tomato souce</li>
-									<li>mozzarella</li>
-									</br>
-									</br>
-									</br>
-								</ul>
-								<a class="btn btn-lg btn-block btn-primary" href="CustomizePizza.html"
-									th:href=@{/menu/pizza/customizepizza}>Choose the rest of the ingredients</a>
-							</div>
-						</div> 
-					</div> 
-				</div> 
-<!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<div th:replace="fragments/script :: script"></div>
-<script src="/jscripts/form.js"></script>
+	<!-- ----------------------------------SF THYMELEAF----------------------------------- -->
+
+	<!-- Footer -->
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
 </body>
 
 </html>

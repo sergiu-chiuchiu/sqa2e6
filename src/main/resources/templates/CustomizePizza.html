@@ -4,31 +4,110 @@
 <head>
 	<title>Pizza Mia Creation</title>
 	<link rel="icon" href="/images/logo.jpg" type="image/x-icon">
-	<link rel="stylesheet" href="/stylesheets/style.css" th:href="@{/stylesheets/style.css}">
-	<link rel="stylesheet" href="/stylesheets/customized.css" th:href="@{/stylesheets/customized.css}">
-	<div th:replace="fragments/head :: head">
+	<link rel="stylesheet" href="/stylesheets/customized.css">
+	<div th:replace="fragments/head :: head"></div>
 </head>
 
-<body background="/images/backgrounddd.jpg">
-	<!-- Navbar -->
-	<div th:replace="fragments/navbar :: navbar"></div>
-	<h3 id="titlePage">Make a new creation!</h3>
-	<br>
-	<br>
-	<form action=# th:action="@{/menu/pizza/customizepizza}" th:object="${cust}" method="post" autocomplete="off">
-		<div>
-			<input type="hidden" th:field="*{customized_id}" />
+<body background="/images/backgrounddd.jpg" >	
+<div th:replace="fragments/navbar :: navbar"></div>
+
+    <script th:inline="javascript">
+/*-------------------------------check total (energy & price) and show ingredients----------------------------------------- */	
+	function checkTotal() {	
+		document.listForm.customized_cost.value = '';
+		document.listForm.customized_price.value = '';
+		document.listForm.customized_energy.value = '';
+		document.listForm.selectedIng.value = '';
+		var sum = 0;
+		var energy=700;
+		var selectedIng="";
+		var cost=0;
+		for (i=0;i<document.listForm.ingredients.length;i++) {
+		  if (document.listForm.ingredients[i].checked) {
+			  sum = sum + parseInt(document.listForm.ingredients[i].getAttribute("price"));
+			  energy = energy + parseInt(document.listForm.ingredients[i].getAttribute("energy"));
+			  selectedIng +=document.listForm.ingredients[i].getAttribute("ing")+ ", ";
+			  cost = cost + parseInt(document.listForm.ingredients[i].getAttribute("cost"));
+		  	}
+		}
+		document.listForm.customized_price.value = sum;
+		document.listForm.customized_energy.value = energy;		
+		document.listForm.selectedIng.value = selectedIng;
+		document.getElementById("ingList").size=selectedIng.length;
+		document.listForm.customized_cost.value = cost;
+	}
+/*-----------------------------Don't allow more than 6------------------------------------------- */	
+	function chkcontrol() {	
+		var total=0;
+		for(var i=0; i < i<document.listForm.ingredients.length; i++){
+		if(document.listForm.ingredients[i].checked){
+		total =total +1;}
+		if(total > 6){
+		alert("You are allowed to use just 6 ingredients!") 
+		document.listForm.ingredients[i].checked = false ;
+		return false;}
+		}
+	}
+/*-----------------------------buton de unckecked------------------------------------------- */	
+function UncheckAll(){ 
+      var w = document.listForm.ingredients; 
+      for(var i = 0; i < w.length; i++){ 
+        if(w[i].type=='checkbox'){ 
+          w[i].checked = false; 
+        }
+      }
+      document.getElementById("ingList").value = "";
+  }
+/*-----------------------------CONSTRAINTS INGREDIENTS------------------------------------------- */		
+	function contraints(){
+		olivesAnanas();
+		pepperChilli();}
+
+	function olivesAnanas() {
+		  var olives = document.listForm.ingredients[3];
+		  var ananas = document.listForm.ingredients[2];		  
+		  	if (olives.checked){
+		  	ananas.checked = false;
+		    }else if(ananas.disabled ==true){		    	
+		    	olives.checked=false;}
+	}		
+	function pepperChilli() {
+		var pepper = document.listForm.ingredients[8];
+		var chilli = document.listForm.ingredients[12];
+		  if (pepper.checked){
+			  chilli.checked = false;
+			    }else if(chilli.disabled ==true){		    	
+			    	pepper.checked=false;}
+	}	
+</script>
+	
+<h3 id="titlePage">Make a new creation!</h3>
+<br>
+<br>
+<form name="listForm" class ="formPIT" action=# th:action="@{/menu/pizza/customizepizza}"  th:object="${cust}" method="post" autocomplete="off">
+	<div>
+		<input type="hidden" th:field="*{customized_id}" />
+	</div>
+	<div>
+		<input type="hidden" th:field="*{customized_cost}" />
+	</div>
+	<div class="text">
+		<label>Name:</label>
+		<input type="text" th:field="*{customized_name}" />
+		<span class="text-danger">
+			<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>	
+		</span>															
 		</div>
 		<div class="text">
-			<label>Name:</label>
-			<input type="text" th:field="*{customized_name}" />
-			<span class="text-danger">
-				<td th:if="${#fields.hasErrors('customized_name')}" th:errors="*{customized_name}">.....</td>	
-				</span>											
-			</div>
+		<label>Price:</label>
+		<input type="text" th:readonly=true th:field="*{customized_price}" value="0"/>
+		<span class="text-danger">
+			<td th:if="${#fields.hasErrors('customized_price')}" th:errors="*{customized_price}">.....</td>	
+		</span>															
+		</div>
 			<div class="text">
 				<label>Energy:</label>
-				<input type="text" th:field="*{customized_energy}"/>
+				<input type="text" th:readonly=true th:field="*{customized_energy}"/>
 				<span class="text-danger">
 				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>
 				</span>										
@@ -44,13 +123,23 @@
 				<span class="text-danger">
 				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>
 				</span>								
-			</div>			
+			</div>
+			<div class="text">
+				<label>Your ingredients:</label>
+				<input id="ingList" type="text" th:readonly=true name="selectedIng"/>
+				<button type="button" class="btn btn-default" onclick="UncheckAll()">Reset</button>									
+			</div>	
 			<div class="radio-toolbar">
 			<p><a th:href="@{/menu/ingredients}" style="color:white;">Ingredients:</a></p>
 				<ul>
-    	  		<li th:each="ingredient : ${ingredients}" >  
-    	    		<input type="checkbox" name="ingredients" th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}"/>
+    	  		<li class="ing" th:each="ingredient : ${ingredients}" onchange="contraints()">     	    		    	    	
+    	    		 
+    	    		 
+    	    		 <input class="checked" type="checkbox" id="idCust" onchange=checkTotal() th:attr="price=${ingredient.ing_price}, energy=${ingredient.energy}, 
+    	    		 ing=${ingredient.ing_name}, cost=${ingredient.ing_cost}" th:field="*{ingredients}" th:value="${ingredient.ing_id}" th:checked="*{ingredients}" onclick="chkcontrol()">
+    	   					  
 	      			<label th:for="${ingredient.ing_name}" th:text="${ingredient.ing_name}">Ingredient Name</label>
+	      			<label th:for="${ingredient.ing_price}" th:text="${ingredient.ing_price}">Ingredient Name</label>
 	      			<span class="text-danger">
     	  		  	<td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">.....</td>
     	  		  	</span>      	  		  	     				      			       	
@@ -61,10 +150,11 @@
 				<button type="submit" class="btn btn-default">Create pizza</button>
 				<button class="btn btn-default"><a th:href="@{/menu/pizza/viewCreations}" style="color:black;">View Creations</a></button>
 			</div>
+
 	</form>
 <!-- Footer -->
-<div th:replace="fragments/footer :: footer"></div>
-<div th:replace="fragments/script :: script"></div>
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
 <script src="/jscripts/index.js"></script>
         </body>
       </html>

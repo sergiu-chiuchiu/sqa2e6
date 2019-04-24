@@ -3,8 +3,6 @@
 
 <head>
   <title>Pizza Mia Creations</title>
-
-  <link rel="stylesheet" href="/stylesheets/style.css" th:href="@{/stylesheets/style.css}">
   <link rel="stylesheet" href="/stylesheets/ingredients.css" th:href="@{/stylesheets/ingredients.css}">
   <link rel="icon" href="/images/logo.jpg" type="image/x-icon">
   <div th:replace="fragments/head :: head"></div>
@@ -23,6 +21,7 @@
       <th scope="col">Delete</th>
       <th scope="col">Update</th>
       <th scope="col">Name</th>
+      <th scope="col">Price(lei)</th>
       <th scope="col">Energy(kcal)</th>
       <th scope="col">Countertop</th>
       <th scope="col">Ingredients</th>
@@ -32,11 +31,11 @@
   </thead>
   <tbody>
     <tr th:each="customized : ${customs}">
-      <td scope="row">
-        </th>
+      <td scope="row"></td>
       <td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Delete</a></td>
       <td><a th:href="@{|/menu/pizza/viewCreations/editCreation/${customized.customized_id}|}">Update</a></td>
       <td th:text="${customized.customized_name}">Title ...</td>
+      <td th:text="${customized.customized_price}">Title ...</td>
       <td th:text="${customized.customized_energy}">1</td>
       <td th:text="${customized.countertops}">1</td>
       <td>
@@ -44,7 +43,7 @@
           <li th:text="${ingredient.ing_name}"></li>
         </ul>
       </td>
-      <td><a th:href="@{|/menu/pizza/viewCreations/deleteCreation/${customized.customized_id}|}">Add to cart</a></td>
+      <td><a th:href="@{|/shoppingcart/pizza/${customized.customized_name}|}">Add to cart</a></td>
     </tr>
   </tbody>
 </table>
