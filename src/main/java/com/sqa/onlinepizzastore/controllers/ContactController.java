@@ -13,7 +13,7 @@ import com.sqa.onlinepizzastore.entitites.HelpForm;
 public class ContactController {
 	@RequestMapping(value="/contact", method=RequestMethod.GET)
 	public String getHelpForm() {
-		return "contact";
+		return "Contact";
 	}
 	@RequestMapping(value="/contact", method=RequestMethod.POST)
 	public String contact(@ModelAttribute(name="contactForm") ContactForm contactForm, Model model) {

@@ -16,7 +16,7 @@ public class HelpController {
 	
 @RequestMapping(value="/help", method=RequestMethod.GET)
 public String getHelpForm() {
-	return "help";
+	return "Help";
 }
 
 @RequestMapping(value="/help", method=RequestMethod.POST)
