@@ -22,12 +22,12 @@ public class ReportController {
 	@Autowired
 	private ReportService reportService;
 
-	@GetMapping(value = "ordersReport")
+	@GetMapping(value = "/ordersReport")
 	public String getOrdersReport(Model model) {
 		return "RMostOrderedPizza";
 	}
 
-	@GetMapping(value = "revenueReport")
+	@GetMapping(value = "/revenueReport")
 	public String getRevenueReport(Model model) {
 		List<RevenueReportDto> revenueReportDto = reportService.getRevenueReportData();
 
@@ -55,10 +55,10 @@ public class ReportController {
 		model.addAttribute("totalCost", totalCost);
 		model.addAttribute("netIncome", netIncome);
 
-		return "RTotalrevenueandCosts";
+		return "RTotalRevenueandCosts";
 	}
-
-	@GetMapping(value = "quantityReport")
+	
+	@GetMapping(value = "/quantityReport")
 	public String getTotalQuantityPerIngredientReport(Model model) {
 		List<Ingredient> ingredients = ingredientService.findAllSortedAsc("fds");
 		model.addAttribute("ingredients", ingredients);

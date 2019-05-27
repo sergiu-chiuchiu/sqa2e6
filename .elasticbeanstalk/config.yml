@@ -1,0 +1,19 @@
+branch-defaults:
+  aws-deploy:
+    environment: online-pizza-store-dev
+deploy:
+  artifact: target/online-pizza-store-0.0.1-SNAPSHOT.jar
+global:
+  application_name: online-pizza-store
+  branch: null
+  default_ec2_keyname: online-pizza-store-key
+  default_platform: Java 8
+  default_region: eu-central-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: eb-cli
+  repository: null
+  sc: git
+  workspace_type: Application

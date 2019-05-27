@@ -67,25 +67,25 @@ public class NavigationControllers {
 		return "FAQ";
 	}
 	
-	@GetMapping(value = "/resetpassword")
-	public String getResetPasswordPage(Model model) {
-		return "ResetPassword";
-	}
+//	@GetMapping(value = "/resetpassword")
+//	public String getResetPasswordPage(Model model) {
+//		return "ResetPassword";
+//	}
 	
-	@GetMapping(value = "/report/total-revenue-and-costs")
-	public String getReportPage(Model model) {
-		return "RTotalRevenueandCosts";
-	}
+//	@GetMapping(value = "/report/total-revenue-and-costs")
+//	public String getReportPage(Model model) {
+//		return "RTotalRevenueandCosts";
+//	}
 	
-	@GetMapping(value = "/report/most-ordered-pizza")
-	public String getReportsPage(Model model) {
-		return "RMostOrderedPizza";
-	}
+//	@GetMapping(value = "/report/most-ordered-pizza")
+//	public String getReportsPage(Model model) {
+//		return "RMostOrderedPizza";
+//	}
 	
-	@GetMapping(value = "/viewusers")
-	public String getViewUsersPage(Model model) {
-		return "ViewUsers";
-	}
+//	@GetMapping(value = "/viewusers")
+//	public String getViewUsersPage(Model model) {
+//		return "ViewUsers";
+//	}
 		
 	@GetMapping(value = "/404")
 	public String get404Page(Model model) {

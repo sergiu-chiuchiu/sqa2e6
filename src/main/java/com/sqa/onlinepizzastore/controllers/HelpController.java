@@ -13,12 +13,10 @@ import com.sqa.onlinepizzastore.entitites.HelpForm;
 
 @Controller
 public class HelpController {
-@RequestMapping(value="/help", method=RequestMethod.GET)
-
-public String getHelpForm() {
 	
-	return "help";
-
+@RequestMapping(value="/help", method=RequestMethod.GET)
+public String getHelpForm() {
+	return "Help";
 }
 
 @RequestMapping(value="/help", method=RequestMethod.POST)
