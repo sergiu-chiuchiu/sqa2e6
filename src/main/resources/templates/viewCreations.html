@@ -23,7 +23,6 @@
       <th scope="col">Name</th>
       <th scope="col">Price(lei)</th>
       <th scope="col">Energy(kcal)</th>
-      <th scope="col">Countertop</th>
       <th scope="col">Ingredients</th>
       <th><button class="btn btn-default"><a class="buttonLink" th:href="@{/menu/pizza/customizepizza}">Create a new
             dish</a></button></th>
@@ -37,7 +36,6 @@
       <td th:text="${customized.customized_name}">Title ...</td>
       <td th:text="${customized.customized_price}">Title ...</td>
       <td th:text="${customized.customized_energy}">1</td>
-      <td th:text="${customized.countertops}">1</td>
       <td>
         <ul th:each="ingredient : ${customized.ingredients}">
           <li th:text="${ingredient.ing_name}"></li>

@@ -56,6 +56,13 @@
 		</span>
 	</div>
 	<div class = "block">
+		<label>Cost:</label>
+		 <input type="text" th:field="*{ing_cost}" />
+		 <span class="text-danger">
+		<td th:if="${#fields.hasErrors('ing_cost')}" th:errors="*{ing_cost}">.....</td>
+		</span>
+	</div>
+	<div class = "block">
 		<label>Weight:</label> 
 		<input type="text" th:field="*{ing_weight}" />
 		<span class="text-danger">

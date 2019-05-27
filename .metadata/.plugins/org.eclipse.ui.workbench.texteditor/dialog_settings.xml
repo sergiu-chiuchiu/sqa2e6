@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="item"/>
+			<item value="cartItem"/>
+			<item value="cart"/>
+			<item value="image"/>
+			<item value="side"/>
+			<item value="drinks"/>
+			<item value="card mb-4 box-shadow"/>
+			<item value="text"/>
+			<item value="h3"/>
+			<item value="checked"/>
+			<item value="lass=&quot;card mb-3 box-shadow"/>
+			<item value="card"/>
+			<item value="input"/>
+			<item value="label"/>
+			<item value="footer"/>
+		</list>
+		<list key="replacehistory">
+			<item value="Customized"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="336" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="454" key="DIALOG_HEIGHT"/>
+		<item value="1008" key="DIALOG_X_ORIGIN"/>
+		<item value="122" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

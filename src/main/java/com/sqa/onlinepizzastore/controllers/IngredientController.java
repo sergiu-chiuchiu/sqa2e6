@@ -65,6 +65,7 @@ public class IngredientController {
 		ingredient.setIng_allergen(i.getIng_allergen());
 		ingredient.setIng_weight(i.getIng_weight());
 		ingredient.setIng_price(i.getIng_price());
+		ingredient.setIng_cost(i.getIng_cost());
 		ingredient.setIng_quantity(i.getIng_quantity());
 		ingredient.setEnergy(i.getEnergy());
 		ingredient.setFat(i.getFat());
@@ -74,7 +75,7 @@ public class IngredientController {
 		ingredient.setSalt(i.getSalt());
 		
 		ingredientService.save(ingredient);
-		return new String("redirect:/menu/ingredients");
+		return "editIngredient";
 	}		
 //-------------------------CREATE
 	
@@ -95,6 +96,7 @@ public class IngredientController {
 		model.addAttribute("Ing_type", i.getIng_type());
 		model.addAttribute("Ing_allergen", i.getIng_allergen());
 		model.addAttribute("Ing_price", i.getIng_price());
+		model.addAttribute("Ing_cost", i.getIng_cost());
 		model.addAttribute("Ing_quantity", i.getIng_quantity());
 		model.addAttribute("Energy", i.getEnergy());
 		model.addAttribute("Fat", i.getFat());

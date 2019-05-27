@@ -112,18 +112,6 @@ function UncheckAll(){
 				<td th:if="${#fields.hasErrors('customized_energy')}" th:errors="*{customized_energy}">.....</td>
 				</span>										
 			</div>			
-			<div class="radio-toolbar">
-			<p>Countertop:</p>									
-				<input type="radio" th:field="*{countertops}" value="Italian"/><label>Italian</label>
-				</br>
-				<input type="radio" th:field="*{countertops}" value="Fluffy"/><label>Fluffy</label>
-				</br>
-				<input type="radio" th:field="*{countertops}" value="Multicereal"/><label>Multicereal</label>
-				</br>	
-				<span class="text-danger">
-				<td th:if="${#fields.hasErrors('countertops')}" th:errors="*{countertops}">.....</td>
-				</span>								
-			</div>
 			<div class="text">
 				<label>Your ingredients:</label>
 				<input id="ingList" type="text" th:readonly=true name="selectedIng"/>

@@ -41,8 +41,6 @@ public class Customized {
 	@NotNull(message="Choose some ingredients!")
 	private Integer  customized_energy; 
 
-	@NotNull(message="Select one countertop!")
-	private String countertops;
 	
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 	@JoinTable(name = "cust_ing"
@@ -75,16 +73,9 @@ public class Customized {
 		this.customized_name = customized_name;
 	}
 
-
-	
-
-	
-
 	public Double getCustomized_price() {
 		return customized_price;
 	}
-
-
 
 	public void setCustomized_price(Double customized_price) {
 		this.customized_price = customized_price;
@@ -113,15 +104,6 @@ public class Customized {
 
 
 
-	public String getCountertops() {
-		return countertops;
-	}
-
-
-
-	public void setCountertops(String countertops) {
-		this.countertops = countertops;
-	}
 
 	public Set<Ingredient> getIngredients() {
 		return ingredients;

@@ -109,7 +109,6 @@ public class CustomizedController {
 			cust.setCustomized_id(c.getCustomized_id());
 			cust.setCustomized_name(c.getCustomized_name());
 			cust.setCustomized_energy(c.getCustomized_energy());
-			cust.setCountertops(c.getCountertops());
 			cust.setIngredients(c.getIngredients());			
 			customizedService.update(cust);
 			return new String("redirect:/menu/pizza/viewCreations");
