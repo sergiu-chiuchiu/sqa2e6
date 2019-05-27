@@ -146,7 +146,7 @@ public class UserManagementController {
 			BindingResult bindingResult, RedirectAttributes rattr) {
 		// field validations
 		if (bindingResult.hasErrors()) {
-			return "adduser";
+			return "addUser";
 		}
 
 		if (!appUserDto.getPassword().equals(appUserDto.getPasswordRepeat())) {
